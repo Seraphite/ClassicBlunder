@@ -700,6 +700,7 @@
 #include "Skills\styles\sagastyles.dm"
 #include "Skills\styles\hybrid\t1hybridstyles.dm"
 #include "Skills\styles\hybrid\t2hybridstyles.dm"
+#include "Skills\styles\hybrid\UIhybridstyles.dm"
 #include "Skills\styles\martial\t0martialstyles.dm"
 #include "Skills\styles\martial\t1martialstyles.dm"
 #include "Skills\styles\martial\t2martialstyles.dm"
