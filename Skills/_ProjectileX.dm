@@ -4836,11 +4836,26 @@ mob
 							copiedSkill.Copied = TRUE
 							copiedSkill.copiedBy = "Sharingan"
 							m << "Your Sharingan analyzes and stores the [Z] technique you've just viewed."
+				spawn() for(var/mob/m in view(2, src))
+					for(var/obj/Items/Wearables/Guardian/Belt_of_Truth/W in m.contents)
+						if(findtext(W.suffix, "*Equipped*"))
+							var/insightLevel = m.AscensionsAcquired || 1
+							var/techTier = Z.Copyable
+							if(insightLevel < techTier)
+								continue
+							if(m.client && m.client.address == src.client.address)
+								continue
+							if(!locate(Z.type, m))
+								var/obj/Skills/copiedSkill = new Z.type
+								m.AddSkill(copiedSkill)
+								copiedSkill.Copied = TRUE
+								copiedSkill.copiedBy = "Belt of Truth"
+								m << "<font color='#bfefff'><b>Your Belt of Truth reveals divine understanding of [Z]!</b></font>"
+
 				spawn()
 					for(var/obj/Items/Tech/Security_Camera/SC in view(10, src))
 						if(Z.PreRequisite.len<1)
 							SC.ObservedTechniques["[Z.type]"]=Z.Copyable
-
 			if(Z.Charge)
 				if(Z.TurfShift)
 					for(var/turf/t in Turf_Circle(src, Z.Distance/2))

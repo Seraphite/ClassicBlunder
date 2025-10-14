@@ -11,6 +11,8 @@ ascension
 			on_ascension_message = "Your authority strengthens."
 			postAscension(mob/owner)
 				..()
+				if(owner.AngelAscension == "Guardian")
+					owner.GrantGuardianItem(/obj/Items/Wearables/Guardian/Belt_of_Truth)
 				owner.Class = "Principality"
 		two
 			unlock_potential = ASCENSION_TWO_POTENTIAL
@@ -29,6 +31,9 @@ ascension
 						owner.AddSkill(s)
 						owner << "Your game-designer wants to get this over with so she can feel like she did something substantial today but can't think of cool flavor text. Contact her about this later."
 						owner.UILevel=2
+				if(owner.AngelAscension == "Guardian")
+					owner.GrantGuardianItem(/obj/Items/Armor/Guardian/Breastplate_of_Righteousness)
+					owner.GrantGuardianItem(/obj/Items/Wearables/Guardian/Sandals_of_Peace)
 				..()
 				owner.Class = "Power"
 		three
@@ -47,6 +52,9 @@ ascension
 						owner.AddSkill(s)
 						owner << "Jesse is gay and forgot to fill this out before the wipe launched. Everyone laugh at her (lovingly, or she'll get sad and AFK for the rest of the day)."
 						owner.UILevel=3
+				if(owner.AngelAscension == "Guardian")
+					owner.GrantGuardianItem(/obj/Items/Wearables/Guardian/Helmet_of_Salvation)
+					owner.GrantGuardianItem(/obj/Items/Wearables/Guardian/Shield_of_Faith)
 				..()
 				owner.Class = "Virtue"
 		four
@@ -68,6 +76,8 @@ ascension
 						owner.AddSkill(s)
 						owner << "Fourth flavor text is the charm, right?."
 						owner.UILevel=4
+				if(owner.AngelAscension == "Guardian")
+					owner.GrantGuardianItem(/obj/Items/Sword/Guardian/Sword_of_the_Spirit)
 				..()
 				owner.Class = "Dominion"
 		five

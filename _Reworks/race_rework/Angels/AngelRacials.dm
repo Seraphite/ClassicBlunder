@@ -15,6 +15,72 @@ t4: the Sword of the Spirit (the Word of God)
 
 These will be considered Sagas for Angels but lack 6 tiers.
 */
+
+mob/proc/GrantGuardianItem(path)
+	if(!path) return
+	var/obj/Items/I = locate(path) in src.contents
+	if(!I)
+		I = new path
+		I.Move(src)
+		I.AlignEquip(src)
+		src << "<font color='#bfefff'><b>[I.name]</b> manifests in radiant light!</font>"
+	else
+		I.AlignEquip(src)
+//ascension 1
+/obj/Items/Wearables/Guardian/Belt_of_Truth
+	Augmented = 1
+	Bound = 1
+	Destructable = 0
+	name = "Belt of Truth"
+	desc = "A radiant girdle that binds the wearer's soul to truth."
+	icon = 'MachoBrace.dmi'
+//ascension 2
+/obj/Items/Armor/Guardian/Breastplate_of_Righteousness
+	Techniques = list(new/obj/Skills/Buffs/SlotlessBuffs/Augmented_Gear, new/obj/Skills/Buffs/SlotlessBuffs/Posture)
+	Augmented = 1
+	Bound = 1
+	Destructable = 0
+	name = "Breastplate of Righteousness"
+	desc = "A shining cuirass that shields the heart with virtue."
+	icon = 'ArmorLight-White.dmi'
+/obj/Items/Wearables/Guardian/Sandals_of_Peace
+	Techniques = list(new/obj/Skills/Buffs/SlotlessBuffs/Augmented_Gear, new/obj/Skills/Buffs/SlotlessBuffs/Posture)
+	Augmented = 1
+	Bound = 1
+	Destructable = 0
+	name = "Sandals of the Gospel of Peace"
+	desc = "Winged sandals that carry serenity wherever you tread."
+	icon = 'shoes_mono.dmi'
+//ascension 3
+/obj/Items/Wearables/Guardian/Helmet_of_Salvation
+	Techniques = list(new/obj/Skills/Buffs/SlotlessBuffs/Augmented_Gear, new/obj/Skills/Buffs/SlotlessBuffs/Posture)
+	Augmented = 1
+	Bound = 1
+	Destructable = 0
+	name = "Helmet of Salvation"
+	desc = "A helm of light that guards the mind with divine insight."
+	icon = 'goldsaintlibra_helmet.dmi'
+/obj/Items/Wearables/Guardian/Shield_of_Faith
+	Techniques = list(new/obj/Skills/Buffs/SpecialBuffs/Aphotic_Shield)
+	Augmented = 1
+	Bound = 1
+	Destructable = 0
+	name = "Shield of Faith"
+	desc = "A radiant shield forged from unwavering belief."
+	icon = 'Android Shield Gold.dmi'
+//ascension 4
+/obj/Items/Sword/Guardian/Sword_of_the_Spirit
+	Techniques = list(new/obj/Skills/Buffs/SlotlessBuffs/Augmented_Gear, new/obj/Skills/Buffs/SlotlessBuffs/Posture)
+	Augmented = 1
+	Bound = 1
+	Destructable = 0
+	name = "Sword of the Spirit (The Word of God)"
+	desc = "The Word made blade - the Spirit’s edge that severs falsehood."
+	icon = 'Samurai_sword_3.dmi'
+
+
+
+//MENTOR ANGEL STUFF UNDER THIS POINT. DO NOT CALL FAVORITISM BECAUSE IT GOT DONE FIRST!!!! THIS WAS A COMMAND BY OUR DIVINE OVERLORD!
 /obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles
 	Selfless_State //placeholder because I might implement the Demon Slayer thing. basically baby UI
 		Copyable=0
