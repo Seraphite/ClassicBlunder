@@ -18,12 +18,12 @@
 			M << "<font color=#77ff77><b>Your inner dragon slumbers. Only Namekian of the Dragon caste may call upon it.</b></font>"
 			return
 
-		if(src.cooldown_remaining || (world.realtime < src.cooldown_start + (src.Cooldown * 10)))
-			var/time_left = round((src.cooldown_start + (src.Cooldown * 10) - world.realtime) / 86400, 0.1)
+		if(src.cooldown_remaining || (world.realtime < src.cooldown_start + src.Cooldown))
+			var/time_left = round((src.cooldown_start + src.Cooldown - world.realtime) / 86400, 0.1)
 			M << "<font color=#77ff77><b>Your inner dragon has not yet awakened. Try again in [time_left] days.</b></font>"
 			return
 
-		var/choice = input(M, "What will you wish for?", "Inner Dragon Wish") in list("Increase Economy", "Unlock Ascension (Warrior only)", "Reclass to Warrior")
+		var/choice = input(M, "What will you wish for?", "Inner Dragon Wish") in list("Increase Economy", "Unlock Ascension (Warrior only)", "Unlock Orange Namekian (Warrior only)", "Reclass to Warrior")
 		if(!choice) return
 
 		switch(choice)
@@ -59,6 +59,28 @@
 				M << "<font color=#77ffff><b>The dragon’s light flows into [target], awakening their next ascension!</b></font>"
 				target << "<font color=#77ffff><b>Your soul resonates with the dragon’s call! Ascension [target.AscensionsUnlocked] unlocked!</b></font>"
 				Log("Admin", "[ExtractInfo(M)] granted [target]'s Ascension [target.AscensionsUnlocked] via Inner Dragon Wish.")
+
+			if("Unlock Orange Namekian (Warrior only)")
+				var/list/namekian_targets = list()
+				for(var/mob/P in view(10, M))
+					if(P != M && P.race == "Namekian")
+						namekian_targets += P
+
+				if(!namekian_targets.len)
+					M << "<font color=#aaaaaa><b>There are no Namekians nearby to bless...</b></font>"
+					return
+
+				var/mob/target = input(M, "Who will you grant hidden power to?", "Choose Namekian") as mob in namekian_targets
+				if(!target) return
+
+				if(target.transUnlocked >= 1)
+					M << "<font color=#ff7777><b>The dragon’s power cannot unlock any further power for them...</b></font>"
+					return
+
+				target.transUnlocked++
+				M << "<font color=#77ffff><b>The dragon’s light flows into [target], awakening their Orange Namekian power!</b></font>"
+				target << "<font color=#77ffff><b>Your soul resonates with the dragon’s call! Your Orange Namekian power has been unlocked!</b></font>"
+				Log("Admin", "[ExtractInfo(M)] granted [target]'s Orange Namekian via Inner Dragon Wish.")
 
 			if("Reclass to Warrior")
 				M.Class = "Warrior"
