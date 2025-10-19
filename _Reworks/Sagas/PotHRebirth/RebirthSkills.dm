@@ -6,7 +6,16 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Heart
 	ForMult = 1.15
 	EndMult = 1.35
 	Cooldown = 1
-	passives = list("Tenacity" = 1)
+	adjust(mob/p)
+		if(altered) return
+		passives = list("Tenacity" = round(p.Potential/20,1), "Hardening" = round(p.Potential/20,1))
+		EndMult += (p.Potential/200)
+		StrMult += (p.Potential/300)
+		ForMult += (p.Potential/300)
+		PowerMult = 1.15 + (p.Potential/200)
+	Trigger(mob/User, Override=FALSE)
+		adjust(User)
+		..()
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Soul
 	AlwaysOn=1
 	PowerMult=1.15
@@ -15,7 +24,16 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Soul
 	SpdMult=1.35
 	RecovMult=1.25
 	Cooldown = 1
-	passives = list("Instinct" = 1)
+	adjust(mob/p)
+		if(altered) return
+		passives = list("Instinct" = round(p.Potential/20,1), "Pursuer" = round(p.Potential/20,1))
+		SpdMult += (p.Potential/150)
+		StrMult += (p.Potential/250)
+		ForMult += (p.Potential/250)
+		PowerMult = 1.15 + (p.Potential/200)
+	Trigger(mob/User, Override=FALSE)
+		adjust(User)
+		..()
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Prismatic_Hero
 	AlwaysOn=1
 	PowerMult=1.1
@@ -25,7 +43,17 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Prismatic_Hero
 	SpdMult=1.15
 	RecovMult=1.5
 	Cooldown = 1
-	passives = list("FluidForm" = 1) //this is a cat joke.
+	adjust(mob/p)
+		if(altered) return
+		passives = list("FluidForm" = round(p.Potential/20,1), "LikeWater" = round(p.Potential/20,1)) //cat joke
+		SpdMult += (p.Potential/250)
+		StrMult += (p.Potential/250)
+		ForMult += (p.Potential/250)
+		EndMult += (p.Potential/250)
+		PowerMult = 1.1 + (p.Potential/230)
+	Trigger(mob/User, Override=FALSE)
+		adjust(User)
+		..()
 //t2 path buffs. all one of them
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Dont_Stop_Me_Now //first act
 	PowerMult=1.15
@@ -45,7 +73,7 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Heart
 	EndMult = 1.5
 	Cooldown = 1
 	TimerLimit = 30
-	passives = list("Tenacity" = 1)
+	passives = list("Tenacity" = 1, "Hardening" = 1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Soul
 	ActiveMessage="awakens a heroic soul!"
 	PowerMult=1.15
@@ -55,7 +83,7 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Soul
 	RecovMult=1.25
 	Cooldown = 1
 	TimerLimit = 30
-	passives = list("Instinct" = 1)
+	passives = list("Instinct" = 1, "Pursuer" = 1)
 //t3 path buffs
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Shining_Star
 	AlwaysOn=1
@@ -108,7 +136,7 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Show_Must_Go_On //third act
 	AwakeningRequired=1
 	passives = list("BuffMastery" = 1,"KiControlMaster" =1, "TechniqueMastery"=1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Red_Hot_Rage
-	ActiveMessage="is so not owned right now."
+	ActiveMessage="transforms their passion into fury, their desire to win surpassing all."
 	Cooldown = 1
 	AwakeningRequired=1
 	passives = list("Red Hot Rage" = 1, "Wrathful" = 1)
@@ -342,7 +370,7 @@ obj/Skills/AutoHit
 			if(p.passive_handler.Get("Red Hot Rage"))
 				Cooldown=10
 				RedPUSpike=pick(25, 50)
-				DamageMult=9
+				DamageMult=5
 				ActiveMessage="screams so fucking loud that you start to worry about their mental health. Are they okay?"
 				for(var/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Red_Hot_Rage/s in p)
 					s.passives["PUSpike"] += RedPUSpike
@@ -371,7 +399,7 @@ obj/Skills/AutoHit
 		WindupIconSize=2
 		Divide=1
 		PullIn=25
-		WindupMessage="is, unfortunately, not too angry to die."
+		WindupMessage="needs just a little more time!"
 		ActiveMessage="burns up everything around them, including themselves!"
 		HitSparkIcon='BLANK.dmi'
 		HitSparkX=0
@@ -383,6 +411,9 @@ obj/Skills/AutoHit
 		verb/Platinum_Mad()
 			set category="Skills"
 			set hidden=1
+			if(world.realtime < src.RebirthLastUse+(600*60*24))
+				return
+			src.RebirthLastUse=world.realtime
 			usr.Activate(src)
 mob/proc/TriggerAwakeningSkill(ActNumber)
 	if(ActNumber>=1)
@@ -487,6 +518,7 @@ obj/Skills/Utility
 				return
 			src.RebirthLastUse=world.realtime
 			RandomMult=rand(1,25)
+			usr.DoDamage(usr, 10)
 			usr.HealHealth(RandomMult)
 			usr.TriggerAwakeningSkill(ActNumber)
 	TheBlueExperience
@@ -510,7 +542,7 @@ obj/Skills/Utility
 		Copyable=0
 		ActNumber=3
 		icon_state="Heal"
-		desc="Shine brightly. Your awakening skill strengthens, but you burn out quicker."
+		desc="Translate all your power into rage. Your Rebirth skills become faster, but make you more and more angrier. At 500% Fury, your rage explodes outwards, damaging yourself and everyone in view."
 		verb/RedHotRage()
 			set category="Utility"
 			set name="Red Hot Rage (Act 3)"
@@ -697,7 +729,7 @@ obj/Skills/Projectile
 				set category="Skills"
 				usr.UseProjectile(src)
 		Unbelievable_Rage
-			DamageMult=12
+			DamageMult=10
 			Immediate=1
 			Dodgeable=0
 			IconLock='Pride Beam.dmi'
@@ -708,7 +740,7 @@ obj/Skills/Projectile
 				if(p.passive_handler.Get("Red Hot Rage"))
 					Cooldown=30
 					RedPUSpike=pick(25, 50)
-					DamageMult=15
+					DamageMult=12
 					for(var/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Red_Hot_Rage/s in p)
 						s.passives["PUSpike"] += RedPUSpike
 					p.WeirdAngerStuff()
@@ -872,10 +904,3 @@ obj/Skills/Grapple
 		verb/CHAOS_DUNK()
 			set category="Skills"
 			src.Activate(usr)
-/mob/Admin4/verb/RedHotTest()
-	set category = "Debug"
-	usr.passive_handler.Set("Red Hot Rage", 1)
-	usr.TotalInjury=50
-/mob/Admin4/verb/RedHotTurnOff()
-	set category = "Debug"
-	usr.passive_handler.Set("Red Hot Rage", 0)
