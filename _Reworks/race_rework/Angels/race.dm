@@ -1,8 +1,8 @@
 race
 	angel
 		name = "Angel"
-		desc = "An otherworldly race hailing from (REDACTED). There are two varieties: ancient mentors to mortalkind that are said to be masters of martial and spiritual arts alike, and otherworldly guardians of (REDACTED)."
-		visual = 'Eldritch.png'
+		desc = "An otherworldly race hailing from the Void. There are two varieties: ancient mentors to mortalkind that are said to be masters of martial and spiritual arts alike, and otherworldly guardians of (REDACTED)."
+		visual = 'Angels.png'
 		locked = TRUE
 		power = 5
 		strength = 1.5

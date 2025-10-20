@@ -1,7 +1,7 @@
 race
 	human
 		name = "Human"
-		desc = "Humans remain to be the most common race in the world. They are considered to be the most adaptive and the most resolute of all."
+		desc = "The most resolute, determined, and adaptable race. While lacking in upfront strength, they sometimes manifest the power to create miracles."
 		visual = 'Humans.png'
 		passives = list("Tenacity" = 1, "Adrenaline" = 1, "Innovation" = 1)
 		statPoints = 12

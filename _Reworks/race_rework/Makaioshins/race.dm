@@ -2,9 +2,9 @@ race
 	makaioshin
 		name = "Makaioshin"
 		desc = "Makaioshins are a mysterious race who's origins can't be accurately traced, but most claim to be something akin to fallen angels. While being able to flawlessly wield the powers of light and darkness- Angels and Demons- in equal measure, they tend towards having a chaotic nature due to their contradictory existence."
-		visual = 'Eldritch.png'
+		visual = 'Makaioshins.png'
 		locked = TRUE
-		power = 1.5
+		power = 2
 		strength = 1.75
 		endurance = 2
 		speed = 1.5

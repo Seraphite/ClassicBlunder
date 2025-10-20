@@ -3,7 +3,7 @@ race
 		name = "Namekian"
 		icon_neuter = list('Namek1.dmi')
 		gender_options = list("Neuter")
-		desc = "Namekians are green skined humanoids. They survive almost purely on water and photosynthis, and are a peaceful race. But just because they are peaceful does not mean they cannot fight."
+		desc = "Namekians are green skined humanoids, holding the power of an Eternal Dragon within. While Warrior-class Namekians channel the power of this dragon to gain strength, Dragon-class Namekians harness it to grant wishes."
 		visual = 'Namek.png'
 
 		power = 2
