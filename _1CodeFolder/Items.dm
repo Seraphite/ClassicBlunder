@@ -616,6 +616,9 @@ obj
 	clothes_grid_visual
 		var/wearable_path
 		New(obj/Items/Wearables/w)
+			if(istype(w, /obj/Items/Wearables/Guardian))
+				del(src)
+				return
 			icon = w.icon
 			name = w.name
 			wearable_path = w.type
@@ -624,7 +627,10 @@ obj
 			..()
 			var/obj/Items/Wearables/w = new wearable_path
 			var/Color=input(usr,"Choose color") as color|null
-			if(Color) w.icon+=Color
+			if(Color && Color != "#000000")
+				var/icon/newIcon = new(w.icon)
+				newIcon.Blend(Color, ICON_MULTIPLY)
+				w.icon = newIcon
 			usr.contents += w
 
 mob/proc/CheckWeightsTraining()

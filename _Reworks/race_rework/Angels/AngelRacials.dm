@@ -120,6 +120,9 @@ mob/proc/GrantGuardianItem(path)
 		Copyable=0
 		passives = list("Flow" = 2, "Deflection" = 1, "Soft Style" = 1)
 		NeedsSword=0
+		NeedsStaff=0
+		NoSword=0
+		NoStaff=0
 		StyleSpd=1.15
 		StyleDef=1.15
 		Finisher = "/obj/Skills/Queue/Finisher/Instinct_Palm"
@@ -138,6 +141,9 @@ mob/proc/GrantGuardianItem(path)
 		Copyable=0
 		passives = list("Deflection" = 1, "Soft Style" = 1, "Flow" = 3, "Instinct" = 1, "CounterMaster" = 1)
 		NeedsSword=0
+		NeedsStaff=0
+		NoSword=0
+		NoStaff=0
 		StyleSpd=1.25
 		StyleOff=1.15
 		StyleDef=1.25
@@ -157,6 +163,9 @@ mob/proc/GrantGuardianItem(path)
 		Copyable=0
 		passives = list("Flow" = 2, "Deflection" = 1, "Soft Style" = 1, "Flow" = 3, "Instinct" = 3, "CounterMaster" = 3, "Godspeed" = 1)
 		NeedsSword=0
+		NeedsStaff=0
+		NoSword=0
+		NoStaff=0
 		StyleSpd=1.5
 		StyleOff=1.5
 		StyleDef=1.5
@@ -176,6 +185,9 @@ mob/proc/GrantGuardianItem(path)
 		Copyable=0
 		passives = list("Deflection" = 1, "Soft Style" = 1, "LikeWater" = 4, "Flow" = 4, "Instinct" = 4, "CounterMaster" = 5, "Godspeed" = 1)
 		NeedsSword=0
+		NeedsStaff=0
+		NoSword=0
+		NoStaff=0
 		StyleSpd=1.75
 		StyleOff=1.75
 		StyleDef=1.75

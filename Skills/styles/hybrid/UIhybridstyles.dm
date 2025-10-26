@@ -4,6 +4,10 @@ obj/Skills/Buffs/NuStyle/UIHybridStyles// ~~ Angel-taught advanced forms ~~ not 
 		MakesSword = 1
 		FlashDraw = 1
 		BladeFisting = 1
+		IconLock='GentleDivine.dmi'
+		IconLockBlend=4
+		LockX=-32
+		LockY=-32
 		SwordName = "Instinct Blade"
 		SwordIcon = 'Icons/Buffs/Ki-Blade.dmi'
 		SwordClass = "Medium"
@@ -93,6 +97,10 @@ obj/Skills/Buffs/NuStyle/UIHybridStyles// ~~ Angel-taught advanced forms ~~ not 
 		NeedsSword = 0
 		NoSword = 1
 		BladeFisting = 1
+		IconLock='GentleDivine.dmi'
+		IconLockBlend=4
+		LockX=-32
+		LockY=-32
 		passives = list("Instinct" = 4, "LikeWater" = 4, "Muscle Power" = 5, "Grippy" = 4, "Scoop" = 3, "Iron Grip" = 2, "CounterMaster" = 4,\
                        "Momentum" = 3, "Pressure" = 3, "Flow" = 3, "Unstoppable" = 1, "Juggernaut" = 1, "Fury" = 2, "Deflection" = 2, "Reversal" = 1,\
                        "AutoParry" = 1, "Godspeed" = 1.5, "PUSpike" = 50)// DO NOT GET GRABBNED ODDO NOT GET GRABBED DO NOT GET GRABBED DO NOT TRY TO THROW THEM DO NOT GET GRABBED
@@ -114,6 +122,10 @@ obj/Skills/Buffs/NuStyle/UIHybridStyles// ~~ Angel-taught advanced forms ~~ not 
 		NeedsSword = 0
 		NoSword = 1
 		BladeFisting = 1
+		IconLock='GentleDivine.dmi'
+		IconLockBlend=4
+		LockX=-32
+		LockY=-32
 		passives = list("Instinct" = 4, "SpiritFlow" = 5, "LikeWater" = 4, "Amplify" = 3, "Familiar" = 3, "Hardening" = 2, "Flow" = 3, "Godspeed" = 1.5,\
                        "Erosion" = 0.15, "Deterioration" = 1, "AirBend" = 2, "WaveDancer" = 2, "Rain" = 3,\
                        "Burning" = 2, "Freezing" = 2, "Shocking" = 2, "Shattering" = 2, "PUSpike" = 50)/*This should bridge the gap between grappling/sword/martial without being too bad to fight against.
@@ -140,6 +152,10 @@ obj/Skills/Buffs/NuStyle/UIHybridStyles// ~~ Angel-taught advanced forms ~~ not 
 		NeedsSword = 0
 		NoSword = 1
 		BladeFisting = 1
+		IconLock='GentleDivine.dmi'
+		IconLockBlend=4
+		LockX=-32
+		LockY=-32
 		passives = list("Instinct" = 5, "LikeWater" = 4, "Momentum" = 3, "Fa Jin" = 3, "Flow" = 3, "Pressure" = 3, "Deflection" = 1.5, "BlurringStrikes" = 1,\
                        "CounterMaster" = 2.5, "Interception" = 3, "Hardening" = 2, "Godspeed" = 2, "Fury" = 2, "Unstoppable" = 1, "AutoParry" = 1, \
                        "Sunyata" = 2, "Reversal" = 1, "PUSpike" = 50)//Hey, it's me, goku.

@@ -4,6 +4,10 @@ obj/Skills/Buffs/NuStyle/MortalUIStyles// ~~ Angel-taught basic forms ~~  unlock
 		MakesSword = 1
 		FlashDraw = 1
 		BladeFisting = 1
+		IconLock='AuraMysticBig.dmi'
+		IconLockBlend=4
+		LockX=-32
+		LockY=-32
 		SwordName = "Mortal Instinct Blade"
 		SwordIcon = 'Icons/Buffs/Ki-Blade.dmi'
 		SwordClass = "Medium"
@@ -88,6 +92,10 @@ obj/Skills/Buffs/NuStyle/MortalUIStyles// ~~ Angel-taught basic forms ~~  unlock
 		NeedsSword = 0
 		NoSword = 1
 		BladeFisting = 1
+		IconLock='AuraMysticBig.dmi'
+		IconLockBlend=4
+		LockX=-32
+		LockY=-32
 		passives = list("Instinct" = 1, "LikeWater" = 1.5, "Muscle Power" = 2, "Grippy" = 2, "Scoop" = 1, "Iron Grip" = 1, "Momentum" = 1, "Flow" = 1.5, "Deflection" = 0.5, "Reversal" = 0.5)
 		StyleActive = "Instinctual Grappling"
 		StyleStr = 1.15
@@ -105,8 +113,12 @@ obj/Skills/Buffs/NuStyle/MortalUIStyles// ~~ Angel-taught basic forms ~~  unlock
 		NeedsSword = 0
 		NoSword = 1
 		BladeFisting = 1
+		IconLock='AuraMysticBig.dmi'
+		IconLockBlend=4
+		LockX=-32
+		LockY=-32
 		passives = list("Instinct" = 1.5, "SpiritFlow" = 2, "LikeWater" = 1.5, "Amplify" = 1, "Flow" = 1.5, "AirBend" = 1, "WaveDancer" = 1, "Rain" = 1, "Burning" = 1, "Freezing" = 1,\
-                        "Shocking" = 1, "Shattering" = 1, "PUSpike" = 15)
+                        "Shocking" = 1, "Shattering" = 1, "MartialMagic" = 1,"PUSpike" = 15)
 		StyleActive = "Aetherial Spark"
 		StyleFor = 1.15
 		StyleOff = 1.1
@@ -127,6 +139,10 @@ obj/Skills/Buffs/NuStyle/MortalUIStyles// ~~ Angel-taught basic forms ~~  unlock
 		NeedsSword = 0
 		NoSword = 1
 		BladeFisting = 1
+		IconLock='AuraMysticBig.dmi'
+		IconLockBlend=4
+		LockX=-32
+		LockY=-32
 		passives = list("Instinct" = 1.5, "LikeWater" = 1.5, "Momentum" = 1, "Flow" = 1.5, "Pressure" = 1, "Deflection" = 0.5, "CounterMaster" = 0.5, "Interception" = 0.5, "Reversal" = 0.5)
 		StyleActive = "Instinctive Palm"
 		StyleStr = 1.15

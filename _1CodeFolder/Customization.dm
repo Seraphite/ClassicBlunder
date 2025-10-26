@@ -338,6 +338,9 @@ proc/Add_Customizations()
 			Hair_List+=new A
 	for(var/A in subtypesof(/obj/Items/Wearables))
 		var/obj/Items/Wearables/w = new A
+		if(istype(w, /obj/Items/Wearables/Guardian))
+			del(w)
+			continue
 		var/icon/newIcon = new(w.icon)
 		if(w.type in list(/obj/Items/Wearables/Icon_67,/obj/Items/Wearables/Icon_68,/obj/Items/Wearables/Icon_69,/obj/Items/Wearables/Icon_70))
 			w.icon = newIcon // im lazy and dont want to ! the above
@@ -345,6 +348,8 @@ proc/Add_Customizations()
 			newIcon.MapColors(0.2,0.2,0.2, 0.2,0.2,0.2, 0.2,0.2,0.2, 0,0,0)
 		w.icon = newIcon
 		var/obj/clothes_grid_visual/gridwear = new(w)
+		if(!gridwear)
+			continue
 		Clothes_List+=gridwear
 
 	for(var/A in subtypesof(/obj/Charge_Icons)) if(A!=/obj/Charge_Icons) Charge_List+=new A

@@ -39,8 +39,8 @@ ascension
 				if(!da.secondDevilArmPick)
 					owner.FindSkill(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2).pickSelection(owner, TRUE)
 					owner.race?:sub_devil_arm_upgrades = 1
-				if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/HalfbreedAngelStyles/Incomplete_Ultra_Instinct, owner))
-					var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/HalfbreedAngelStyles/Incomplete_Ultra_Instinct
+				if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Incomplete_Ultra_Instinct, owner))
+					var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Incomplete_Ultra_Instinct
 					owner.AddSkill(s)
 				owner.Class = "Lightbringer"
 		three
@@ -57,8 +57,8 @@ ascension
 				if(istype(owner.race, /race/makaioshin))
 					owner.race.power = 3 //Has to be in this proc because it's referencing the race tree. Iff this is not intended let me know and I will revert it ASAP.
 				owner.Class = "Shadowlord"
-				if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/HalfbreedAngelStyles/Ultra_Instinct, owner))
-					var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/HalfbreedAngelStyles/Ultra_Instinct
+				if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Ultra_Instinct, owner))
+					var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Ultra_Instinct
 					owner.AddSkill(s)
 		four
 			unlock_potential = ASCENSION_FOUR_POTENTIAL
@@ -75,8 +75,8 @@ ascension
 			postAscension(mob/owner)
 				..()
 				owner.Class = "Morningstar"
-				if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/HalfbreedAngelStyles/Perfected_Ultra_Instinct, owner))
-					var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/HalfbreedAngelStyles/Perfected_Ultra_Instinct
+				if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Perfected_Ultra_Instinct, owner))
+					var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Perfected_Ultra_Instinct
 					owner.AddSkill(s)
 		five
 			unlock_potential = ASCENSION_FIVE_POTENTIAL
