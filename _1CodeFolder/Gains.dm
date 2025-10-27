@@ -247,6 +247,7 @@ var/game_loop/mainLoop = new(0, "newGainLoop")
 		OMsg(src, "<font color='grey'>[src] will no longer deal lethal damage.</font color>")
 	if(HellspawnTimer-- <= 0 && HellspawnTimer)
 		HellspawnTimer = 0
+		src.passive_handler.Decrease("Cursed Wounds")
 		OMsg(src, "<font color='grey'>[src] is no longer posessed by that thing.</font color>")
 		if(HellspawnBerserk)
 			HellspawnBerserk=0
@@ -1028,6 +1029,7 @@ mob
 						src.ActiveBuff.Trigger(src,Override=1)
 						break
 
+
 				if(src.ActiveBuff.WaveringAngerLimit)
 					if(src.ActiveBuff.WaveringAnger<src.ActiveBuff.WaveringAngerLimit)
 						src.ActiveBuff.WaveringAnger++
@@ -1359,6 +1361,12 @@ mob
 							A.Trigger(src,Override=1)
 							if(A.NeedsVary)
 								A.NeedsHealth=rand(10,A.TooMuchHealth-5)
+					if(A.NeedsInjury&&!A.Using&&!src.KO)
+						if(src.TotalInjury>=A.NeedsInjury)
+							A.Trigger(src,Override=1)
+							if(A.NeedsVary)
+								A.NeedsInjury=rand(10,A.TooMuchInjury-5)
+
 					if(A.ManaThreshold&&!A.Using&&!src.KO)//TODO: Align the requirements and variables more sensibly in this area
 						if(src.ManaAmount>=A.ManaThreshold)
 							A.Trigger(src,Override=1)

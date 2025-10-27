@@ -77,6 +77,9 @@
 				SpdMult = 0.4
 				OffMult = 1.4
 			if("Demonic")
+				IconTransform = 'DTRed.dmi'
+				TransformX = 0
+				TransformY = 0
 				StrMult = 1.25
 				ForMult = 1.25
 				SpdMult = 0.75
@@ -111,6 +114,10 @@
 			if((length(User.race.transformations) >= 4 && User.race.transformations[4].type == /transformation/saiyan/super_saiyan_4 && User.transUnlocked >= 4) && User.CanTransform() && !User.transActive&& User.oozaru_type!="Demonic")
 				User.transActive = 3
 				User.race.transformations[4].transform(User, TRUE)
+		if(!User.BuffOn(src))
+			if((length(User.race.transformations) >= 2 && User.race.transformations[2].type == /transformation/saiyan/hellspawn_super_saiyan_2 && User.transUnlocked >= 2) && User.CanTransform() && !User.transActive&& User.oozaru_type=="Demonic")
+				User.transActive = 1
+				User.race.transformations[2].transform(User, TRUE)
 	verb/Tail_Toggle()
 		set category = "Other"
 		if(usr.Tail)

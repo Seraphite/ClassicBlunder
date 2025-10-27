@@ -132,10 +132,12 @@ mob/proc/Unconscious(mob/P,var/text)
 		src.race.transformations[1].transform(src, TRUE)
 		src.OMessage(15,"<b>HOW INTERESTING THAT YOU CONTINUE TO MISUNDERSTAND WHAT'S AT STAKE HERE.</b>","<font color=red>[src]([src.key]) heralds the end..")
 		src.HellspawnBerserk=1
+		src.passive_handler.Increase("Cursed Wounds")
 		src.HellspawnTimer=360
 		return
 	if(src.HellspawnBerserk)
 		src.HellspawnBerserk=0
+		src.passive_handler.Decrease("Cursed Wounds")
 		src.HellspawnTimer=0
 		src.TotalInjury=85
 	if(src.GatesActive==8 && src.Gate8Getups<2)

@@ -756,6 +756,7 @@ obj/Skills/Projectile
 				usr.UseProjectile(src)
 obj/Skills/Buffs
 	Rebirth
+		ActiveSlot=1
 		RemoveSOUL
 			MakesSword=1
 			SwordName="SOUL Sword"
@@ -779,11 +780,10 @@ obj/Skills/Buffs
 			SwordX=-32
 			SwordY=-32
 			SwordClass="Small"
-			PowerMult=2
-			StrMult=1.3
+			StrMult=1.85
 			Cooldown = 1
 			SwordAscension=3
-			OffMult=0.5
+			OffMult=0.45
 			passives = list("HolyMod" = 3)
 			ActiveMessage="pulls out a small shard of glass that seems barely usable as a weapon."
 			OffMessage="puts the black shard away."
@@ -799,10 +799,10 @@ obj/Skills/Buffs
 			SwordX=-32
 			SwordY=-32
 			SwordClass="Medium"
-			PowerMult=1.25
 			ForMult=1.15
 			StrMult=1.3
 			Cooldown = 1
+			SwordAscension=1
 			ActiveMessage="draws forth a skull emblazoned scythe-ax!"
 			OffMessage="pockets the weap-... did it just smile at you?!"
 			verb/Devilsknife()
@@ -818,8 +818,7 @@ obj/Skills/Buffs
 			SwordX=-32
 			SwordY=-32
 			SwordClass="Heavy"
-			PowerMult=1.5
-			StrMult=1.45
+			StrMult=1.75
 			SwordAscension=3
 			Cooldown = 1
 			ActiveMessage="faces fate with the Axe of Justice."
@@ -835,9 +834,9 @@ obj/Skills/Buffs
 			SwordX=-32
 			SwordY=-32
 			SwordClass="Medium"
-			PowerMult=1.25
 			StrMult=1.25
 			Cooldown = 1
+			SwordAscension=1
 			ActiveMessage="draws forth a black and orange sword!"
 			OffMessage="sheathes their spooky blade!"
 			verb/Spookysword()

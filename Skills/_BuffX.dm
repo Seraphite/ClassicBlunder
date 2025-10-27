@@ -553,7 +553,9 @@ NEW VARIABLES
 	var/ActiveBuffLock=0//Prevents active buffs from being used
 	var/SpecialBuffLock=0//Prevents special buffs from being used
 	var/TensionLock=0//TODO: rename to tension lock
-
+	var/TooMuchInjury=0
+	var/InjuryThreshold=0 //min injuries
+	var/NeedsInjury=0
 // New things
 	var/ExhaustedMessage = FALSE
 	var/DesperateMessage = FALSE
@@ -11266,6 +11268,11 @@ mob
 						if(src.Health<B.HealthThreshold*(1-src.HealthCut))
 							if(!B.Autonomous)
 								src << "You don't have enough health to use [B]."
+							return
+					if(B.InjuryThreshold)
+						if(src.TotalInjury<B.InjuryThreshold)
+							if(!B.Autonomous)
+								src << "Your injures are too high to use [B]."
 							return
 					if(B.WoundDrain&&B.WoundThreshold)
 						if(src.TotalInjury>=B.WoundThreshold)

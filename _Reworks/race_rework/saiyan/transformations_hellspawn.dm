@@ -18,7 +18,7 @@ transformation
 				if(!form_hair_icon&&user.Hair_Base)
 					var/icon/x=new(user.Hair_Base)
 					if(x)
-						x.MapColors(0.2,0.2,0.2, 0.39,0.39,0.39, 0.07,0.07,0.07, 0.69,0.99,0)
+						x.MapColors(0.2,0.2,0.2, 0.39,0.39,0.39, 0.07,0.07,0.07, 0.69,0.69,0)
 					form_hair_icon = x
 					form_icon_2_icon = x
 				..()
