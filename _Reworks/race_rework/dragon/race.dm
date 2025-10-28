@@ -4,9 +4,8 @@ race
 		desc = "Dragons represent aspects of the world, said to be born of animosity. Reborn nearing times of great tragedy, they only regain their past lives of protecting the world at age 20."
 		visual = 'Dragon.png'
 
-		locked = TRUE
 
-		power = 2.5
+		power = 2
 		strength = 1.75
 		endurance = 1.75
 		speed = 1

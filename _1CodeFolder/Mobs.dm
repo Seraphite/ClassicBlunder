@@ -19,6 +19,14 @@ mob/Players
 			var/obj/Special/Teleporter2/_tp=A
 			for(var/obj/Items/Tech/Door/D in locate(_tp.gotoX,_tp.gotoY,_tp.gotoZ))
 				del D//Clear doors on the tile linked to by the warper.
+			if(istype(A,/obj/Special/Teleporter2/Depths))
+				if(!src.passive_handler.Get("AbyssMod"))
+					switch(alert(src, "You feel a deathly chill coming from this portal. As you draw closer and closer, you feel a tug on your soul, the barrier between life and death growing more indistinct. You may not survive coming any closer.", "Are you sure you want to enter a portal to the Depths? You will die if you're not a Demon, an Eldritch, or somehow have a power native to the realm (AbyssMod).", "Yes", "No"))
+						if("Yes")
+							src.NoVoid=1
+							src.Death(src, "the deathly chill of the Depths.")
+						if("No")
+							return
 			src.loc=locate(_tp.gotoX,_tp.gotoY,_tp.gotoZ)
 			if(_tp.SetSpawn != null)
 				information.setFaction(_tp.SetSpawn)

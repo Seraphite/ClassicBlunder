@@ -54,7 +54,7 @@ race
 					p.passive_handler.Increase("Wrathful Tenacity", 0.15)
 					p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Racial/Undying_Rage)
 
-				if("Feather Cloak")
+				if("Feather Cowl")
 					p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Racial/Beastman/Feather_Cowl)
 					p.passive_handler.Increase("Hardening", 1)
 					p.passive_handler.Increase("Pressure", 1)

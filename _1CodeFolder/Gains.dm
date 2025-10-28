@@ -1007,10 +1007,6 @@ mob
 					if(src.VaizardHealth<=0)
 						src.ActiveBuff.Trigger(src,Override=1)
 						break
-				if(src.ActiveBuff.AwakeningRequired)
-					if(src.AwakeningSkillUsed<=0)
-						src.ActiveBuff.Trigger(src,Override=1)
-						break
 
 				if(src.ActiveBuff.TimerLimit)
 					if(!isnum(src.ActiveBuff.Timer))//If the timer isn't a number...
@@ -1332,6 +1328,7 @@ mob
 			for(var/obj/Skills/Buffs/SlotlessBuffs/Autonomous/A in src.Buffs)
 				//Activations
 				if(!A.SlotlessOn)
+
 					if(A.NeedsPassword)
 						if(!A.Password)
 							continue
@@ -1413,6 +1410,10 @@ mob
 					if(A.TimerLimit)
 						if(A.Timer>=A.TimerLimit)
 							A.Trigger(src,Override=1)
+							continue
+					if(A.AwakeningRequired)
+						if(src.AwakeningSkillUsed<=0)
+							src.ActiveBuff.Trigger(src,Override=1)
 							continue
 					if(A.NeedsAnger)
 						if(!src.Anger)

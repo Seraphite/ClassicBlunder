@@ -157,7 +157,6 @@ obj/Skills/AutoHit
 		Area="Strike"
 		AwakeningSkill=1
 		ActNumber=3
-		NeedsHealth=25
 		Rush=10
 		SpecialAttack=1
 		CanBeDodged=0
@@ -181,6 +180,9 @@ obj/Skills/AutoHit
 			set name="Make It Count (Act 3)"
 			if(world.realtime < src.RebirthLastUse+(600*60*24*7))
 				usr << "You can only use this technique once every week."
+				return
+			if(usr.Health>25)
+				usr<<"You have to be below 25% health to use this!"
 				return
 			usr.Activate(src)
 			src.RebirthLastUse=world.realtime
@@ -230,7 +232,6 @@ obj/Skills/AutoHit
 			usr.TriggerAwakeningSkill(ActNumber)
 	PowerWordGenderDysphoria
 		Area="Target"
-		NeedsHealth=50
 		AdaptRate = 1
 		DamageMult = 5
 		Distance = 15
@@ -439,7 +440,6 @@ obj/Skills
 obj/Skills/Queue
 	var/RandomMult
 	NeverKnowsBest
-		NeedsHealth=75
 		Copyable=0
 		ActNumber=1
 		AwakeningSkill=1
@@ -461,12 +461,14 @@ obj/Skills/Queue
 			if(world.realtime < src.RebirthLastUse+(600*60*24))
 				usr << "You can only use this technique once every 24 hours."
 				return
+			if(usr.Health>75)
+				usr<<"You have to be below 75% health to use this!"
+				return
 			RandomMult=rand(1,70)
 			DamageMult=RandomMult/10
 			usr.SetQueue(src)
 			usr.TriggerAwakeningSkill(ActNumber)
 	FistOfTheRedStar
-		NeedsHealth=50
 		name="Fist Of The Red Star"
 		DamageMult=7
 		AccuracyMult = 1.75
@@ -485,6 +487,9 @@ obj/Skills/Queue
 			set name="Fist Of The Red Star (Act 2)"
 			if(world.realtime < src.RebirthLastUse+(600*60*72))
 				usr << "You can only use this technique once every 72 hours."
+				return
+			if(usr.Health>50)
+				usr<<"You have to be below 50% health to use this!"
 				return
 			usr.SetQueue(src)
 			usr.TriggerAwakeningSkill(ActNumber)
@@ -509,13 +514,13 @@ obj/Skills/Utility
 		icon_state="Heal"
 		desc="You ask for a little more time."
 		verb/NeverTooLate()
-			set category="Utility"
+			set category="Skills"
 			set name="Never Too Late (Act 1)"
 			if(world.realtime < src.RebirthLastUse+(600*60*24))
 				src << "You can only use this technique once every 24 hours."
 				return
 			if(usr.Health>75)
-				usr<<"Can't use yet!"
+				usr<<"You can't use this below 75% health!"
 				return
 			src.RebirthLastUse=world.realtime
 			RandomMult=rand(1,25)
@@ -528,7 +533,7 @@ obj/Skills/Utility
 		icon_state="Heal"
 		desc="Shine brightly. Your awakening skill strengthens, but you burn out quicker."
 		verb/TheBlueExperience()
-			set category="Utility"
+			set category="Skills"
 			set name="The Blue Experience (Act 2)"
 			if(world.realtime < src.RebirthLastUse+(600*60*72))
 				src << "You can only use this technique once every 3 days."
@@ -545,13 +550,13 @@ obj/Skills/Utility
 		icon_state="Heal"
 		desc="Translate all your power into rage. Your Rebirth skills become faster, but make you more and more angrier. At 500% Fury, your rage explodes outwards, damaging yourself and everyone in view."
 		verb/Burning_Soul()
-			set category="Utility"
+			set category="Skills"
 			set name="Red Hot Rage (Act 3)"
 			if(world.realtime < src.RebirthLastUse+(600*60*24*7))
 				src << "You can only use this technique once every week."
 				return
 			if(usr.Health>25)
-				usr<<"Can't use yet!"
+				usr<<"Can't use below 25% health!"
 				return
 			src.RebirthLastUse=world.realtime
 			usr.TriggerAwakeningSkill(ActNumber)

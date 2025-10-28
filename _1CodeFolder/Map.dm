@@ -4077,6 +4077,9 @@ obj/Special
 		Depths
 			icon='DeathBallStrong.dmi'
 			HellTeleport=1
+			gotoX=404
+			gotoY=338
+			gotoZ=8
 
 	PermaBarrier
 		Grabbable=0
