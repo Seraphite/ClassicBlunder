@@ -11348,7 +11348,7 @@ mob
 						src << "You can't use this while using a sword because it makes one!"
 						return
 					if(T)
-						if(!src.ArcaneBladework&&!isRace(DEMON))
+						if(!src.ArcaneBladework&&!isRace(DEMON)&&!isRace(MAKAIOSHIN)&&!isRace(CELESTIAL))
 							src <<"You cannot create a blade while holding a staff!"
 							return
 					if(src.HasNoSword())
@@ -11359,7 +11359,7 @@ mob
 					var/obj/Items/Sword/sord=src.EquippedSword()
 					var/obj/Items/Enchantment/Staff/staf=src.EquippedStaff()
 					if(sord)
-						if(!src.ArcaneBladework&&!isRace(DEMON))
+						if(!src.ArcaneBladework&&!isRace(DEMON)&&!isRace(MAKAIOSHIN)&&!isRace(CELESTIAL))
 							src << "You can't use [B] to make a staff while wielding a sword!"
 							return
 					if(staf)

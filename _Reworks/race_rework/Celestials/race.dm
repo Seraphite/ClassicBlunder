@@ -2,7 +2,7 @@ race
 	celestial
 		name = "Celestial"
 		desc = "Through either blessing, curse, or some other contract or agreement, Celestials are mortals- usually humans- who have been granted the powers of the otherworldly races. In spite of this, they are neither inherently holy nor unholy."
-		visual = 'Humans.png'
+		visual = 'Celestial.png'
 		passives = list("Tenacity" = 1, "Adrenaline" = 1)
 		statPoints = 12
 		power = 1
