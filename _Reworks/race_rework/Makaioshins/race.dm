@@ -47,3 +47,6 @@ race
 				var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Selfless_State
 				user.AddSkill(s)
 				user << "You have embarked upon the path of true martial arts mastery: Ultra Instinct."
+			user.passive_handler.increaseList(passives)
+			for(var/s in skills)
+				user.AddSkill(new s)

@@ -49,3 +49,6 @@ race
 						user.TrueName=input(user, "What is the name of the Demon within?", "Get True Name") as text
 						user.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2)
 				user.CelestialAscension = Choice
+				user.passive_handler.increaseList(passives)
+				for(var/s in skills)
+					user.AddSkill(new s)
