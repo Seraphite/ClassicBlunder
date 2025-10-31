@@ -1497,6 +1497,7 @@ mob
 			if(src.Saga=="Ansatsuken"&&src.SagaLevel>=6&&src.AnsatsukenAscension)
 				return 1
 			if(src.oozaru_type=="Demonic")
+				return 1
 			if(src.isRace(DEMON))
 				return 1
 			if(src.CheckSlotless("Majin"))

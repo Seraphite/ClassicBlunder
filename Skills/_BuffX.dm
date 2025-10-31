@@ -11270,7 +11270,7 @@ mob
 								src << "You don't have enough health to use [B]."
 							return
 					if(B.InjuryThreshold)
-						if(src.TotalInjury<B.InjuryThreshold)
+						if(src.TotalInjury>B.InjuryThreshold)
 							if(!B.Autonomous)
 								src << "Your injures are too high to use [B]."
 							return

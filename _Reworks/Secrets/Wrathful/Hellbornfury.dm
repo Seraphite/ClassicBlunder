@@ -14,9 +14,9 @@ scaling with potential as well
 	OffMessage = "listlessly gazes forward, eyes starting to glaze over. Perhaps they are starting to understand, too."
 	BuffName = "Hellborn Fury"
 	//injury
-	TooMuchInjury=4
+	TooMuchInjury=15
 	NeedsInjury=5
-	InjuryThreshold=15
+	InjuryThreshold=14
 	EndMult = 1
 	StrMult = 1
 	AutoAnger = 1
@@ -39,9 +39,9 @@ scaling with potential as well
 	ActiveMessage = "slowly loses sight of themselves, as their blood starts to glow. There is no need to hide anymore, when so much is on the line."
 	OffMessage = "is ever-silent, their blood starting to stick to the ground. Their self-image falters, but they know what they're doing. And they know why. <b>Do you?</b>"
 	//injury
-	TooMuchInjury=14
+	TooMuchInjury=25
 	NeedsInjury=15
-	InjuryThreshold=25
+	InjuryThreshold=24
 	AutoAnger = 1
 	BuffName = "Hellspawn"
 	adjust(mob/p)
@@ -62,9 +62,9 @@ scaling with potential as well
 	ActiveMessage = "'s movements speed up, their eyes glowing red, their blood taking the consistency of a thick tar."
 	OffMessage = "finally started acting like who they really are."
 	//injury
-	TooMuchInjury=24
+	TooMuchInjury=40
 	NeedsInjury=25
-	WoundThreshold=40
+	InjuryThreshold=39
 	AutoAnger = 1
 	BuffName = "True Hellspawn"
 	adjust(mob/p)
@@ -86,8 +86,7 @@ scaling with potential as well
 	ActiveMessage = "is no longer who you knew them as. Were they ever that person to begin with?"
 	OffMessage = "returns to who they once were, as if nothing happened. But you'll never see them the same way again, will you?"
 	//injury
-	TooMuchInjury=39
-	NeedsInjury=40
+	NeedsInjury=41
 	AutoAnger = 1
 	BuffName = "Herald of the Depths"
 	adjust(mob/p)
