@@ -23,8 +23,8 @@ scaling with potential as well
 	AutoAnger = 1
 	adjust(mob/p)
 		if(altered) return
-		passives = list("AutoAnger" = 1, "Instinct" = 2, \
-						"LikeWater" = 1 + round(p.Potential/25,1), "AbyssMod" = round(p.Potential/40,1))
+		passives = list("AutoAnger" = 1, "Instinct" = 2, "PureDamage" = 1.5,\
+						"LikeWater" = 1 + round(p.Potential/25,1), "AbyssMod" = round(p.Potential/40,1), "BleedHit"=0.5)
 		StrMult = 1.15 + (p.Potential/150)
 		ForMult = 1.15 + (p.Potential/150)
 		OffMult = 1.15 + (p.Potential/200)
@@ -47,8 +47,8 @@ scaling with potential as well
 	adjust(mob/p)
 		if(altered) return
 		passives = list("AutoAnger" = 1, \
-						"LikeWater" = 2 + round(p.Potential/25,1), "Flicker" = 1, "Pursuer" = 1,  "BuffMastery" = 1.5, "PureDamage" = 1, \
-						"Instinct" = 3, "AbyssMod" = round(p.Potential/30,1))
+						"LikeWater" = 2 + round(p.Potential/25,1), "Flicker" = 1, "Pursuer" = 1,  "BuffMastery" = 1.5, "PureDamage" = 2, \
+						"Instinct" = 3, "AbyssMod" = round(p.Potential/30,1), "BleedHit"=0.5)
 		StrMult = 1.25 + (p.Potential/100)
 		ForMult = 1.25 + (p.Potential/100)
 		OffMult = 1.25 + (p.Potential/200)
@@ -71,8 +71,8 @@ scaling with potential as well
 	BuffName = "True Hellspawn"
 	adjust(mob/p)
 		if(altered) return
-		passives = list("AutoAnger" = 1, "AngerAdaptiveForce" = round(p.Potential/100), \
-						"Powerhouse" = 1 + (p.Potential/75), "Instinct" = 4, "Flicker" = 2, "Pursuer" = 2, "BuffMastery" = 2, "PureDamage" = 2, "AbyssMod" = round(p.Potential/20,1))
+		passives = list("AutoAnger" = 1, "AngerAdaptiveForce" = round(p.Potential/100), "BleedHit"=0.25, "LikeWater" = 2 + round(p.Potential/20,1), \
+						"Powerhouse" = 1 + (p.Potential/75), "Instinct" = 4, "Flicker" = 2, "Pursuer" = 2, "BuffMastery" = 2, "PureDamage" = 2.5, "AbyssMod" = round(p.Potential/20,1))
 		StrMult = 1.35 + (p.Potential/50)
 		ForMult = 1.35 + (p.Potential/50)
 		OffMult = 1.35 + (p.Potential/50)
@@ -94,8 +94,8 @@ scaling with potential as well
 	BuffName = "Herald of the Depths"
 	adjust(mob/p)
 		if(altered) return
-		passives = list("AutoAnger" = 1, "AngerAdaptiveForce" = round(p.Potential/100), \
-						"Powerhouse" = 2 + (p.Potential/25), "Instinct" = 5, "Flicker" = 3, "Pursuer" = 3, "BuffMastery" = 3, "PureDamage" = 2.5, "AbyssMod" = round(p.Potential/15,1))
+		passives = list("AutoAnger" = 1, "AngerAdaptiveForce" = round(p.Potential/100), "BleedHit"=0.1, "LikeWater" = 2 + round(p.Potential/15,1),\
+						"Powerhouse" = 2 + (p.Potential/25), "Instinct" = 5, "Flicker" = 3, "Pursuer" = 3, "BuffMastery" = 3, "PureDamage" = 3, "AbyssMod" = round(p.Potential/15,1))
 		StrMult = 1.45 + (p.Potential/30)
 		ForMult = 1.45 + (p.Potential/30)
 		OffMult = 1.45 + (p.Potential/30)
@@ -115,7 +115,9 @@ scaling with potential as well
 	p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/HellbornFury/Stage_Two)
 	p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/HellbornFury/Stage_Three)
 	p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/HellbornFury/Stage_Four)
-	p.passive_handler.Increase("Hellpower", 0.5)
+	p.passive_handler.Increase("Hellpower", 1)
+	p.passive_handler.Increase("Persistence", 2)
+	p.passive_handler.Increase("MaimMastery", 1)
 	p.AddSkill(new/obj/Skills/False_Moon)
 	p.oozaru_type="Demonic"
 	for(var/transformation/saiyan/ssj in p.race.transformations)

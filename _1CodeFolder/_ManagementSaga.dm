@@ -278,6 +278,9 @@ mob/Admin3/verb
 					P.AddSkill(new/obj/Skills/Buffs/ActiveBuffs/Eight_Gates)
 					if(!locate(/obj/Skills/Queue/Front_Lotus, P))
 						P.AddSkill(new/obj/Skills/Queue/Front_Lotus)
+					if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/Strong_Fist, P))
+						var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/Strong_Fist
+						P.AddSkill(s)
 
 				if("Sharingan")
 					P.SagaLevel=1

@@ -1681,7 +1681,7 @@ obj
 				AccMult = 1.15
 				Blasts=1
 				EnergyCost=15
-				Cooldown=60
+				Cooldown=150
 				Radius=2
 				Charge=2
 				Explode=1

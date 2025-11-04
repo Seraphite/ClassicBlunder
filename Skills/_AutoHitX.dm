@@ -1546,8 +1546,9 @@ obj
 				FlickAttack=1
 				Area="Strike"
 				StrOffense=2
-				DamageMult=7
+				DamageMult=12
 				GuardBreak=1
+				ComboMaster=1
 
 				Destroyer = 5 // make it do more dmg if tht guy is stunned or launched, ig this is dunker for stuns
 				Dunker = 3

@@ -159,6 +159,43 @@ obj
 						verb/Ansatsuken_Style()
 							set hidden=1
 							src.Trigger(usr)
+					//numbers past t1 aren't finalized, i'm just tossing them in here so i won't forget to change them later
+					Strong_Fist //t1
+						Copyable=0
+						SagaSignature=1
+						StyleStr=1.1
+						StyleEnd=1.1
+						StyleSpd=1.35
+						StyleActive="Strong Fist"
+						passives = list("Pursuer" = 1, "TechniqueMastery" = 1, "Flicker"=1)
+						AllOutAttack=1
+						verb/Ansatsuken_Style()
+							set hidden=1
+							src.Trigger(usr)
+					Stronger_Fist //t3?
+						Copyable=0
+						SagaSignature=1
+						StyleStr=1.15
+						StyleEnd=1.15
+						StyleSpd=1.45
+						StyleActive="Strong Fist"
+						passives = list("Pursuer" = 2, "TechniqueMastery" = 2, "Flicker"=2)
+						AllOutAttack=1
+						verb/Ansatsuken_Style()
+							set hidden=1
+							src.Trigger(usr)
+					Strongest_Fist //t5????
+						Copyable=0
+						SagaSignature=1
+						StyleStr=1.25
+						StyleEnd=1.25
+						StyleSpd=1.6
+						StyleActive="Strong Fist"
+						passives = list("Pursuer" = 4, "TechniqueMastery" = 2.5, "Flicker"=4)
+						AllOutAttack=1
+						verb/Ansatsuken_Style()
+							set hidden=1
+							src.Trigger(usr)
 
 
 				SwordStyle

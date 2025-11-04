@@ -52,15 +52,13 @@
 		SignatureTechnique=1
 		Copyable=0
 		StyleComboUnlock=list("/obj/Skills/Buffs/NuStyle/UnarmedStyle/Wushu_Style"="/obj/Skills/Buffs/NuStyle/UnarmedStyle/Long_Fist_Style")
-		StyleStr=0.85
 		StyleSpd=0.85
 		StyleEnd=1.3
 		StyleOff=1.15
-		StyleDef=1.3
+		StyleDef=1.15
 		passives = list("Fa Jin" = 2,"Acupuncture" = 1, "Flow" = 1, "Interception" = 1)
 		StyleActive="Tai Chi"
 		Finisher="/obj/Skills/Queue/Finisher/Dim_Mak"
 		verb/Tai_Chi_Style()
 			set hidden=1
 			src.Trigger(usr)
-	
