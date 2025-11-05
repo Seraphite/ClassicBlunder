@@ -218,6 +218,7 @@ obj/Skills
 			UseableDead=1
 			DepthsWarp=1
 			NoCoordinates=1
+			NoPassengers=0
 			NoReturn=0
 			WindUp=2
 			WindUpIcon='Icons/Effects/BlackHoleEnter.dmi'

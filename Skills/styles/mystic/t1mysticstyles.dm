@@ -15,10 +15,10 @@
 		LockY=16
 		AuraX=-8
 		AuraY=-10
-		BuffTechniques = list("/obj/Skills/Buffs/SlotlessBuffs/Magmic_Shield") 
+		BuffTechniques = list("/obj/Skills/Buffs/SlotlessBuffs/Magmic_Shield")
 		StyleComboUnlock = list("/obj/Skills/Buffs/NuStyle/MysticStyle/Stormbringer"= "/obj/Skills/Buffs/NuStyle/MysticStyle/Plasma_Style",\
 								"/obj/Skills/Buffs/NuStyle/MysticStyle/Inferno"= "/obj/Skills/Buffs/NuStyle/MysticStyle/Hellfire", \
-								"/obj/Skills/Buffs/NutStyle/UnarmedStyle/_Any" = /obj/Skills/Buffs/NuStyle/UnarmedStyle/Ifrit_Jambe)
+								"/obj/Skills/Buffs/NutStyle/UnarmedStyle/_Any" = "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Ifrit_Jambe")
 		ElementalOffense = "Fire"
 		ElementalDefense = "Earth"
 		ElementalClass = "Fire"
@@ -67,7 +67,7 @@
 		AuraY=-10
 		StyleComboUnlock = list("/obj/Skills/Buffs/NuStyle/MysticStyle/Magma_Walker" = "/obj/Skills/Buffs/NuStyle/MysticStyle/Plasma_Style",\
 								"/obj/Skills/Buffs/NuStyle/MysticStyle/Ice_Dancing" = "/obj/Skills/Buffs/NuStyle/MysticStyle/Blizzard_Bringer", \
-								/obj/Skills/Buffs/NuStyle/SwordStyle/Iaido_Style = /obj/Skills/Buffs/NuStyle/SwordStyle/Art_of_Order)
+								"/obj/Skills/Buffs/NuStyle/SwordStyle/Iaido_Style" = "/obj/Skills/Buffs/NuStyle/SwordStyle/Art_of_Order")
 		ElementalOffense = "Wind"
 		ElementalDefense = "Water"
 		ElementalClass = "Wind"
@@ -109,7 +109,7 @@
 		ElementalClass = "Poison"
 		Finisher="/obj/Skills/Queue/Finisher/Bloodcurdle"
 		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Aura/Poison"
-		StyleComboUnlock =  list("/obj/Skills/Buffs/NuStyle/SwordStyle/_Any" = /obj/Skills/Buffs/NuStyle/SwordStyle/Bloodseeker)
+		StyleComboUnlock =  list("/obj/Skills/Buffs/NuStyle/SwordStyle/_Any" = "/obj/Skills/Buffs/NuStyle/SwordStyle/Bloodseeker")
 		IconLock = 'SpriteR.dmi'
 		AuraLock = 'Terra Might.dmi'
 		LockX=-16

@@ -101,6 +101,7 @@ progressTracker
 		maxAscension = 5
 		MoneyName = "Dollars"
 
+
 //potential
 		PotentialDaily = 1
 		totalPotentialToDate = 31
@@ -123,8 +124,8 @@ progressTracker
 		WipeStart = 0
 		DaysOfWipe = 1
 
-		SAGA_T2_POT = 15
-		SAGA_T3_POT = 30
+		SAGA_T2_POT = 25
+		SAGA_T3_POT = 35
 
 		T1_STYLES = list(10, 20)
 		T2_STYLES = list(30, 45)

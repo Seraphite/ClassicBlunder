@@ -3765,17 +3765,16 @@ NEW VARIABLES
 							src.OffMult=1.2
 							src.DefMult=1.3
 							src.SureDodgeTimerLimit=40
-							passives = list("Maki" = 1, "PUSpike" = 10, "Flow" = 1, "FatigueDrain"  = 0.1)
+							passives = list("Maki" = 1, "PUSpike" = 10, "Flow" = 1)
 							src.Instinct=0
 							src.Flow=1
-							src.FatigueDrain=0.1
 							AngerPoint = 15
 							ActiveMessage="is filled with cold rage as their eyes turn red and one tomoe appears in their iris!"
 						if(2)
 							src.OffMult=1.2
 							src.DefMult=1.3
 							src.SureDodgeTimerLimit=35
-							passives = list("Maki" = 1, "PUSpike" = 20, "Flow" = 1, "Instinct" = 1, "FatigueDrain"  = 0.05)
+							passives = list("Maki" = 1, "PUSpike" = 20, "Flow" = 1, "Instinct" = 1)
 							src.Instinct=1
 							src.Flow=1
 							src.FatigueDrain=0.05

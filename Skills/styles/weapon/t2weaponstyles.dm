@@ -17,6 +17,20 @@
 		verb/Santoryu()
 			set hidden=1
 			src.Trigger(usr)
+	Gatotsu
+		SignatureTechnique = 2
+		Copyable=0
+		StyleSpd=1.45
+		StyleStr=1.15
+		StyleActive="Gatotsu"
+		StyleComboUnlock=list("/obj/Skills/Buffs/NuStyle/SwordStyle/Berserk"="/obj/Skills/Buffs/NuStyle/SwordStyle/Two_Heaven_As_One",
+							"/obj/Skills/Buffs/NuStyle/SwordStyle/Phalanx_Style"="/obj/Skills/Buffs/NuStyle/SwordStyle/Acrobat")
+		passives = list("HybridStyle" = "UnarmedStyle", "Fury" = 2, "BlurringStrikes" = 1.5, "SweepingStrike" = 1, "BladeFisting" = 1, \
+				"Iaijutsu" = 2.5, "Musoken" = 1 , "Shearing" = 7, "Extend" = 1)
+		Finisher=/obj/Skills/Queue/Finisher/King_of_Hell
+		verb/Santoryu()
+			set hidden=1
+			src.Trigger(usr)
 	Berserk
 		SignatureTechnique = 2
 		StyleComboUnlock=list("/obj/Skills/Buffs/NuStyle/SwordStyle/Santoryu"="/obj/Skills/Buffs/NuStyle/SwordStyle/Two_Heaven_As_One",

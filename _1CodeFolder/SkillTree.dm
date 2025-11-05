@@ -274,7 +274,7 @@ var/list/SkillTree=list(
 "HybridStylesT1"=list("/obj/Skills/Buffs/NuStyle/UnarmedStyle/Circuit_Breaker_Style"=99999
 
 ),
-"HybridStylesT2"=list("/obj/Skills/Buffs/NuStyle/UnarmedStyle/Divine_Arts_of_The_Heavenly_Demon"=9999, 
+"HybridStylesT2"=list("/obj/Skills/Buffs/NuStyle/UnarmedStyle/Divine_Arts_of_The_Heavenly_Demon"=9999,
 "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Ifrit_Jambe"=9999,
 "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Psycho_Boxing"=9999,
 "/obj/Skills/Buffs/NuStyle/UnarmedStyle/Phoenix_Eye_Fist"=9999,
@@ -324,7 +324,8 @@ var/list/SkillTree=list(
 "SwordStylesT2"=list("/obj/Skills/Buffs/NuStyle/SwordStyle/Santoryu"=9999,
 					"/obj/Skills/Buffs/NuStyle/SwordStyle/Berserk"=9999,
 					"/obj/Skills/Buffs/NuStyle/SwordStyle/Witch_Hunter"=9999,
-					"/obj/Skills/Buffs/NuStyle/SwordStyle/Phalanx_Style"=9999,),
+					"/obj/Skills/Buffs/NuStyle/SwordStyle/Phalanx_Style"=9999,
+					"/obj/Skills/Buffs/NuStyle/SwordStyle/Gatotsu"=9999),
 "SwordStylesT3"=list("/obj/Skills/Buffs/NuStyle/SwordStyle/Two_Heaven_As_One"=9999,
 					"/obj/Skills/Buffs/NuStyle/SwordStyle/Acrobat"=9999,
 					"/obj/Skills/Buffs/NuStyle/SwordStyle/Fierce_Deity"=9999),
@@ -343,7 +344,7 @@ obj/SkillTreeObj
 	New()
 		. = ..()
 		icon_state = lowertext(replacetext(replacetext(path,"/obj/Skills/Buffs/NuStyle/UnarmedStyle", ""), "_Style", ""))
-		
+
 	Click()
 
 		var/path=text2path("[src.path]")
