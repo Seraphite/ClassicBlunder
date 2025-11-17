@@ -38,7 +38,7 @@
 			if("Unlock Ascension (Warriors Only)")
 				var/list/namekian_targets = list()
 				for(var/mob/P in view(10, M))
-					if(P != M && P.race == "Namekian")
+					if(P != M && P.isRace(NAMEKIAN))
 						namekian_targets["[P.name]"] = P
 
 				if(!namekian_targets.len)
@@ -70,7 +70,7 @@
 			if("Unlock Orange Namekian (Warrior only)")
 				var/list/namekian_targets = list()
 				for(var/mob/P in view(10, M))
-					if(P != M && P.race == "Namekian")
+					if(P != M && P.isRace(NAMEKIAN))
 						namekian_targets["[P.name]"] = P
 
 				if(!namekian_targets.len)

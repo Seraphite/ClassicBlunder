@@ -9,7 +9,7 @@ transformation
 				offense = 1.15
 				defense = 1.15
 				..()
-			autoAnger = 1
+		//	autoAnger = 1
 			form_aura_icon = 'AurasBig.dmi'
 			form_aura_icon_state = "Heran"
 			form_aura_x = -32

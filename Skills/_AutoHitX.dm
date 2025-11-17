@@ -2884,7 +2884,6 @@ obj
 					DamageMult=12
 					ManaCost=20
 					Cooldown=60
-					EndRate = 0.5
 					GuardBreak=1
 					Slow=0.5
 					DelayTime=1
@@ -3141,7 +3140,7 @@ obj
 				Shockwave=2
 				Shockwaves=2
 				ActiveMessage="flickers behind their opponent for an instantaneous slash!"
-				Cooldown=120
+				Cooldown=60
 				EnergyCost=10
 				verb/Disable_Innovate()
 					set category = "Other"
