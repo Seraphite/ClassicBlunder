@@ -199,8 +199,8 @@ mob/Admin3/verb
 				if("King of Braves")
 					P<<"You are the embodiment of courage. The hero everyone has been waiting for...the <b>King of Braves</b>!"
 					P.Saga="King of Braves"
-					if(!locate(/obj/Skills/Buffs/SpecialBuffs/King_Of_Braves, P))
-						P.AddSkill(new/obj/Skills/Buffs/SpecialBuffs/King_Of_Braves)
+					if(!locate(/obj/Skills/Buffs/SpecialBuffs/King_of_Braves, P))
+						P.AddSkill(new/obj/Skills/Buffs/SpecialBuffs/King_of_Braves)
 					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Genesic_Brave, P))
 						P.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Genesic_Brave)
 					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Will_Knife, P))
@@ -210,6 +210,8 @@ mob/Admin3/verb
 					if(!locate(/obj/Skills/Projectile/King_of_Braves/Broken_Magnum, P))
 						P.AddSkill(new/obj/Skills/Projectile/King_of_Braves/Broken_Magnum)
 					P.CyberizeMod+=0.2
+					P.passive_handler.Increase("PilotingProwess", 0.2)
+					P.PilotingProwess+=0.2
 					P.SagaLevel=1
 
 				if("Unlimited Blade Works")
@@ -1332,6 +1334,7 @@ mob
 				if("King of Braves")
 					src << "You've obtained more skill with Machines!"
 					passive_handler.Increase("PilotingProwess", 0.2)
+					src.PilotingProwess+=0.2
 					src.CyberizeMod+=0.2
 					if(src.SagaLevel==2)
 						if(!locate(/obj/Skills/Queue/DrillKnee, src))
@@ -1757,7 +1760,7 @@ mob/Admin3/verb
     "/obj/Skills/AutoHit/Pegasus_Meteor_Fist","/obj/Skills/Queue/Rising_Dragon_Fist",\
     "/obj/Skills/Projectile/Diamond_Dust","/obj/Skills/Projectile/Nebula_Stream",\
     "/obj/Skills/Queue/Phoenix_Demon_Illusion_Strike","/obj/Skills/AutoHit/Unicorn_Gallop",\
-    "/obj/Skills/Buffs/ActiveBuffs/Persona","/obj/Skills/Buffs/SpecialBuffs/King_Of_Braves",\
+    "/obj/Skills/Buffs/ActiveBuffs/Persona","/obj/Skills/Buffs/SpecialBuffs/King_of_Braves",\
     "/obj/Skills/Buffs/SlotlessBuffs/Will_Knife","/obj/Skills/Buffs/SlotlessBuffs/Protect_Shade",\
     "/obj/Skills/Projectile/King_of_Braves/Broken_Magnum","/obj/Skills/Buffs/SlotlessBuffs/Copy_Blade",\
     "/obj/Skills/Buffs/SlotlessBuffs/Projection","/obj/Skills/Buffs/NuStyle/SwordStyle/Sword_Savant",\

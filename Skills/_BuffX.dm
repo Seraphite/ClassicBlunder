@@ -3636,7 +3636,7 @@ NEW VARIABLES
 					adjust(usr)
 				src.Trigger(User=usr, Override=TRUE)
 
-		King_Of_Braves
+		King_of_Braves
 			Cooldown = 1
 			PowerGlows=list(1,0.8,0.8, 0,1,0, 0.8,0.8,1, 0,0,0)
 			passives = list("Tenacity" = 1, "UnderDog" = 0.5, "Persistence" = 1)

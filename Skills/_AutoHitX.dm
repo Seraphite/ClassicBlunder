@@ -2884,6 +2884,7 @@ obj
 					DamageMult=12
 					ManaCost=20
 					Cooldown=60
+					EndDefense=0.5
 					GuardBreak=1
 					Slow=0.5
 					DelayTime=1
