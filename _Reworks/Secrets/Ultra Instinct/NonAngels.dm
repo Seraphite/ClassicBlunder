@@ -34,8 +34,16 @@
 		LockY=-32
 		SagaSignature = 1
 		SignatureTechnique = 2
+		adjust(mob/p)
+			if(p.isRace(CELESTIAL))
+				StyleStr=1.15
+				StyleFor=1.15
+				StyleSpd=1.45
+				StyleOff=1.45
+				StyleDef=1.45
 		verb/Incomplete_Ultra_Instinct()
 			set hidden=1
+			adjust(usr)
 			src.Trigger(usr)
 
 	Ultra_Instinct_Style
@@ -53,8 +61,16 @@
 		LockY=-32
 		SagaSignature = 1
 		SignatureTechnique = 3
+		adjust(mob/p)
+			if(p.isRace(CELESTIAL))
+				StyleStr=1.35
+				StyleFor=1.35
+				StyleSpd=1.75
+				StyleOff=1.75
+				StyleDef=1.75
 		verb/Mortal_Ultra_Instinct()
 			set hidden = 1
+			adjust(usr)
 			src.Trigger(usr)
 
 	Perfected_Ultra_Instinct_Style
@@ -73,6 +89,14 @@
 		SagaSignature = 1
 		SignatureTechnique = 4
 		PUSpike = 25
+		adjust(mob/p)
+			if(p.isRace(CELESTIAL))
+				StyleStr=1.45
+				StyleFor=1.45
+				StyleSpd=2
+				StyleOff=2
+				StyleDef=2
 		verb/Perfected_Mortal_Ultra_Instinct()
 			set hidden = 1
+			adjust(usr)
 			src.Trigger(usr)

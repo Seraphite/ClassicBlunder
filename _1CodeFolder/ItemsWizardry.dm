@@ -1021,7 +1021,7 @@ obj/Items/Enchantment
 
 	ArcanicOrb
 		EnchType="ToolEnchantment"
-		SubType="NOT IN"
+//		SubType="NOT IN"
 		Cost=60
 		icon='enchantmenticons.dmi'
 		icon_state="ArcanOrb"
@@ -1103,7 +1103,7 @@ obj/Items/Enchantment
 							Log(E.ChatLog(),"<font color=green>[picktongue]([picktongue.key]) says: [html_encode(texttosay)]")
 	Arcane_Mask
 		EnchType="ToolEnchantment"
-		SubType="NOT IN"
+//		SubType="NOT IN"
 		Cost=40
 		icon='BlankMask.dmi'
 		desc="After being placed on another person, it allows someone with a linked arcane orb to look through their eyes, speak with their tongue, and hear what they hear."

@@ -22,11 +22,12 @@ ascension
 		two
 			unlock_potential = ASCENSION_TWO_POTENTIAL
 			passives = list("HolyMod" = 0.75, "SpiritPower" = 0.25)
-			strength = 0.15
-			force = 0.25
+			strength = 0.35
+			force = 0.35
 			defense = 0.35
-			offense = 0.15
+			offense = 0.25
 			recovery = 0.25
+			speed = 0.35
 			on_ascension_message = "You grow ever-closer to God."
 			postAscension(mob/owner)
 				//t2 style
@@ -47,9 +48,10 @@ ascension
 			unlock_potential = ASCENSION_THREE_POTENTIAL
 			passives = list("HolyMod" = 1, "SpiritPower" = 0.25, " KiControlMastery"=1,  "CalmAnger" = 1)
 			anger = 0.2
-			strength = 0.25
-			force = 0.25
+			strength = 0.35
+			force = 0.35
 			endurance = 0.5
+			speed = 0.25
 			on_ascension_message = "You shall not abide evil."
 			postAscension(mob/owner)
 				//t3 style/armor, can now teach style

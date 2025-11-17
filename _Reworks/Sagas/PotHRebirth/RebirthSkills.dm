@@ -305,7 +305,7 @@ obj/Skills/AutoHit
 		HitSparkIcon='BLANK.dmi'
 		HitSparkX=0
 		HitSparkY=0
-		verb/Unleah()
+		verb/Unleash()
 			set category="Skills"
 			usr.Activate(src)
 	Banish
@@ -636,7 +636,7 @@ obj/Skills/Utility
 			set category="Skill"
 			if(usr.ManaAmount<src.ManaCost)
 				usr<<"You need [src.ManaCost] ACT to use this."
-			src.buffpicked=pick(list(/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Heart, /obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Soul))
+			src.buffpicked=pick(list("/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Heart", "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Soul"))
 			usr.buffSelf(src.buffpicked)
 obj/Skills/Projectile
 	var/PartyReq
@@ -721,6 +721,8 @@ obj/Skills/Projectile
 			DamageMult=12
 			Immediate=1
 			Dodgeable=0
+			StrRate=1
+			ForRate=1
 			IconLock='carefully.dmi'
 			Cooldown=120
 			EnergyCost=5

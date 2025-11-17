@@ -10,11 +10,11 @@ transformation
 			form_glow_x = -32
 			form_glow_y = -32
 			unlock_potential = 55
-			passives = list("Instinct" = 3, "Flicker" = 2, "Pursuer" = 3,  "BuffMastery" = 4, "PureDamage" = 3)
+			passives = list("Instinct" = 3, "Flicker" = 4, "Pursuer" = 5,  "BuffMastery" = 4, "PureDamage" = 3, "BleedHit"=0.75, "PureReduction"=-1)
 			PUSpeedModifier = 1.5
 			mastery_boons(mob/user)
 				if(mastery>=75)
-					passives = list("Instinct" = 3, "Flicker" = 3, "Pursuer" = 3,  "BuffMastery" = 4, "PureDamage" = 3, "Unstoppable"=1, "SlayerMod"= 1)
+					passives = list("Instinct" = 3, "Flicker" = 4, "Pursuer" = 5,  "BuffMastery" = 4, "PureDamage" = 3, "Unstoppable"=1, "SlayerMod"= 1)
 
 			adjust_transformation_visuals(mob/user)
 				if(!form_hair_icon&&user.Hair_Base)
@@ -71,8 +71,8 @@ transformation
 				animate(user, color = list(1,0,0, 0,1,0, 0,0,1, 1,0.9,0.2), time=5)
 				spawn(5)
 					animate(user, color = null, time=5)
-				if(user.TotalInjury<50)
-					user.TotalInjury=50
+			//	if(user.TotalInjury<50)
+			//		user.TotalInjury=50
 				sleep(2)
 		hellspawn_super_saiyan_2 //it's super saiyan 4
 			tier = 6//full transparency this does functionally nothing for hellspawns, but it's a bandaid for our special regular saiyans hahaha

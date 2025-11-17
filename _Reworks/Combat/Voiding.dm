@@ -3,7 +3,7 @@ mob/proc/getExtraVoidChance(extraChance = 0)
 	var/Chance = 0
 	if(Saga == "King of Braves")
 		Chance += SagaLevel * 1.5
-	if(ClothBronze == "Phoeinx")
+	if(ClothBronze == "Phoenix")
 		Chance += SagaLevel * 2
 	return Chance
 

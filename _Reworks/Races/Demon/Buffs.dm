@@ -11,21 +11,28 @@
 	HealthThreshold = 0.0001
 	var/current_charges = 1
 	var/last_charge_gain = 0
-	var/list/trueFormPerAsc = list( 1 = list("AngerAdaptiveForce" = 0.1, "TechniqueMastery" = 2, "Juggernaut" = 1, "Hellrisen" = 0.25, , "FakePeace" = -1), \
-									2 = list("AngerAdaptiveForce" = 0.2,"TechniqueMastery" = 3, "FluidForm" = 1, "GiantForm" = 1, "Juggernaut" = 1.5, "Hellrisen" = 0.5, , "FakePeace" = -1), \
-									3 = list("AngerAdaptiveForce" = 0.25,"TechniqueMastery" = 4, "FluidForm" = 1.5, "GiantForm" = 1, "Juggernaut" = 2,"Hellrisen" = 0.5, , "FakePeace" = -1), \
-									4 = list("AngerAdaptiveForce" = 0.5,"TechniqueMastery" = 6, "FluidForm" = 2, "GiantForm" = 1, "Juggernaut" = 2,"Hellrisen" = 0.5, , "FakePeace" = -1))
+/*	var/list/trueFormPerAsc = list( 1 = alist("AngerAdaptiveForce" = 0.1, "TechniqueMastery" = 2, "Juggernaut" = 1, "Hellrisen" = 0.25, , "FakePeace" = -1), \
+									2 = alist("AngerAdaptiveForce" = 0.2,"TechniqueMastery" = 3, "FluidForm" = 1, "GiantForm" = 1, "Juggernaut" = 1.5, "Hellrisen" = 0.5, , "FakePeace" = -1), \
+									3 = alist("AngerAdaptiveForce" = 0.25,"TechniqueMastery" = 4, "FluidForm" = 1.5, "GiantForm" = 1, "Juggernaut" = 2,"Hellrisen" = 0.5, , "FakePeace" = -1), \
+									4 = alist("AngerAdaptiveForce" = 0.5,"TechniqueMastery" = 6, "FluidForm" = 2, "GiantForm" = 1, "Juggernaut" = 2,"Hellrisen" = 0.5, , "FakePeace" = -1))*/
 	ActiveMessage = "<i>has unleashed their true nature!</i>"
 	// jsut set the niggas hellpower to 1
 	adjust(mob/p)
-		for(var/passive in trueFormPerAsc[p.AscensionsAcquired])
-			passives[passive] = trueFormPerAsc[p.AscensionsAcquired][passive]
+		if(p.AscensionsAcquired==1)
+			passives =list("AngerAdaptiveForce" = 0.1, "TechniqueMastery" = 2, "Juggernaut" = 1, "Hellrisen" = 0.25, , "FakePeace" = -1)
+		if(p.AscensionsAcquired==2)
+			passives = list("AngerAdaptiveForce" = 0.2,"TechniqueMastery" = 3, "FluidForm" = 1, "Juggernaut" = 1.5, "Hellrisen" = 0.5, , "FakePeace" = -1)
+		if(p.AscensionsAcquired==3)
+			passives = list("AngerAdaptiveForce" = 0.25,"TechniqueMastery" = 4, "FluidForm" = 1.5, "Juggernaut" = 2,"Hellrisen" = 0.5, , "FakePeace" = -1)
+		if(p.AscensionsAcquired==4)
+			passives = list("AngerAdaptiveForce" = 0.5,"TechniqueMastery" = 6, "FluidForm" = 2, "Juggernaut" = 2,"Hellrisen" = 0.5, , "FakePeace" = -1)
 		var/hellpowerdif = 1 - p.passive_handler.Get("HellPower")
 		if(hellpowerdif < 0)
 			hellpowerdif = 0
 		passives["HellPower"] = hellpowerdif
 	verb/True_Form()
 		set category = "Skills"
+		adjust(usr)
 		if(!usr.BuffOn(src))
 			if(current_charges - 1 < 0)
 				usr << "You have ran out of true form charges..."

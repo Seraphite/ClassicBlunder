@@ -1558,7 +1558,7 @@ obj
 				Blasts=10
 				Explode=1
 				EnergyCost=5
-				Cooldown=120
+				Cooldown=60
 				IconLock='Blast10.dmi'
 				LockX=0
 				LockY=0
@@ -1578,7 +1578,7 @@ obj
 				AccMult=2.5
 				Explode=2
 				EnergyCost=8
-				Cooldown=120
+				Cooldown=60
 				FollowUp="/obj/Skills/AutoHit/Warp_Bomb"
 				FollowUpDelay=-1
 				IconLock='Blast12.dmi'
@@ -1605,7 +1605,7 @@ obj
 				LockX=0
 				LockY=0
 				Variation=16
-				Cooldown=120
+				Cooldown=60
 				verb/Scatter_Burst()
 					set category="Skills"
 					usr.UseProjectile(src)
@@ -1625,7 +1625,7 @@ obj
 				AccMult=2.5
 				Explode=2
 				EnergyCost=2.5
-				Cooldown=120
+				Cooldown=60
 				IconLock='Blast28.dmi'
 				LockX=0
 				LockY=0
@@ -3425,7 +3425,7 @@ obj
 					MultiShot=4
 					Deflectable=1
 					ManaCost=1
-					Cooldown=60
+					Cooldown=45
 					IconLock='Fireball.dmi'
 					ActiveMessage="invokes: <font size=+1>FIRE!</font size>"
 					verb/Fire()
@@ -3468,7 +3468,7 @@ obj
 					Blasts=3
 					Charge=2
 					ManaCost=7
-					Cooldown=60
+					Cooldown=45
 					IconLock='Fireball.dmi'
 					ActiveMessage="invokes: <font size=+1>FIRAGA!</font size>"
 					verb/Firaga()
@@ -3481,7 +3481,7 @@ obj
 					SkillCost=TIER_4_COST
 					Copyable=5
 					Distance=50
-					DamageMult=6
+					DamageMult=10
 					Radius=1
 					Piercing=1
 					PiercingBang=1
@@ -3491,7 +3491,7 @@ obj
 					Deflectable=-1
 					Speed=0
 					ManaCost=15
-					Cooldown=120
+					Cooldown=60
 					IconLock='BLANK.dmi'
 					Trail='Trail - Plasma.dmi'
 					Variation=0
@@ -3534,12 +3534,13 @@ obj
 					Copyable=5
 					PreRequisite=list("/obj/Skills/Projectile/Magic/Disintegrate")
 					Distance=50
-					DamageMult=11
+					DamageMult=12
 					Dodgeable=-1
 					AccMult = 1.175
 					Speed=2
+					EndRate = 0.5
 					ManaCost=15
-					Cooldown=120
+					Cooldown=60
 					IconLock='Boulder Normal.dmi'
 					IconSize=1
 					LockX=-36
@@ -3784,7 +3785,7 @@ obj
 					SkillCost=160
 					Copyable=5
 					Distance=120
-					DamageMult=0.85
+					DamageMult=0.95
 					AccMult = 1.5
 					Radius=1
 					ZoneAttack=1
@@ -3798,7 +3799,7 @@ obj
 					Knockback=1
 					Charge=1
 					EnergyCost=5
-					Cooldown=120
+					Cooldown=60
 					IconSize=2
 					Variation=8
 					IconLock='Air Render.dmi'
@@ -3809,7 +3810,7 @@ obj
 					SkillCost=160
 					Copyable=5
 					Distance=30
-					DamageMult=1.1
+					DamageMult=1.2
 					AccMult = 1.5
 					Radius=1
 					ZoneAttack=1
@@ -3821,7 +3822,7 @@ obj
 					Devour=1
 					Knockback=1
 					EnergyCost=3
-					Cooldown=120
+					Cooldown=60
 					IconLock='TornadoDirected.dmi'
 					IconSize=2
 					LockX=-8
@@ -3838,12 +3839,12 @@ obj
 					SkillCost=160
 					Copyable=5
 					Distance=20
-					DamageMult=2.2
+					DamageMult=2.4
 					AccMult = 1.5
 					MultiShot=5
 					Knockback=1
 					EnergyCost=3
-					Cooldown=120
+					Cooldown=60
 					Homing=1
 					IconLock='Scarring Breeze.dmi'
 					IconSize=0.35
@@ -3869,7 +3870,7 @@ obj
 					Knockback=1
 					Charge=0.5
 					EnergyCost=2
-					Cooldown=120
+					Cooldown=60
 					IconSize=2
 					Variation=0
 					IconLock='Air Render.dmi'

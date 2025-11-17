@@ -5472,9 +5472,6 @@ NEW VARIABLES
 				Cooldown=150
 				verb/Esuna()
 					set category="Skills"
-					if(usr.Target==usr&&!altered)
-						usr << "You can't use [name] on yourself!"
-						return
 					src.Trigger(usr)
 
 			EsunagaApply
@@ -5511,14 +5508,11 @@ NEW VARIABLES
 				Cooldown=180
 				verb/Esunaga()
 					set category="Skills"
-					if(usr.Target==usr&&!altered)
-						usr << "You can't use [name] on yourself!"
-						return
 					src.Trigger(usr)
 
 			CureApply
 				StableHeal=1
-				HealthHeal=0.19
+				HealthHeal=10
 				TimerLimit=10
 				MagicNeeded = 0
 			Cure
@@ -5550,7 +5544,7 @@ NEW VARIABLES
 
 			CuragaApply
 				StableHeal=1
-				HealthHeal=0.25
+				HealthHeal=25
 				TimerLimit=10
 				MagicNeeded = 0
 			Curaga

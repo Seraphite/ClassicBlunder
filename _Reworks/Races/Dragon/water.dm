@@ -14,7 +14,7 @@
 	OffMessage = "returns the land to its former form..."
 	adjust(mob/p)
 		var/asc = p.AscensionsAcquired
-		passives = list("Ocean Bringer" = 1 + (round(asc/2)), "AbsoluteZero" = 5 + (asc * 2), "Erosion" = min(0.2, 0.25 + (asc * 0.1)), "FluidForm" = 1 + (0.25 * asc), "Flow" = 1 + asc, "VoidField" = 3 + (asc * 2), \
+		passives = list("Ocean Bringer" = 0.25 + (round(asc/4)), "AbsoluteZero" = 5 + (asc * 2), "Erosion" = min(0.1, 0.15 + (asc * 0.05)), "FluidForm" = 1 + (0.25 * asc), "Flow" = 1 + asc, "VoidField" = 3 + (asc * 2), \
 		"Godspeed" = asc)
 		ElementalDefense = "Void"
 	Trigger(mob/User, Override = FALSE)

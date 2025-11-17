@@ -1284,7 +1284,7 @@ obj
 				ChargeTech=1
 				ChargeTime=1
 				Knockback=1
-				Cooldown=120
+				Cooldown=60
 				Size=1
 				EnergyCost=1
 				Instinct=1
@@ -1302,7 +1302,7 @@ obj
 				DamageMult=0.55
 				Rounds=20
 				Launcher=2
-				Cooldown=120
+				Cooldown=60
 				Size=2
 				Icon='Tornado.dmi'
 				IconX=-8
@@ -1343,7 +1343,7 @@ obj
 				ChargeTech=1
 				ChargeTime=1
 				Knockback=1
-				Cooldown=120
+				Cooldown=60
 				WindUp=0.25
 				WindupMessage="lowers their head..."
 				Size=1
@@ -1369,7 +1369,7 @@ obj
 				WindUp=0.1
 				WindupMessage="crouches into a starting position..."
 				ActiveMessage="blasts forward with a super-sonic dash!"
-				Cooldown=120
+				Cooldown=60
 				adjust(mob/p)
 					if(p.isInnovative(HUMAN, "Unarmed") && !isInnovationDisable(p))
 						Area="Around Target"
@@ -1442,7 +1442,7 @@ obj
 				WindUp=0.25
 				WindupMessage="leaps into the air!"
 				ActiveMessage="crashes into their opponent with a dropkick!"
-				Cooldown=120
+				Cooldown=60
 				verb/Dropkick_Surprise()
 					set category="Skills"
 					usr.Activate(src)
@@ -1726,7 +1726,7 @@ obj
 				ComboMaster = 1
 				WindupMessage="focuses their power into a palm..."
 				ActiveMessage="unleashes an obliterating wave of power from their hand!"
-				Cooldown=120
+				Cooldown=60
 				verb/Breaker_Wave()
 					set category="Skills"
 					usr.Activate(src)
@@ -1754,7 +1754,7 @@ obj
 				HitSparkIcon='BLANK.dmi'
 				HitSparkX=0
 				HitSparkY=0
-				Cooldown=120
+				Cooldown=60
 				EnergyCost=10
 				Earthshaking=15
 				verb/Blazing_Storm()
@@ -1785,7 +1785,7 @@ obj
 				SpecialAttack=1
 				Earthshaking=5
 				ActiveMessage="blinks forward before unleashing a wave of power at point-blank range!"
-				Cooldown=120
+				Cooldown=60
 				verb/Ghost_Wave()
 					set category="Skills"
 					usr.Activate(src)
@@ -1814,7 +1814,7 @@ obj
 				WindUp=0.5
 				WindupMessage="grows still..."
 				ActiveMessage="crushes those nearby with their spiritual aura!!"
-				Cooldown=120
+				Cooldown=60
 				verb/Power_Pillar()
 					set category="Skills"
 					usr.Activate(src)
@@ -2490,7 +2490,7 @@ obj
 					HitSparkDispersion=8
 					TurfStrike=1
 					ManaCost=3
-					Cooldown=60
+					Cooldown=45
 					ActiveMessage="invokes: <font size=+1>BLIZZARD!</font size>"
 					adjust(mob/p)
 						if(!altered)
@@ -2538,7 +2538,7 @@ obj
 					HitSparkDispersion=16
 					TurfStrike=3
 					ManaCost=6
-					Cooldown=60
+					Cooldown=45
 					ActiveMessage="invokes: <font size=+1>BLIZZARA!</font size>"
 					verb/Disable_Innovate()
 						set category = "Other"
@@ -2595,7 +2595,7 @@ obj
 					HitSparkDispersion=16
 					TurfStrike=3
 					ManaCost=9
-					Cooldown=60
+					Cooldown=45
 					ActiveMessage="invokes: <font size=+1>BLIZZAGA!</font size>"
 					verb/Disable_Innovate()
 						set category = "Other"
@@ -2635,7 +2635,7 @@ obj
 					Distance=6
 					Area="Target"
 					ForOffense=1
-					DamageMult=4
+					DamageMult=6
 					Paralyzing=5
 					Size=1
 					Bolt=2
@@ -2647,7 +2647,7 @@ obj
 					SpecialAttack=1
 					CanBeDodged=1
 					CanBeBlocked=0
-					Cooldown=60
+					Cooldown=45
 					WindupMessage="invokes: <font size=+1>THUNDER!</font size>"
 					verb/Disable_Innovate()
 						set category = "Other"
@@ -2691,13 +2691,13 @@ obj
 					Paralyzing=8
 					Bolt=2
 					WindUp=1
-					DamageMult=6
+					DamageMult=7
 					SpecialAttack=1
 					ForOffense=1
 					CanBeDodged=1
 					CanBeBlocked=0
 					ManaCost=5
-					Cooldown=60
+					Cooldown=45
 					WindupMessage="invokes: <font size=+1>THUNDARA!</font size>"
 					verb/Disable_Innovate()
 						set category = "Other"
@@ -2735,14 +2735,14 @@ obj
 					Bolt=2
 					BoltOffset=1
 					WindUp=1
-					DamageMult=2
+					DamageMult=4
 					Rounds=5
 					SpecialAttack=1
 					ForOffense=1
 					CanBeDodged=0
 					CanBeBlocked=1
 					ManaCost=10
-					Cooldown=60
+					Cooldown=45
 					WindupMessage="invokes: <font size=+1>THUNDAGA!</font size>"
 					verb/Disable_Innovate()
 						set category = "Other"
@@ -2881,9 +2881,10 @@ obj
 					Area="Around Target"
 					Distance=15
 					DistanceAround=7
-					DamageMult=8
+					DamageMult=12
 					ManaCost=20
-					Cooldown=120
+					Cooldown=60
+					EndRate = 0.5
 					GuardBreak=1
 					Slow=0.5
 					DelayTime=1
@@ -3211,7 +3212,7 @@ obj
 				PostShockwave=0
 				Shockwave=2
 				Shockwaves=2
-				DamageMult=12
+				DamageMult=14
 				WindUp=0.5
 				WindupMessage="sheathes their blade..."
 				ActiveMessage="blasts through all opposition in a blink of an eye!"
@@ -3224,7 +3225,7 @@ obj
 				TurfStrike=1
 				TurfShift='Dirt1.dmi'
 				TurfShiftDuration=3
-				Cooldown=120
+				Cooldown=60
 				Instinct=1
 				verb/Crowd_Cutter()
 					set category="Skills"
@@ -3254,7 +3255,7 @@ obj
 				HitSparkIcon='BLANK.dmi'
 				HitSparkX=0
 				HitSparkY=0
-				Cooldown=120
+				Cooldown=60
 				Instinct=1
 				verb/Holy_Justice()
 					set category="Skills"
@@ -3284,7 +3285,7 @@ obj
 				HitSparkIcon='BLANK.dmi'
 				HitSparkX=0
 				HitSparkY=0
-				Cooldown=120
+				Cooldown=60
 				Instinct=1
 				verb/Doom_of_Damocles()
 					set category="Skills"

@@ -513,8 +513,8 @@ mob
 				src.Tension+=0.7 * (glob.TENSION_MULTIPLIER)*(TensionRando/10)
 				if(src.Tension>100)
 					src.Tension=100
-			if(passive_handler["LegendarySaiyan"]&&src.Tension>=100&&src.transActive==src.transUnlocked)
-				src.DoDamage(src, (rand(1,5)/10))
+			if(passive_handler["LegendarySaiyan"]&&src.Tension>=100&&src.transActive==src.transUnlocked&&!src.Stunned)
+				src.DoDamage(src, (rand(1,5)/30))
 			if(passive_handler["Grit"])
 				AdjustGrit("sub", glob.racials.GRITSUBTRACT)
 			if((isRace(SAIYAN) || isRace(HALFSAIYAN))&&transActive>0)

@@ -95,7 +95,7 @@ scaling with potential as well
 	BuffName = "Herald of the Depths"
 	adjust(mob/p)
 		if(altered) return
-		passives = list("CalmAnger" = 1,"BleedHit"=0.1, "LikeWater" = 2 + round(p.Potential/15,1),"SlayerMod"= 0.5*(p.AscensionsAcquired+1),\
+		passives = list("CalmAnger" = 1, "LikeWater" = 2 + round(p.Potential/15,1),"SlayerMod"= 0.5*(p.AscensionsAcquired+1),\
 						"Powerhouse" = 2 + (p.Potential/25), "Instinct" = 5, "Flicker" = 3, "Pursuer" = 3, "PureDamage" = 3, "AbyssMod" = round(p.Potential/15,1), "FavoredPrey" = "Beyond")
 		StrMult = 1.45 + (p.Potential/30)
 		ForMult = 1.45 + (p.Potential/30)
@@ -117,7 +117,7 @@ scaling with potential as well
 	p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/HellbornFury/Stage_Two)
 	p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/HellbornFury/Stage_Three)
 	p.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/HellbornFury/Stage_Four)
-	p.passive_handler.Increase("Hellpower", 1)
+	p.passive_handler.Increase("HellPower", 1)
 	p.passive_handler.Increase("Persistence", 2)
 	p.passive_handler.Increase("MaimMastery", 1)
 	p.AddSkill(new/obj/Skills/False_Moon)

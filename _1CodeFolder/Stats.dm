@@ -820,8 +820,9 @@ mob/proc/
 		if(passive_handler["Holding Back"])
 			IncompleteRatio=passive_handler["Holding Back"]
 			Ratio/=IncompleteRatio
-		if(passive_handler["LegendarySaiyan"]&&Tension==100&&src.transActive==src.transUnlocked)
-			Ratio*=1.5
+		if(passive_handler["LegendarySaiyan"])
+			if(Tension==100&&transActive==transUnlocked)
+				Ratio*=1.5
 		Power=Ratio*GetPowerUpRatio()
 
 		if(Power < 1)
@@ -1245,8 +1246,9 @@ mob/proc/Get_Scouter_Reading(mob/B)
 	Ratio*=B.Base() * 100
 	temp_potential_power(B)//get them potential powers
 	Ratio*=B.potential_power_mult
-	if(passive_handler["LegendarySaiyan"]&&Tension==100&&src.transActive==src.transUnlocked)
-		Ratio*=50
+	if(passive_handler["LegendarySaiyan"])
+		if(Tension==100&&transActive==transUnlocked)
+			Ratio*=50
 
 	//BODY CONDITION ADJUSTMENTS
 	if(!B.passive_handler.Get("Piloting"))

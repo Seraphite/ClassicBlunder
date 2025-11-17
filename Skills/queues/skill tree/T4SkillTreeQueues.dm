@@ -18,7 +18,7 @@ obj
 				UnarmedOnly=1
 				EnergyCost=4
 				Quaking=1
-				Cooldown=120
+				Cooldown=60
 				verb/GET_DUNKED()
 					set category="Skills"
 					set name="Get Dunked"
@@ -65,7 +65,7 @@ obj
 				UnarmedOnly=1
 				EnergyCost=4
 				Quaking=4
-				Cooldown=120
+				Cooldown=60
 				verb/Curbstomp()
 					set category="Skills"
 					set name="Curbstomp"
@@ -85,7 +85,7 @@ obj
 				Dunker=1
 				Decider=1
 				KBMult=0.0001
-				Cooldown=120
+				Cooldown=60
 				UnarmedOnly=1
 				EnergyCost=5
 				verb/Six_Grand_Openings()
@@ -103,7 +103,7 @@ obj
 				Duration=5
 				Stunner=4
 				KBMult=0.0001
-				Cooldown=120
+				Cooldown=60
 				UnarmedOnly=1
 				EnergyCost=4
 				verb/Skullcrusher()
