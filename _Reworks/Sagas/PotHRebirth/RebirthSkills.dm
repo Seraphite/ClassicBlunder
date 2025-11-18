@@ -651,6 +651,7 @@ obj/Skills/Projectile
 		Dodgeable=-1
 		Deflectable=-1
 		IconLock='RudeBuster.dmi'
+		LockX=-16
 		IconSize=1
 		Radius=3
 		Homing=1
@@ -661,7 +662,7 @@ obj/Skills/Projectile
 	Red_Buster
 		Distance=40
 		Charge=0.25
-		ManaCost=50
+		ManaCost=40
 		DamageMult=8
 		PartyReq=1
 		PartyReqType="Cyan"
@@ -671,6 +672,7 @@ obj/Skills/Projectile
 		Dodgeable=-1
 		Deflectable=-1
 		IconLock='RudeBuster.dmi'
+		LockX=-16
 		IconSize=1
 		Radius=3
 		Homing=1
@@ -689,6 +691,7 @@ obj/Skills/Projectile
 		Dodgeable=-1
 		Deflectable=-1
 		IconLock='RudeBuster.dmi'
+		LockX=-16
 		IconSize=1
 		Radius=3
 		Homing=1
@@ -707,6 +710,7 @@ obj/Skills/Projectile
 		Dodgeable=-1
 		Deflectable=-1
 		IconLock='RudeBuster.dmi'
+		LockX=-16
 		IconSize=1
 		Radius=3
 		Homing=1
@@ -830,8 +834,6 @@ obj/Skills/Buffs
 			SwordName="Devilsknife"
 			SwordIcon='PlaceholderBlackScythe.dmi'
 			BuffTechniques=list("/obj/Skills/Projectile/Rebirth/Devilsbuster")
-			SwordX=-32
-			SwordY=-32
 			SwordClass="Medium"
 			ForMult=1.15
 			StrMult=1.3
@@ -853,8 +855,6 @@ obj/Skills/Buffs
 			MakesSword=1
 			SwordName="Axe of Justice"
 			SwordIcon='PlaceholderBlackScythe.dmi'
-			SwordX=-32
-			SwordY=-32
 			SwordClass="Heavy"
 			StrMult=1.75
 			SwordAscension=5
@@ -872,7 +872,7 @@ obj/Skills/Buffs
 		Spookysword
 			MakesSword=1
 			SwordName="Spookysword"
-			SwordIcon='PlaceholderBlackScythe.dmi'
+			SwordIcon='Spookysword.dmi'
 			SwordX=-32
 			SwordY=-32
 			SwordClass="Medium"
@@ -885,6 +885,9 @@ obj/Skills/Buffs
 			adjust(mob/p)
 				passives = list("PUSpike"=50)
 				PowerMult=1.25
+				if(p.SagaLevel>=3)
+					StrMult=1.5
+					ForMult=1.5
 			verb/Spookysword()
 				set category="Skills"
 				adjust(usr)

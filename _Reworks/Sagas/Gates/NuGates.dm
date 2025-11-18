@@ -80,7 +80,7 @@
 	spdAdd=0.25
 	endAdd=0.1
 	adjust(mob/p)
-		passives = list("TechniqueMastery"=0.5, "Pursuer"=1.5, "Flicker"=1.5,"Godspeed"=1,"PUSpike" = 20)
+		passives = list("Blurring Strikes"=1, "Momentum"=1, "Instinct"=1, "PUSpike" = 20)
 	Trigger(mob/User, Override=FALSE)
 		adjust(User)
 		..()
