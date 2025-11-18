@@ -651,6 +651,7 @@ obj/Skills/Projectile
 		Dodgeable=-1
 		Deflectable=-1
 		IconLock='RudeBuster.dmi'
+		LockX=-16
 		IconSize=1
 		Radius=3
 		Homing=1
@@ -661,7 +662,7 @@ obj/Skills/Projectile
 	Red_Buster
 		Distance=40
 		Charge=0.25
-		ManaCost=50
+		ManaCost=40
 		DamageMult=8
 		PartyReq=1
 		PartyReqType="Cyan"
@@ -671,6 +672,7 @@ obj/Skills/Projectile
 		Dodgeable=-1
 		Deflectable=-1
 		IconLock='RudeBuster.dmi'
+		LockX=-16
 		IconSize=1
 		Radius=3
 		Homing=1
@@ -689,6 +691,7 @@ obj/Skills/Projectile
 		Dodgeable=-1
 		Deflectable=-1
 		IconLock='RudeBuster.dmi'
+		LockX=-16
 		IconSize=1
 		Radius=3
 		Homing=1
@@ -707,6 +710,7 @@ obj/Skills/Projectile
 		Dodgeable=-1
 		Deflectable=-1
 		IconLock='RudeBuster.dmi'
+		LockX=-16
 		IconSize=1
 		Radius=3
 		Homing=1

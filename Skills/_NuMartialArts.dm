@@ -524,7 +524,7 @@ obj
 							StyleDef=1.25
 							StyleFor=1.5
 							StyleActive="Ghost Drive"
-							passives = list("Likewater" = 1, "Godspeed" = 1, "MovingCharge" = 1, "QuickCast" = 1, "SpiritFlow" = 0.5)
+							passives = list("LikeWater" = 1, "Godspeed" = 1, "MovingCharge" = 1, "QuickCast" = 1, "SpiritFlow" = 0.5)
 							Afterimages=1
 							Finisher="/obj/Skills/Queue/Finisher/Ghost_Drive"
 							adjust(mob/p)

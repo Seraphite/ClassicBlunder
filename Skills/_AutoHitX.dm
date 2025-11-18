@@ -3225,7 +3225,7 @@ obj
 				TurfStrike=1
 				TurfShift='Dirt1.dmi'
 				TurfShiftDuration=3
-				Cooldown=75
+				Cooldown=60
 				Instinct=1
 				verb/Crowd_Cutter()
 					set category="Skills"

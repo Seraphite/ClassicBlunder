@@ -560,8 +560,8 @@
 										var/hitsparkSword = swordAtk
 										disperseX=rand((-1)*AttackQueue.HitSparkDispersion, AttackQueue.HitSparkDispersion)
 										disperseY=rand((-1)*AttackQueue.HitSparkDispersion, AttackQueue.HitSparkDispersion)
-										if(swordAtk && HasBladeFisting())
-											hitsparkSword = 0
+								//		if(swordAtk && HasBladeFisting())
+								//			hitsparkSword = 0
 										HitEffect(enemy, unarmedAtk, hitsparkSword, SecondStrike, ThirdStrike, disperseX, disperseY)
 									if(enemy.CheckSpecial("Ultra Instinct"))
 										//TODO play the ultra instinct sound
@@ -586,8 +586,8 @@
 									disperseX=rand((-1)*AttackQueue.HitSparkDispersion, AttackQueue.HitSparkDispersion)
 									disperseY=rand((-1)*AttackQueue.HitSparkDispersion, AttackQueue.HitSparkDispersion)
 									var/hitsparkSword = swordAtk
-									if(swordAtk && HasBladeFisting())
-										hitsparkSword = 0
+								//	if(swordAtk && HasBladeFisting())
+								//		hitsparkSword = 0
 									HitEffect(enemy, unarmedAtk, hitsparkSword, SecondStrike, ThirdStrike, disperseX, disperseY)
 								StunClear(enemy)
 								AfterImageStrike(enemy,src,1)
@@ -616,8 +616,8 @@
 										disperseX=rand((-1)*AttackQueue.HitSparkDispersion, AttackQueue.HitSparkDispersion)
 										disperseY=rand((-1)*AttackQueue.HitSparkDispersion, AttackQueue.HitSparkDispersion)
 										var/hitsparkSword = swordAtk
-										if(swordAtk && HasBladeFisting())
-											hitsparkSword = 0
+								//		if(swordAtk && HasBladeFisting())
+								//			hitsparkSword = 0
 										HitEffect(enemy, unarmedAtk, hitsparkSword, SecondStrike, ThirdStrike, disperseX, disperseY)
 									enemy.dir = get_dir(enemy,src)
 									StunClear(enemy)
@@ -822,8 +822,8 @@
 									disperseX=rand((-1)*AttackQueue.HitSparkDispersion, AttackQueue.HitSparkDispersion)
 									disperseY=rand((-1)*AttackQueue.HitSparkDispersion, AttackQueue.HitSparkDispersion)
 									var/hitsparkSword = swordAtk
-									if(swordAtk && HasBladeFisting())
-										hitsparkSword = 0
+								//	if(swordAtk && HasBladeFisting())
+								//		hitsparkSword = 0
 									HitEffect(enemy, unarmedAtk, hitsparkSword, SecondStrike, ThirdStrike, disperseX, disperseY)
 								if(AttackQueue?.PushOut)
 									var/shockwave = AttackQueue.PushOutWaves
@@ -854,8 +854,8 @@
 									QueuedHitMessage(enemy)
 									src.doQueueEffects(enemy)
 							var/hitsparkSword = swordAtk
-							if(swordAtk && HasBladeFisting())
-								hitsparkSword = 0
+						//	if(swordAtk && HasBladeFisting())
+						//		hitsparkSword = 0
 							HitEffect(enemy, unarmedAtk, hitsparkSword, SecondStrike, ThirdStrike, disperseX, disperseY)
 
 

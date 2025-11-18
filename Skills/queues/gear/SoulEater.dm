@@ -24,41 +24,75 @@ obj
 				verb/Heart_Slayer()
 					set category="Skills"
 					usr.SetQueue(src)
-			Soul_Render
-				name="Soul Render"
-				ActiveMessage="'s heart is filled with dreadful darkness, as they position themselves for an unthinkable strike .."
-				HitMessage="<b><font color='red'> slices into their opponents heart, butchering their soul! </font color> </b>"
-				DamageMult=2.25
-				AccuracyMult = 1.175
-				KBMult=0.00001
-				MaimStrike=1
-				HitSparkIcon='Slash - Black.dmi'
+obj
+	Skills
+		AutoHit
+			Dark_Break
+				Copyable=5
+				NeedsSword=1
+				Area="Target"
+				GuardBreak=1
+				StrOffense=1
+				ForOffense=1
+				DamageMult=5
+				SpeedStrike=5
+				Distance=10
+				PassThrough=1
+				PreShockwave=1
+				PostShockwave=1
+				HitSparkIcon='Slash - Vampire.dmi'
+				HitSparkX=-32
+				HitSparkY=-32
+				Shockwave=2
+				Shockwaves=2
+				ActiveMessage="appears above their opponent for an instantaneous overhead slash!"
+				Cooldown=60
+				EnergyCost=10
+				verb/Dark_Break()
+					set category="Skills"
+					adjust(usr)
+					usr.Activate(src)
+			Shadowbreaker
+				SkillCost=TIER_4_COST
+				Copyable=5
+				NeedsSword=1
+				Area="Wide Wave"
+				StrOffense=1
+				ForOffense=1
+				Distance=10
+				PassThrough=1
+				PreShockwave=1
+				PostShockwave=0
+				Shockwave=2
+				Shockwaves=2
+				SpeedStrike=4
+				DamageMult=10
+				ActiveMessage="spins forward at high speed, surrounded by the power of darkness!"
+				HitSparkIcon='Slash - Vampire.dmi'
 				HitSparkX=-32
 				HitSparkY=-32
 				HitSparkTurns=1
-				HitSparkSize=1.1
-				Cooldown=150 //once per fight
-				Decider=1
-				NeedsSword=1
-				verb/Riku_Soul_Render()
+				HitSparkSize=1
+				HitSparkDispersion=1
+				TurfStrike=1
+				TurfShift='StarPixel.dmi'
+				TurfShiftDuration=3
+				Cooldown=60
+				Instinct=1
+				verb/Crowd_Cutter()
 					set category="Skills"
-					usr.SetQueue(src)
-			Darkness_Blast
-				Stunner=5
-				BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Dark_Impulse"
-				FollowUp="/obj/Skills/AutoHit/Soul_Blast"
-				HitMessage="unleashes a point-blank blast of darkness!"
-				verb/Darkness_Blast()
-					set category="Skills"
-					usr.SetQueue(src)
+					usr.Activate(src)
 /obj/Skills/Buffs/NuStyle/SwordStyle
 	Seeker_of_Darkness
 		SignatureTechnique = 2
-		passives = list("BladeFisting" = 1, "MagicSword" = 1, "DarknessFlame" = 1, "LifeSteal" = 25, "AbyssMod" = 2)
+		passives = list("BladeFisting" = 1, "MagicSword" = 1, "LifeSteal" = 25, "AbyssMod" = 2)
 		ElementalOffense = "Heartless"
 		ElementalDefense = "Dark"
 		ElementalClass = "Fire"
-		StyleActive = "Seeker of Darkness Stance"
+		StyleActive = "Seeker of Darkness"
+		StyleSpd = 1.3
+		StyleStr = 1.3
+		Finisher="/obj/Skills/Queue/Finisher/Dark_Aura"
 		ManaGlow="#f000e4"
 		ManaGlowSize=2
 		adjust(mob/p)
@@ -66,23 +100,28 @@ obj
 			for(var/obj/Items/Sword/Medium/Legendary/Soul_Eater/SE in src)
 				if(findtext(SE.suffix, "Equipped"))
 					if(SE.SEType=="Sword")
-						passives = list("HybridStyle" = "MysticStyle", "BladeFisting" = 1, "MagicSword" = 1, "DarknessFlame" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
-						 "Iaijutsu" = 1, "BlurringStrikes"=2.5, "CriticalChance" = 15, "CriticalDamage"= 0.1)
+						passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
+						 "Iaijutsu" = 1, "BlurringStrikes"=2.5, "CriticalChance" = 15, "CriticalDamage"= 0.1,"Fury" = 3 )
 						StyleSpd = 1.3
 						StyleStr = 1.3
+						StyleFor = 1
+						StyleEnd = 1
 						Finisher="/obj/Skills/Queue/Finisher/Dark_Aura"
 					else if(SE.SEType=="Staff")
-						passives = list("HybridStyle" = "MysticStyle", "BladeFisting" = 1, "MagicSword" = 1, "DarknessFlame" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
+						passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
 						 "ManaGeneration"=2, "SpiritSword" = 0.15, "QuickCast"=1)
 						StyleFor = 1.3
 						StyleStr = 1.3
+						StyleSpd = 1
+						StyleEnd = 1
 						Finisher="/obj/Skills/Queue/Finisher/Dark_Firaga"
 					else if(SE.SEType=="Shield")
-						passives = list("HybridStyle" = "MysticStyle", "BladeFisting" = 1, "MagicSword" = 1, "DarknessFlame" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
+						passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
 						 "Hardening"=2, "Momentum" = 1.5, "Pressure" = 1, "BlockChance" = 15)
 						StyleEnd = 1.3
 						StyleStr = 1.15
 						StyleFor = 1.15
+						StyleSpd=1
 						Finisher="/obj/Skills/Queue/Finisher/Dark_Wave"
 		verb/Seeker_of_Darkness()
 			set hidden=1
