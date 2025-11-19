@@ -11739,7 +11739,7 @@ mob
 					if(src.passive_handler.Get("HellPower")||src.StarPowered)
 						src.ActiveBuff.AutoAnger=1
 						src.ActiveBuff.AngerMult=2
-						src.ActiveBuff.passives["PUSpike"] = 100
+						src.ActiveBuff.passives["PUSpike"] = 75
 						src.ActiveBuff.passives["Pursuer"] = 2 * AscensionsAcquired
 
 					else if(passive_handler.Get("ArtificalStar"))
