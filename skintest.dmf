@@ -1583,11 +1583,12 @@ window "mainwindow"
 		is-default = true
 		saved-params = "pos;size;is-maximized"
 		title = "Roleplay Rebirth: The Fourth Fate"
+		statusbar = false
 		icon = 'CreationPics\\fouthfate.png'
 		image-mode = center
 		macro = "macro"
 		menu = "menu"
-		outer-size = 976x828
+		outer-size = 976x809
 		outer-pos = 291,0
 		inner-size = 960x750
 		inner-pos = 8,51

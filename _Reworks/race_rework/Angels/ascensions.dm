@@ -49,10 +49,6 @@ ascension
 			unlock_potential = ASCENSION_THREE_POTENTIAL
 			passives = list("HolyMod" = 1, "SpiritPower" = 0.25, " KiControlMastery"=1,  "CalmAnger" = 1)
 			anger = 0.2
-			strength = 0.35
-			force = 0.35
-			endurance = 0.5
-			speed = 0.25
 			on_ascension_message = "You shall not abide evil."
 			postAscension(mob/owner)
 				//t3 style/armor, can now teach style
@@ -70,14 +66,7 @@ ascension
 				owner.Class = "Virtue"
 		four
 			unlock_potential = ASCENSION_FOUR_POTENTIAL
-			passives = list("HolyMod" = 2, "TechniqueMastery" = 1)
-			strength = 0.25
-			force = 0.25
-			defense = 0.75
-			offense = 0.75
-			endurance = 0.25
-			speed = 0.75
-			recovery = 0.25
+			passives = list("HolyMod" = 2, "TechniqueMastery" = 1, "GodKi"=1)
 			on_ascension_message = "You shall not abide evil."
 			postAscension(mob/owner)
 				//t4 style

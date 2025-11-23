@@ -430,6 +430,7 @@
 #include "_Reworks\race_rework\beastman\racial\neverfall.dm"
 #include "_Reworks\race_rework\Celestials\ascensions.dm"
 #include "_Reworks\race_rework\Celestials\race.dm"
+#include "_Reworks\race_rework\Celestials\transformations.dm"
 #include "_Reworks\race_rework\changeling\ascensions.dm"
 #include "_Reworks\race_rework\changeling\race.dm"
 #include "_Reworks\race_rework\changeling\transformations.dm"

@@ -15,7 +15,7 @@ proc/generateVersionDatum()
 		glob.currentUpdate = updateversion
 
 globalTracker
-	var/UPDATE_VERSION = 27
+	var/UPDATE_VERSION = 28
 	var/tmp/update/currentUpdate
 
 	proc/updatePlayer(mob/p)
@@ -487,6 +487,20 @@ update
 				o.race.transformations += new /transformation/human/super_high_tension()
 				o.race.transformations += new /transformation/human/super_high_tension_MAX()
 				o.race.transformations += new /transformation/human/unlimited_high_tension()
+	version28
+		version = 28
+		updateMob(mob/o)
+			.=..()
+			if(o.isRace(CELESTIAL))
+				for(var/transformation/human/HT in o.race.transformations)
+					o.race.transformations -=HT
+					del HT
+				o<< "Your old High Tension Forms have been removed due to getting your own unique variations. Please restore your customizations."
+				o.race.transformations += new /transformation/celestial/high_tension()
+				o.race.transformations += new /transformation/celestial/high_tension_MAX()
+				o.race.transformations += new /transformation/celestial/super_high_tension()
+				o.race.transformations += new /transformation/celestial/super_high_tension_MAX()
+				o.race.transformations += new /transformation/celestial/unlimited_high_tension()
 
 
 
