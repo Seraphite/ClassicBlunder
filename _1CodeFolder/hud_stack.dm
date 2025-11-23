@@ -151,13 +151,14 @@ client/proc/remove_hud(id)
 			barbg.maptext = "[CHAT_STYLE][client.mob.vars["[linked_var]"]]"
 		barbg.maptext_y = 16
 		barbg.maptext_width = 62
+		barbg.filters = list(filter(type="outline", size=1, color=rgb(255, 255, 255)))
 		client.screen+=holder
 		client.screen+=barbg
 		meter.animateBar(-32,4)
 	Update()
-		
-		var/val = 0 
-		if(linked_var == "HotnCold")
+
+		var/val = 0
+		if(linked_var == "HotnCold" && client.mob.UsingHotnCold())
 			val = client.mob.vars["[linked_var]"]
 			if(holder.alpha == 0 || barbg.alpha == 0)
 				animate(holder, alpha = 255, time = 2)
@@ -166,6 +167,11 @@ client/proc/remove_hud(id)
 				meter.animateBar(clamp(val/3, -33, 33) , glob.STACK_ANIMATE_TIME)
 				barbg.maptext = "[CHAT_STYLE][val]"
 			return
+		else if (linked_var == "HotnCold")
+			client.mob.vars["[linked_var]"] = 0
+			animate(holder, alpha = 0, time = 2)
+			animate(barbg, alpha = 0, time = 2)
+
 		if(linked_var == "Grit")
 			val = client.mob.passive_handler.Get("Grit")
 		else
@@ -175,6 +181,7 @@ client/proc/remove_hud(id)
 				animate(holder, alpha = 255, time = 2)
 				animate(barbg, alpha = 255, time = 2)
 			barbg.maptext = "[CHAT_STYLE][val]"
+			barbg.filters = list(filter(type="outline", size=1, color=rgb(255, 255, 255)))
 			var/gap = 32 - glob.vars["MAX_[uppertext(linked_var)]_STACKS"]
 			if(val > glob.vars["MAX_[uppertext(linked_var)]_STACKS"] )
 				meter.animateBar(clamp(val/3, 0, 32) - 32,glob.STACK_ANIMATE_TIME)

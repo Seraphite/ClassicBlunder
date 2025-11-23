@@ -29,10 +29,14 @@ obj
 //Martial
 			NuStyle
 				var/tensionStorage = 0
+				var/hotColdStorage = 0
 				var/last_storage = 0
 				var/tmp/triggerTension
 				proc/turnOff(mob/p)
 					tensionStorage = p.Tension
+					if(p.StyleBuff.StyleActive == "Hot Style" || \
+			   p.StyleBuff.StyleActive == "Cold Style")
+						hotColdStorage = p.StyleBuff?:hotCold
 					last_storage = world.time
 					Trigger(usr, 1)
 					cooldown_remaining = 0
@@ -44,6 +48,13 @@ obj
 							tensionStorage = 0
 					else
 						tensionStorage = 0
+				proc/giveBackHotCold(mob/p)
+					if(last_storage + 1200 > world.time)
+						if(hotColdStorage)
+							p.StyleBuff?:hotCold = hotColdStorage
+							hotColdStorage = 0
+						else
+							hotColdStorage = 0
 				proc/initUnlock()
 					// hehe
 					var/obj/Skills/Buffs/NuStyle/eh = new type
@@ -178,10 +189,10 @@ obj
 						StyleStr=1.15
 						StyleEnd=1.15
 						StyleSpd=1.45
-						StyleActive="Strong Fist"
+						StyleActive="Stronger Fist"
 						passives = list("Pursuer" = 2, "TechniqueMastery" = 2, "Flicker"=2)
 						AllOutAttack=1
-						verb/Ansatsuken_Style()
+						verb/Stronger_Fist()
 							set hidden=1
 							src.Trigger(usr)
 					Strongest_Fist //t5????
@@ -190,10 +201,10 @@ obj
 						StyleStr=1.25
 						StyleEnd=1.25
 						StyleSpd=1.6
-						StyleActive="Strong Fist"
+						StyleActive="Strongest Fist"
 						passives = list("Pursuer" = 4, "TechniqueMastery" = 2.5, "Flicker"=4)
 						AllOutAttack=1
-						verb/Ansatsuken_Style()
+						verb/Strongest_Fist()
 							set hidden=1
 							src.Trigger(usr)
 

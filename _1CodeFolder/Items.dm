@@ -92,6 +92,8 @@ obj/Items
 	var/Saga //Associated Tier S
 	var/list/TierTechniques=list()//1="technique name" and so on
 	var/LockedLegend=0//dont give me my sword jutsu
+	var/LocksOutSlotless //self-explanatory
+	var/LocksOutAutonomous //self-explanatory
 
 	var/Stackable=0//If this is flagged, it will accumulate stacks of the item
 	var/TotalStack=1//Only used if stackable.
