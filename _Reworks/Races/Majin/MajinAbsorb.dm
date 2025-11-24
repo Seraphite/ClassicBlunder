@@ -231,6 +231,9 @@ proc/removeDuplicates(list/list1)
             . += "ManaGeneration"
             . += "QuickCast"
             . += "CashCow"
+            . += "TechniqueMastery"
+            . += "StyleMastery"
+            . += "Holding Back"
     . = removeDuplicates(.)
 
 
