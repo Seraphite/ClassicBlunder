@@ -21,7 +21,7 @@ ascension
 				owner.Class = "Principality"
 		two
 			unlock_potential = ASCENSION_TWO_POTENTIAL
-			passives = list("HolyMod" = 0.75, "SpiritPower" = 0.25,"SpiritFlow"=0.5,"CallousedHands"=0.3,"SpiritSword"=0.5,"SpiritHand"=2)
+			passives = list("HolyMod" = 0.75, "SpiritPower" = 0.25,"SpiritFlow"=1,"CallousedHands"=0.3,"SpiritSword"=0.5,"SpiritHand"=2)
 			strength = 0.35
 			force = 0.35
 			defense = 0.35
