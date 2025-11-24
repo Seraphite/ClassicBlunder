@@ -12,7 +12,7 @@ ascension
 							strength = 0.5
 							speed = 0.25
 							anger = 0.15 // 1.4
-							passives = list("Hellrisen" = 0.25, "Wrathful Tenacity" = 0.2, "AngerAdaptiveForce" = 0.25)
+							passives = list("HellRisen" = 0.25, "Wrathful Tenacity" = 0.2, "AngerAdaptiveForce" = 0.25)
 						if("Dragon")  /// after the merge, unmerged Dragon and Warrior will also receive some scaling power. Levi added it in for Gaja's in his push
 							///power = 0.75
 							passives = list("SpiritFlow" = 0.25, "QuickCast"=0.5)
@@ -41,7 +41,7 @@ ascension
 						endurance = 0.25
 						anger = 0.1 // 1.5
 						skills = list(/obj/Skills/Buffs/SpecialBuffs/Daimou_Form)
-						passives = list("Hellrisen" = 0.25, "Wrathful Tenacity" = 0.1, "DemonicDurability" = 0.5)
+						passives = list("HellRisen" = 0.25, "Wrathful Tenacity" = 0.1, "DemonicDurability" = 0.5)
 					if("Dragon")
 						//power = 1
 						passives =list("SpiritHand" = 0.5, "SpiritFlow" = 0.25, "QuickCast"=0.5, "ManaPU" = 1)

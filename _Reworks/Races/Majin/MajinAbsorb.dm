@@ -215,6 +215,25 @@ proc/removeDuplicates(list/list1)
             . += "Erosion"
             . += "SpiritHand"
             . += "Godspeed"
+        if(ANGEL)
+            . += "SpiritPower"
+            . += "TechniqueMastery"
+            . += "StyleMastery"
+        if(CELESTIAL)
+            . += "Tenacity"
+            . += "Adrenaline"
+            . += "SpiritPower"
+        if(MAKAIOSHIN)
+            . += "SpiritPower"
+            . += "HellPower"
+            . += "HellRisen"
+        if(POPO)
+            . += "ManaGeneration"
+            . += "QuickCast"
+            . += "CashCow"
+            . += "TechniqueMastery"
+            . += "StyleMastery"
+            . += "Holding Back"
     . = removeDuplicates(.)
 
 

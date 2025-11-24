@@ -19,13 +19,13 @@
 	// jsut set the niggas hellpower to 1
 	adjust(mob/p)
 		if(p.AscensionsAcquired==1)
-			passives =list("AngerAdaptiveForce" = 0.1, "TechniqueMastery" = 2, "Juggernaut" = 1, "Hellrisen" = 0.25, , "FakePeace" = -1)
+			passives =list("AngerAdaptiveForce" = 0.1, "TechniqueMastery" = 2, "Juggernaut" = 1, "HellRisen" = 0.25, , "FakePeace" = -1)
 		if(p.AscensionsAcquired==2)
-			passives = list("AngerAdaptiveForce" = 0.2,"TechniqueMastery" = 3, "FluidForm" = 1, "Juggernaut" = 1.5, "Hellrisen" = 0.5, , "FakePeace" = -1)
+			passives = list("AngerAdaptiveForce" = 0.2,"TechniqueMastery" = 3, "FluidForm" = 1, "Juggernaut" = 1.5, "HellRisen" = 0.5, , "FakePeace" = -1)
 		if(p.AscensionsAcquired==3)
-			passives = list("AngerAdaptiveForce" = 0.25,"TechniqueMastery" = 4, "FluidForm" = 1.5, "Juggernaut" = 2,"Hellrisen" = 0.5, , "FakePeace" = -1)
+			passives = list("AngerAdaptiveForce" = 0.25,"TechniqueMastery" = 4, "FluidForm" = 1.5, "Juggernaut" = 2,"HellRisen" = 0.5, , "FakePeace" = -1)
 		if(p.AscensionsAcquired==4)
-			passives = list("AngerAdaptiveForce" = 0.5,"TechniqueMastery" = 6, "FluidForm" = 2, "Juggernaut" = 2,"Hellrisen" = 0.5, , "FakePeace" = -1)
+			passives = list("AngerAdaptiveForce" = 0.5,"TechniqueMastery" = 6, "FluidForm" = 2, "Juggernaut" = 2,"HellRisen" = 0.5, , "FakePeace" = -1)
 		var/hellpowerdif = 1 - p.passive_handler.Get("HellPower")
 		if(hellpowerdif < 0)
 			hellpowerdif = 0
