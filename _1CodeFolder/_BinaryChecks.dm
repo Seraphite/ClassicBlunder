@@ -1558,7 +1558,12 @@ mob
 				return 1
 			return 0
 		HasSpiritPower()
-			return passive_handler.Get("SpiritPower")
+			if(passive_handler.Get("SpiritPower"))
+				return 1
+			return 0
+		GetSpiritPower()
+			var/spiritpower = passive_handler.Get("SpiritPower")
+			return spiritpower
 		HasMythical()
 			var/Extra=0
 			Extra += passive_handler.Get("Mythical")
@@ -1670,7 +1675,7 @@ mob
 				if(!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi())
 					return 1
 			if(src.HasSpiritPower()>=1 && FightingSeriously(src, 0))
-				if(src.Health<=max(15, (30+src.TotalInjury)*src.HasSpiritPower()) || src.InjuryAnnounce)
+				if(src.Health<=max(15, (30+src.TotalInjury)*src.GetSpiritPower()) || src.InjuryAnnounce)
 					return 1
 			if(src.KamuiBuffLock)
 				return 1
@@ -1681,11 +1686,11 @@ mob
 			if(glob.T3_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique==3)
 				Total+=glob.T3_STYLES_GODKI_VALUE
 			if(src.HasSpiritPower()>=1 && FightingSeriously(src, 0))
-				if(src.Health<=(30+src.TotalInjury)*src.HasSpiritPower())
+				if(src.Health<=(30+src.TotalInjury)*src.GetSpiritPower())
 					if(src.SenseUnlocked<7)//saintz
-						Total+=0.25*src.HasSpiritPower()
+						Total+=0.25*src.GetSpiritPower()
 					else
-						Total+=(0.25*src.HasSpiritPower()*0.5)//halved rate for god ki saints
+						Total+=(0.25*src.GetSpiritPower()*0.5)//halved rate for god ki saints
 			if(src.SenseUnlocked>6&&(src.SenseUnlocked>src.SenseRobbed))
 				if(src.SenseUnlocked>=7)
 					Total+=0.25

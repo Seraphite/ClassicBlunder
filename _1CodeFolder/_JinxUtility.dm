@@ -2268,9 +2268,9 @@ mob
 					return HolyDamageValue
 				else
 					return HolyDamageValue
-			else if(src.HasSpiritPower()>=0.25)
+			else if(src.GetSpiritPower()>=0.25)
 				if(!Forced)
-					var/spiritPower = (HasSpiritPower() / 2)
+					var/spiritPower = (GetSpiritPower() / 2)
 					return max(HolyDamageValue*spiritPower, 1)
 				else
 					return HolyDamageValue
@@ -2288,8 +2288,8 @@ mob
 					return GetAbyssMod()
 				else
 					return Forced
-			else if(HasSpiritPower()>=0.25)
-				var/spiritPower = (HasSpiritPower() / 2)
+			else if(GetSpiritPower()>=0.25)
+				var/spiritPower = (GetSpiritPower() / 2)
 				return clamp(src.GetAbyssMod()*spiritPower, 0.001, 10)
 		SlayerDamage(mob/P, Forced=0)
 			if(HasSlayerMod(P))
