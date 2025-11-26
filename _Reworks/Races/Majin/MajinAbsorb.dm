@@ -140,7 +140,7 @@ proc/removeDuplicates(list/list1)
 
 /mob/proc/getAllRacials()
     . = list()
-    for(var/x in list("Majin", "Half Saiyan", "Saiyan", "Human", "Makyo", "Namekian", "Monster", "Shinjin", "Demon"))
+    for(var/x in list("Majin", "Half Saiyan", "Saiyan", "Human", "Makyo", "Namekian", "Monster", "Shinjin", "Demon", "Celestial", "Angel", "Makaioshin", "Popo", "Beastman", "Yokai", "Eldritch", "Dragon"))
         . += getRacialPassives(x)
     return .
 
