@@ -357,6 +357,8 @@ majinAbsorb/proc/doAbsorb(mob/absorber, mob/absorbee)
         passiveticks = maxGain
         absorber.passive_handler.Set(passiveInQuestion, passiveticks)
     else
+        if(passiveticks == 0)
+            passiveticks = 0.5
         absorber.passive_handler.Increase("[passiveInQuestion]", passiveticks)
     absorber << "You have absorbed [passiveInQuestion] from [absorbee] making your total [absorber.passive_handler.Get(passiveInQuestion)]]!"
     absorbCount++
