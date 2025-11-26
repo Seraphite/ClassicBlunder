@@ -68,11 +68,23 @@ ascension
 			honor
 				skills = list(/obj/Skills/Buffs/SlotlessBuffs/Saiyan_Grit)
 				passives = list("Honor" = 1, "Defiance" = 1, "Juggernaut" = 0.5)
+				
+				onAscension(mob/owner)
+					owner.Class = "Honor"
+				..()	
 
 			pride
 				skills = list(/obj/Skills/Buffs/SlotlessBuffs/Saiyan_Dominance)
 				passives = list("Pride" = 1, "PureDamage" = 0.5)
+				
+				onAscension(mob/owner)
+					owner.Class = "Pride"
+				..()
 
 			zeal
 				skills = list(/obj/Skills/Buffs/SlotlessBuffs/Saiyan_Soul)
 				passives = list("Zeal" = 1, "Adaptation" = 0.5)
+				
+				onAscension(mob/owner)
+					owner.Class = "Zeal"
+				..()
