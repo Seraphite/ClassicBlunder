@@ -29,6 +29,9 @@ transformation
 			mastery_boons(mob/user)
 				if(mastery >= 0)
 					pot_trans=3
+				if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Racial/Human/Activate_High_Tension, user))
+					var/obj/Skills/Buffs/SlotlessBuffs/Racial/Human/Activate_High_Tension/s=new/obj/Skills/Buffs/SlotlessBuffs/Racial/Human/Activate_High_Tension
+					user.AddSkill(s)
 
 			adjust_transformation_visuals(mob/user)
 				if(!form_hair_icon&&user.Hair_Base)

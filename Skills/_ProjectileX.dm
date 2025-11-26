@@ -1795,7 +1795,7 @@ obj
 				verb/Spirit_Gun()
 					set category="Skills"
 					src.EnergyCost=usr.Energy
-					FatigueCost=EnergyCost/5
+					FatigueCost=EnergyCost/20
 					src.MultiHit=round(src.EnergyCost/10)
 					src.DamageMult=round(4.5 + EnergyCost/10) / MultiHit
 					usr.UseProjectile(src)

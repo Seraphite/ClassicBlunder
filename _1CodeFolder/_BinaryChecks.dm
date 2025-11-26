@@ -431,7 +431,7 @@ mob
 				Total=4
 			return Total
 		HasTensionLock()
-			if(passive_handler.Get("TensionPowered"))
+			if(passive_handler.Get("TensionPowered")&&!passive_handler.Get("FullTensionLock"))
 				return 0
 			if(passive_handler.Get("TensionLock"))
 				return 1
@@ -710,6 +710,8 @@ mob
 				Return += secretDatum.currentTier
 			Return+=passive_handler.Get("Godspeed")
 			Return+=passive_handler.Get("GodSpeed") // just in case man
+			if(passive_handler.Get("Super Kaioken"))
+				Return+=round(src.Kaioken/2)
 			var/t=src.HighestTrans()
 			if(t)
 				Return+=t/2
@@ -1116,9 +1118,14 @@ mob
 		HasUnarmedDamage()
 			if(passive_handler.Get("UnarmedDamage"))
 				return 1
+			if(usingStyle("UnarmedStyle"))
+				return 1
 			return 0
 		GetUnarmedDamage()
-			return passive_handler.Get("UnarmedDamage")
+			var/UnarmedBuff=0
+			if(StyleBuff&&usingStyle("UnarmedStyle"))
+				UnarmedBuff=StyleBuff.SignatureTechnique+1
+			return passive_handler.Get("UnarmedDamage") + UnarmedBuff
 		HasSpiritualDamage()
 			if(passive_handler.Get("SpiritualDamage"))
 				return 1
@@ -1525,11 +1532,15 @@ mob
 		HasManaGeneration()
 			if(passive_handler.Get("ManaGeneration"))
 				return 1
+			if(Saga=="Keyblade")
+				return 1
 			if(isRace(ELF))
 				return 1
 			return 0
 		GetManaGeneration()
 			var/managen = passive_handler.Get("ManaGeneration")
+			if(Saga=="Keyblade")
+				managen+=SagaLevel/2
 			if(isRace(ELF))
 				managen += AscensionsAcquired
 			return managen

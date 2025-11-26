@@ -107,7 +107,7 @@ obj
 				Finisher="/obj/Skills/Queue/Finisher/Dark_Aura"
 			else if(SE.SEType=="Staff")
 				passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
-				 "ManaGeneration"=2, "SpiritSword" = 0.15, "QuickCast"=1)
+				 "ManaGeneration"=3, "SpiritSword" = 1.25, "QuickCast"=3, "SpiritFlow" = 3)
 				StyleFor = 1.3
 				StyleStr = 1.3
 				StyleSpd = 1
@@ -142,7 +142,7 @@ obj
 			if(altered) return
 			var/obj/Items/Sword/Medium/Legendary/Soul_Eater/SE=p.EquippedSword()
 			if(SE.SEType=="Sword")
-				passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
+				passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "AbyssMod" = 2,\
 				 "Iaijutsu" = 1, "BlurringStrikes"=2.5, "DoubleStrike" = 3, "NeedsSecondSword" = 1,"Fury" = 3 )
 				StyleSpd = 1.3
 				StyleStr = 1.3
@@ -150,15 +150,15 @@ obj
 				StyleEnd = 1
 				Finisher="/obj/Skills/Queue/Finisher/Dark_Aura"
 			else if(SE.SEType=="Staff")
-				passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
-				 "ManaGeneration"=2, "SpiritSword" = 0.15, "DoubleCast"=1, "DoubleStrike" = 3, "NeedsSecondSword" = 1)
+				passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "AbyssMod" = 2,\
+				 "ManaGeneration"=2, "SpiritSword" = 0.75, "SpiritFlow" = 2, "DoubleCast"=1, "DoubleStrike" = 3, "NeedsSecondSword" = 1)
 				StyleFor = 1.3
 				StyleStr = 1.3
 				StyleSpd = 1
 				StyleEnd = 1
 				Finisher="/obj/Skills/Queue/Finisher/Dark_Firaga"
 			else if(SE.SEType=="Shield")
-				passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "LifeSteal" = 25, "AbyssMod" = 2,\
+				passives = list("HybridStyle" = "MysticStyle", "SweepingStrike" = 1, "BladeFisting" = 1, "MagicSword" = 1, "AbyssMod" = 2,\
 				 "Hardening"=1, "Momentum" = 2, "BlockChance" = 15, "DoubleStrike" = 3, "NeedsSecondSword" = 1)
 				StyleEnd = 1.3
 				StyleStr = 1.15
@@ -201,6 +201,9 @@ obj
 		Distance=50
 		AdaptRate=1
 		DamageMult=0.35
+		HyperHoming=1
+		ComboMaster=1
+		Stunner=5
 		MultiHit=20
 		AccMult=25
 		Knockback = 5
@@ -210,7 +213,6 @@ obj
 		IconLock='DeathBallStrong.dmi'
 		LockX=-158
 		LockY=-169
-		IconChargeOverhead=1
 		IconSize=0.025
 		IconSizeGrowTo=0.75
 		Variation=0

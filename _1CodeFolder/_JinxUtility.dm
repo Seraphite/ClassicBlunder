@@ -1322,10 +1322,10 @@ mob
 			if(passive_handler["Rebel Heart"])
 				var/h = (((missingHealth())/glob.REBELHEARTMOD) * passive_handler["Rebel Heart"])/10
 				Mod+=h
-			if(passive_handler.Get("TensionPowered")&&transActive==2)
+			if(passive_handler.Get("TensionPowered")&&transActive>=2)
 				Mod+=(passive_handler.Get("TensionPowered")/2)
-			if(passive_handler.Get("TensionPowered")&&transActive>=3)
-				Mod+=(passive_handler.Get("TensionPowered"))
+			if(passive_handler.Get("TensionPowered")&&transActive>=4)
+				Mod+=(passive_handler.Get("TensionPowered")/2)
 			Str*=Mod
 			Str*=Mult
 			if(src.HasMirrorStats())
@@ -1456,10 +1456,10 @@ mob
 				if(BaseFor() == BaseStr())
 					// lol
 					Mod += clamp(adaptive/2,0.05, 0.5)
-			if(passive_handler.Get("TensionPowered")&&transActive==2)
+			if(passive_handler.Get("TensionPowered")&&transActive>=2)
 				Mod+=(passive_handler.Get("TensionPowered")/2)
-			if(passive_handler.Get("TensionPowered")&&transActive>=3)
-				Mod+=(passive_handler.Get("TensionPowered"))
+			if(passive_handler.Get("TensionPowered")&&transActive>=4)
+				Mod+=(passive_handler.Get("TensionPowered")/2)
 
 			For*=Mod
 			For*=Mult
@@ -1585,7 +1585,9 @@ mob
 			if(src.EndEroded)
 				Mod-=src.EndEroded
 			if(passive_handler.Get("TensionPowered")&&transActive>=3)
-				Mod+=passive_handler.Get("TensionPowered")
+				Mod+=passive_handler.Get("TensionPowered")/2
+			if(passive_handler.Get("TensionPowered")&&transActive>=4)
+				Mod+=passive_handler.Get("TensionPowered")/2
 			if(passive_handler.Get("Determination(Green)"))
 				Mod+=(0.02*ManaAmount)
 

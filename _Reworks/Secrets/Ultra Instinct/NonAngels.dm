@@ -41,6 +41,7 @@
 				StyleSpd=1.45
 				StyleOff=1.45
 				StyleDef=1.45
+				passives = list("Deflection" = 1, "Soft Style" = 1, "Flow" = 3, "Instinct" = 1, "CounterMaster" = 1,"UnarmedDamage"=3)
 		verb/Incomplete_Ultra_Instinct()
 			set hidden=1
 			adjust(usr)
@@ -68,6 +69,7 @@
 				StyleSpd=1.75
 				StyleOff=1.75
 				StyleDef=1.75
+				passives = list("Deflection" = 1, "Soft Style" = 1, "Flow" = 3, "Instinct" = 1, "CounterMaster" = 1,"UnarmedDamage"=4)
 		verb/Mortal_Ultra_Instinct()
 			set hidden = 1
 			adjust(usr)
@@ -96,6 +98,7 @@
 				StyleSpd=2
 				StyleOff=2
 				StyleDef=2
+				passives = list("Deflection" = 1, "Soft Style" = 1, "Flow" = 3, "Instinct" = 1, "CounterMaster" = 1,"UnarmedDamage"=5)
 		verb/Perfected_Mortal_Ultra_Instinct()
 			set hidden = 1
 			adjust(usr)

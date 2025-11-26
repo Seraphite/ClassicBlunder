@@ -8,6 +8,7 @@
 		ElementalOffense = "Poison"
 		ElementalDefense = "Poison"
 		Finisher = "/obj/Skills/Queue/Finisher/Maxima_Press"
+		SignatureTechnique=1
 		StyleFor = 1.25
 		StyleStr = 1.25
 		StyleActive = "Circuit Breaker"

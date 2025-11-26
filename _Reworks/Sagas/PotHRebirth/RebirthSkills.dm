@@ -162,8 +162,7 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Blue_Experience //second act
 	ActiveMessage="burns brighter than they should."
 	SpdMult=1.5
 	Cooldown = 1
-	AwakeningRequired=1
-	AlwaysOn = 1
+	TimerLimit=300
 	HealthDrain = 0.05
 	passives = list("BuffMastery" = 1,"Pursuer" =2, "Godspeed"=2)
 //t4 path buffs
@@ -174,12 +173,13 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Show_Must_Go_On //third act
 	SpdMult=1.25
 	Cooldown = 1
 	AwakeningRequired=1
+	TimerLimit=300
 	passives = list("BuffMastery" = 1,"KiControlMaster" =1, "TechniqueMastery"=1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Burning_Soul
 	ActiveMessage="transforms their passion into fury, their desire to win surpassing all."
 	Cooldown = 1
-	AlwaysOn = 1
 	AwakeningRequired=1
+	TimerLimit=300
 	passives = list("Red Hot Rage" = 1, "Wrathful" = 1)
 //debuffs
 /obj/Skills/Buffs/SlotlessBuffs/Autonomous/Rebirth/Dissociation
@@ -690,9 +690,9 @@ obj/Skills/Utility
 			usr<<"You are now using the Green SOUL color."
 	SoulShiftPurple
 		Copyable=0
-		verb/SoulGreen()
+		verb/SoulPurple()
 			set category="Utility"
-			set name="SOUL Shift (Green)"
+			set name="SOUL Shift (Purple)"
 			usr.passive_handler.Set("Determination(Red)", 0)
 			usr.passive_handler.Set("Determination(Yellow)", 0)
 			usr.passive_handler.Set("Determination(Green)", 0)

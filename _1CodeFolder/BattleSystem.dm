@@ -128,6 +128,8 @@ mob/proc/Unconscious(mob/P,var/text)
 	var/CalamityOdds=src.passive_handler.Get("The Clock Is Ticking")*(src.Potential/55)
 	if(CalamityOdds<0)
 		CalamityOdds=0
+	if(src.Potential<=60)
+		CalamityOdds=0
 	if(src.oozaru_type=="Demonic" && src.TotalInjury>=40&&prob(HellspawnOdds)&&src.transUnlocked<1&&!src.HellspawnBerserk&&!src.HellspawnBerserking||src.ForcedHellspawn&&!src.HellspawnBerserk&&!src.HellspawnBerserking)
 		src.RPModeSwitch()
 		src.Energy=src.EnergyMax

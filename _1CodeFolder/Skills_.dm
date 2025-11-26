@@ -768,21 +768,39 @@ mob/proc/SkillX(var/Wut,var/obj/Skills/Z,var/bypass=0)
 					for(var/obj/Skills/Buffs/SpecialBuffs/Kaioken/KK in src)
 						Mastery=KK.Mastery
 					if(src.Kaioken<2+Mastery)
-						switch(src.Kaioken)
-							if(1)
-								src.Kaioken=2
-								src <<"<b>Kaioken Times Three!</b>"
-							if(2)
-								src.Kaioken=3
-								src <<"<b>Kaioken Times Four!</b>"
-							if(3)
-								src.Kaioken=4
-								src <<"<b>Kaioken Times Ten!</b>"
-							if(4)
-								src.Kaioken=5
-								src <<"<b>Kaioken Times Twenty!</b>"
-							if(5)
-								src << "You're at your maximum level of Kaioken."
+						if(src.passive_handler.Get("Super Kaioken"))
+							switch(src.Kaioken)
+								if(1)
+									src.Kaioken=2
+									src <<"<b>Super Kaioken Times Three!</b>"
+								if(2)
+									src.Kaioken=3
+									src <<"<b>Super Kaioken Times Four!</b>"
+								if(3)
+									src.Kaioken=4
+									src <<"<b>Super Kaioken Times Ten!</b>"
+								if(4)
+									src.Kaioken=5
+									src <<"<b>Super Kaioken Times Twenty!</b>"
+								if(5)
+									src << "You're at your maximum level of Kaioken."
+
+						else
+							switch(src.Kaioken)
+								if(1)
+									src.Kaioken=2
+									src <<"<b>Kaioken Times Three!</b>"
+								if(2)
+									src.Kaioken=3
+									src <<"<b>Kaioken Times Four!</b>"
+								if(3)
+									src.Kaioken=4
+									src <<"<b>Kaioken Times Ten!</b>"
+								if(4)
+									src.Kaioken=5
+									src <<"<b>Kaioken Times Twenty!</b>"
+								if(5)
+									src << "You're at your maximum level of Kaioken."
 					else
 						src << "You don't have enough mastery of Kaioken to push it further."
 					return

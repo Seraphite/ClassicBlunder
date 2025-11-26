@@ -190,10 +190,13 @@ obj
 						StyleEnd=1.15
 						StyleSpd=1.45
 						StyleActive="Stronger Fist"
-						passives = list("Pursuer" = 2, "TechniqueMastery" = 2, "Flicker"=2)
+						passives = list("Pursuer" = 2, "TechniqueMastery" = 2, "Flicker"=2,"UnarmedDamage"=1)
 						AllOutAttack=1
+						adjust(mob/p)
+							passives = list("Pursuer" = 2, "TechniqueMastery" = 2, "Flicker"=2,"UnarmedDamage"=1)
 						verb/Stronger_Fist()
 							set hidden=1
+							adjust(usr)
 							src.Trigger(usr)
 					Strongest_Fist //t5????
 						Copyable=0
@@ -202,10 +205,13 @@ obj
 						StyleEnd=1.25
 						StyleSpd=1.6
 						StyleActive="Strongest Fist"
-						passives = list("Pursuer" = 4, "TechniqueMastery" = 2.5, "Flicker"=4)
+						passives = list("Pursuer" = 4, "TechniqueMastery" = 2.5, "Flicker"=4,"UnarmedDamage"=2)
 						AllOutAttack=1
+						adjust(mob/p)
+							passives = list("Pursuer" = 4, "TechniqueMastery" = 2.5, "Flicker"=4,"UnarmedDamage"=2)
 						verb/Strongest_Fist()
 							set hidden=1
+							adjust(usr)
 							src.Trigger(usr)
 
 
