@@ -169,7 +169,7 @@ mob/proc/CanRevert()
 		return 0
 	if(src.TheCalamity&&src.BioArmor)
 		return 0
-	if(src.CyberCancel&&!isRace(ANDROID)&&!isRace(HUMAN)&&!isRace(CELESTIAL))
+	if(src.CyberCancel&&!isRace(ANDROID)&&!isRace(HUMAN)&&!isRace(CELESTIAL)&&!HasKOB())
 		return 0
 	if(src.HasNoRevert())
 		return 0
