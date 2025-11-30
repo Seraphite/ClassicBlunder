@@ -1330,6 +1330,10 @@ mob
 						if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Susanoo, src))
 							src.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Susanoo)
 							src << "You can manifest a ghastly armor to protect and augment your attacks!"
+					if(src.SagaLevel==6)
+						if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Rinnegan2, src))
+							src.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Rinnegan2)
+							src << "Your Mangekyo has matured into the eyes of the sage -- Rinnegan!"
 
 				if("Eight Gates")
 					// src.SagaThreshold("Str", 0.125*src.SagaLevel)

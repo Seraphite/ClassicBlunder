@@ -69,7 +69,7 @@ ascension
 						passives["KillerInstinct"] = 0.05
 						endurance = 0.25
 						offense = 0.25
-						strength = 0.5
+						strength = 0.25
 				..()
 
 		four

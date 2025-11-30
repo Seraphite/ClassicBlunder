@@ -8566,21 +8566,21 @@ NEW VARIABLES
 				switch(usr.SharinganEvolution)
 					if("Sacrifice")
 						src.IconLock='Susano-I.dmi'
-						if(usr.SagaLevel>=7)
+						if(usr.SagaLevel>=5)
 							src.OverlaySize=3
 							src.IconLock='Susano Itachi.dmi'
 							src.LockX=-5
 							src.LockY=-5
 					if("Hatred")
 						src.IconLock='Susano-S.dmi'
-						if(usr.SagaLevel>=7)
+						if(usr.SagaLevel>=5)
 							src.OverlaySize=3
 							src.IconLock='Susano Sasuke.dmi'
 							src.LockX=-5
 							src.LockY=-5
 					if("Resolve")
 						src.IconLock='Susano-M.dmi'
-						if(usr.SagaLevel>=7)
+						if(usr.SagaLevel>=5)
 							src.OverlaySize=3
 							src.IconLock='Susano Madara.dmi'
 							src.LockX=-5
@@ -8607,6 +8607,19 @@ NEW VARIABLES
 						Cooldown = 240
 						src.ActiveMessage="conjures a fully humanoid, titanic figure around them!"
 						src.OffMessage="dissipates the divine avatar..."
+				src.Trigger(usr)
+		Rinnegan2
+			SBuffNeeded="Sharingan"
+			passives = list("GodKi" = 0.5, "Siphon" = 10)
+			GodKi=0.5
+			Cooldown=-1
+			IconLock='RinneganEyes.dmi'
+			ActiveMessage="ascends into enlightenment, their eyes precieving the Truth of all things!"
+			OffMessage="closes their eyes to the cycles of the world..."
+			verb/Rinnegan()
+				set category="Skills"
+				if(!usr.BuffOn(src))
+					passives = list("Siphon" = 10, "GodKi" = 0.5)
 				src.Trigger(usr)
 		// Rinnegan
 		// 	SBuffNeeded="Sharingan"
