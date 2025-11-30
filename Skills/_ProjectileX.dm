@@ -3444,7 +3444,7 @@ obj
 					Explode=2
 					Charge=1
 					ManaCost=5
-					Cooldown=60
+					Cooldown=45
 					IconLock='Fireball.dmi'
 					ActiveMessage="invokes: <font size=+1>FIRA!</font size>"
 					verb/Fira()
