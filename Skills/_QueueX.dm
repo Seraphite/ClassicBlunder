@@ -211,6 +211,7 @@ obj
 					DamageMult=1
 					KBAdd = 0.01
 					InstantStrikes=4
+					HitMessage="Strikes with their Palm, opening their own Meridians!"
 
 				Iron_Fortress
 					Shattering=20

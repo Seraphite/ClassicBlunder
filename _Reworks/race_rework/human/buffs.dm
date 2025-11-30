@@ -14,7 +14,7 @@
 		passives = list("FullTensionLock"=1)
 		TimerLimit=60
 		Cooldown=-1
-		ActiveMessage="projects a disciplined aura as their fists crackle with lightning!"
+		ActiveMessage="Psyches themselves up! -- Tension Up!"
 		OffMessage="releases their tremendous focus..."
 		verb/Activate_High_Tension()
 			set category="Skills"

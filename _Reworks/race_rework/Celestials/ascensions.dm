@@ -79,7 +79,7 @@ ascension
 			anger = 0.25
 			strength = 0.25
 			force = 0.25
-			endurance = 0.5
+			endurance = 0.25
 			recovery = 0.35
 			postAscension(mob/owner)
 				..()
