@@ -55,4 +55,12 @@
     Clear_Water //Two Heavens as One
         HitMessage = "ushers in absolute serenity with a humble slash..."
     Divine_Wrath //Fierce Diety
+        HarderTheyFall=4
+        Stunner=4
+        KBMult = 0.0001
+        FollowUp="/obj/Skills/AutoHit/Divine_Cleave"
+        DamageMult = 1
+        Decider = 6
+        BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Indomitable_Will"
+        BuffAffected="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Fimbulwinter"
         HitMessage= "unleashes the Fury of the Heavens!"

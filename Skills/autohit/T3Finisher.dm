@@ -21,3 +21,21 @@
         ShockDiminish=1.15
         ShockTime=4
         ActiveMessage="curls up their fingers into a fist and delivers a crushing blow!!!"
+
+    Divine_Cleave
+        Distance=15
+        Gravity=5
+        DamageMult = 1
+        StrOffense=1
+        ActiveMessage="cleaves through all protections in Defiance of the Gods!"
+        Area="Target"
+        GuardBreak=1
+        PassThrough=1
+        MortalBlow=10
+        Crippling = 40
+        HitSparkIcon='Slash - Zan.dmi'
+        HitSparkX=-16
+        HitSparkY=-16
+        HitSparkTurns=1
+        HitSparkSize=3
+        Instinct=3
