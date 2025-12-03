@@ -989,7 +989,7 @@ obj/Skills/Buffs
 			HealthThreshold=0.1
 			ActiveMessage="shines brighter than ever before, their legend taking a life of its own. <b>All Hail the Crownless King</b>."
 			OffMessage="casts aside the burden of the Crownless King."
-			passives = list("Godspeed" = 3, "AfterImages" = 2, "ShiningBrightly" = 1)
+			passives = list("Godspeed" = 3, "AfterImages" = 2, "ShiningBrightly" = 1, "KiControl" = 1)
 			verb/Crownless_King()
 				src.Trigger(usr)
 
@@ -999,7 +999,7 @@ obj/Skills/Buffs
 			EndMult=0.85
 			ActiveMessage="casts aside their durability to call forth a miraculous turnaround. <b>All Hail the Comeback King</b>."
 			OffMessage="casts aside the burden of the Comeback King."
-			passives = list("Unstoppable" = -1, "HellPower"=0.1, "UnderDog"=1, "Rage" = 1)
+			passives = list("Unstoppable" = -1, "HellPower"=0.1, "UnderDog"=1, "Rage" = 1, "KiControl" = 1)
 			verb/Comeback_King()
 				src.Trigger(usr)
 		ChaosQueen
@@ -1009,13 +1009,14 @@ obj/Skills/Buffs
 			SpdMult=1.1
 			OffMult=1.1
 			DefMult=1.1
-			passives = list("Flicker" = 1, "Pursuer"=1, "Instinct"=1, "ChaosQueen" = 1)
+			passives = list("Flicker" = 1, "Pursuer"=1, "Instinct"=1, "ChaosQueen" = 1, "KiControl" = 1)
 			ActiveMessage="casts aside certainty in the name of possibility, singing the <b>Song of the Chaos Queen!</b>"
 			OffMessage="normalizes their outcomes, putting aside the mantle of the Chaos Queen."
 			verb/Chaos_Queen()
 				src.Trigger(usr)
 		RemoveSOUL
 			MakesSword=1
+			KiControl=1
 			SwordName="SOUL Sword"
 			SwordIcon='PlaceholderBlackScythe.dmi'
 			SwordX=-32
@@ -1046,7 +1047,7 @@ obj/Skills/Buffs
 			ActiveMessage="materializes the Black Knife."
 			OffMessage="puts the black knight away."
 			adjust(mob/p)
-				passives = list("PUSpike"=50, "AbyssMod" = 3, "BlurringStrikes"=3, "HolyMod" = 3, "HellPower"=0.1, "Determination(Black)"=1)
+				passives = list("PUSpike"=50, "AbyssMod" = 3, "BlurringStrikes"=3, "HolyMod" = 3, "HellPower"=0.1, "Determination(Black)"=1, "KiControl" = 1)
 				PowerMult=1.25
 				StrMult=1.85
 				SpdMult=1.5
@@ -1096,7 +1097,7 @@ obj/Skills/Buffs
 			ActiveMessage="draws forth a skull emblazoned scythe-ax!"
 			OffMessage="pockets the weap-... did it just smile at you?!"
 			adjust(mob/p)
-				passives = list("PUSpike"=50)
+				passives = list("PUSpike"=50,"KiControl" = 1)
 				PowerMult=1.25
 			verb/Devilsknife()
 				set category="Skills"
@@ -1119,7 +1120,7 @@ obj/Skills/Buffs
 				passives = list("PUSpike"=50)
 				PowerMult=1.25
 				if(p.passive_handler["FutureRewritten"])
-					passives = list("PUSpike"=50, "SpiritSword" = 0.75, "ManaGeneration" = 1)
+					passives = list("PUSpike"=50, "SpiritSword" = 0.75, "ManaGeneration" = 1,"KiControl" = 1)
 			verb/JusticeAxe()
 				set category="Skills"
 				set name="Axe of Justice"
@@ -1139,7 +1140,7 @@ obj/Skills/Buffs
 			ActiveMessage="draws forth a black and orange sword!"
 			OffMessage="sheathes their spooky blade!"
 			adjust(mob/p)
-				passives = list("PUSpike"=50, "BlurringStrikes"=3)
+				passives = list("PUSpike"=50, "BlurringStrikes"=3,"KiControl" = 1)
 				PowerMult=1.25
 				if(p.SagaLevel>=3)
 					StrMult=1.5
