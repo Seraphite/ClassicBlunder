@@ -116,7 +116,7 @@ mob/proc/MovementSpeed()
 			Delay*=4
 		return Delay
 	else if(passive_handler.Get("Skimming") + is_dashing)
-		Delay=0.75/sqrt(passive_handler.Get("Skimming") + is_dashing)
+		Delay=glob.SPEED_DELAY_LOWEST/sqrt(passive_handler.Get("Skimming") + is_dashing)
 		if(src.Attracted)
 			Delay*=4
 		return Delay
