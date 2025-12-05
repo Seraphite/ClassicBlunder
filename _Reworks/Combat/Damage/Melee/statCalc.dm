@@ -71,7 +71,7 @@
 		greenExtra=(round(ManaAmount/100,1)*GetEnd(1))*0.15
 		statDamage+=greenExtra
 	if(endExtra>0)
-		statDamage += endExtra
+		statDamage += GetEnd(endExtra)
 	// there should only b one use case for this
 	var/full_effeciency = passive_handler.Get("FullyEffecient")
 	if(full_effeciency)

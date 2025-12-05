@@ -12,14 +12,14 @@
 	verb/Magmic_Shield()
 		set category = "Skills"
 		src.Trigger(usr)
-		
+
 
 /obj/Skills/AutoHit/Hurricane
 	ElementalClass="Wind"
 	Distance=12
 	DistanceAround = 3
 	Size = 2
-	NoLock = 1 
+	NoLock = 1
 	/*TurfShift = 'Air Slash.dmi'
 	TurfShiftDuration=3
 	TurfStrike=2*/
@@ -40,7 +40,7 @@
 	Distance=12
 	NoAttackLock=1
 	Area="Target"
-	NoLock = 1 
+	NoLock = 1
 	AdaptRate=1
 	DamageMult=1.5
 	Paralyzing=15
@@ -57,7 +57,7 @@
 /obj/Skills/AutoHit/Icy_Wind
 	ElementalClass="Water"
 	NoAttackLock=1
-	NoLock = 1 
+	NoLock = 1
 	Area="Around Target"
 	AdaptRate=1
 	DamageMult=1.25
@@ -85,7 +85,7 @@
 	NoAttackLock=1
 	Area="Around Target"
 	AdaptRate=1
-	NoLock = 1 
+	NoLock = 1
 	DamageMult=0.5
 	Distance=12
 	DistanceAround = 3
@@ -112,7 +112,7 @@
 	Earthshaking = 5
 	Area="Around Target"
 	Rounds = 5
-	NoLock = 1 
+	NoLock = 1
 	NoAttackLock=1
 	/*TurfStrike=2
 	TurfShift='Dirt.dmi'
@@ -186,7 +186,7 @@
 	AdaptRate=1
 	DamageMult=0.15
 	ComboMaster=1
-	NoLock = 1 
+	NoLock = 1
 	Instinct=2
 	NoAttackLock=1
 	Knockback=3
@@ -232,7 +232,7 @@
 	Area="Wave"
 	AdaptRate=1
 	DamageMult=0.75
-	NoLock = 1 
+	NoLock = 1
 	ComboMaster=1
 	NoAttackLock=1
 	NoLock=1
@@ -256,7 +256,7 @@
 	FlickBlast=0
 	AttackReplace=1
 	Distance=7
-	DamageMult=0.8 
+	DamageMult=0.8
 	Dodgeable=0
 	Deflectable=0
 	Instinct=2
@@ -275,3 +275,29 @@
 	TrailSize=1
 	TrailX=-8
 	TrailY=-8
+/obj/Skills/AutoHit/ChaosBlaster
+	Area="Wave"
+	AdaptRate=1
+	DamageMult=0.15
+	ComboMaster=1
+	NoLock = 1
+	Instinct=2
+	NoAttackLock=1
+	Knockback=3
+	Cooldown=45
+	HitSparkIcon='Hit Effect.dmi'
+	HitSparkX=-32
+	HitSparkY=-32
+	WindUp=0.1
+	Hurricane="/obj/Skills/Projectile/Beams/ChaosBlaster"
+	HurricaneDelay=0.1
+	WindupMessage="launches a powerful rainbow beam! Hahahahahahaha!!!"
+//	ActiveMessage="bursts forward to deliver a storm of rapid strikes!!"
+/obj/Skills/Projectile/Beams/ChaosBlaster
+	AdaptRate=1
+	DamageMult=12
+	Immediate=1
+	Dodgeable=0
+	StrRate=1
+	ForRate=1
+	IconLock='RainbowBeam.dmi'

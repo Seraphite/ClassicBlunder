@@ -842,13 +842,16 @@ mob/proc/
 		var/IncompleteRatio=1
 		if(passive_handler["Incomplete"])
 			IncompleteRatio=1-(passive_handler["Incomplete"]*0.5)
+			if(passive_handler.Get("Incomplete")<0)
+				passive_handler.Set("Incomplete", 0)
 			Ratio*=IncompleteRatio
 		if(passive_handler["Holding Back"])
 			IncompleteRatio=passive_handler["Holding Back"]
 			Ratio/=IncompleteRatio
 		if(passive_handler["LegendarySaiyan"])
-			if(Tension==100&&transActive==transUnlocked)
-				Ratio*=1.5
+			if(Tension==100)
+				if(transActive==transUnlocked||passive_handler["MovementMastery"]||passive_handler["GodKi"])
+					Ratio*=1.5
 		Power=Ratio*GetPowerUpRatio()
 
 		if(Power < 1)

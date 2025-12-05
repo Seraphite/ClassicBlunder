@@ -14,6 +14,9 @@ mob/Players
 			src.loc=A.loc
 			//A.Bump(src)
 			return*/
+		if(istype(A,/mob)&& A.density)
+			if(src.passive_handler.Get("Skimming"))
+				src.Melee1(dmgmulti =(glob.SKIMMING_DAMAGE_MULT),NoKB=1, forcedTarget = A)
 
 		if(istype(A,/obj/Special/Teleporter2)&&!(istype(A, /obj/Special/Teleporter2/SpecialTele)))
 			var/obj/Special/Teleporter2/_tp=A

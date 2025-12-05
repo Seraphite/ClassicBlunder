@@ -116,9 +116,6 @@ mob/proc/MovementSpeed()
 			Delay*=4
 		return Delay
 	else if(passive_handler.Get("Skimming") + is_dashing)
-		Delay=glob.SPEED_DELAY_LOWEST/sqrt(passive_handler.Get("Skimming") + is_dashing)
-		if(src.Attracted)
-			Delay*=4
 		return Delay
 	if(src.HasBlastShielding())
 		Delay*=3
@@ -174,7 +171,11 @@ mob/Move()
 			if(customObject.edge && (customObject.dir in list(dir,turn(dir,90),turn(dir,-90),turn(dir,45),turn(dir,-45))))
 				loc = Former_Location
 				break
-
+/*	if(src.passive_handler.Get("Skimming"))
+		var/range = passive_handler.Get("GiantSwings") ? passive_handler.Get("GiantSwings") : 1
+		for(var/mob/M in oview(range, src))
+			if(M != src && M.density)
+				src.Melee1(dmgmulti =(0.15), forcedTarget = M)*/
 	if(src.Grab)
 		src.Grab_Update()
 

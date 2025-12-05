@@ -1620,6 +1620,8 @@ NEW VARIABLES
 					if(p.race.transformations[p.transActive].mastery==100)
 						src.ActiveMessage="erupts with immense intensity, their golden aura overcome with a furious red!!"
 						p.passive_handler.Set("Super Kaioken", 1)
+				if(p.isRace(SAIYAN)&&p.transActive==2||p.isRace(HALFSAIYAN)&&p.transActive==2)
+					src.ActiveMessage="erupts with immense intensity, their golden aura overcome with a furious red!!"
 				else
 					src.ActiveMessage="erupts with immense intensity!!"
 			verb/Kaioken()
@@ -2470,7 +2472,7 @@ NEW VARIABLES
 					set name="Sky Emperor's Walk"
 					set category="Skills"
 					if(!altered)
-						passives = list("MovementMastery" = 2,"TechniqueMastery" = 2, "Skimming" = 2, "SpiritFlow" = 1, "HybridStrike" = 0.25 )
+						passives = list("MovementMastery" = 2,"TechniqueMastery" = 2, "Skimming" = 2, "Godspeed"=2, "SpiritFlow" = 1, "HybridStrike" = 0.25 )
 					src.Trigger(usr)
 			Sacred_Energy
 				SignatureTechnique=4
@@ -5890,7 +5892,7 @@ NEW VARIABLES
 					src.Trigger(usr)
 			Skim
 				TimerLimit=120
-				passives = list("Skimming" = 2)
+				passives = list("Skimming" = 2,"Godspeed"=3)
 				Skimming=2
 				KKTWave=2
 				TextColor=rgb(140, 255, 140)
@@ -8601,6 +8603,9 @@ NEW VARIABLES
 							passives = list("NoDodge" = 0, "GiantForm" = 1,\
 							"HybridStrike" = 1, "SweepingStrike" = 1, "Flow" = -1, "Instinct" = -1, "PureDamage" = 2, "PureReduction" = 2)
 							VaizardHealth += 2 * (usr.SagaLevel-3)
+							if(usr.SagaLevel>=6)
+								passives = list("NoDodge" = 0, "GiantForm" = 1,\
+								"HybridStrike" = 1, "SweepingStrike" = 1, "Flow" = -1, "Instinct" = -1, "PureDamage" = 2, "PureReduction" = 2,"Skimming"=1)
 					if(usr.SagaLevel>=5)
 						DefMult = 0.8
 						src.ActiveMessage="conjures a partially humanoid figure around them!"
@@ -8608,6 +8613,8 @@ NEW VARIABLES
 					if(usr.SagaLevel>=6)
 						DefMult = 1
 						Cooldown = 240
+						if(usr.SharinganEvolution!="Resolve")
+							passives = list("GiantForm" = 1, "HybridStrike" = 1, "PureReduction" = 1, "Flow" = -1,"Skimming"=1)
 						src.ActiveMessage="conjures a fully humanoid, titanic figure around them!"
 						src.OffMessage="dissipates the divine avatar..."
 				src.Trigger(usr)

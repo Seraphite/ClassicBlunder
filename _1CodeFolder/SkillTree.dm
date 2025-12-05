@@ -292,8 +292,9 @@ var/list/SkillTree=list(
 "/obj/Skills/Buffs/NuStyle/SwordStyle/Art_of_Order"=9999,
 "/obj/Skills/Buffs/NuStyle/SwordStyle/Homura_Dama"=9999
 ),
-"HybridStylesT3"=list(
-
+"HybridStylesT3"=list("/obj/Skills/Buffs/NuStyle/UnarmedStyle/Twin_Dragon_Fire"=9999,
+"/obj/Skills/Buffs/NuStyle/UnarmedStyle/School_of_the_Undefeated_of_the_East"=9999,
+"/obj/Skills/Buffs/NuStyle/SwordStyle/God_of_Hyperdeath"=9999
 ),
 
 "ElementalStyles"=list(

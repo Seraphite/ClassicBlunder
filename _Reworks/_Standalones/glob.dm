@@ -456,6 +456,7 @@ globalTracker
 		GLUTTONY_MODIFIER = 0.14
 		STEADY_MODIFIER = 0.05
 		UNARMED_DAMAGE_DIVISOR = 10
+		SKIMMING_DAMAGE_MULT=0.15
 
 
 		HARDER_THEY_FALL_BIO_DIVISOR = 100 // if u use this when changie first start it will do big damage

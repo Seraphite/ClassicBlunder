@@ -904,6 +904,8 @@ obj
 									FollowUp = "/obj/Skills/AutoHit/Hyper_Inferno"
 								if("HellfireInferno")
 									FollowUp = "/obj/Skills/AutoHit/HellfireInferno"
+								if("ChaosBlaster")
+									FollowUp = "/obj/Skills/AutoHit/ChaosBlaster"
 
 						else
 							// reset all
