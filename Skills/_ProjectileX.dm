@@ -4181,7 +4181,7 @@ obj
 				Saint_Seiya
 					Soaring_Mountain_Dragon
 						AttackReplace=1
-						CosmoPowered=0
+						CosmoPowered=1
 						AdaptRate=1
 						EndRate=0.25
 						DamageMult=21
@@ -4206,7 +4206,7 @@ obj
 							set name="Rozan Ryu Hishou"
 							usr.UseProjectile(src)
 					Soaring_Dragon_Lord
-						CosmoPowered=0
+						CosmoPowered=1
 						StrRate=1
 						EndRate=0.25
 						DamageMult=21
