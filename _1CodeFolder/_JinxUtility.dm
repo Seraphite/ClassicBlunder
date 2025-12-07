@@ -867,14 +867,14 @@ mob
 						val+=(-1)*src.Sheared
 						src.Sheared=0
 					else
-						val=val/(2/src.GetHellPower())
+						val=val*0.75
 				else
 					src.Sheared-=val
 					if(src.Sheared<0)
 						val=(-1)*src.Sheared
 						src.Sheared=0
 					else
-						val=val/3
+						val=val/2
 			if(src.PotionCD)
 				val/=glob.HEALTH_POTION_NERF
 			if(icon_state == "Meditate")
@@ -918,7 +918,7 @@ mob
 					val=(-1)*src.Sheared
 					src.Sheared=0
 				else
-					val=0
+					val=val/2
 			if(src.PotionCD)
 				val/=1.25
 			src.TotalInjury-=val
