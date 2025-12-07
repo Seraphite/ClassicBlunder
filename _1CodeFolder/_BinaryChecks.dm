@@ -1266,7 +1266,7 @@ mob
 				return 1
 			return 0
 		HasWaterWalk()
-			if(passive_handler.Get("WaterWalk") || passive_handler.Get("Gravity"))
+			if(passive_handler.Get("WaterWalk") || passive_handler.Get("Gravity")||src.Secret=="Ripple")
 				return 1
 			return 0
 		HasSuperDash()
@@ -1982,13 +1982,13 @@ mob
 		HasBeyondPurity()
 			if(passive_handler.Get("BeyondPurity"))
 				return 1
-			if(src.PoseEnhancement&&src.HasRipple())//Ripple Pure shenanigans
+			if(src.SlotlessBuffs["Sparkling Ripple"]&&src.HasRipple())//Ripple Pure shenanigans
 				return 1
 			return 0
 		HasPurity()
 			if(passive_handler.Get("Purity"))
 				return 1
-			if(src.PoseEnhancement&&src.HasRipple())//Ripple Pure shenanigans
+			if(src.SlotlessBuffs["Sparkling Ripple"]&&src.HasRipple())//Ripple Pure shenanigans
 				return 1
 			return 0
 		HasNoAnger()
