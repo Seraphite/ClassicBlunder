@@ -367,6 +367,7 @@ obj
 						Copyable=0
 						FlashChange=1
 						Mastery=4
+						NeedsSword=0
 						Speed_Rave_Style
 							StyleStr = 1.5
 							StyleSpd = 1.5

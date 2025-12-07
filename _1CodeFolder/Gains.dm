@@ -714,8 +714,9 @@ mob
 							PoseTime = 0
 							for(var/obj/Skills/Buffs/SlotlessBuffs/Eldritch/True_Form/fmf in src)
 								fmf.Trigger(src)
+						if(src.HasRipple() && src.PoseTime==5)
+							src << "The Ripple flows through your body perfectly!  You have gained full control over your breathing!"
 						if(src.HasRipple())
-							src << "The Ripple flows through your body perfectly!  You have gained full control over your breathing!!"
 							if(src.Swim==1)
 								src.RemoveWaterOverlay()
 								src.underlays+=image('The Ripple.dmi', pixel_x=-32, pixel_y=-32)
@@ -1670,7 +1671,7 @@ mob
 								if(p!= src && p)
 									src.AddSlow(10 + (5 * p.AscensionsAcquired))
 									src.AddShock(10 + (5 * p.AscensionsAcquired))
-							else if(src.PoseEnhancement&&src.Secret=="Ripple")
+							else if(src.SlotlessBuffs["Sparkling Ripple"] && src.Secret=="Ripple")
 								src.underlays+=image('The Ripple.dmi', pixel_x=-32, pixel_y=-32)
 							else if(loc.type==/turf/Waters/Water7/LavaTile)
 								src.overlays+=image('LavaTileOverlay.dmi')
@@ -1684,7 +1685,7 @@ mob
 						var/amounttaken=glob.OXYGEN_DRAIN/glob.OXYGEN_DRAIN_DIVISOR
 						if(loc:Shallow==1)
 							amounttaken=0
-						if(src.PoseEnhancement&&src.Secret=="Ripple")
+						if(src.SlotlessBuffs["Sparkling Ripple"] && src.Secret=="Ripple")
 							amounttaken=0
 						if(BreathingMaskOn)
 							amounttaken=0

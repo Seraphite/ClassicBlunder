@@ -264,7 +264,7 @@ mob/proc/SkillX(var/Wut,var/obj/Skills/Z,var/bypass=0)
 					if(src.StyleActive == "Crane Style")
 						src.icon_state="KB"
 					else if(src.HasRipple())
-						src.icon_state="Pose"
+						src.icon_state="Train"
 					else
 						src.icon_state="Flight"
 					step_away(src,src.Target,68)
