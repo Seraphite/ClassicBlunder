@@ -101,6 +101,8 @@ proc
 						DamageMod-=1
 				if("Ultima")
 					DamageMod+=2
+				if("Love")
+					DamageMod+=3
 				if("Mirror")
 					DamageMod+=2
 				if("Chaos")

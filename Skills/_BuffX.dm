@@ -1510,7 +1510,7 @@ NEW VARIABLES
 				if(usr.ExpandBase)
 					IconReplace=1
 					icon=usr.ExpandBase
-				src.NeedsSSJ=usr.transUnlocked
+				src.NeedsSSJ=usr.transActive
 				src.HairLock=usr.Hair_SSJ2
 				src.Trigger(usr)
 		SuperSaiyanGrade3
@@ -1538,7 +1538,7 @@ NEW VARIABLES
 				if(usr.ExpandBase)
 					IconReplace=1
 					icon=usr.ExpandBase
-				src.NeedsSSJ=usr.transUnlocked
+				src.NeedsSSJ=usr.transActive
 				src.HairLock=usr.Hair_SSJ3
 				src.Trigger(usr)
 		SuperSaiyanPerfected
@@ -1695,7 +1695,7 @@ NEW VARIABLES
 			TextColor=rgb(255, 55, 0)
 			adjust(mob/p)
 				passives = list("BurningShot" = 1, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/30, "Pursuer" = 1 + p.Potential/30)
-				if(p.isRace(SAIYAN)&&p.transActive==1||p.isRace(HALFSAIYAN)&&p.transActive==1||p.passive_handler.Get("SuperSaiyanSignature"))
+				if(p.isRace(SAIYAN)&&p.transActive>=1||p.isRace(HALFSAIYAN)&&p.transActive>=1||p.passive_handler.Get("SuperSaiyanSignature"))
 					if(p.race.transformations[p.transActive].mastery==100)
 						passives = list("BurningShot" = 1, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/25, "Pursuer" = 2 + p.Potential/30, "SuperSaiyanSignature" = 1)
 						src.ActiveMessage="funnels their life force into their Super Saiyan power, setting their golden aura ablaze!!!"
@@ -1714,7 +1714,7 @@ NEW VARIABLES
 			TextColor=rgb(65, 177, 218)
 			adjust(mob/p)
 				passives = list("MirrorStats" = 1, "Flow" = 1 + p.Potential/30, "Instinct" = 1 + p.Potential/30, "LikeWater" = 2 + p.Potential/30, "FluidForm" = 1)
-				if(p.isRace(SAIYAN)&&p.transActive==1||p.isRace(HALFSAIYAN)&&p.transActive==1||p.passive_handler.Get("SuperSaiyanSignature"))
+				if(p.isRace(SAIYAN)&&p.transActive>=1||p.isRace(HALFSAIYAN)&&p.transActive>=1||p.passive_handler.Get("SuperSaiyanSignature"))
 					if(p.race.transformations[p.transActive].mastery==100)
 						passives = list("MirrorStats" = 1, "Flow" = 1 + p.Potential/20, "Instinct" = 1 + p.Potential/20, "LikeWater" = 2 + p.Potential/20, "FluidForm" = 1,"KiControlMastery" = 1+p.Potential/50, "SuperSaiyanSignature" = 1)
 			verb/Kyoukaken()
@@ -1735,7 +1735,7 @@ NEW VARIABLES
 				passives = list("Erosion" = 0.1 + p.Potential/150, "SoulFire" = 1 + p.Potential/30, "WeaponBreaker" = 2 + p.Potential/30, "DeathField" = 5 + p.Potential/10, "VoidField" = 5 + p.Potential/10)
 				SpdMult = 1.25 + p.Potential/300
 				DefMult = 1.25 + p.Potential/300
-				if(p.isRace(SAIYAN)&&p.transActive==1||p.isRace(HALFSAIYAN)&&p.transActive==1||p.passive_handler.Get("SuperSaiyanSignature"))
+				if(p.isRace(SAIYAN)&&p.transActive>=1||p.isRace(HALFSAIYAN)&&p.transActive>=1||p.passive_handler.Get("SuperSaiyanSignature"))
 					if(p.race.transformations[p.transActive].mastery==100)
 						passives = list("Erosion" = 0.1 + p.Potential/150, "SoulFire" = 1 + p.Potential/20, "WeaponBreaker" = 2 + p.Potential/30, "DeathField" = 5 + p.Potential/7, "VoidField" = 5 + p.Potential/7, "SuperSaiyanSignature" = 1)
 						src.ActiveMessage="'s golden aura flows like wind, eroding the world around them."
@@ -2009,7 +2009,7 @@ NEW VARIABLES
 			ActiveMessage="unleashes their complete self!"
 			OffMessage="returns to their old self..."
 			adjust(mob/p)
-				if(p.isRace(SAIYAN)&&p.transActive==1||p.isRace(HALFSAIYAN)&&p.transActive==1||p.passive_handler.Get("SuperSaiyanSignature"))
+				if(p.isRace(SAIYAN)&&p.transActive>=1||p.isRace(HALFSAIYAN)&&p.transActive>=1||p.passive_handler.Get("SuperSaiyanSignature"))
 					if(p.race.transformations[p.transActive].mastery==100)
 						passives = list("MovementMastery" = 4, "TechniqueMastery" = 5, "BuffMastery" = clamp(round(usr.Potential/20), 1, 5),"SuperSaiyanSignature"=1)
 			verb/Unbound_Mode()

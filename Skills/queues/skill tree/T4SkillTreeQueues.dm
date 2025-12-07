@@ -2,13 +2,15 @@ obj
 	Skills
 		Queue
 			GET_DUNKED
-				SkillCost=160
-				Copyable=4
+				SkillCost=TIER_5_COST
+				Copyable=6
+				HitMessage="takes their opponent to the hoop!"
 				name="GET DUNKED"
-				DamageMult=6
+				DamageMult=15
 				AccuracyMult = 1.175
-				Duration=5
-				KBMult=0.00001
+				Duration=15
+				KBMult=20
+				KBAdd=20
 				PushOut=3
 				PushOutWaves=2
 				Finisher=1
@@ -17,17 +19,18 @@ obj
 				Stunner=3
 				UnarmedOnly=1
 				EnergyCost=4
-				Quaking=1
-				Cooldown=60
+				Quaking=5
+				Explosive=5
+				Cooldown=75
 				verb/GET_DUNKED()
 					set category="Skills"
-					set name="Get Dunked"
+					set name="GET DUNKED!!"
 					usr.SetQueue(src)
 			Soukotsu
 				SkillCost=TIER_4_COST
 				Copyable=5
 				name="Soukotsu"
-				DamageMult=4
+				DamageMult=6
 				AccuracyMult = 1.1
 				Duration=5
 				KBAdd=10
@@ -43,7 +46,7 @@ obj
 				UnarmedOnly=1
 				EnergyCost=8
 				Quaking=1
-				Cooldown=120
+				Cooldown=60
 				verb/Soukotsu()
 					set category="Skills"
 					set name="Soukotsu"
@@ -75,7 +78,7 @@ obj
 				Copyable=5
 				name="Six Grand Openings"
 				HitMessage="delivers a graceful and crippling blow with their elbow!"
-				DamageMult=8
+				DamageMult=12
 				AccuracyMult = 1.175
 				Duration=5
 				Counter=1

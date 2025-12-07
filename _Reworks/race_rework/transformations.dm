@@ -194,8 +194,8 @@ transformation
 			var/SaiyanTrans=0
 			if(user.isRace(SAIYAN)||user.isRace(HALFSAIYAN))
 				SaiyanTrans=unlock_potential-user.Potential
-				if(SaiyanTrans<5)
-					SaiyanTrans=5
+				if(SaiyanTrans<3*user.transActive)
+					SaiyanTrans=3*user.transActive
 				user.potential_trans=user.Potential+SaiyanTrans
 			if(form_base)
 				stored_base = user.icon
@@ -260,6 +260,14 @@ transformation
 				stored_base = null
 
 			user.potential_trans = 0
+			var/SaiyanTrans=0
+			if(user.isRace(SAIYAN)||user.isRace(HALFSAIYAN))
+				SaiyanTrans=unlock_potential-user.Potential
+				if(SaiyanTrans<3*user.transActive)
+					SaiyanTrans=3*user.transActive
+				user.potential_trans=user.Potential+SaiyanTrans
+				if(user.potential_trans<0)
+					user.potential_trans=0
 
 			if(priorAngerPoint)
 				user.AngerPoint = priorAngerPoint

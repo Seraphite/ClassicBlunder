@@ -715,7 +715,7 @@ mob
 			Return+=passive_handler.Get("Godspeed")
 			Return+=passive_handler.Get("GodSpeed") // just in case man
 			if(passive_handler.Get("Super Kaioken")||src.Kaioken>=5)
-				Return+=src.Kaioken
+				Return+=(src.Kaioken/4)
 			var/t=src.HighestTrans()
 			if(t)
 				Return+=t/2

@@ -83,14 +83,14 @@ var/list/SkillTree=list(
 			"/obj/Skills/Queue/Six_Grand_Openings"=160,
 			"/obj/Skills/Queue/Skullcrusher"=160,
 
-
 			"/obj/Skills/AutoHit/Bullrush"=160,
 			"/obj/Skills/AutoHit/Spinning_Clothesline"=160,
 			"/obj/Skills/AutoHit/Hyper_Crash"=160,
 			"/obj/Skills/AutoHit/Dropkick_Surprise"=160
 ),
 "UnarmedT5"=list(
-			"/obj/Skills/Grapple/The_Show_Stopper"=200
+			"/obj/Skills/Grapple/The_Show_Stopper"=200,
+			"/obj/Skills/Queue/GET_DUNKED"=200
 
 ),
 

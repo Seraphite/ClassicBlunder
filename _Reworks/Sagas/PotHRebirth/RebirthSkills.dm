@@ -1036,11 +1036,11 @@ obj/Skills/Buffs
 				src.Trigger(usr)
 		BlackKnife
 			MakesSword=1
-			SwordName="Black Shard"
+			SwordName="Black Knife"
 			SwordIcon='BlackShard.dmi'
 			SwordX=-32
 			SwordY=-32
-			SwordClass="Large"
+			SwordClass="Heavy"
 			StrMult=1.85
 			SpdMult=1.5
 			PowerMult=1.25
@@ -1056,7 +1056,7 @@ obj/Skills/Buffs
 				SpdMult=1.5
 				PowerMult=1.25
 				EnergyHeal=1
-			verb/BlackShard()
+			verb/BlackKnife()
 				set category="Skills"
 				adjust(usr)
 				src.Trigger(usr)
@@ -1066,7 +1066,7 @@ obj/Skills/Buffs
 			SwordIcon='BlackShard.dmi'
 			SwordX=-32
 			SwordY=-32
-			SwordClass="Small"
+			SwordClass="Light"
 			StrMult=1.85
 			SpdMult=1.5
 			PowerMult=1.25
