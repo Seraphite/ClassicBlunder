@@ -1,6 +1,7 @@
 /obj/Skills/var/HarderTheyFall = 0
 /obj/Skills/Grapple/The_Show_Stopper
 	SkillCost=TIER_5_COST
+	Copyable=6
 	Stunner=5
 	DamageMult=12
 	HarderTheyFall=5
@@ -29,14 +30,14 @@ proc/ShowStopper(mob/attacker, mob/defender, effectMult)
 	attacker.Frozen=0
 	defender.icon_state = "KO"
 	defender.Frozen=0
-// CREDIT: Xerif 
+// CREDIT: Xerif
 
 /mob/proc/SS_Animation_A(turf/target_turf)
 	set waitfor = FALSE
 	last_jump_animation = world.time
 	var/pixel_x_location = round(1 + ((x - target_turf.x) * -32), 16)
 	var/pixel_y_location = round(1 + ((y - target_turf.y) * -32), 16)
-	var/jump_time = 2 * get_dist(src, target_turf) 
+	var/jump_time = 2 * get_dist(src, target_turf)
 	var/matrix/M = matrix()
 	M.Translate(0, 100)
 	dir = get_dir(src, target_turf)
@@ -79,7 +80,7 @@ proc/ShowStopper(mob/attacker, mob/defender, effectMult)
 	last_jump_animation = world.time
 	var/pixel_x_location = round(1 + ((x - target_turf.x) * -32), 16)
 	var/pixel_y_location = round(1 + ((y - target_turf.y) * -32), 16)
-	var/jump_time = 2 * get_dist(src, target_turf) 
+	var/jump_time = 2 * get_dist(src, target_turf)
 	dir = get_dir(src, target_turf)
 	var/image/I = image(src, icon_state = "", layer = 9000)
 	I.loc = src
