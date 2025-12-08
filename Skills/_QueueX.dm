@@ -1178,7 +1178,7 @@ obj
 								src.HitSparkSize=1
 								usr.SetQueue(src)
 								return
-							if(usr.ElementalOffense=="Water"||usr.Swim)
+							if(usr.ElementalOffense=="Water"||usr.Slow)
 								src.name="Ripple Overdrive"
 								src.DamageMult=2
 								src.AccuracyMult = 1.15
@@ -1237,7 +1237,7 @@ obj
 								src.HitSparkSize=1
 								usr.SetQueue(src)
 								return
-							if(usr.ElementalOffense=="Wind"||usr.Flying)
+							if(usr.ElementalOffense=="Wind"||usr.Shock)
 								src.name="Ripple Overdrive"
 								src.DamageMult=2
 								src.AccuracyMult = 1.15
@@ -1266,7 +1266,7 @@ obj
 								src.HitSparkSize=1
 								usr.SetQueue(src)
 								return
-							if(usr.ElementalOffense=="Earth")
+							if(usr.ElementalOffense=="Earth"||usr.Shatter)
 								src.name="Ripple Overdrive"
 								src.DamageMult=3
 								src.AccuracyMult = 1.1

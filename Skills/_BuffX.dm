@@ -4472,9 +4472,10 @@ NEW VARIABLES
 							src.ElementalEnchantment=usr.Attunement
 						if(usr.Saga == "Unlimited Blade Works")
 							Cooldown = 30-usr.SagaLevel
+							ManaCost = usr.getUBWCost(0.7)
 							PhysicalHitsLimit = max(1, usr.getAriaCount()/2)
 							SpiritHitsLimit = max(1, usr.getAriaCount()/2)
-							passives["ManaGeneration"] = 10 * usr.SagaLevel
+							passives["ManaGeneration"] = clamp(10 * usr.SagaLevel - (5 * usr.getAriaCount()),0,50)
 							passives["PureDamage"] = 10/PhysicalHitsLimit
 					src.Trigger(usr)
 			Reinforce_Self
