@@ -670,8 +670,8 @@ mob/proc/Recover(var/blah,Amount=1)
 				if(PS.CurrentCapacity>PS.MaxCapacity)
 					PS.CurrentCapacity=PS.MaxCapacity
 
-var/RainbowColor
-var/HoldOn=0
+mob/var/RainbowColor
+mob/var/HoldOn=0
 mob/proc/RainbowGlowStuff()
 	if (HoldOn==0)
 		HoldOn=1
