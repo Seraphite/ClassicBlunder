@@ -43,7 +43,7 @@
 
 /obj/Skills/Buffs/SlotlessBuffs/Magic/HellFire/Hellstorm
     ElementalClass="Fire"
-    scalingValues = list("Damage" = list(0.3,0.5,0.7,0.8,1,1), "Distance" = list(3,6,10,15,20,20), \
+    scalingValues = list("Damage" = list(0.5,0.7,0.8,1.1,1.2,1.3), "Distance" = list(4,6,6,6,8,10), \
     "DarknessFlame" = list(6,12,15,20,25,25), "Slow" = list(6,10,12,12,15,20), "Burning" = list(10,15,20,25,25,30), "Duration" = list(200,300,300,350,400,600), \
     "Adapt" = list(1,1,1,1,1), "CorruptionGain" = list(1,1,1,1,1) )
     makSpace = new/spaceMaker/HellFire
@@ -132,7 +132,7 @@
             scalingValues = list("CrippleAffected" = list(12,15,15,20,25,25), \
     "PoisonAffected" = list(3,6,12,12,15,15), "BurnAffected" = list(3,6,12,15,15,15), "ConfuseAffected" = list(1,2,5,6,8,10), \
     "TimerLimit" = list(5,8,12,15,20,25))
-    
+
     adjust(mob/p)
         returnToInit()
         var/asc = p.AscensionsAcquired ? p.AscensionsAcquired + 1 : 1
@@ -144,4 +144,4 @@
     verb/OverHeat()
         set category = "Skills"
         src.Trigger(usr, 0 )
-        
+

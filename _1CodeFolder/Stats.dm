@@ -840,8 +840,12 @@ mob/proc/
 				Ratio*=src.PowerBoost
 
 			if(isRace(SAIYAN)&&transActive&&ActiveBuff)
-				if(race.transformations[transActive].mastery==100)
-					Ratio *= 1 + (0.15 * transActive)
+				if(race.transformations[1].mastery==100)
+					Ratio *= 1 + (0.15)
+				if(race.transformations[2].mastery==100)
+					Ratio *= 1 + (0.30)
+				if(race.transformations[3].mastery==100)
+					Ratio *= 1 + (0.45)
 
 			if(src.Target)
 				if(ismob(src.Target))

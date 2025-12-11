@@ -641,6 +641,8 @@ mob/var
 	ArsGoetiaOwner
 	GoetiaContacted
 
+	ChosenFPS
+
 /proc/reduceGodKi(mob/player, num)
 	player.GodKi -= num
 	if(num < 0)

@@ -1535,7 +1535,7 @@ mob
 		src.MaxMana()
 		src.MaxOxygen()
 
-		if(client&&src.MortallyWounded)
+		if(client&&src.MortallyWounded&&!src.PureRPMode)
 			if(!src.client.color)
 				animate(src.client, color=list(1,0,0, 0.25,0.75,0, 0.25,0,0.75, 0,0,0), time=3)
 			if(src.KO||src.MortallyWounded>3)

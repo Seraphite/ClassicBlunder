@@ -18,7 +18,7 @@
 	for(var/mob/x in players)
 		for(var/obj/Skills/Buffs/NuStyle/style in x)
 			lol["[style.StyleActive]"]++
-	
+
 	for(var/x in lol)
 		src<<"[x] = [lol[x]]"
 var/GlobalStorage/globalStorage
@@ -67,6 +67,7 @@ GlobalStorage
 	set category = "Other"
 	set name = "Change Client FPS"
 	client.fps = input(src, "ssss") as num
+	src.ChosenFPS=client.fps
 	src.client<<"[client.fps]"
 
 /mob/Admin3/verb/Copy(obj/O in world)

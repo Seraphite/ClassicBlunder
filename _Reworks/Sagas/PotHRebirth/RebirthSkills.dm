@@ -1053,7 +1053,7 @@ obj/Skills/Buffs
 			PowerMult=1.25
 			Cooldown = 1
 			SwordAscension=6
-			passives = list("HolyMod" = 3)
+			passives = list("PUSpike"=50, "AbyssMod" = 3, "BlurringStrikes"=3, "HolyMod" = 3, "HellPower"=0.1, "Determination(Black)"=1, "KiControl" = 1)
 			ActiveMessage="materializes the Black Knife."
 			OffMessage="puts the black knight away."
 			adjust(mob/p)
@@ -1230,9 +1230,10 @@ obj/Skills/Grapple
 /obj/Skills/Buffs/NuStyle/SwordStyle //t3 scaled styles
 	The_Roaring_Knight //cyan t5 evil path
 		StyleActive="The Roaring Knight"
-		passives = list("BlurringStrikes"=2, "Secret Knives" = "GodSlayer", "MagicSword"=1)
+		passives = list("BlurringStrikes"=2, "Secret Knives" = "GodSlayer", "MagicSword"=1,"AfterImages" = 2)
 		StyleEnd=1.5
 		StyleStr=1.5
+		Finisher="/obj/Skills/Queue/Finisher/Twisted_Heartbeat"
 		verb/The_Roaring_Knight()
 			set hidden=1
 			adjust(usr)
@@ -1243,6 +1244,7 @@ obj/Skills/Grapple
 		StyleSpd=1.5
 		StyleStr=1.25
 		StyleFor=1.25
+		Finisher="/obj/Skills/Queue/Finisher/Cross_Slash"
 		verb/Pen_Of_Hope()
 			set hidden=1
 			adjust(usr)
@@ -1252,8 +1254,50 @@ obj/Skills/Grapple
 		StyleStr=1.25
 		StyleFor=1.25
 		StyleEnd=1.5
+		Finisher="/obj/Skills/Queue/Finisher/Your_Idea"
 		passives = list("DisableGodKi" = 1, "Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1)
 		verb/Justice_Incarnate()
 			set hidden=1
 			adjust(usr)
 			Trigger(usr)
+/obj/Skills/Queue/Finisher
+//t3
+	Your_Idea // Justice Incarnate
+		DamageMult = 4
+		Grapple=1
+		HitMessage="has a brilliant idea!"
+		GrabTrigger="/obj/Skills/Grapple/Throw_Shit_At_The_Wall"
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Hope_Crossed_On_Your_Heart"
+	Cross_Slash //The White Pen of Hope
+		DamageMult = 1
+		HitMessage=""
+		FollowUp="/obj/Skills/Queue/Finisher/Kris_Kross_Applesauce"
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/The_Cage_With_Human_Soul_And_Parts"
+	Kris_Kross_Applesauce
+		Combo=2
+		DamageMult = 5
+		InstantStrikes = 2
+		HitMessage="channels their SOUL into their blade, swinging twice with deadly force!"
+		BuffSelf=0
+		HitSparkIcon = 'Slash_Multi.dmi'
+	Twisted_Heartbeat //The Roaring Knight
+		DamageMult=10
+		HitSparkIcon='Slash - Zan.dmi'
+		HitSparkX=-32
+		HitSparkY=-32
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Blackened_Knife"
+		HitMessage = "tears apart reality with one decisive swing."
+
+/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher
+	Hope_Crossed_On_Your_Heart
+		StrMult=1.3
+		EndMult=1.3
+		passives = list("CallousedHands"=0.5, "Hardening"=3, "TensionLock" = 1, "Brutalize" = 1.5)
+	The_Cage_With_Human_Soul_And_Parts
+		StrMult=1.3
+		ForMult=1.3
+		passives = list("TensionLock" = 1, "Speed Force" = 1, "Iaijutsu" = 1, "Relentlessness" = 1, "Fury" = 3)
+	Blackened_Knife
+		StrMult=1.3
+		SpdMult=1.3
+		passives = list("AfterImages" = 4, "TensionLock" = 1, "Speed Force" = 1, "BlurringStrikes" = 10, "Relentlessness" = 1, "Fury" = 3)

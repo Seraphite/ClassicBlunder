@@ -15,7 +15,7 @@ obj
 				PushOutWaves=2
 				Finisher=1
 				Dunker=4
-				Warp=2
+				Warp=5
 				Stunner=3
 				UnarmedOnly=1
 				EnergyCost=4

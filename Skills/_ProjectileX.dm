@@ -638,7 +638,7 @@ obj
 				IconLock='Arrow - Spirit.dmi'
 				Variation=48
 				Radius=1
-				Cooldown = 2
+			//	Cooldown = 0.25
 			Sagittarius_Arrow
 				DamageMult=1
 				AccMult=1

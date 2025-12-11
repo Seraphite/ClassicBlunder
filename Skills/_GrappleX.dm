@@ -158,6 +158,14 @@ obj/Skills/Grapple
 		EffectMult=3
 		Effect="PotemkinBuster" //TODO: MAKE ANIMATION LATER
 		TriggerMessage = "is dropping the tombstone on"
+	Throw_Shit_At_The_Wall
+		DamageMult = 8
+		HarderTheyFall = 4
+		StrRate=1.5
+		EndRate=0.75
+		EffectMult=3
+		Effect="MuscleBuster"
+		TriggerMessage = "aims and throws"
 
 	Ryukoha
 		DamageMult = 4

@@ -1566,6 +1566,8 @@ NEW VARIABLES
 			KenWaveIcon='KenShockwaveGold.dmi'
 			ActiveMessage="prepares to display immense, mastered power!"
 			OffMessage="releases their perfected form..."
+			adjust(mob/p)
+				passives = list("MovementMastery" = 3+round(p.Potential/10), "PureDamage" = 2, "PureReduction" = 2, "Flicker" = 2)
 			verb/Super_Saiyan_Perfected()
 				set category="Skills"
 				if(!usr.BuffOn(src))
@@ -6962,7 +6964,7 @@ NEW VARIABLES
 			StaffIcon='Aether Bow.dmi'
 			ActiveMessage="draws spirit energy into their hand to form a bow!"
 			OffMessage="dispels their Spirit Bow!"
-			passives = list("SpecialStrike" = 1, "StaffAscension" = 2)
+			passives = list("SpecialStrike" = 1, "StaffAscension" = 2, "Godspeed"=2, "Skimming"=1,"SpiritStrike"=1)
 			SpecialStrike=1
 			StaffAscension=2
 			verb/Transfigure_Spirit_Bow()

@@ -33,6 +33,7 @@
 		ComboMaster=1
 		Stunner=3
 		Size=4
+		StrOffense=1
 		GuardBreak=1
 		Rush=5
 		PullIn=2
