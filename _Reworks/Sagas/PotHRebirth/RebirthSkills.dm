@@ -198,6 +198,7 @@ obj/Skills/AutoHit
 		Area="Strike"
 		AwakeningSkill=1
 		ActNumber=3
+		StrOffense=1
 		Rush=10
 		SpecialAttack=1
 		CanBeDodged=0
@@ -205,7 +206,8 @@ obj/Skills/AutoHit
 		DamageMult=20
 		Stunner=3
 		Knockback=0
-		WindUp=1
+		WindUp=0.5
+		ComboMaster=1
 		WindupIcon='Chidori.dmi'
 		WindupMessage="vibrates their hand quickly enough to create blue static electricity, all of which focusing into a tiny point within their palm."
 		ActiveMessage="bets their future on this one attack!"

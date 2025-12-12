@@ -1599,6 +1599,8 @@ mob
 				return 1
 			if(src.CheckSlotless("Majin"))
 				return 1
+			if(passive_handler.Get("Heart of Darkness"))
+				return 1
 			return 0
 		HasSpiritPower()
 			if(passive_handler.Get("SpiritPower"))

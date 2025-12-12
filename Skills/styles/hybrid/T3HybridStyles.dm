@@ -45,11 +45,11 @@
 		StyleFor = 1.35
 		StyleEnd = 1.3
 		passives = list("HybridStyle" = "MysticStyle", "Heavy Strike" = "ChaosBlaster", "CriticalChance" = 25, "CriticalDamage"= 0.15, "SpiritSword" = 0.5, "SpiritFlow"=2.5, \
-					"Secret Knives" = "GodSlayer", "MovingCharge"=1)
+					"Secret Knives" = "GodSlayer", "MovingCharge"=1, "Tossing"=2)
 		Finisher="/obj/Skills/Queue/Finisher/Hyper_Goner"
 		adjust(mob/p)
 			passives = list("HybridStyle" = "MysticStyle", "CriticalChance" = 25, "CriticalDamage"= 0.15, "SpiritSword" = 0.5, "SpiritFlow"=2.5, \
-						"Secret Knives" = "GodSlayer", "MovingCharge"=1)
+						"Secret Knives" = "GodSlayer", "MovingCharge"=1, "Tossing"=2)
 
 		verb/God_of_Hyperdeath()
 			set hidden=1
