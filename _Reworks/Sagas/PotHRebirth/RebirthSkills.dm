@@ -203,7 +203,7 @@ obj/Skills/AutoHit
 		SpecialAttack=1
 		CanBeDodged=0
 		CanBeBlocked=1
-		DamageMult=20
+		DamageMult=40
 		Stunner=3
 		Knockback=0
 		WindUp=0.5
@@ -371,13 +371,6 @@ obj/Skills/AutoHit
 		SpecialAttack=1
 		verb/Banish()
 			set category="Skills"
-			if(world.realtime < src.RebirthLastUse)
-				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
-				return
-			if(usr.SagaLevel<5)
-				src.RebirthLastUse=world.realtime + 168 HOURS
-			else
-				src.RebirthLastUse=world.realtime + 72 HOURS
 			usr.Activate(src)
 	Burning_Up_Everything
 		StrOffense=0
