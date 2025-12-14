@@ -4131,6 +4131,23 @@ NEW VARIABLES
 				src.Trigger(usr)
 				if(!usr.BuffOn(src) && usr.transActive != 2)
 					usr.transActive = 0
+		TheAlmighty
+			BuffName = "A - The Almighty"
+			SignatureTechnique=4
+			Mastery=-1
+			UnrestrictedBuff=1
+			passives = list("GodKi" = 1, "The Almighty" = 1, "Sunyata" = 5, "LikeWater" = 8, "BuffMastery" = 5, "CriticalChance" = 35, "CriticalDamage"= 0.15, \
+								"Extend" = 2, "Gum Gum" = 2)
+			PUSpeedModifier=2
+			FlashChange=1
+			ActiveMessage="now posesses eyes that can see everything."
+			OffMessage="seals their Almighty eyes."
+			verb/The_Almighty()
+				set category="Skills"
+				if(!usr.BuffOn(src))
+					usr.passive_handler.Set("Alter the Future", 0)
+					usr.passive_handler.Set("Alter the Future", 100)
+				src.Trigger(usr)
 		Saiyan_Dominance
 			AutoAnger=1
 			passives = list("PridefulRage" = 1)
@@ -7136,7 +7153,7 @@ NEW VARIABLES
 				var/Choice
 				if(!usr.BuffOn(src))
 					var/modify_sword_num = 1
-					if((locate(/obj/Skills/Buffs/NuStyle/SwordStyle/Nito_Ichi_Style) in usr) || (locate(/obj/Skills/Buffs/NuStyle/SwordStyle/Santoryu) in usr))
+					if((locate(/obj/Skills/Buffs/NuStyle/SwordStyle/Nito_Ichi_Style) in usr) || (locate(/obj/Skills/Buffs/NuStyle/SwordStyle/Santoryu) in usr) || (locate(/obj/Skills/Buffs/NuStyle/SwordStyle/Acrobat) in usr))
 						var/list/options = list("Primary","Secondary")
 						if((locate(/obj/Skills/Buffs/NuStyle/SwordStyle/Santoryu) in usr)) options += "Tertiary"
 						switch(input("Which sword would you like to modify?") in options)
@@ -9032,7 +9049,7 @@ NEW VARIABLES
 				HealthThreshold=0.1
 				StrMult=1.25
 				EndMult=1.25
-				SpdMult=1.75
+				SpdMult=1.25
 				ForMult=0.2
 				OffMult=1.25
 				DefMult=0.75
@@ -9061,7 +9078,7 @@ NEW VARIABLES
 							Godspeed = p.secretDatum.currentTier
 							StrMult = 1 + (p.secretDatum.currentTier * 0.25)
 							EndMult = 1 + (p.secretDatum.currentTier * 0.25)
-							SpdMult = 1.5 + (p.secretDatum.currentTier * 0.25)
+							SpdMult = 1 + (p.secretDatum.currentTier * 0.25)
 							OffMult = 1 + (p.secretDatum.currentTier * 0.25)
 				Trigger(mob/p, Override = 0 )
 					adjust(p)
@@ -9076,7 +9093,7 @@ NEW VARIABLES
 							Godspeed = p.secretDatum.currentTier * 2
 							StrMult = 1.25 + (p.secretDatum.currentTier * 0.25)
 							EndMult = 1.25 + (p.secretDatum.currentTier * 0.25)
-							SpdMult = 2 + (p.secretDatum.currentTier * 0.25)
+							SpdMult = 1.25 + (p.secretDatum.currentTier * 0.25)
 							OffMult = 1.25 + (p.secretDatum.currentTier * 0.25)
 							DefMult = 1.25 + (p.secretDatum.currentTier * 0.25)
 

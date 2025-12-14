@@ -525,6 +525,7 @@
 #include "_Reworks\Sagas\Mecha\KoC\courage.dm"
 #include "_Reworks\Sagas\Mecha\KoC\skills.dm"
 #include "_Reworks\Sagas\Mecha\Spiral\Spiral.dm"
+#include "_Reworks\Sagas\PotHRebirth\RebirthFinalSkills.dm"
 #include "_Reworks\Sagas\PotHRebirth\RebirthSkills.dm"
 #include "_Reworks\Sagas\PotHRebirth\RebirthTier.dm"
 #include "_Reworks\Sagas\Rinnegan\msDebuffs.dm"

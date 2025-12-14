@@ -1980,6 +1980,20 @@ mob
 				if(src.Oxygen<=0)
 					src.Oxygen=0
 			if(Q.Copyable)
+				spawn() for(var/mob/m in view(40, src))
+					if(m.passive_handler.Get("The Almighty"))
+						var/insightLevel = m.AscensionsAcquired+25 || 1
+						var/techTier = Q.Copyable
+						if(insightLevel < techTier)
+							continue
+						if(m.client && m.client.address == src.client.address)
+							continue
+						if(!locate(Q.type, m))
+							var/obj/Skills/copiedSkill = new Q.type
+							m.AddSkill(copiedSkill)
+							copiedSkill.Copied = TRUE
+							copiedSkill.copiedBy = "The Almighty"
+							m << "You understand the nature of the [Q] technique you've just viewed."
 				spawn() for(var/mob/m in view(10, src))
 					if(m.CheckSpecial("Sharingan"))
 						var/copy = Q.Copyable

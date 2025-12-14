@@ -371,7 +371,7 @@ mob/Players/Stat()
 					else
 						stat("Health: ","[Target.Health]%")
 					stat("Energy: ","[(Target.Energy/Target.EnergyMax)*100]%")
-				if(usr.Target.passive_handler.Get("Heart of Darkness"))
+				else if(usr.Target.passive_handler.Get("Heart of Darkness"))
 					stat("Power: ", "<font color='red'>Boundless</font color>")
 				else
 					stat("Power: ", "Incomprehensible")
@@ -752,7 +752,7 @@ mob/proc/
 			src.KaiokenBP=1
 //EPM modifications
 		if(src.passive_handler.Get("ChaosQueen"))
-			src.PowerControl=rand(101, 300)
+			src.PowerControl=rand(101, 600)
 		if(src.passive_handler.Get("Prismatic"))
 			for(var/loopstuff=0, loopstuff<=10, loopstuff++)
 				if (HoldOn==0)

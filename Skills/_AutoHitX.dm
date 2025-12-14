@@ -5084,6 +5084,20 @@ mob
 				Z.Cooldown()
 			if(Z.Copyable)
 				var/copy = Z.Copyable
+				spawn() for(var/mob/m in view(40, src))
+					if(m.passive_handler.Get("The Almighty"))
+						var/insightLevel = m.AscensionsAcquired+25 || 1
+						var/techTier = Z.Copyable
+						if(insightLevel < techTier)
+							continue
+						if(m.client && m.client.address == src.client.address)
+							continue
+						if(!locate(Z.type, m))
+							var/obj/Skills/copiedSkill = new Z.type
+							m.AddSkill(copiedSkill)
+							copiedSkill.Copied = TRUE
+							copiedSkill.copiedBy = "The Almighty"
+							m << "You understand the nature of the [Z] technique you've just viewed."
 				spawn() for(var/mob/m in view(10, src))
 					if(m.CheckSpecial("Sharingan"))
 						var/copyLevel = getSharCopyLevel(m.SagaLevel)

@@ -1096,8 +1096,8 @@ obj/Skills/Buffs
 			MakesSword=1
 			SwordName="White Pen of Hope"
 			SwordIcon='KATANA SILVER.dmi'
-			SwordX=-32
-			SwordY=-32
+			SwordX=-16
+			SwordY=-16
 			SwordClass="Light"
 			StrMult=1.85
 			SpdMult=1.5
@@ -1108,12 +1108,11 @@ obj/Skills/Buffs
 			ActiveMessage="manifests their will to change fate, every determination color melding into one: White!"
 			OffMessage="puts the pen away."
 			adjust(mob/p)
-				passives = list("PUSpike"=100, "HolyMod" = 5, "BlurringStrikes"=3, "KiControl"=1, "SpiritSword" = 0.25)
+				passives = list("PUSpike"=100, "HolyMod" = 5, "BlurringStrikes"=3, "KiControl"=1, "SpiritSword" = 0.5,"EndlessNine"=0.15)
 				PowerMult=1.25
 				StrMult=1.5
 				ForMult=1.5
 				SpdMult=1.5
-				PowerMult=1.25
 				EnergyHeal=1
 				SwordUnbreakable=1
 			verb/White_Pen_of_Hope()

@@ -1759,6 +1759,8 @@ mob
 		HasGodKi()
 			if(passive_handler["DisableGodKi"])
 				return 0
+			if(passive_handler["EndlessNine"])
+				return 0
 			if(glob.T3_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=3)
 				return 1
 			if(passive_handler.Get("GodKi"))
@@ -1807,6 +1809,9 @@ mob
 			if(src.isRace(DRAGON))
 				if(src.AscensionsAcquired==6 && Total<0.5)
 					Total=0.5//fully ascended dragon
+			return Total
+		GetEndlessNine()
+			var/Total=passive_handler.Get("EndlessNine")
 			return Total
 		HasFluidForm()
 			if(passive_handler.Get("FluidForm"))

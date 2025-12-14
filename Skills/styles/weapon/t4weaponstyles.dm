@@ -38,7 +38,7 @@
         Finisher = "/obj/Skills/Queue/Finisher/Seiken_Gradalpha"
         verb/Alpha_inForce()
             set hidden=1
-            src.Trigger(usr)  
+            src.Trigger(usr)
     War_God
         SignatureTechnique = 4
         StyleActive="Kratos"
@@ -46,7 +46,7 @@
         StyleStr=2
         StyleEnd=1.5
         Finisher="/obj/Skills/Queue/Finisher/The_Blade_Of_Chaos"
-        passives = list("DisableGodKi" = 1, "Deicide" = 10, "Rage" = 5, "Half-Sword" = 5, "Zornhau" = 5, "FavoredPrey" = "Everything", \
+        passives = list("DisableGodKi" = 1, "EndlessNine"=0.25, "Deicide" = 10, "Rage" = 5, "Half-Sword" = 5, "Zornhau" = 5, "FavoredPrey" = "Everything", \
                         "Shearing" = 10, "Deflection" = 5, "Disarm" = 3,"Parry" = 5, "Momentum" = 5, "Hardening" = 5, \
                         "Secret Knives" = "GodSlayer", "Tossing" = 5, "Pressure" = 5, "Unnerve" = 5)
                         // either throw swords at them, or runes, depending on icon_state do a different effect
