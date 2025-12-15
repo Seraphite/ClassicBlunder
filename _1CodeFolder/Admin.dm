@@ -1,5 +1,5 @@
 var/list
-	CodedAdmins=list("Sunshine Jesse"=4, "Nightmare Zarkus"=4, "NeoGalaxyEyesPhotonDragon"=4, "Lanni.k"=4, "Shadeofwar"=4, "Antenora Luxuria"=4)
+	CodedAdmins=list("Sunshine Jesse"=4, "Nightmare Zarkus"=4, "NeoGalaxyEyesPhotonDragon"=4, "Lanni.k"=4, "Shadeofwar"=4, "Antenora Luxuria"=4, "Digi-Daisuke"=4)
 	Admins=new
 	Mappers=new
 	Punishments=new
@@ -1968,7 +1968,7 @@ atom/Topic(A,B[])/*
 mob/Topic(href,href_list[])
 	if(href_list["action"] == "GetInfo")
 		if(href_list["passe"] in PassiveInfo) usr.OutputPassiveInfo(href_list["passe"]);
-		
+
 	if(Admin)
 		switch(href_list["action"])
 			if("listview")
