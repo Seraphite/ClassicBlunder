@@ -4148,6 +4148,38 @@ NEW VARIABLES
 					usr.passive_handler.Set("Alter the Future", 0)
 					usr.passive_handler.Set("Alter the Future", 100)
 				src.Trigger(usr)
+		Power_of_Destruction //will be a saga later
+			BuffName = "Power of Destruction"
+			SignatureTechnique=4
+			Mastery=-1
+			UnrestrictedBuff=1
+			StrMult=1.7
+			ForMult=1.7
+			EndMult=1.2
+			SpdMult=1.2
+			DefMult=1.2
+			passives = list("GodKi" = 1, "DeathField" = 10, "VoidField" = 5, "Brutalize" = 5, "Deflection" = 5, "SlayerMod" = 1, "FavoredPrey" = "All", \
+								"Power of Destruction" = 2) //will probs have a chance to blow up projectiles or something like that
+			DarkChange=1
+			ActiveMessage="taps into the power of a Destroyer."
+			OffMessage="seals their Almighty eyes."
+			verb/Power_of_Destruction()
+				set category="Skills"
+				src.Trigger(usr)
+		Quis_ut_Deus
+			BuffName = "Quis ut Deus?"
+			SignatureTechnique=4
+			Mastery=-1
+			UnrestrictedBuff=1
+			passives = list("DisableGodKi" = 1, "Deicide" = 10, "EndlessNine" = 1, "Heart of Darkness" = 1, "Speed Force" = 1,  "Disarm" = 3, "MovingCharge" = 1, \
+								"Secret Knives" = "GodSlayer", "Tossing" = 5, "Pressure" = 5, "Unnerve" = 5, "Relentlessness" = 1)
+			PUSpeedModifier=2
+			DarkChange=1
+			ActiveMessage="asks the question, 'Who is like God?'"
+			OffMessage="has yet to find an answer to their question."
+			verb/Quis_ut_Deus()
+				set category="Skills"
+				src.Trigger(usr)
 		Saiyan_Dominance
 			AutoAnger=1
 			passives = list("PridefulRage" = 1)
