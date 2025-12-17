@@ -103,7 +103,7 @@
         IconApart=1
     Future_Mode
         passives = list("Godspeed" = 4, "Skimming" = 3, "SpeedForce" = 4, "BlurringStrikes" = 4, "TripleStrike" = 2, "DoubleStrike" = 3, "Iaijutsu" = 2, \
-                         "CriticalChance" = 30, "LifeSteal" = 30, "ShearImmunity" = 1, "TensionLock" = 1)
+                         "CriticalChance" = 30, "CriticalDamage"= 0.15, "LifeSteal" = 30, "ShearImmunity" = 1, "TensionLock" = 1)
         SpdMult=1.5
         StrMult=1.5
         EndMult=1.5
