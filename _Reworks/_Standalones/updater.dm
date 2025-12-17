@@ -579,6 +579,12 @@ update
 				o.EnhanceChipsMax = 18
 				o.passive_handler.Increase("MovementMastery",2)
 
+	version35
+		version = 35
+		updateMob(mob/o)
+			if(o.isRace(MAKYO))
+				o.passive_handler.Increase("Rage",(0.2*o.AscensionsAcquired))
+
 /globalTracker/var/COOL_GAJA_PLAYERS = list("Thorgigamax", "Gemenilove" )
 /globalTracker/var/GAJA_PER_ASC_CONVERSION = 0.25
 /globalTracker/var/GAJA_MAX_EXCHANGE = 1
