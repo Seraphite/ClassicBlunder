@@ -176,7 +176,6 @@ proc/removeDuplicates(list/list1)
             . += "BladeFisting"
         if(SAIYAN)
             . += "Brutalize"
-            . += "MovementMastery"
             if(Class=="Honor")
                 . += "Honor"
                 . += "Defiance"
