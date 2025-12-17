@@ -39,6 +39,15 @@
         verb/Alpha_inForce()
             set hidden=1
             src.Trigger(usr)
+    Ulforce
+        SignatureTechnique = 4
+        StyleActive="Ulforce"
+        StyleSpd=3
+        passives = list("HotHundred" = 1, "SweepingStrike"= 1, "Warping" = 3)
+        Finisher = "/obj/Skills/Queue/Finisher/Shining_V_Force"
+        verb/Ulforce()
+            set hidden=1
+            src.Trigger(usr)
     War_God
         SignatureTechnique = 4
         StyleActive="Kratos"
