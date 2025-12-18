@@ -197,6 +197,11 @@ transformation
 				if(SaiyanTrans<5*user.transActive)
 					SaiyanTrans=5*user.transActive
 				user.potential_trans=user.Potential+SaiyanTrans
+			if(user.isRace(MAJIN))
+				SaiyanTrans=(unlock_potential)-user.Potential
+				if(SaiyanTrans<15*user.transActive)
+					SaiyanTrans=15*user.transActive
+				user.potential_trans=user.Potential+SaiyanTrans
 			if(form_base)
 				stored_base = user.icon
 				stored_base_x = user.pixel_x

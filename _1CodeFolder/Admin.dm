@@ -1126,6 +1126,19 @@ mob/Admin3/verb
 							M.race.transformations -= ssj
 							del ssj
 					M.AddSkill(new/obj/Skills/Utility/GodTransformationToggle)
+			if(M.isRace(HALFSAIYAN) && blah == 4)
+				var/godor4 = input("SSJ Rage or SSJ4?") in list("SSJ Rage", "SSJ4")
+				if(godor4 == "SSJ4")
+					for(var/transformation/saiyan/ssj in M.race.transformations)
+						if(istype(ssj, /transformation/half_saiyan/human/beast_mode))
+							M.race.transformations -= ssj
+							del ssj
+					M.AddSkill(new/obj/Skills/False_Moon)
+				else
+					for(var/transformation/saiyan/ssj in M.race.transformations)
+						if(istype(ssj, /transformation/saiyan/super_saiyan_4))
+							M.race.transformations -= ssj
+							del ssj
 			M.transUnlocked = blah
 			Log("Admin","[ExtractInfo(usr)] unlocked [ExtractInfo(M)] 's form([blah])")
 

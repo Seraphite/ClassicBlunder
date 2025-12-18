@@ -1654,6 +1654,8 @@ mob
 				hellpower++
 			if(passive_handler.Get("ZenkaiPower"))
 				hellpower=0
+			if(hellpower>2)
+				hellpower=2
 			return hellpower
 		HasZenkaiPower()
 			if(passive_handler.Get("ZenkaiPower"))
@@ -1780,6 +1782,8 @@ mob
 			var/Total=passive_handler.Get("GodKi")
 			if(glob.T3_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=3)
 				Total+=glob.T3_STYLES_GODKI_VALUE
+			if(glob.T4_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=4)
+				Total+=glob.T4_STYLES_GODKI_VALUE
 			if(src.HasSpiritPower()>=1 && FightingSeriously(src, 0))
 				if(src.Health<=(30+src.TotalInjury)*src.GetSpiritPower())
 					if(src.SenseUnlocked<7)//saintz

@@ -1,9 +1,36 @@
 /obj/Skills/Queue/Finisher
 	The_Blade_of_Chaos
+		HarderTheyFall=4
+		Stunner=4
+		Quaking=12
+		DamageMult=8
+		InstantStrikes=2
+		InstantStrikesDelay = 1
+		PushOut=1
+		PushOutWaves=2
+		HitSparkIcon='Slash - Zan.dmi'
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Ghost_of_Sparta"
+		HitSparkX=-32
+		HitSparkY=-32
 	Demonic_Nine_Flashes
+		HitSparkIcon = 'Slash_Multi.dmi'
+		InstantStrikes=9
+		InstantStrikesDelay = 0.5
+		DamageMult=1.5
+		Stunner=4
+		SpeedStrike=3
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Nine_Sword_Style"
+		HitMessage="rushes forward, their aura manifesting six more blades, as they unleash a flurry of blows in the blink of an eye!"
 	Jinzen_Senkei
 	The_Big_Bang_Punch
 	Hyakuretsu_Ken
+		Combo=20
+		DamageMult=0.8
+		Stunner=4
+		SpeedStrike=6
+		BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Debuff/Death_Mark"
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Lightning_Strikes_Twice"
+		HitMessage="unleashes a flurry of powerful blows, sealing their target's fate."
 	Stone_Cold_Stunner
 	Saigo_no_Kyukyoku_Tengenkotsu
 		KBMult=20

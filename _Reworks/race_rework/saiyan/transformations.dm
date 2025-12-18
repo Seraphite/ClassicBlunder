@@ -298,7 +298,8 @@ transformation
 				passives = list("DisableGodKi" = 1, "GiantForm" = 1, "Juggernaut" = 1+(mastery/25), "BuffMastery" = 5 + (mastery/10), "SweepingStrike" = 1, "Brutalize" = 3,\
 				"Meaty Paws" = 2 + (mastery/50), "KiControlMastery" = 3 + (mastery/50), "PureReduction" = 5 + (mastery/10),\
 				"LifeGeneration" = 1 + (mastery/15), "Unstoppable" = 1, "AllOutAttack" = 1, "Reversal" = 0.1 + (mastery/200),\
-				"Flow" = 4, "Instinct" = 4, "Transformation Power" = clamp(user.AscensionsAcquired * 3, 1, 20), "Deicide" = 10)
+				"Flow" = 4, "Instinct" = 4, "Transformation Power" = clamp(user.AscensionsAcquired * 3, 1, 20), "Deicide" = 10,\
+				"Flicker" = 5, "Pursuer" = 5, "PureDamage"=1+ (mastery/10))
 				speed = 1.5 + (mastery/200)
 				endurance = 1.5 + (mastery/200)
 				offense = 1.5 + (mastery/200)
@@ -359,17 +360,18 @@ transformation
 			form_aura_icon = 'SSBGlow.dmi'
 			form_aura_x = -32
 			form_aura_y = -32
-			strength = 1.2
+			strength = 1.3
 			speed = 1.4
-			offense = 1.2
-			defense = 1.4
-			force = 1.2
+			offense = 1.3
+			defense = 1.3
+			force = 1.3
 			// at full mastery, give the saiyan beyond god buff, then remove ssjgod, and replace it with ssjgb
 			mastery_boons(mob/user)
 				autoAnger = TRUE
 				passives = list("GodKi" = 0.5, "EnergyGeneration" = 3 + round(mastery/25, 1), "Godspeed" = 4, "Flow" = 4 + round(mastery/25, 1),"TechniqueMastery" = 3 + round(mastery/25, 1), \
 								"Instinct" = 4 + round(mastery/25, 1),"Pursuer"= 4 + round(mastery/25, 1), "BackTrack" = 2 + round(mastery/50, 1), \
-								"MovementMastery" = 5+round(mastery/25, 1), "StunningStrike" = 1 + round(mastery/50, 0.1), "Sunyata" = 1 + round(mastery/20 ,1),"GodlyCalm"=1)
+								"MovementMastery" = 5+round(mastery/25, 1), "StunningStrike" = 1 + round(mastery/50, 0.1), "Sunyata" = 1 + round(mastery/20 ,1),"GodlyCalm"=1,\
+								"Flicker" = 4, "Pursuer" = 4, "PureDamage"=2, "BuffMastery" = 1 + (mastery/10))
 			adjust_transformation_visuals(mob/user)
 				if(user.Hair_Base && !form_hair_icon)
 					var/icon/x=new(user.Hair_Base)
@@ -469,9 +471,9 @@ transformation
 			form_aura_x = -32
 			form_aura_y = -32
 			strength = 1.3
-			speed = 1.3
-			offense = 1.2
-			defense = 1.2
+			speed = 1.5
+			offense = 1.3
+			defense = 1.3
 			force = 1.3
 			mastery_boons(mob/user)
 				passives = list("GodKi" = 0.75, "Instinct" = 4, "Brutalize" = 3, "Steady" = 5,  "BuffMastery" = 6, "MovementMastery" = 5, \

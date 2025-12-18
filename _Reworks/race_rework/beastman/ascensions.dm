@@ -264,8 +264,6 @@ ascension
 							strength = 0.5
 							speed = 0.25
 							offense = 0.25
-							defense = -0.25
-							endurance = -0.25
 							anger = 1.5
 						if("Feather Cowl")
 							owner.passive_handler.Increase("BlockChance", 10)
@@ -340,8 +338,6 @@ ascension
 							strength = 0.25
 							speed = 0.25
 							offense = 0.25
-							defense = -0.25
-							endurance = -0.25
 							anger = 1
 						if("Feather Cowl")
 							owner.passive_handler.Increase("BlockChance", 25)

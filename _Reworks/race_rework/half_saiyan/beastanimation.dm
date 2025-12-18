@@ -51,9 +51,10 @@
         if(addto)
             addto += src
 // prob shouldn't make more objs, but w/e
-/*
-/mob/verb/testBeast()
-    set category = "Debug"
+
+/*/mob/verb/testBeast()
+    set category = "Debug"*/
+/mob/proc/BeastAnimation()
     var/oldview = client.view
     client.eye = locate(99,99,1)
     Quake(30, z)
@@ -145,4 +146,4 @@
     del blankHolder
     del lightness
     client.eye = src
-    overlays += aura*/
+    overlays += aura
