@@ -2,7 +2,7 @@ obj/Skills/Buffs/SlotlessBuffs/Yata_no_Kagami/Mirror_Protection
 	// VaizardShatter = TRUE
 	// var/tmp/secondActivation = FALSE
 	// var/tmp/storedMana = 0
-	passives = list("TotalDeflection" = 1, "TotalReversal" = 1, "Blubber" = 4)
+	passives = list("Warping" = 3, "HotHundred" = 1)
 	ManaCost = 10
 	Cooldown = 160
 	adjust(mob/p)

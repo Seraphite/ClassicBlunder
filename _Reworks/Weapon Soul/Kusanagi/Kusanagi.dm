@@ -3,7 +3,7 @@ obj/Items/Sword/Medium/Legendary/WeaponSoul/Sword_of_Faith // Kusanagi
 	icon='KusanagibutSharper.dmi'
 	pixel_x=-16
 	pixel_y=-16
-	passives = list("MagicSword" = 1, "ManaSteal" = 2, "WindRelease" = 1)
+	passives = list("MagicSword" = 1, "QuickCast" = 3, "MovingCharge" = 1)
 	ShatterTier=0
 	Destructable=0
 	Ascended=3
@@ -41,9 +41,9 @@ obj/Skills/AutoHit/Gale_Slash
 obj/Skills/Buffs/SpecialBuffs/Heavenly_Regalia/Kusanagi
 	name = "Heavenly Regalia: The Three Treasures"
 	StrMult=1.3
-	OffMult=1.3
-	DefMult=1.3
-	passives = list("WindRelease" = 1, "ManaSteal" = 3)
+	ForMult=1.3
+	SpdMult=1.3
+	passives = list("WindRelease" = 3, "Flicker" = 2, "Pursuer" = 2, "HybridStrike" = 1)
 	IconLock='EyeFlameC.dmi'
 	ActiveMessage="'s three divine treasures ring in resonance: Heavenly Regalia!"
 	OffMessage="'s treasures lose their imperial luster..."
