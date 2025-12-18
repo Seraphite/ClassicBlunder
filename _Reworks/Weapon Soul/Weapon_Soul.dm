@@ -227,10 +227,10 @@ mob/tierUpSaga(Path)
 				switch(WeaponSoulType)
 					if("Kusanagi")
 						for(var/obj/Skills/Buffs/SpecialBuffs/Heavenly_Regalia/Kusanagi/kusa in src.Buffs)
-							kusa.passives["WindRelease"] = 2
-							kusa.passives["PureDamage"] = 1
+							kusa.passives["Godspeed"] = 2
+							kusa.passives["Skimming"] = 2
+							kusa.passives["HybridStrike"] = 1
 							kusa.passives["SwordAscension"] = 1
-							kusa.passives["PureReduction"] = 1
 							kusa.passives["ManaGeneration"] = 15
 							kusa.passives["GodKi"] = 0.25
 
