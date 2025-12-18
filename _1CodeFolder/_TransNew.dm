@@ -406,7 +406,7 @@ mob/proc/WeaponSoul() // OverSoul Mechanic
 				passive_handler.Increase("Godspeed", 2)
 				passive_handler.Increase("Flicker", 2)
 				passive_handler.Increase("Pursuer", 2)
-				passive_handler.Increase("Momentum", 4)
+				passive_handler.Increase("Fury", 4)
 				passive_handler.Increase("SweepingStrike")
 				passive_handler.Increase("DoubleStrike", 3)
 				passive_handler.Increase("TripleStrike", 2)
@@ -530,9 +530,12 @@ mob/proc/WeaponSoul() // OverSoul Mechanic
 				src.OMessage(10,"<b>[src] embodies the ideals of their blade, commiting their soul to law!</b>")
 			if("Soul Edge")
 				src.ElementalOffense="Void"//eat stats
-				passive_handler.Increase("TechniqueMastery",5)
-				passive_handler.Increase("MovementMastery",5)
-				passive_handler.Increase("Flicker",2)
+				src.ElementalDefense="Void"
+				passive_handler.Increase("TechniqueMastery", 5)
+				passive_handler.Increase("MovementMastery", 5)
+				passive_handler.Increase("Momentum", 4)
+				passive.handler.Increase("Steady", 5)
+				passive.handler.Increase("PureDamage",6)
 				passive_handler.Increase("HellPower")
 				var/i='LavaTile.dmi'
 				var/image/w=image(icon=s.icon, pixel_x=s.pixel_x, pixel_y=s.pixel_y, loc=src, layer=EFFECTS_LAYER)
@@ -695,7 +698,9 @@ mob/proc/RevertWS()
 			src.ElementalDefense=null
 			passive_handler.Decrease("TechniqueMastery", 5)
 			passive_handler.Decrease("MovementMastery", 5)
-			passive_handler.Decrease("Flicker", 2)
+			passive_handler.Decrease("Momentum", 4)
+			passive.handler.Decrease("Steady", 5)
+			passive.handler.Decrease("PureDamage",6)
 			passive_handler.Decrease("HellPower")
 		if("Muramasa")
 			src.ElementalOffense=null
