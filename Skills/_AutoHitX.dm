@@ -3151,7 +3151,7 @@ obj
 				Shockwaves=2
 				ActiveMessage="flickers behind their opponent for an instantaneous slash!"
 				Cooldown=75
-				EnergyCost=10
+				EnergyCost=3
 				verb/Disable_Innovate()
 					set category = "Other"
 					disableInnovation(usr)
@@ -3249,6 +3249,7 @@ obj
 				HolyMod=2.5
 				Distance=5
 				DistanceAround=3
+				EnergyCost=10
 				Rounds=20
 				TurfErupt=1.25
 				TurfEruptOffset=6
@@ -3279,6 +3280,7 @@ obj
 				AbyssMod=2.5
 				Distance=5
 				DistanceAround=3
+				EnergyCost=10
 				Rounds=20
 				TurfErupt=1.25
 				TurfEruptOffset=6

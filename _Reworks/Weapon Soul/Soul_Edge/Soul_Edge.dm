@@ -3,6 +3,7 @@ obj/Items/Sword/Heavy/Legendary/WeaponSoul/Blade_of_Chaos
 	icon='SoulEdge.dmi'
 	ExtraClass=1
 	Ascended=3
+	passives = list("Extend" = 1)
 	Destructable=0
 	ShatterTier=0
 
@@ -43,7 +44,7 @@ obj/Skills/Buffs/SpecialBuffs/Heavenly_Regalia/Soul_Edge
 	StrMult=1.3
 	OffMult=1.3
 	EndMult=1.3
-	passives = list("DemonicDurability" = 2, "Instinct" = 2, "EnhancedSmell" = 1, "EnhancedHearing" = 1, "Flicker" = 2)
+	passives = list("DemonicDurability" = 3, "Instinct" = 4, "Momentum" = 2, "EnhancedSmell" = 1, "EnhancedHearing" = 1)
 	IconLock='EyeFlameC.dmi'
 	ActiveMessage="'s chaotic treasures ring in resonance: Heavenly Regalia!"
 	OffMessage="'s treasures lose their chaotic luster..."
