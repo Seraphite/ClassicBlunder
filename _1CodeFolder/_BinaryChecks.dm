@@ -1736,7 +1736,7 @@ mob
 			if(src.Health<(1-src.HealthCut)&&src.HealthAnnounce10&&src.Saga=="King of Braves"&&src.SpecialBuff)
 				if(src.CheckSlotless("Genesic Brave"))
 					Effective*=2
-				else if(src.SpecialBuff.BuffName=="King of Braves")
+				else if(src.CheckSpecial("King of Braves"))
 					Effective*=3
 			if(src.HasHellPower() == 2)
 				Effective+=1

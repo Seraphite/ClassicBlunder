@@ -95,9 +95,9 @@
 					Effective*=ms.Level
 	if(src.Health<(10-src.HealthCut)&&src.HealthAnnounce10&&src.Saga=="King of Braves"&&src.SpecialBuff)
 		var/modifier = 1 - (Health / 10)
-		if(src.SlotlessBuffs["Genesic Brave"])
+		if(src.CheckSlotless("Genesic Brave"))
 			Effective *= SagaLevel + modifier
-		else if(src.SpecialBuff.BuffName=="King of Braves")
+		else if(src.CheckSpecial("King of Braves"))
 			Effective*= (SagaLevel/2) + modifier
 	var/ShonenPower = ShonenPowerCheck(src)
 	if(ShonenPower)
