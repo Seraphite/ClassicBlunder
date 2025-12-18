@@ -370,7 +370,7 @@ transformation
 				autoAnger = TRUE
 				passives = list("GodKi" = 0.5, "EnergyGeneration" = 3 + round(mastery/25, 1), "Godspeed" = 4, "Flow" = 4 + round(mastery/25, 1),"TechniqueMastery" = 3 + round(mastery/25, 1), \
 								"Instinct" = 4 + round(mastery/25, 1),"Pursuer"= 4 + round(mastery/25, 1), "BackTrack" = 2 + round(mastery/50, 1), \
-								"MovementMastery" = 5+round(mastery/25, 1), "StunningStrike" = 1 + round(mastery/50, 0.1), "Sunyata" = 1 + round(mastery/20 ,1),"GodlyCalm"=1,\
+								"MovementMastery" = 5+round(mastery/10, 1), "StunningStrike" = 1 + round(mastery/50, 0.1), "Sunyata" = 1 + round(mastery/20 ,1),"GodlyCalm"=1,\
 								"Flicker" = 4, "Pursuer" = 4, "PureDamage"=2, "BuffMastery" = 1 + (mastery/10))
 			adjust_transformation_visuals(mob/user)
 				if(user.Hair_Base && !form_hair_icon)

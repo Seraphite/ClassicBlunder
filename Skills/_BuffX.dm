@@ -4179,6 +4179,29 @@ NEW VARIABLES
 			verb/Power_of_Destruction()
 				set category="Skills"
 				src.Trigger(usr)
+		Heart_of_Darkness
+			BuffName = "Heart of Darkness (Incomplete)"
+			SignatureTechnique=4
+			Mastery=1
+			UnrestrictedBuff=1
+			passives = list("GodKi"=0.25, "Heart of Darkness" = 1, "Speed Force" = 1, "MovingCharge" = 1, \
+							"Secret Knives" = "GodSlayer", "Tossing" = 5, "Pressure" = 5, "Unnerve" = 5, "Relentlessness" = 1)
+			PUSpeedModifier=2
+			DarkChange=1
+			KenWave=5
+			KenWaveSize=1
+			KenWaveIcon='KenShockwavePurple.dmi'
+			ActiveMessage="fills the air with a suffocating dread, causing a dreadful power to bear down upon the world."
+			OffMessage="has yet to find an answer to their question."
+			adjust(mob/p)
+				if(Mastery==2)
+					BuffName = "Heart of Darkness (True)"
+					passives = list("GodKi"=1, "Heart of Darkness" = 1, "Speed Force" = 1, "MovingCharge" = 1, \
+									"Secret Knives" = "GodSlayer", "Tossing" = 5, "Pressure" = 5, "Unnerve" = 5, "Relentlessness" = 1)
+			verb/Quis_ut_Deus()
+				set category="Skills"
+				adjust(usr)
+				src.Trigger(usr)
 		Quis_ut_Deus
 			BuffName = "Quis ut Deus?"
 			SignatureTechnique=4
