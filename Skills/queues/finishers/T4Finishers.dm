@@ -42,7 +42,24 @@
 		HitSparkY=-32
 		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Legendary_Exhaustion"
 		HitMessage="unleashes their pent up legendary power, transcending the limits of reason. The sun they grasp within their hand explodes in a brilliant supernova, achieving the ultimate, supreme, final Tengenkotsu!!!!!"
-
+	Stellar_Formation
+		SpeedStrike = 2
+		SweepStrike = 2
+		Quaking=5
+		PushOut=1
+		DamageMult = 5
+		FollowUp="/obj/Skills/Queue/Finisher/Stellar_Evolution"
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Ionization"
+		HitMessage = "breaks off into a relentless pursuit!"
+	Stellar_Evolution
+		Combo=10
+		DamageMult = 0.5
+		BuffSelf=0
+		HitSparkIcon = 'Slash_Multi.dmi'
+	Hyper_Goner_Two
+		FollowUp="/obj/Skills/Projectile/Even_More_Super_Hyper_Goner_Attack"
+		DamageMult = 4
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Final_Boss_Form"
 /obj/Skills/Queue/Finisher
 	Seiken_Gradalpha
 		name = "Seiken Gradalpha"
@@ -66,3 +83,20 @@
 		Explosive = 3
 		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Future_Mode"
 		HitMessage = "delivers countless strikes against their foe in the blink of an eye, then fires off a V-shaped beam of light!"
+/obj/Skills/Projectile
+	Zone_Attacks
+		ZoneAttack=1
+		Even_More_Super_Hyper_Goner_Attack
+			Blasts=25
+			Charge=2
+			DamageMult=1.3
+			Instinct=1
+			AccMult=2
+			Explode=1
+			Distance=100
+			ZoneAttackX=10
+			ZoneAttackY=10
+			Hover=10
+			Variation=0
+			ComboMaster=1
+			IconLock='ChaosBlast.dmi'
