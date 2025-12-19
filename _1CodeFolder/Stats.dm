@@ -697,8 +697,6 @@ mob/proc/
 //Kaiokek
 		if(src.passive_handler.Get("DoubleHelix"))
 			switch(src.DoubleHelix)
-				if(0)
-					src.PowerControl=100
 				if(1)
 					src.PowerControl=200
 				if(2)

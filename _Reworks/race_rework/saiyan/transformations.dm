@@ -369,9 +369,9 @@ transformation
 			mastery_boons(mob/user)
 				autoAnger = TRUE
 				passives = list("GodKi" = 0.5, "EnergyGeneration" = 3 + round(mastery/25, 1), "Godspeed" = 4, "Flow" = 4 + round(mastery/25, 1),"TechniqueMastery" = 3 + round(mastery/25, 1), \
-								"Instinct" = 4 + round(mastery/25, 1),"Pursuer"= 4 + round(mastery/25, 1), "BackTrack" = 2 + round(mastery/50, 1), \
-								"MovementMastery" = 5+round(mastery/10, 1), "StunningStrike" = 1 + round(mastery/50, 0.1), "Sunyata" = 1 + round(mastery/20 ,1),"GodlyCalm"=1,\
-								"Flicker" = 4, "Pursuer" = 4, "PureDamage"=2, "BuffMastery" = 1 + (mastery/10))
+								"Instinct" = 4,"Pursuer"= 4 , "BackTrack" = 2 + round(mastery/50, 1), \
+								"MovementMastery" = 4+round(mastery/25, 1), "StunningStrike" = 1 + round(mastery/50, 0.1), "Sunyata" = 1 + round(mastery/20 ,1),"GodlyCalm"=1,\
+								"Flicker" = 4, "PureDamage"=2, "BuffMastery" = 1 + (mastery/25))
 			adjust_transformation_visuals(mob/user)
 				if(user.Hair_Base && !form_hair_icon)
 					var/icon/x=new(user.Hair_Base)
@@ -476,8 +476,8 @@ transformation
 			defense = 1.3
 			force = 1.3
 			mastery_boons(mob/user)
-				passives = list("GodKi" = 0.75, "Instinct" = 4, "Brutalize" = 3, "Steady" = 5,  "BuffMastery" = 6, "MovementMastery" = 5, \
-								"PureDamage" = 3, "PureReduction" = 1, "InBlue" = 1)
+				passives = list("GodKi" = 0.75, "Instinct" = 4, "Brutalize" = 3, "Steady" = 5,  "BuffMastery" = 8, "MovementMastery" = 8, \
+								"PureDamage" = 5, "PureReduction" = 4, "InBlue" = 1, "Godspeed" = 4)
 
 				if(mastery >= 100)
 					// perfected

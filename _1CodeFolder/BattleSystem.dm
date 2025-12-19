@@ -205,6 +205,14 @@ mob/proc/Unconscious(mob/P,var/text)
 				src.VaizardHealth+=clamp(passive_handler.Get("Tenacity")* glob.TENACITY_VAI_MULT, glob.TENACITY_VAI_MIN, glob.TENACITY_VAI_MAX) //actual clutch now.
 				src.HealthAnnounce10=2
 				return
+	if(src.passive_handler.Get("The Echo"))
+		if(src.HealthAnnounce10<=2&&FightingSeriously(P,src))
+			src.KO=0
+			src.OMessage(15, "[src] saw a world in which they lost, and starts to push just a little bit harder!", "<font color=red>[src]([src.key]) activates The Echo!")
+			src.Health=1
+			src.VaizardHealth+=30
+			src.HealthAnnounce10=3
+			return
 	if(passive_handler["Undying Rage"])
 		Health = 0.1
 		return

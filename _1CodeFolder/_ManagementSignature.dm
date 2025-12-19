@@ -91,6 +91,15 @@ var/list/Tier3 = list(
 	"Sparking Blast" = "/obj/Skills/Buffs/SpecialBuffs/Sparking_Blast",
 	"Unbound Mode" = "/obj/Skills/Buffs/SpecialBuffs/Unbound_Mode"
 )
+var/list/Tier4 = list(
+	"Strength Beyond Strength" = "/obj/Skills/Buffs/SlotlessBuffs/Beyond_Strength",
+	"Hyper Light Speed Mode" = "/obj/Skills/Buffs/SlotlessBuffs/Hyper_Light_Speed_Mode",
+	"Dark Evolution" = "/obj/Skills/Buffs/SlotlessBuffs/Dark_Evolution",
+	"Supervillain" = "/obj/Skills/Buffs/SlotlessBuffs/Supervillain",
+	"Time_Power_Unleashed" = "/obj/Skills/Buffs/SlotlessBuffs/Time_Power_Unleashed",
+	"Godly_Aura" = "/obj/Skills/Buffs/SlotlessBuffs/Godly_Aura",
+	"The_Echo" = "/obj/Skills/Buffs/SlotlessBuffs/The_Echo_From_Hit_MMO_FF14",
+)//dunno
 
 var/list/SigCombos // This is generated at runtime.
 var/list/SkillInit = list()
@@ -101,6 +110,7 @@ proc/InitializeSigCombos()
 		InitializeTierCombos(Tier1)
 		InitializeTierCombos(Tier2)
 		InitializeTierCombos(Tier3)
+		InitializeTierCombos(Tier4)
 
 proc/InitializeTierCombos(var/list/Tier)
 	for (var/index in Tier)
@@ -127,6 +137,7 @@ proc/DevelopSignature(mob/m, Tier, Type)
 			if (1) options.Add(Tier1)
 			if (2) options.Add(Tier2)
 			if (3) options.Add(Tier3)
+			if (4) options.Add(Tier4)
 		for(var/obj/Skills/skill in m.Skills)
 			options.Remove(skill.type)
 	if (Type == "Style")

@@ -1816,6 +1816,8 @@ NEW VARIABLES
 			Curse=1
 			PreRequisite=list("/obj/Skills/Utility/Summon_Absurdity")
 			Jagan_Eye
+				SpecialSlot=0
+				Slotless=1
 				// SignatureTechnique=3
 				FatigueThreshold=90
 				PowerMult = 1.25
@@ -2697,6 +2699,22 @@ NEW VARIABLES
 					set category="Skills"
 					if(!altered)
 						passives = list("ManaLeak" = 2, "SpiritSword" = 0.5, "Extend" = 1, "SwordAscension" = 1, "SuperDash" = 1, "HybridStrike" = 0.5)
+					src.Trigger(usr)
+			Getsuga_Tenshou_Clad
+				SignatureTechnique=3
+				TimerLimit=30
+				Cooldown=30
+				passives = list("Heavy Strike" = "GetsugaClad", "CriticalChance" = 25, "CriticalDamage" = 0.25, "Brutalize" = 2, "SwordAscension" = 1, "SpiritSword" = 0.5, "HybridStrike" = 1, "SpiritFlow" = 4)
+				StrMult=1.3
+				OffMult=1.3
+				ForMult=1.3
+				ActiveMessage="coats their blade with the power of Getsuga!"
+				OffMessage="relinquishes Getsuga from their weapon."
+				verb/Getsuga_Clad()
+					set name="Getsuga Clad"
+					set category="Skills"
+					if(!altered)
+						passives = list("Heavy Strike" = "GetsugaClad", "CriticalChance" = 25, "CriticalDamage" = 0.25, "Brutalize" = 2, "SwordAscension" = 1, "SpiritSword" = 0.5, "HybridStrike" = 1)
 					src.Trigger(usr)
 			Final_Getsuga_Tenshou
 				SignatureTechnique=4
@@ -4102,18 +4120,86 @@ NEW VARIABLES
 			verb/Camouflage()
 				set category="Skills"
 				src.Trigger(usr)
+		The_Echo_From_Hit_MMO_FF14
+			BuffName = "The Echo"
+			SignatureTechnique=4
+			Mastery=-1
+			passives = list("The Echo" = 1)
+			FlashChange=1
+			ActiveMessage="enshrouds themselves in a blessing of light, granting brief visions of the future..."
+			OffMessage="is no longer blessed by light."
+			verb/The_Echo()
+				set category="Skills"
+				src.Trigger(usr)
+		Godly_Aura
+			SignatureTechnique=4
+			Mastery=-1
+			passives = list("GodKi" = 0.5)
+			FlashChange=1
+			ActiveMessage="enshrouds themselves in a godly aura, obtaining divine power."
+			OffMessage="dispels their godly aura."
+			verb/Godly_Aura()
+				set category="Skills"
+				src.Trigger(usr)
+		Hyper_Light_Speed_Mode
+			SignatureTechnique=4
+			Mastery=-1
+			passives = list("Warp" = 4)
+			FlashChange=1
+			ActiveMessage="transcends time and space with their speed, becoming able to attack from any distance!"
+			OffMessage="slows the fuck down."
+			verb/Hyper_Light_Speed_Mode()
+				set category="Skills"
+				src.Trigger(usr)
+		Beyond_Strength
+			BuffName = "Strength Beyond Strength"
+			SignatureTechnique=4
+			Mastery=-1
+			passives = list("PridefulRage" = 0.5, "ZenkaiPower"=0.5)
+			FlashChange=1
+			ActiveMessage="reaches for that which lies beyond strength, surrounding themselves in a red aura."
+			OffMessage="dispels their ultimate aura."
+			verb/Beyond_Strength()
+				set category="Skills"
+				src.Trigger(usr)
+		Dark_Evolution
+			BuffName = "Dark Evolution"
+			passives = list("HellPower"=0.5, "HellRisen"=1, "AbyssMod"=3)
+			DarkChange=1
+			ActiveMessage="reaches deep within, drawing out the power of darkness!"
+			OffMessage="dispels their dark aura."
+			verb/Dark_Evolution()
+				set category="Skills"
+				src.Trigger(usr)
+		Supervillain
+			BuffName = "Supervillain Mode"
+			passives = list("MovementMastery" = 6, "HellPower" = 0.5, "BleedHit" = 0.5, "AbyssMod"=3, "FatigueLeak" = 1)
+			DarkChange=1
+			ActiveMessage="trades their life force for dark power."
+			OffMessage="dispels their dark aura."
+			verb/Supervillain_Mode()
+				set category="Skills"
+				src.Trigger(usr)
+		Time_Power_Unleashed
+			passives = list("GodKi" = 0.25, "EnergyGeneration"=3, , "Flow" = 5, "Instinct" = 5, "HolyMod" = 3, "FatigueLeak" = 2)
+			FlashChange=1
+			ActiveMessage="taps into the power to control time!"
+			OffMessage="is no longer unleashing their Time Power."
+			verb/Time_Power_Unleashed()
+				set category="Skills"
+				src.Trigger(usr)
 		SaiyanBeyondGod
 			BuffName = "Beyond God"
 			SignatureTechnique=3
 			Mastery=-1
 			UnrestrictedBuff=1
-			StrMult=1.2
-			ForMult=1.2
-			EndMult=1.2
-			SpdMult=1.4
-			DefMult=1.4
-			passives = list("GodKi" = 0.5, "EnergyGeneration" = 5, "Godspeed" = 4, "Flow" = 5,  "BuffMastery" = 5, "PureDamage" = 1, "PureReduction" = 2, \
-								"BackTrack" = 2 , "StunningStrike" = 3, "Sunyata" = 5)
+			StrMult=1.5
+			ForMult=1.5
+			EndMult=1.5
+			SpdMult=1.5
+			DefMult=1.5
+			passives = list("GodKi" = 0.75, "EnergyGeneration" = 5, "LifeGeneration" = 5 , "Godspeed" = 4, "Flow" = 5,  "BuffMastery" = 5, "PureDamage" = 3, "PureReduction" = 3, \
+								"BackTrack" = 2 , "StunningStrike" = 3, "Sunyata" = 5, "MovementMastery" = 10, "Flicker" = 5, "Pursuer" = 5)
 			PUSpeedModifier=2
 			FlashChange=1
 			KenWave=5
@@ -4147,6 +4233,24 @@ NEW VARIABLES
 				if(!usr.BuffOn(src))
 					usr.passive_handler.Set("Alter the Future", 0)
 					usr.passive_handler.Set("Alter the Future", 100)
+				src.Trigger(usr)
+		TheSeventhOne
+			BuffName = "The Seventh One"
+			SignatureTechnique=4
+			UnrestrictedBuff=1
+			StrMult=0.1
+			ForMult=3
+			EndMult=2
+			SpdMult=1.5
+			DefMult=1.5
+			OffMult=1.5
+			passives = list("GodKi" = 1, "Grippy" = 10, "IronGrip" = 10, "Scoop" = 5, "BuffMastery" = 5, "SpiritStrike" = 1, "SpiritFlow" = 6, \
+								"SpiritSword" = 2, "SpiritHand" = 8, "AmuletBeaming" = 1, "MovingCharge" = 1, "ManaStats" = 4, "QuickCast" = 8, "ManaGeneration" = 50, "Siphon" = 7)
+			DarkChange=1
+			ActiveMessage="calls upon the power of the forgotten Lord of the Seventh Circle."
+			OffMessage="releases the power of The Seventh One."
+			verb/The_Seventh_One()
+				set category="Skills"
 				src.Trigger(usr)
 		Digimental_of_Miracles
 			BuffName = "Digimental of Miracles"
@@ -7417,6 +7521,8 @@ NEW VARIABLES
 				src.Trigger(usr)
 		Jagan_Expert
 			SBuffNeeded="Jagan Eye"
+			SpecialSlot=0
+			Slotless=1
 			Cooldown=-1
 			TimerLimit=0
 			FINISHINGMOVE=1
@@ -7441,6 +7547,8 @@ NEW VARIABLES
 				init(usr)
 				src.Trigger(usr)
 		Darkness_Dragon_Master
+			SpecialSlot=0
+			Slotless=1
 			SBuffNeeded="Jagan Eye"
 			Cooldown=-1
 			NeedsHealth=25

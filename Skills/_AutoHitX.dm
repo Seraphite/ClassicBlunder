@@ -31,6 +31,7 @@ obj
 			Distance=1//Unless otherwise stated, assume it's a one tile attack of varying style.
 			var/DistanceAround //this is only used for AroundTarget type techs.
 			var
+				EndsGetsuga = 0
 				UsesinForce = 0
 				Cleansing = 0
 				ManaDrain = 0
@@ -2203,6 +2204,38 @@ obj
 					if(usr.Saga=="Sharingan")
 						src.ControlledRush=1
 					adjust(usr)
+					usr.Activate(src)
+			The_Seventh_Super_Explosive_Wave
+				SignatureTechnique=4
+				StrOffense=0
+				ForOffense=1
+				GrabMaster=1
+				Grapple=1
+				ComboMaster=1
+				DamageMult=36
+				Area="Circle"
+				Distance=20
+				TurfErupt=2
+				TurfEruptOffset=3
+				Slow=1
+				WindUp=1
+				WindupIcon='Ripple Radiance.dmi'
+				WindupIconUnder=1
+				WindupIconX=-32
+				WindupIconY=-32
+				WindupIconSize=1.3
+				Divide=1
+				PullIn=25
+				WindupMessage="prepares to seal their opponent's fate..."
+				ActiveMessage="unleashes an eruption of malevolence."
+				HitSparkIcon='BLANK.dmi'
+				HitSparkX=0
+				HitSparkY=0
+				Cooldown=300
+				Earthshaking=15
+				PreQuake=1
+				verb/The_Seventh_Super_Explosive_Wave()
+					set category="Skills"
 					usr.Activate(src)
 			Super_Explosive_Wave
 				SignatureTechnique=1
@@ -5493,6 +5526,11 @@ mob
 				CostMultiplier*=src.GetSwordDelay(sord)
 			if(src.Frozen!=3)
 				src.Frozen=0
+			if(Z.EndsGetsuga)
+				var/obj/Skills/Buffs/SpecialBuffs/A = src.findOrAddSkill(/obj/Skills/Buffs/SpecialBuffs/Sword/Getsuga_Tenshou_Clad)
+				Z.DamageMult += ((60 - A.Timer) / 15)
+				A.Trigger(src, 1)
+				src << "The power of Getsuga fades from your weapon."
 			if(Z.UsesinForce)
 				Z.DamageMult += (src.inForceAmp() / 100)
 				src.passive_handler.Set("AlphainForce", 0)

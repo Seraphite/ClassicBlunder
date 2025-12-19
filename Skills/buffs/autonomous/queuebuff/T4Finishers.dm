@@ -21,3 +21,24 @@
 		SpdMult=1.25
 		StrMult=1.75
 		OffMult=1.25
+	Ionization
+		passives = list("AfterImages" = 4, "Godspeed" = 4, "Speed Force" = 2, "Iaijutsu" = 1, "Rain" = 5,\
+		"CriticalChance" = 33, "TensionLock" = 1)
+		SpdMult=1.5
+		StrMult=1.25
+		EndMult=1.25
+		TimerLimit = 20
+		IconLock='SweatDrop.dmi'
+		IconApart=1
+	Final_Boss_Form
+		IconLock='SweatDrop.dmi'
+		StrMult=1.25
+		ForMult=1.5
+		EndMult=1.75
+		TimerLimit = 40
+		passives = list("SpiritFlow"=1, "SpiritSword"=1, "ManaStats" = 1, "CallousedHands"=0.5, "PureReduction"=4)
+	The_Ultimate_Fist
+		passives = list("CallousedHands"=0.25, "BlurringStrikes" = 4, "Hardening" = 3, "Godspeed" = 2, "DoubleStrike" = 2, "TripleStrike" = 1)
+		SpdMult=1.5
+		StrMult=1.5
+		EndMult=1.5

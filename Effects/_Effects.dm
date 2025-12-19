@@ -398,6 +398,11 @@ obj/Effects
 		pixel_y=-2
 		alpha = 255
 
+	DarkBang
+		icon='fevExplosion - Hellfire.dmi'
+		pixel_x=-32
+		pixel_y=-32
+		Lifetime=8
 	Bang
 		icon='fevExplosion.dmi'
 		pixel_x=-32
