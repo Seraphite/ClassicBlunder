@@ -5496,7 +5496,7 @@ mob
 				src.Frozen=0
 			if(Z.EndsGetsuga)
 				var/obj/Skills/Buffs/SpecialBuffs/A = src.findOrAddSkill(/obj/Skills/Buffs/SpecialBuffs/Sword/Getsuga_Tenshou_Clad)
-				Z.DamageMult += ((31 - A.Timer) / 15)
+				Z.DamageMult += ((60 - A.Timer) / 15)
 				A.Trigger(src, 1)
 				src << "The power of Getsuga fades from your weapon."
 			if(Z.UsesinForce)
