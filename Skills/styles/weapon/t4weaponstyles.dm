@@ -1,4 +1,5 @@
 /obj/Skills/Buffs/NuStyle/SwordStyle
+
 	Way_of_the_Kensei
 		SignatureTechnique = 4
 		StyleOff=1.5
