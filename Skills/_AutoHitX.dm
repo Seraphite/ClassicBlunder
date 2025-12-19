@@ -31,6 +31,7 @@ obj
 			Distance=1//Unless otherwise stated, assume it's a one tile attack of varying style.
 			var/DistanceAround //this is only used for AroundTarget type techs.
 			var
+				EndsGetsuga = 0
 				UsesinForce = 0
 				Cleansing = 0
 				ManaDrain = 0
@@ -5493,6 +5494,11 @@ mob
 				CostMultiplier*=src.GetSwordDelay(sord)
 			if(src.Frozen!=3)
 				src.Frozen=0
+			if(Z.EndsGetsuga)
+				var/obj/Skills/Buffs/SpecialBuffs/A = src.findOrAddSkill(/obj/Skills/Buffs/SpecialBuffs/Sword/Getsuga_Tenshou_Clad)
+				Z.DamageMult += ((31 - A.Timer) / 15)
+				A.Trigger(src, 1)
+				src << "The power of Getsuga fades from your weapon."
 			if(Z.UsesinForce)
 				Z.DamageMult += (src.inForceAmp() / 100)
 				src.passive_handler.Set("AlphainForce", 0)
