@@ -4302,7 +4302,7 @@ NEW VARIABLES
 					BuffName = "Heart of Darkness (True)"
 					passives = list("GodKi"=1, "Heart of Darkness" = 1, "Speed Force" = 1, "MovingCharge" = 1, \
 									"Secret Knives" = "GodSlayer", "Tossing" = 5, "Pressure" = 5, "Unnerve" = 5, "Relentlessness" = 1)
-			verb/Quis_ut_Deus()
+			verb/Heart_of_Darkness()
 				set category="Skills"
 				adjust(usr)
 				src.Trigger(usr)

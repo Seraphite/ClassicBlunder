@@ -1260,6 +1260,8 @@ obj/Skills/Grapple
 		StyleEnd=1.5
 		Finisher="/obj/Skills/Queue/Finisher/Your_Idea"
 		passives = list("DisableGodKi" = 1, "Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1)
+		adjust(mob/p)
+			passives = list("DisableGodKi" = 1, "Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1, "EndlessNine"=0.25)
 		verb/Justice_Incarnate()
 			set hidden=1
 			adjust(usr)
