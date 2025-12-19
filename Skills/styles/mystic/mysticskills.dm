@@ -180,6 +180,27 @@
 	LifeSteal = 100
 	ActiveMessage="summons a miasma of blood around themselves."
 
+/obj/Skills/AutoHit/Getsuga_Followthrough
+	Area="Wide Wave"
+	AdaptRate=1
+	DamageMult=0.75
+	Distance=10
+	ComboMaster=1
+	NoLock = 1
+	Instinct=2
+	NoAttackLock=1
+	Cooldown=30
+	EndsGetsuga = 1
+	HitSparkIcon='Hit Effect.dmi'
+	HitSparkX=-32
+	HitSparkY=-32
+	WindUp=0.1
+	Icon='Small Getsuga.dmi'
+	IconX=-16
+	IconY=-16
+	HitSparkIcon='Slash.dmi'
+	WindupMessage="raises their blade, causing the power of Getsuga to flare up!"
+	ActiveMessage="slashes forward, releasing the Getsuga charged in their blade!"
 
 /obj/Skills/AutoHit/Hyper_Inferno
 	Area="Wave"
