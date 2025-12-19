@@ -7419,6 +7419,8 @@ NEW VARIABLES
 				src.Trigger(usr)
 		Jagan_Expert
 			SBuffNeeded="Jagan Eye"
+			SpecialSlot=0
+			Slotless=1
 			Cooldown=-1
 			TimerLimit=0
 			FINISHINGMOVE=1
@@ -7443,6 +7445,8 @@ NEW VARIABLES
 				init(usr)
 				src.Trigger(usr)
 		Darkness_Dragon_Master
+			SpecialSlot=0
+			Slotless=1
 			SBuffNeeded="Jagan Eye"
 			Cooldown=-1
 			NeedsHealth=25
