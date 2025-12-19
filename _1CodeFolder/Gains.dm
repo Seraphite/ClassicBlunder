@@ -786,6 +786,9 @@ mob
 													t.overlays-=i
 									if(src.BeamCharging==Z.ChargeRate)
 										src.Quake((14+2*Z.DamageMult))
+									if(src.passive_handler.Get("AmuletBeaming"))
+										var/mob/A = src.Target
+										src.Knockback(5, A, Direction=get_dir(A, src))
 
 			src.Debuffs()
 			if(UsingHotnCold())
