@@ -2700,6 +2700,22 @@ NEW VARIABLES
 					if(!altered)
 						passives = list("ManaLeak" = 2, "SpiritSword" = 0.5, "Extend" = 1, "SwordAscension" = 1, "SuperDash" = 1, "HybridStrike" = 0.5)
 					src.Trigger(usr)
+			Getsuga_Tenshou_Clad
+				SignatureTechnique=3
+				TimerLimit=30
+				Cooldown=30
+				passives = list("Heavy Strike" = "GetsugaClad", "CriticalChance" = 25, "CriticalDamage" = 0.25, "Brutalize" = 2, "SwordAscension" = 1, "SpiritSword" = 0.5, "HybridStrike" = 1)
+				StrMult=1.3
+				OffMult=1.3
+				ForMult=1.3
+				ActiveMessage="coats their blade with the power of Getsuga!"
+				OffMessage="relinquishes Getsuga from their weapon."
+				verb/Getsuga_Clad()
+					set name="Getsuga Clad"
+					set category="Skills"
+					if(!altered)
+						passives = list("Heavy Strike" = "GetsugaClad", "CriticalChance" = 25, "CriticalDamage" = 0.25, "Brutalize" = 2, "SwordAscension" = 1, "SpiritSword" = 0.5, "HybridStrike" = 1)
+					src.Trigger(usr)
 			Final_Getsuga_Tenshou
 				SignatureTechnique=4
 				TimerLimit=600
