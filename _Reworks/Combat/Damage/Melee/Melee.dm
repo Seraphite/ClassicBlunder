@@ -283,10 +283,10 @@
 
 		NextAttack += delay
 		var/Disarm = 0
-		if(UsingGladiator())
-			if(GladiatorCounter >= glob.GLADIATOR_DISARM_MAX * 6-UsingGladiator())
+		if(src.UsingGladiator())
+			if(src.GladiatorCounter >= glob.GLADIATOR_DISARM_MAX / src.UsingGladiator())
 				Disarm = 1
-				GladiatorCounter = 0
+				src.GladiatorCounter = 0
 		for(var/mob/enemy in enemies)
 			if(istype(enemy, /mob/irlNPC))
 				continue
@@ -295,11 +295,8 @@
 			if(enemy.Stasis)
 				continue
 			if(enemy != src)
-
-		// 				STYLE EFFECTS 			//
-				activateStyleEffects(forcewarp, FALSE, Disarm, enemy) // this proc is redundant for forewarp
-		// 				STYLE EFFECTS END		//
-
+				if(Disarm)
+					src.DisarmTarget(enemy);
 		// 				STATS 					//
 				#if DEBUG_MELEE
 				log2text("DamageMod", "old DmgMod", "damageDebugs.txt", "[ckey]/[name]")
