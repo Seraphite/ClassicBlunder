@@ -271,6 +271,8 @@ transformation
 				if(SaiyanTrans<5*user.transActive)
 					SaiyanTrans=5*user.transActive
 				user.potential_trans=user.Potential+SaiyanTrans
+				if(user.transActive<=0)
+					user.potential_trans=0
 				if(user.potential_trans<0)
 					user.potential_trans=0
 			if(priorAngerPoint)

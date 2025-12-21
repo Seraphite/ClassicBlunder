@@ -4155,7 +4155,7 @@ NEW VARIABLES
 			BuffName = "Strength Beyond Strength"
 			SignatureTechnique=4
 			Mastery=-1
-			passives = list("PridefulRage" = 0.5, "ZenkaiPower"=0.5)
+			passives = list("PridefulRage" = 1, "ZenkaiPower"=0.5)
 			FlashChange=1
 			ActiveMessage="reaches for that which lies beyond strength, surrounding themselves in a red aura."
 			OffMessage="dispels their ultimate aura."
@@ -4181,7 +4181,7 @@ NEW VARIABLES
 				set category="Skills"
 				src.Trigger(usr)
 		Time_Power_Unleashed
-			passives = list("GodKi" = 0.25, "EnergyGeneration"=3, , "Flow" = 5, "Instinct" = 5, "HolyMod" = 3, "FatigueLeak" = 2)
+			passives = list("GodKi" = 0.25, "EnergyGeneration"=3, "Flow" = 5, "Instinct" = 5, "HolyMod" = 3, "FatigueLeak" = 2)
 			FlashChange=1
 			ActiveMessage="taps into the power to control time!"
 			OffMessage="is no longer unleashing their Time Power."
@@ -4198,8 +4198,9 @@ NEW VARIABLES
 			EndMult=1.5
 			SpdMult=1.5
 			DefMult=1.5
+			AutoAnger=1
 			passives = list("GodKi" = 0.75, "EnergyGeneration" = 5, "LifeGeneration" = 5 , "Godspeed" = 4, "Flow" = 5,  "BuffMastery" = 5, "PureDamage" = 3, "PureReduction" = 3, \
-								"BackTrack" = 2 , "StunningStrike" = 3, "Sunyata" = 5, "MovementMastery" = 10, "Flicker" = 5, "Pursuer" = 5)
+								"BackTrack" = 2 , "StunningStrike" = 3, "Sunyata" = 5, "MovementMastery" = 10, "Flicker" = 5, "Pursuer" = 5,"GodlyCalm"=1)
 			PUSpeedModifier=2
 			FlashChange=1
 			KenWave=5

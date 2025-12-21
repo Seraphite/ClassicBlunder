@@ -847,7 +847,10 @@ mob
 					kkmast=kk.Mastery
 				Return+=src.Kaioken/kkmast
 			if(src.DoubleHelix)
-				Return+=src.DoubleHelix
+				if(src.DoubleHelix==1)
+					Total+=0.25
+				if(src.DoubleHelix>=2)
+					Total+=src.DoubleHelix*0.5
 			if(src.HasHealthPU())
 				if(src.PowerControl>100)
 					Return*=(src.PowerControl/100)
@@ -874,7 +877,7 @@ mob
 			if(src.transActive()&&!src.HasMystic())
 				if(race.transformations[transActive].mastery>10&&race.transformations[transActive].mastery<75)
 					return 1
-			if(passive_handler.Get("DoubleHelix"))
+			if(src.DoubleHelix>=1)
 				return 1
 			return 0
 		GetEnergyLeak()
@@ -900,6 +903,8 @@ mob
 				Total*=PrideDrain
 			if(passive_handler.Get("Pride")&&Health>=90)
 				Total = 0
+			if(src.DoubleHelix<1&&passive_handler.Get("DoubleHelix"))
+				Total = 0
 			return Total
 		HasFatigueLeak()
 			if(passive_handler.Get("Pride")&&Health>=90)
@@ -908,7 +913,7 @@ mob
 				return 1
 			if(src.GatesActive && src.GatesActive < 8)
 				return 1
-			if(passive_handler.Get("DoubleHelix"))
+			if(src.DoubleHelix>=1)
 				return 1
 			return 0
 		GetFatigueLeak()
@@ -933,6 +938,8 @@ mob
 
 		//		Total=PrideDrain
 				Total*=PrideDrain
+			if(src.DoubleHelix<1&&passive_handler.Get("DoubleHelix"))
+				Total = 0
 			return Total
 		HasSoftStyle()
 			if(passive_handler.Get("SoftStyle"))
@@ -1800,13 +1807,13 @@ mob
 			if(src.CheckSlotless("Saiyan Soul")&&!src.HasGodKiBuff())
 				if(src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi())
 					Total+=src.Target.GetGodKi()/3
-			if(passive_handler.Get("Hidden Potential") && !HasGodKiBuff())
+	/*		if(passive_handler.Get("Hidden Potential") && !HasGodKiBuff())
 				if(src.Target)
 					if(src.Target.HasGodKi())
 						if(Target.GetGodKi() > Total)
 							Total=Target.GetGodKi()
 					else
-						Total+=Potential/100
+						Total+=Potential/100*/
 			if(src.KamuiBuffLock)
 				Total+=0.75
 			if(src.isRace(DRAGON))

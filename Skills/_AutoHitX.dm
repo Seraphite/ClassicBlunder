@@ -2635,7 +2635,7 @@ obj
 					CanBeBlocked=0
 					HitSparkIcon='SnowBurst2.dmi'
 					HitSparkSize=1
-					HitSparkDispersion=16
+					HitSparkDispersion=4
 					TurfStrike=3
 					ManaCost=9
 					Cooldown=45

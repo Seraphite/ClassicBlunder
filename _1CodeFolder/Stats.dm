@@ -874,7 +874,7 @@ mob/proc/
 						SSJBoost= 1.30
 					if(race.transformations[3].mastery==100)
 						SSJBoost= 1.45
-				if(passive_handler.Get("GodlyCalm")||passive_handler.Get("InBlue"))
+				if(passive_handler.Get("GodlyCalm")||passive_handler.Get("InBlue")||passive_handler.Get("SSJ4"))
 					SSJBoost= 1.60
 				Ratio*=SSJBoost
 

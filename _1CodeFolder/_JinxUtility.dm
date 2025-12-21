@@ -776,7 +776,7 @@ mob
 			if(src.TotalInjury>=99)
 				src.TotalInjury=99
 			if(src.TotalInjury==50)
-				src << "<font size=+1>You are extremly wounded!</font size>"
+				src << "<font size=+1>You are extremely wounded!</font size>"
 			if(src.TotalInjury< 0)
 				TotalInjury = 0
 			src.MaxHealth()
@@ -796,15 +796,15 @@ mob
 				return
 			if(!_static)
 				val/=1+src.GetKiControlMastery()
-				val*=src.Power_Multiplier
+		//		val*=(src.Power_Multiplier
 				if(src.GetPowerUpRatio()>1)
 					var/PowerUpPercent=GetPowerUpRatio()-1
 					if(src.HasMovementMastery()>=1) // this run timed a 0 somehow
 						PowerUpPercent/=1+(src.GetMovementMastery()/8)
 					val*=(1+(PowerUpPercent/src.PUDrainReduction))
-				if(src.Kaioken)
-					if(src.Anger)
-						val*=src.Anger
+			//	if(src.Kaioken)
+			//		if(src.Anger)
+			//			val*=src.Anger
 				if(src.PotionCD)
 					val*=1.25
 			src.Energy-=val
@@ -821,15 +821,15 @@ mob
 			if(src.FusionPowered)
 				return
 			val/=1+src.GetKiControlMastery()
-			val*=src.EnergyExpenditure*src.Power_Multiplier
+			val*=src.EnergyExpenditure//*src.Power_Multiplier
 			if(src.GetPowerUpRatio()>1 && !src.GatesActive)
 				var/PowerUpPercent=GetPowerUpRatio()-1
 				if(src.HasMovementMastery())
 					PowerUpPercent/=1+(src.GetMovementMastery()/8)
 				val*=(1+(PowerUpPercent/src.PUDrainReduction))
-			if(src.Kaioken)
-				if(src.Anger)
-					val*=src.Anger
+	//		if(src.Kaioken)
+	//			if(src.Anger)
+	//				val*=src.Anger
 			if(src.PotionCD)
 				val*=1.25
 			// if(src.isRace(MAJIN))

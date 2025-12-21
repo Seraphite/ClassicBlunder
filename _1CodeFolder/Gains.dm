@@ -519,13 +519,13 @@ mob
 				if(src.isRace(HUMAN)&& src.transActive<2 && src.transUnlocked>=2||src.isRace(CELESTIAL)&& src.transActive<2 && src.transUnlocked>=2)
 					if(src.icon_state!="Meditate")
 						src.race.transformations[2].transform(src, TRUE)
-			if(passive_handler["LegendarySaiyan"]&&src.Tension<100&&src.transActive==src.transUnlocked||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["MovementMastery"]||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["GodKi"])
+			if(passive_handler["LegendarySaiyan"]&&src.Tension<100&&src.transActive==src.transUnlocked||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["MovementMastery"]||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["GodKi"]||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["SSJ4"])
 				var/TensionRando=rand(6,15)
 				src.Tension+=0.7 * (glob.TENSION_MULTIPLIER)*(TensionRando/10)
 				if(src.Tension>100)
 					src.Tension=100
 			if(passive_handler["LegendarySaiyan"]&&src.Tension>=100)
-				if(src.transActive==src.transUnlocked||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["MovementMastery"]||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["GodKi"])
+				if(src.transActive==src.transUnlocked||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["MovementMastery"]||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["GodKi"]||src.passive_handler["LegendarySaiyan"]&&src.passive_handler["SSJ4"])
 					if(!src.Stunned)
 						src.DoDamage(src, (rand(1,5)/30))
 			if(passive_handler["Grit"])
@@ -550,6 +550,8 @@ mob
 				if(race.transformations[transActive].mastery<100)
 					drain = glob.racials.SSJ_BASE_DRAIN - (glob.racials.SSJ_BASE_DRAIN * (race.transformations[transActive].mastery/100))
 					cut_off = glob.racials.SSJ_BASE_CUT_OFF + (glob.racials.SSJ_CUT_OFF_PER_MAST * (race.transformations[transActive].mastery/100))
+					if(src.passive_handler["SSJ4"])
+						drain/=10
 					if(src.HasMystic()||src.CheckSlotless("Beyond God")||src.passive_handler.Get("GodlyCalm"))
 						drain = 0
 

@@ -42,8 +42,6 @@ race
 			if(user.Class == "Compassion")
 				user.race.transformations += new /transformation/saiyan/super_saiyan()
 				user.race.transformations += new /transformation/saiyan/super_saiyan_2()
-				user.race.transformations += new /transformation/half_saiyan/human/ultimate_mode()
-				user.race.transformations += new /transformation/half_saiyan/human/beast_mode()
 			else if(user.Class == "Anger")
 				user.race.transformations += new /transformation/saiyan/super_saiyan()
 				user.race.transformations += new /transformation/saiyan/super_saiyan_2()
