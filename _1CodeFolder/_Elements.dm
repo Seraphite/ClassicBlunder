@@ -345,8 +345,13 @@ mob
 				if(darkFlame&&Attacker!=src)
 					src.AddPoison(Value * 1 + (darkFlame * 0.125), Attacker=Attacker)
 			if(Attacker)
-				if(Attacker.passive_handler["Combustion"] && Burn >= Attacker.passive_handler["Combustion"])
-					implodeDebuff(Attacker.passive_handler["Combustion"], "Burn")
+				if(Attacker.passive_handler["Combustion"])
+					if(Attacker.passive_handler["Combustion"] <= 80)
+						if(Attacker.passive_handler["Combustion"] && Burn >= Attacker.passive_handler["Combustion"])
+							implodeDebuff(Attacker.passive_handler["Combustion"], "Burn")
+					else
+						if(Attacker.passive_handler["Combustion"] && Burn >= 80)
+							implodeDebuff(80, "Burn")
 
 
 			if(src.Burn>100)
