@@ -12131,7 +12131,7 @@ mob
 					src.ActiveBuff.passives["Godspeed"] = AscensionsAcquired
 					src.ActiveBuff.AutoAnger=0
 					src.ActiveBuff.AngerStorage=0
-					if(src.StarPowered)
+					if(src.StarPowered||src.passive_handler.Get("The True Star"))
 						src.ActiveBuff.AutoAnger=1
 						src.ActiveBuff.AngerMult=2
 						src.ActiveBuff.passives["PUSpike"] = 75
