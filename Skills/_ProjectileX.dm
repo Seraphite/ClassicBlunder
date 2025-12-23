@@ -4664,9 +4664,8 @@ mob
 					src << "You lack the ability to use magic!"
 					return
 				if(Z.Copyable>=3||!Z.Copyable)
-					if(passive_handler.Get("Disarmed"))
-						src << "You are disarmed you can't use [Z]."
-						return
+					if(passive_handler.Get("Disarmed")&& !src.HasLimitlessMagic() || !src.HasBladeFisting())
+						Z.DamageMult = (Z.DamageMult / 2)
 					if(!src.HasSpellFocus(Z))
 						src << "You need a spell focus to use [Z]."
 						return 0
@@ -4739,14 +4738,9 @@ mob
 								return FALSE
 
 			if(Z.NeedsSword)
-				if(passive_handler.Get("Disarmed"))
-					src << "You are disarmed you can't use [Z]."
-					return
-
+				if(passive_handler.Get("Disarmed")&& !src.HasBladeFisting())
+					Z.DamageMult = (Z.DamageMult / 2)
 				if(!src.EquippedSword())
-					if(passive_handler.Get("Disarmed") && HasBladeFisting())
-						src << "You are disarmed you can't use [Z]."
-						return
 					if(!src.HasBladeFisting()&& !src.UsingBattleMage())
 						src << "You need a sword to use this technique!"
 						return
@@ -4767,9 +4761,8 @@ mob
 				if(s)
 					if(s.MagicSword)
 						Pass=1
-				if(passive_handler.Get("Disarmed"))
-					src << "You are disarmed you can't use [Z]."
-					return
+				if(passive_handler.Get("Disarmed")&& !src.HasLimitlessMagic())
+					Z.DamageMult = (Z.DamageMult / 2)
 				if(!Pass)
 					src << "You need a staff to use this technique!"
 					return

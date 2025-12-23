@@ -44,7 +44,7 @@
 		SignatureTechnique = 4
 		StyleActive="Ulforce"
 		StyleSpd=3
-		passives = list("HotHundred" = 1, "SweepingStrike"= 1, "Warping" = 3)
+		passives = list("HotHundred" = 1, "SweepingStrike"= 1, "Warping" = 5, "Godspeed" = 4, "Skimming" = 2, "AfterImages" = 4, "Speed Force" = 2)
 		Finisher = "/obj/Skills/Queue/Finisher/Shining_V_Force"
 		verb/Ulforce()
 			set hidden=1

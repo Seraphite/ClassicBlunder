@@ -262,7 +262,7 @@ client
 mob/proc/Allow_Move(D)
 	if(!Move_Requirements())
 		return
-	if((src.Beaming||src.BusterTech)&&!src.HasMovingCharge())
+	if((src.Beaming||src.BusterTech)&&!src.HasMovingCharge()&&!src.HasAmuletBeaming())
 		if(src.Beaming!=2)
 			src.dir=D
 			return
