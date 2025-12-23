@@ -565,11 +565,11 @@ transformation
 				if(mastery >= 100)
 					// perfected
 					passives = list("GodKi" = 1, "Instinct" = 4, "Brutalize" = 3, "BuffMastery" = 8, "Steady" = 6, "MovementMastery" = 10, \
-									"EnergyGeneration" = 3,  "PureDamage" = 2, "PureReduction" = 2, "Godspeed" = 4, "LikeWater" = 8, \
+									"EnergyGeneration" = 3,  "PureDamage" = 5, "PureReduction" = 4, "Godspeed" = 4, "LikeWater" = 8, \
 									"BackTrack" = 1 , "StunningStrike" = 2, "Sunyata" = 3, "InBlue" = 1)
 					if(user.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/pride) // ssgsse
 						passives = list("GodKi" = 1.25, "Brutalize" = 5, "BuffMastery" = 8, "MovementMastery" = 15, "EnergyLeak" = 3, \
-								 	"PureDamage" = 3, "PureReduction" = 1, "Godspeed" = 4, "LikeWater" = 10, \
+								 	"PureDamage" = 6, "PureReduction" = 2, "Godspeed" = 4, "LikeWater" = 10, \
 									"Sunyata" = 6, "InBlue" = 1)
 						strength = 2
 						speed = 2

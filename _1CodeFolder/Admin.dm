@@ -1065,6 +1065,19 @@ mob/Admin3/verb
 			Duration=Value(world.realtime+(Duration*600))
 			Punishment("Action=Add&Punishment=Mute&Key=[M.key]&IP=[M.client.address]&ComputerID=[M.client.computer_id]&Duration=[Duration]&User=[usr.key]&Reason=[Reason]&Time=[TimeStamp()]")
 			Log("Admin","[ExtractInfo(usr)] muted [M.key]|[M.client.address]|[M.client.computer_id] for [Reason].")
+	FixSSJ4Transformations(mob/M in players)
+		set category="Admin"
+		if(!M.client)
+			return
+		for(var/transformation/saiyan/ssj in M.race.transformations)
+			M.race.transformations -=ssj
+			del ssj
+		M.race.transformations += new /transformation/saiyan/super_saiyan()
+		M.race.transformations += new /transformation/saiyan/super_saiyan_2()
+		M.race.transformations += new /transformation/saiyan/super_saiyan_3()
+		M.race.transformations += new /transformation/saiyan/super_saiyan_4()
+		M.race.transformations += new /transformation/saiyan/super_full_power_saiyan_4_limit_breaker()
+//		M.race.transformations += new /transformation/celestial/unlimited_high_tension()
 	UnMute()
 		set category="Admin"
 		var/list/people=list("Cancel")

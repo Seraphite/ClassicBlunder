@@ -24,4 +24,47 @@
 			if(!usr.BuffOn(src))
 				usr.Tension=0
 				usr.race.transformations[1].transform(usr, TRUE)
+				if(usr.transUnlocked>=4)
+					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Racial/Human/Double_Helix, usr))
+						var/obj/Skills/Buffs/SlotlessBuffs/Racial/Human/Double_Helix/s=new/obj/Skills/Buffs/SlotlessBuffs/Racial/Human/Double_Helix
+						usr.AddSkill(s)
+				if(usr.transUnlocked>=5&&usr.isRace(HUMAN))
+					usr.race.transformations[2].transform(usr, TRUE)
+					usr.race.transformations[3].transform(usr, TRUE)
+					TimerLimit=90
 			src.Trigger(User=usr, Override=TRUE)
+	Double_Helix
+		TimerLimit=1
+		Cooldown=-1
+	//	ActiveMessage="Psyches themselves up! -- Tension Up!"
+	//	OffMessage="releases their tremendous focus..."
+		verb/Double_Helix()
+			set category="Skills"
+			if(usr.passive_handler.Get("DoubleHelix"))
+				if(usr.passive_handler.Get("DoubleHelix"))
+					switch(usr.DoubleHelix)
+						if(0)
+							usr.DoubleHelix=1
+							OMsg(usr,"<b>The dreams of those who have fallen...</b>")
+						if(1)
+							usr.DoubleHelix=2
+							OMsg(usr,"<b>...and the hopes of those who will follow...</b>")
+						if(2)
+							usr.DoubleHelix=3
+							OMsg(usr,"<b>...those two sets of dreams weave together...</b>")
+						if(3)
+							usr.DoubleHelix=4
+							OMsg(usr,"<b>...into a double helix, paving a path towards tomorrow!!!</b>")
+						if(4)
+							if(usr.transActive<5)
+								return
+							usr.DoubleHelix=5
+							OMsg(usr,"<b>In their hands, [usr] holds the power to create the heavens!!!!</b>")
+				return
+			if(usr.isRace(HUMAN)&&usr.transActive==3&&usr.transUnlocked>=4||usr.isRace(CELESTIAL)&&usr.transActive==3&&usr.transUnlocked>=4)
+				if(usr.passive_handler.Get("FullTensionLock"))
+					usr<<"You cannot use this until the Full Tension Lock from Activate High Tension subsites."
+					return
+				else
+					usr.race.transformations[4].transform(usr, TRUE)
+					usr.DoubleHelix=0

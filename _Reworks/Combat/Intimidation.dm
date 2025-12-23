@@ -113,4 +113,4 @@
 		Effective*=src.IntimidationMult
 	if(Effective<0)
 		Effective=1
-	return Effective
+	return 1//Effective

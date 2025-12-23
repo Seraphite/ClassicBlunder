@@ -95,3 +95,10 @@ transformation
 			passives = list("HighTension"=0.75, "UnlimitedHighTension" = 1, "CreateTheHeavens" = 1)
 			pot_trans = 15
 			transformation_message = "usrName shatters through heaven and earth, becoming equal to the Gods!!"
+			transform_animation(mob/user)
+				var/ShockSize=5
+				LightningStrike2(user, Offset=0)
+				spawn(10)
+				for(var/wav=5, wav>0, wav--)
+					KenShockwave(user, icon='KenShockwaveDivine.dmi', Size=ShockSize, Blend=2, Time=8)
+					ShockSize/=2

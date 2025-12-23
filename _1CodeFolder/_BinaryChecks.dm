@@ -1651,7 +1651,7 @@ mob
 			if(passive_handler.Get("ZenkaiPower"))
 				return 0
 			if(passive_handler.Get("HellPower"))
-				if(isRace(DEMON)||oozaru_type=="Demonic")
+				if(isRace(DEMON)||oozaru_type=="Demonic"||passive_handler.Get("UnlimitedHighTension")&&isRace(CELESTIAL))
 					return 2
 				return 1
 			return 0
@@ -1766,6 +1766,8 @@ mob
 			return Return
 
 		HasGodKi()
+			if(passive_handler["CreateTheHeavens"])
+				return 1
 			if(passive_handler["DisableGodKi"])
 				return 0
 			if(passive_handler["EndlessNine"])
@@ -1807,20 +1809,24 @@ mob
 			if(src.CheckSlotless("Saiyan Soul")&&!src.HasGodKiBuff())
 				if(src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi())
 					Total+=src.Target.GetGodKi()/3
-	/*		if(passive_handler.Get("Hidden Potential") && !HasGodKiBuff())
+			if(passive_handler.Get("CreateTheHeavens") && !HasGodKiBuff()&&isRace(HUMAN))
 				if(src.Target)
 					if(src.Target.HasGodKi())
 						if(Target.GetGodKi() > Total)
 							Total=Target.GetGodKi()
 					else
-						Total+=Potential/100*/
+						Total+=Potential/100
 			if(src.KamuiBuffLock)
 				Total+=0.75
 			if(src.isRace(DRAGON))
 				if(src.AscensionsAcquired==6 && Total<0.5)
 					Total=0.5//fully ascended dragon
+			if(passive_handler.Get("CreateTheHeavens") && src.DoubleHelix>=5&&isRace(HUMAN))
+				Total += 1
 			return Total
 		HasEndlessNine()
+			if(passive_handler.Get("CreateTheHeavens"))
+				return 0
 			if(passive_handler.Get("EndlessNine"))
 				return 1
 			return 0

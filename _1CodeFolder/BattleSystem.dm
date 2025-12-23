@@ -213,6 +213,16 @@ mob/proc/Unconscious(mob/P,var/text)
 			src.VaizardHealth+=30
 			src.HealthAnnounce10=3
 			return
+	if(src.passive_handler.Get("Alter The Future"))
+		if(src.HealthAnnounce10<=4&&FightingSeriously(P,src))
+			if(prob(src.passive_handler.Get("Alter The Future")))
+				src.KO=0
+				src.OMessage(15, "...but [src] rewrites the future to prevent their defeat!", "<font color=red>[src]([src.key]) rewrites the future!")
+				src.Health=1
+				src.passive_handler.Decrease("Alter The Future", 25)
+				src.VaizardHealth+=25
+				src.HealthAnnounce10+=1
+				return
 	if(passive_handler["Undying Rage"])
 		Health = 0.1
 		return

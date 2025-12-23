@@ -6,6 +6,7 @@
 /mob/var/AbsorbingDamage = 0
 /mob/var/transGod = 0
 /mob/var/tmp/list/tmp_removed_ssj_forms = list()
+/mob/var/list/removed_ssj_forms = list()
 
 mob
 	proc

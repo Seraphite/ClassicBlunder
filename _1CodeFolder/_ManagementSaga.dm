@@ -703,9 +703,9 @@ proc
 			if("Chaos Ripper")
 				return 'ChaosRipper.dmi'
 			if("Ultima Weapon")
-				return "Ultima Keyblade.dmi"
+				return 'Ultima Keyblade.dmi'
 			if("X-Blade")
-				return "X-Blade NEOBIG.dmi"
+				return 'X-Blade NEOBIG.dmi'
 	GetKeychainIconReversed(var/KC)
 		switch(KC)
 			if("Kingdom Key")

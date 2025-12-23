@@ -716,6 +716,8 @@ mob/proc/
 					src.PowerControl=400
 				if(4)
 					src.PowerControl=500
+				if(5)
+					src.PowerControl=1000
 		if(src.passive_handler.Get("Kaioken"))
 			if(src.passive_handler.Get("Super Kaioken"))
 				switch(src.Kaioken)
@@ -878,7 +880,7 @@ mob/proc/
 				Ratio*=src.PowerBoost
 			var/SSJBoost=1
 			if(isRace(SAIYAN)&&transActive&&ActiveBuff)
-				if(!passive_handler.Get("GodlyCalm")&&!passive_handler.Get("InBlue"))
+				if(!passive_handler.Get("GodlyCalm")&&!passive_handler.Get("InBlue")&&!passive_handler.Get("SSJ4"))
 					if(race.transformations[1].mastery==100)
 						SSJBoost= 1.15
 					if(race.transformations[2].mastery==100)
@@ -1052,6 +1054,9 @@ mob/proc/
 				src.Auraz("Remove")
 				src<<"You are too tired to power up."
 				src.PoweringUp=0
+				if(isRace(HUMAN)||isRace(CELESTIAL))
+					if(Health<=30&&src.transActive==4&&src.transUnlocked>=5)
+						src.race.transformations[5].transform(src, TRUE)
 				if(isRace(SAIYAN)||isRace(HALFSAIYAN))
 					if(src.transActive()>0)
 						var/Skip=0

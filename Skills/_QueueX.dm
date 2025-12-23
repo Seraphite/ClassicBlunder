@@ -883,6 +883,8 @@ obj
 						maxTension = max(glob.MIN_TENSION, 100 - usr.passive_handler.Get("Conductor"))
 					if(usr.passive_handler.Get("SuperHighTension"))
 						maxTension = max(glob.MIN_TENSION, 100 - (15*usr.passive_handler.Get("SuperHighTension")))
+					if(usr.passive_handler.Get("CreateTheHeavens")&&usr.CelestialAscension=="Angel"&&usr.isRace(CELESTIAL))
+						maxTension = max(glob.MIN_TENSION, 100 - (20*usr.passive_handler.Get("CreateTheHeavens")))
 					if(usr.Tension>=maxTension)
 						if(usr.HasTensionLock())
 							return

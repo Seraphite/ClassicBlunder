@@ -1340,6 +1340,8 @@ NEW VARIABLES
 					src.SwordClass=GetKeychainClass(usr.KeychainAttached)
 					src.SwordElement=GetKeychainElement(usr.KeychainAttached)
 					src.SwordIcon=GetKeychainIcon(usr.KeychainAttached)
+					src.SwordX=-32
+					src.SwordY=-32
 					if(usr.KeychainAttached=="Way To Dawn")
 						passives = list("PULock" = 1, "MagicSword" = 1, "SwordAscension" = 2, "HolyMod" = 3, "AbyssMod" = 3, "SpiritPower" = 0.25 )
 						src.HolyMod=3
@@ -1367,6 +1369,8 @@ NEW VARIABLES
 						passives = list("PULock" = 1, "MagicSword" = 1, "SwordAscension" = 3, "GodKi" = 0.25)
 					if(usr.KeychainAttached=="Ultima Weapon")
 						passives = list("PULock" = 1, "MagicSword" = 1, "SwordAscension" = 3, "SlayerMod" = 1.5, "FavoredPrey" = "Beyond")
+						src.SwordX=-36
+						src.SwordY=-36
 
 					else
 						src.StealsStats=0
@@ -1700,11 +1704,6 @@ NEW VARIABLES
 					if(usr.HasJagan()&&W.z==usr.z)
 						continue
 					if(W.z == ArcaneRealmZ)
-						who.Remove(W)
-					if(!usr.HasSpiritPower() && !usr.HasEmptyGrimoire())
-						if(!(locate(W.EnergySignature) in usr.EnergySignaturesKnown))
-							who.Remove(W)
-					if(W.HasGodKi() && !usr.HasGodKi())
 						who.Remove(W)
 					if(W.invisibility)
 						who.Remove(W)
@@ -4127,7 +4126,6 @@ NEW VARIABLES
 				src.Trigger(usr)
 		The_Echo_From_Hit_MMO_FF14
 			BuffName = "The Echo"
-			SignatureTechnique=4
 			Mastery=-1
 			passives = list("The Echo" = 1)
 			FlashChange=1
@@ -4137,7 +4135,6 @@ NEW VARIABLES
 				set category="Skills"
 				src.Trigger(usr)
 		Godly_Aura
-			SignatureTechnique=4
 			Mastery=-1
 			passives = list("GodKi" = 0.5)
 			FlashChange=1
@@ -4147,9 +4144,8 @@ NEW VARIABLES
 				set category="Skills"
 				src.Trigger(usr)
 		Hyper_Light_Speed_Mode
-			SignatureTechnique=4
 			Mastery=-1
-			passives = list("Warp" = 4)
+			passives = list("Warping" = 4, "FatigueLeak" = 1)
 			FlashChange=1
 			ActiveMessage="transcends time and space with their speed, becoming able to attack from any distance!"
 			OffMessage="slows the fuck down."
@@ -4158,7 +4154,6 @@ NEW VARIABLES
 				src.Trigger(usr)
 		Beyond_Strength
 			BuffName = "Strength Beyond Strength"
-			SignatureTechnique=4
 			Mastery=-1
 			passives = list("PridefulRage" = 1, "ZenkaiPower"=0.5)
 			FlashChange=1
@@ -7532,7 +7527,6 @@ NEW VARIABLES
 			Cooldown=-1
 			TimerLimit=0
 			FINISHINGMOVE=1
-			Intimidation=2
 			KenWave=4
 			KenWaveIcon='DarkKiai.dmi'
 			IconTransform='Jagan Transformation.dmi'
@@ -7545,8 +7539,8 @@ NEW VARIABLES
 			proc/init(mob/p)
 				if(altered) return
 				var/secretLevel = p.secretDatum.currentTier
-				Intimidation = 1 + secretLevel/4
-				passives = list("PUSpike" = 5 + (5 * secretLevel), "SpiritHand" = 0.25 * secretLevel, "FatigueLeak" = 5 - secretLevel)
+		//		Intimidation = 1 + secretLevel/4
+				passives = list("PUSpike" = 5 + (5 * secretLevel), "SpiritHand" = 0.25 * secretLevel, "FatigueLeak" = 6 - secretLevel)
 
 			verb/Jagan_Expert_Mode()
 				set category="Skills"
@@ -7567,7 +7561,6 @@ NEW VARIABLES
 			EndMult=1.1//remove end nerfs from jagan
 			Flow=1
 			Instinct=1
-			Intimidation=2
 			PowerInvisible=2
 			IconLock='DarknessFlame.dmi'
 			IconLockBlend=2
@@ -7578,7 +7571,6 @@ NEW VARIABLES
 			proc/init(mob/p)
 				if(altered) return
 				var/currentPot = p.Potential
-				Intimidation = 1.75 + (currentPot/100)
 				passives = list("FatigueLeak" = 1, "SpiritSword" = 0.25  , "Flow" = 1 + currentPot/100, "Instinct" = 1 + currentPot/100)
 				ForMult = 1 + round(currentPot/150, 0.01)
 				StrMult = 1 + round(currentPot/150, 0.01)

@@ -95,3 +95,30 @@ transformation
 			passives = list("HighTension"=0.75, "UnlimitedHighTension" = 1, "CreateTheHeavens" = 1, "GodKi"=1)
 			pot_trans = 15
 			transformation_message = "usrName shatters through heaven and earth, becoming equal to the Gods!!"
+			transform(mob/user)
+				if(user.CelestialAscension=="Demon")
+					user.race.transformations-=src
+					usr.race.transformations += new /transformation/celestial/demonic_high_tension()
+					del src
+				else
+					..()
+			transform_animation(mob/user)
+				var/ShockSize=5
+				LightningStrike2(user, Offset=0)
+				spawn(10)
+				for(var/wav=5, wav>0, wav--)
+					KenShockwave(user, icon='KenShockwaveDivine.dmi', Size=ShockSize, Blend=2, Time=8)
+					ShockSize/=2
+		demonic_high_tension
+			passives = list("HighTension"=0.75, "UnlimitedHighTension" = 1, "CreateTheHeavens" = 1, "Unstoppable" = 1, "HellPower"=2, "HellRisen" = 1, "DemonicDurability" = 6, "Brutalize" = 6, "PureDamage" = 6, "PureReduction" = 6, "MovementMastery" = 6, "TechniqueMastery" = 6, "Steady" = 6, "ManaStats" = 6)
+			pot_trans = 15
+			form_aura_icon = 'Amazing Super Demon Aura.dmi'
+			form_aura_x = -32
+			transformation_message = "usrName shatters through heaven and earth, declaring all the lights in the sky as their enemies!"
+			transform_animation(mob/user)
+				var/ShockSize=5
+				LightningStrike2(user, Offset=0)
+				spawn(10)
+				for(var/wav=5, wav>0, wav--)
+					KenShockwave(user, icon='KenShockwaveBloodlust.dmi', Size=ShockSize, Blend=2, Time=8)
+					ShockSize/=2

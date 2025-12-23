@@ -36,9 +36,14 @@
 		ForMult=1.5
 		EndMult=1.75
 		TimerLimit = 40
-		passives = list("SpiritFlow"=1, "SpiritSword"=1, "ManaStats" = 1, "CallousedHands"=0.5, "PureReduction"=4)
+		passives = list("SpiritFlow"=1, "SpiritSword"=1, "ManaStats" = 1, "CallousedHands"=0.5, "PureReduction"=4, "TensionLock" = 1)
 	The_Ultimate_Fist
-		passives = list("CallousedHands"=0.25, "BlurringStrikes" = 4, "Hardening" = 3, "Godspeed" = 2, "DoubleStrike" = 2, "TripleStrike" = 1)
+		passives = list("CallousedHands"=0.25, "BlurringStrikes" = 4, "Hardening" = 3, "Godspeed" = 2, "DoubleStrike" = 2, "TripleStrike" = 1, "TensionLock" = 1)
 		SpdMult=1.5
 		StrMult=1.5
-		EndMult=1.5
+	Jackpot
+		passives = list("TensionLock" = 1,"Afterimages"=2, "Steady"=7,"DoubleStrike"=3,"Warping"=3,"Skimming"=2,"Godspeed"=3)
+		ForMult=1.7
+		StrMult=1.7
+		EndMult=1.7
+		TimerLimit=17

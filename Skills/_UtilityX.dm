@@ -509,14 +509,14 @@ obj/Skills/Utility
 				else
 					usr << "You tap into your divine power."
 		// Creates or clears the temp list of SSJ forms
-				if (!usr.tmp_removed_ssj_forms)
-					usr.tmp_removed_ssj_forms = list()
+				if (!usr.removed_ssj_forms)
+					usr.removed_ssj_forms = list()
 				else
-					usr.tmp_removed_ssj_forms.Cut()
+					usr.removed_ssj_forms.Cut()
 		// Stores and removes the base SSJ forms
 				for (var/transformation/saiyan/ssj in usr.race.transformations)
 					if (istype(ssj, /transformation/saiyan/super_saiyan) || istype(ssj, /transformation/saiyan/super_saiyan_2) || istype(ssj, /transformation/saiyan/super_saiyan_3))
-						usr.tmp_removed_ssj_forms += ssj
+						usr.removed_ssj_forms += ssj
 						usr.race.transformations -= ssj
 			// Ideally we don't delete SSJ here, but this may require further testing hahaha. it works right now at least.
 			else
@@ -524,9 +524,9 @@ obj/Skills/Utility
 				usr.transGod = 0
 				usr << "You can once again use your Super Saiyan forms."
 		// Restores old SSJ forms
-				if(usr.tmp_removed_ssj_forms && usr.tmp_removed_ssj_forms.len)
+				if(usr.removed_ssj_forms && usr.removed_ssj_forms.len)
 					var/list/all = usr.race.transformations.Copy()
-					for(var/transformation/saiyan/T in usr.tmp_removed_ssj_forms)
+					for(var/transformation/saiyan/T in usr.removed_ssj_forms)
 						if(!(T in all)) all += T
 		// checks for and removes duplicates safely!!!!!!!!
 					var/list/final = list()
@@ -540,7 +540,7 @@ obj/Skills/Utility
 							if(T.tier == i)
 								ordered += T
 					usr.race.transformations = ordered
-					usr.tmp_removed_ssj_forms.Cut()
+					usr.removed_ssj_forms.Cut()
 			usr.SkillX("GodTransToggle", usr)
 
 	Telepathy

@@ -69,6 +69,15 @@
 		FollowUp="/obj/Skills/Projectile/Even_More_Super_Hyper_Goner_Attack"
 		DamageMult = 4
 		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Final_Boss_Form"
+	Jackpot
+		Combo=7
+		InstantStrikes=7
+		InstantStrikesDelay = 0.5
+		Warp=10
+		DamageMult=0.1
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Jackpot"
+		FollowUp="/obj/Skills/Projectile/Seven_Lucky_Flames"
+		HitMessage = "hits the motherfuckin' jackpot!!!!"
 /obj/Skills/Queue/Finisher
 	Seiken_Gradalpha
 		name = "Seiken Gradalpha"
@@ -130,3 +139,17 @@
 			Variation=0
 			ComboMaster=1
 			IconLock='ChaosBlast.dmi'
+		Seven_Lucky_Flames
+			Blasts=7
+			Charge=2
+			DamageMult=1
+			Instinct=1
+			AccMult=2
+			Explode=1
+			Distance=100
+			ZoneAttackX=10
+			ZoneAttackY=10
+			Hover=10
+			Variation=0
+			ComboMaster=1
+			IconLock='Hellzone.dmi'
