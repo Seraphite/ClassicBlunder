@@ -96,7 +96,7 @@ mob/proc/GetAssess()
 	<tr><td>Recovery:</td><td> [round(src.GetRecov(), 0.01)] ([src.BaseRecov()])</td></tr>
 	<tr><td>Anger:</td><td>[(src.AngerMax+src.AngerAdd)*100]%</td></tr>
 	<tr><td>Power Mult:</td><td>[round(src.potential_power_mult, 0.05) + src.PowerBoost]%</td></tr>
-	<tr><td>Potential:</td><td>[Potential]/100</td></tr>
+	<tr><td>Potential:</td><td>[Potential]/150</td></tr>
 	<tr><td>Transformation Potential:</td><td>[src.potential_trans]/100</td></tr>
 	<tr><td>Average Stats: [StatAverage]</td></tr>
 	<tr><td>Magic Level: [getTotalMagicLevel()]</td></tr>

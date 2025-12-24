@@ -81,8 +81,8 @@ progressTracker
 	proc/incrementTotal()
 		totalRPPToDate += RPPDaily
 		totalPotentialToDate += PotentialDaily
-		if(totalPotentialToDate > 100)
-			totalPotentialToDate = 100
+		if(totalPotentialToDate > 150)
+			totalPotentialToDate = 150
 		if(totalRPPToDate > RPPLimit)
 			totalRPPToDate = RPPLimit
 
