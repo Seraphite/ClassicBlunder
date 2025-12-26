@@ -73,6 +73,20 @@ ascension
 					for(var/obj/Skills/Buffs/SlotlessBuffs/Spirit_Form/sf in owner.contents)
 						sf.ManaDrain = 0
 				..()
+		six
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			strength = 0.25
+			force = 0.25
+			endurance = 0.25
+			onAscension(mob/owner)
+				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/yokai/grand_caster)
+					passives["SpiritStrike"] = 0.75
+					passives["ManaCapMult"] = 0.25
+				else if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/yokai/two_become_one)
+					passives = list("MovementMastery" = 2, "ManaStats" = 0.5)
+					for(var/obj/Skills/Buffs/SlotlessBuffs/Spirit_Form/sf in owner.contents)
+						sf.ManaDrain = 0
+				..()
 
 
 ascension

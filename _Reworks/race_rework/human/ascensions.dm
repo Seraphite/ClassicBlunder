@@ -96,3 +96,21 @@ ascension
 					strength = 0.25
 					force = 0.25
 				..()
+		six
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			passives = list( "Tenacity" = 1, "DemonicDurability" = 0.5)
+			new_anger_message = "becomes angry!"
+			on_ascension_message = "You learn the meaning of humanity..."
+			onAscension(mob/owner)
+				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/human/hero)
+					passives["UnderDog"] = 1
+					defense = 0.50
+					endurance = 0.50
+					strength = 0.50
+					force = 0.50
+				if(owner.race.ascensions[1].choiceSelected == /ascension/sub_ascension/human/innovative)
+					passives["Persistence"] = 1
+					defense = 0.50
+					endurance = 0.50
+					offense = 0.50
+				..()

@@ -77,3 +77,10 @@ ascension
 			postAscension(mob/owner)
 				..()
 				owner.Class = "Maou"
+		six
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			intimidation = 250
+
+			postAscension(mob/owner)
+				..()
+				owner.Class = "Mazoku"

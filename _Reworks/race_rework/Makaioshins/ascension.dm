@@ -84,3 +84,11 @@ ascension
 			postAscension(mob/owner)
 				..()
 				owner.Class = "The Shining One"
+		six
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			passives = list("GodKi"=1)
+			intimidation = 250
+
+			postAscension(mob/owner)
+				..()
+				owner.Class = "The Shining One"

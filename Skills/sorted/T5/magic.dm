@@ -5,7 +5,7 @@
 	PreRequisite=list("/obj/Skills/Projectile/Magic/Meteor")
 	Blasts = 8
 	Distance=20
-	DamageMult=6
+	DamageMult=3
 	Dodgeable=-1
 	AccMult = 1.175
 	Speed=2

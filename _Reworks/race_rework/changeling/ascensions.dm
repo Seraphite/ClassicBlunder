@@ -11,7 +11,7 @@ ascension
 				owner.BioArmorMax += 25
 				if(owner.transUnlocked < 1)
 					owner.transUnlocked = 1
-				
+
 
 		two
 			unlock_potential	=	ASCENSION_TWO_POTENTIAL
@@ -45,6 +45,12 @@ ascension
 
 		five
 			unlock_potential	=	ASCENSION_FIVE_POTENTIAL
+			intimidation = 3
+			endurance = 0.25
+			passives = list("PureReduction" = 2)
+			on_ascension_message = "Your prowess grows!"
+		six
+			unlock_potential	=	ASCENSION_SIX_POTENTIAL
 			intimidation = 3
 			endurance = 0.25
 			passives = list("PureReduction" = 2)

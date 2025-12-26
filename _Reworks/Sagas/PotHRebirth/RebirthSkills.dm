@@ -1244,11 +1244,13 @@ obj/Skills/Grapple
 			Trigger(usr)
 	White_Pen_Of_Hope //cyan t5 good path
 		StyleActive="The White Pen of Hope"
-		passives = list("ManaGeneration" = 2, "ManaStats"=1, "Determination(White)" = 1,"ManaCapMult"=1, "MagicSword"=1)
+		passives = list("ManaGeneration" = 2, "ManaStats"=2, "Determination(White)" = 1,"ManaCapMult"=1, "MagicSword"=1)
 		StyleSpd=1.5
 		StyleStr=1.25
 		StyleFor=1.25
 		Finisher="/obj/Skills/Queue/Finisher/Cross_Slash"
+		adjust(mob/p)
+			passives = list("ManaGeneration" = 2, "ManaStats"=2, "Determination(White)" = 1,"ManaCapMult"=1, "MagicSword"=1)
 		verb/Pen_Of_Hope()
 			set hidden=1
 			adjust(usr)

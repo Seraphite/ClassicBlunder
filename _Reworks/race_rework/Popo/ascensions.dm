@@ -32,3 +32,10 @@ ascension
 			postAscension(mob/owner)
 				..()
 				owner.Class = "Popo"
+		six
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			passives = list("Tenacity" = 1, "Adrenaline" = 1, "TechniqueMastery" = 1, "StyleMastery" = 1, "CashCow" = 1, "ManaGeneration" =1, "QuickCast" = 1, "Holding Back" = -5)
+			on_ascension_message = "You finally sit atop the pecking order."
+			postAscension(mob/owner)
+				..()
+				owner.Class = "Dumplin'"

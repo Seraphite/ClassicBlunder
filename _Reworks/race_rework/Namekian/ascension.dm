@@ -123,3 +123,25 @@ ascension
 						recovery = 1
 						passives = list("SoulFire" = 1, "CyberMenace" = 1, "HybridStrike" = 0.5)
 				..()
+		six
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			onAscension(mob/owner)
+				if(!owner.transUnlocked == 1)
+					owner.transUnlocked = 1
+				switch(owner.Class) ///orange namek should be unlocked here
+					if("Demon")
+						//power = 3
+						speed = 0.5
+						anger = 0.2 // 2
+						intimidation = 50
+					if("Warrior")
+						//power = 4
+						strength = 1
+						endurance = 1
+						intimidation = 70
+					if("Dragon")
+						//power = 3.5
+						force = 1
+						recovery = 1
+						passives = list("SoulFire" = 1, "CyberMenace" = 1, "HybridStrike" = 0.5)
+				..()

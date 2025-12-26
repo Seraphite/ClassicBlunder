@@ -1599,7 +1599,7 @@ mob
 			if(passive_handler.Get("TensionPowered")&&transActive>=4)
 				Mod+=passive_handler.Get("TensionPowered")/2
 			if(passive_handler.Get("Determination(Green)")||passive_handler.Get("Determination(White)"))
-				Mod+=(0.02*ManaAmount)
+				Mod+=(0.04*ManaAmount)
 
 			End*=Mod
 			End*=Mult
@@ -1654,7 +1654,9 @@ mob
 				Mod+=0.75
 			if(Saga&&src.Saga=="Eight Gates")
 				Mod+=0.01*GatesActive
-			if(passive_handler["Determination(Red)"||passive_handler["Determination(Yellow)"]]||passive_handler.Get("Determination(White)"))
+			if(passive_handler["Determination(Yellow)"])
+				Mod+=(0.025*ManaAmount)
+			if(passive_handler["Determination(Red)"||passive_handler.Get("Determination(White)"))
 				Mod+=(0.025*ManaAmount)
 			if(Secret == "Heavenly Restriction")
 				if(secretDatum?:hasImprovement("Speed"))

@@ -59,7 +59,7 @@
 					Activate(s)
 					if(SagaLevel<5)
 						ManaAmount=0
-					if(SagaLevel>=5)
+					if(SagaLevel>=5&&ManaAmount>=150)
 						ManaAmount-=50
 			if(SagaLevel<4||RebirthHeroType=="Red")
 				ManaAmount=0

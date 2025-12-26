@@ -112,3 +112,10 @@ ascension
 			postAscension(mob/owner)
 				..()
 				owner.Class = "Transcendent"
+		six
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			passives = list("SpiritPower" = 1)
+
+			postAscension(mob/owner)
+				..()
+				owner.Class = "Transcendent"

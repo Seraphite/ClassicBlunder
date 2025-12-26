@@ -88,3 +88,10 @@ ascension
 			postAscension(mob/owner)
 				..()
 				owner.Class = "Throne"
+		six
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			passives = list("SpiritPower" = 0.25)//not sure what to give here. i'll think about it
+			on_ascension_message = "When closing your eyes, you bear witness to His heavenly throne."
+			postAscension(mob/owner)
+				..()
+				owner.Class = "Divine Right Hand"

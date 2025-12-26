@@ -30,3 +30,9 @@ ascension
 			on_ascension_message = "Your frame becomes more well-adjusted."
 			ecoAdd = 1
 			enhanceChips = 4
+		six
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			passives = list("TechniqueMastery" = 0.5, "MovementMastery" = 3, "ManaCapMult" = 0.2, "PureDamage" = 1, "PureReduction" = 1)
+			on_ascension_message = "Your frame becomes more well-adjusted."
+			ecoAdd = 1
+			enhanceChips = 4
