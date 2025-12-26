@@ -287,7 +287,7 @@ transformation
 			var/tailUnderlayIcon = 'saiyantail_ssj4_under.dmi'
 			var/tailWrappedIcon = 'saiyantail-wrapped_ssj4.dmi'
 			form_icon_1_icon = 'GokentoMaleBase_SSJ4.dmi'
-			form_icon_1_layer = 1
+			form_icon_1_layer =FLOAT_LAYER-3
 			passives = list("DisableGodKi" = 1,"GiantForm" = 1, "SweepingStrike" = 1, "Brutalize" = 3, "Meaty Paws" = 2, "KiControlMastery" = 3, "PureReduction" = 5, "LifeGeneration" = 5, "Unstoppable" = 1, "AllOutAttack" = 1, "Reversal" = 0.3)
 			adjust_transformation_visuals(mob/user)
 				if(user.Hair_Base && !form_hair_icon)
@@ -298,7 +298,7 @@ transformation
 			mastery_boons(mob/user)
 				passives = list("DisableGodKi" = 1, "GiantForm" = 1, "Juggernaut" = 1+(mastery/25), "BuffMastery" = 5 + (mastery/10), "SweepingStrike" = 1, "Brutalize" = 3,\
 				"Meaty Paws" = 2 + (mastery/50), "KiControlMastery" = 3 + (mastery/50), "PureReduction" = 5 + (mastery/10),\
-				"LifeGeneration" = 1 + (mastery/15), "Unstoppable" = 1, "AllOutAttack" = 1, "Reversal" = 0.1 + (mastery/200),\
+				"LifeGeneration" = 1 + (round(mastery/15,0)), "Unstoppable" = 1, "AllOutAttack" = 1, "Reversal" = 0.1 + (mastery/200),\
 				"Flow" = 4, "Instinct" = 4, "Transformation Power" = clamp(user.AscensionsAcquired * 3, 1, 20), "Deicide" = 10,\
 				"Flicker" = 5, "Pursuer" = 5, "PureDamage"= 4 + (mastery/10),"SSJ4" = 1)
 				speed = 1.5 + (mastery/200)
@@ -384,7 +384,7 @@ transformation
 			mastery_boons(mob/user)
 				passives = list("DisableGodKi" = 1, "GiantForm" = 1, "Juggernaut" = 1+(mastery/25), "BuffMastery" = 5 + (mastery/10), "SweepingStrike" = 1, "Brutalize" = 3,\
 				"Meaty Paws" = 2 + (mastery/50), "KiControlMastery" = 4 + (mastery/20), "PureReduction" = 5 + (mastery/10),\
-				"LifeGeneration" = 1 + (mastery/15), "Unstoppable" = 1, "AllOutAttack" = 1, "Reversal" = 0.1 + (mastery/200),\
+				"LifeGeneration" = 1 + (round(mastery/15,0)), "Unstoppable" = 1, "AllOutAttack" = 1, "Reversal" = 0.1 + (mastery/200),\
 				"Flow" = 4, "Instinct" = 4, "Transformation Power" = clamp(user.AscensionsAcquired * 3, 1, 20), "Deicide" = 10,\
 				"Flicker" = 5, "Pursuer" = 5, "PureDamage"= 6 + (mastery/10),"EndlessNine"=0.25)
 				speed = 1.5 + (mastery/200)
