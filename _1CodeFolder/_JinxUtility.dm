@@ -1656,7 +1656,7 @@ mob
 				Mod+=0.01*GatesActive
 			if(passive_handler["Determination(Yellow)"])
 				Mod+=(0.025*ManaAmount)
-			if(passive_handler["Determination(Red)"||passive_handler.Get("Determination(White)"))
+			if(passive_handler["Determination(Red)"]||passive_handler.Get("Determination(White)"))
 				Mod+=(0.025*ManaAmount)
 			if(Secret == "Heavenly Restriction")
 				if(secretDatum?:hasImprovement("Speed"))
