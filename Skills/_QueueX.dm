@@ -1175,6 +1175,37 @@ obj
 								src.HitSparkSize=1
 								usr.SetQueue(src)
 								return
+							if(usr.secretDatum.currentTier == 5)
+								src.name="Scarlet Overdrive"
+								src.DamageMult=4
+								src.AccuracyMult = 1.15
+								src.KBAdd=5
+								src.KBMult=3
+								src.Cooldown=30
+								src.HitMessage="channels the Ripple through flame: <b>Scarlet Overdrive!!</b>"
+								src.Paralyzing=0
+								src.Toxic=0
+								src.Scorching=20
+								src.Freezing=0
+								src.Shattering=20
+								src.CursedWounds=0
+								src.Ooze = 0
+								src.Combo=0
+								src.Warp=2
+								src.BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/ScarletOverdriven"
+								src.Rapid=0
+								src.LifeSteal=0
+								src.Crippling=0
+								src.Grapple=0
+								src.NoForcedWhiff=0
+								src.IconLock='Ultima Arm.dmi'
+								src.HitSparkIcon=0
+								src.HitSparkX=0
+								src.HitSparkY=0
+								src.HitSparkTurns=0
+								src.HitSparkSize=1
+								usr.SetQueue(src)
+								return
 							if(prob(20))//always check for the barrage
 								src.name="Ripple Overdrive"
 								src.DamageMult=1
