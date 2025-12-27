@@ -107,6 +107,13 @@
         passives = list("PureReduction" = -0.5)
         CrippleAffected = 2
         SlowAffected = 2
+    ScarletOverdriven
+        TimerLimit = 60
+        IconLock = 'Stun.dmi'
+        IconApart = 1
+        passives = list("Maki" = 1)
+        ActiveMessage = "is set ablaze by Scarlet Overdrive!"
+        OffMessage = "feels the flames around them vanish."
 
     Zwercopter
         IconLock='Ice_Aura_2.dmi'
