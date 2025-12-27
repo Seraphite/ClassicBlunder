@@ -9197,7 +9197,7 @@ NEW VARIABLES
 
 		Ripple
 			Ripple_Breathing
-				passives = list("HolyMod" = 2, "PUDrainReduction" = 2, "Ripple" = 1)
+				passives = list("Purity" = 1, "HolyMod" = 2, "PUDrainReduction" = 2, "Ripple" = 1)
 				HolyMod=2
 				PUDrainReduction=2
 				ActiveMessage="begins to channel the power of the Sun!"
@@ -9210,9 +9210,9 @@ NEW VARIABLES
 				adjust(mob/p)
 					var/secretLevel = p.secretDatum.currentTier
 					if(secretLevel >= 4)
-						passives = list("HolyMod" = 2 + secretLevel, "PUDrainReduction" = 2 + (secretLevel / 4), "Ripple" = 1 + (secretLevel / 4), "FavoredPrey" = "Evil", "SlayerMod" = (secretLevel / 2))
+						passives = list("Purity" = 1, "HolyMod" = 2 + secretLevel, "PUDrainReduction" = 2 + (secretLevel / 4), "Ripple" = 1 + (secretLevel / 4), "FavoredPrey" = "Evil", "SlayerMod" = (secretLevel / 2))
 					else
-						passives = list("HolyMod" = 2 + secretLevel, "PUDrainReduction" = 2 + (secretLevel / 4), "Ripple" = 1 + (secretLevel / 4))
+						passives = list("Purity" = 1, "HolyMod" = 2 + secretLevel, "PUDrainReduction" = 2 + (secretLevel / 4), "Ripple" = 1 + (secretLevel / 4))
 				verb/Ripple_Breathing()
 					set category="Skills"
 					adjust(usr)
