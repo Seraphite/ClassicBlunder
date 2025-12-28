@@ -3330,7 +3330,7 @@ NEW VARIABLES
 						EndMult = 1.2 + ((player.SagaLevel-3) * 0.1)
 						OffMult = 1.2 + ((player.SagaLevel-3) * 0.1)
 						DefMult = 1.1 + ((player.SagaLevel-3) * 0.1)
-						passives = list("DebuffResistance" = 1, "SpaceWalk" =1, "StaticWalk" = 1,"MovementMastery" = 8+player.SagaLevel, "ArmorAscension" = 3, "Godspeed" = 1+(player.SagaLevel*0.25), "HolyMod" = 2 + player.SagaLevel, "AbyssMod" = 2 + player.SagaLevel, "BuffMastery" = 1 + (player.SagaLevel/1.5), "SpiritPower" = player.SagaLevel*0.25)
+						passives = list("DebuffResistance" = 1, "SpaceWalk" =1, "StaticWalk" = 1,"MovementMastery" = 8+player.SagaLevel, "ArmorAscension" = 3, "Godspeed" = 1+(player.SagaLevel*0.25), "HolyMod" = 2 + player.SagaLevel, "AbyssMod" = 2 + player.SagaLevel, "HellPower" =0.25 * (player.SagaLevel+2), "BuffMastery" = 1 + player.SagaLevel, "SpiritPower" = player.SagaLevel*0.25)
 					verb/Don_Cloth()
 						set category="Skills"
 						adjustments(usr)
@@ -3396,7 +3396,7 @@ NEW VARIABLES
 						ForMult = 1.4 + ((player.SagaLevel-3) * 0.1)
 						OffMult = 1.2 + ((player.SagaLevel-3) * 0.1)
 						DefMult = 1.4 + ((player.SagaLevel-3) * 0.1)
-						passives = list("DebuffResistance" = 1, "SpaceWalk" =1, "StaticWalk" = 1,"MovementMastery" = 8+player.SagaLevel, "ArmorAscension" = 3, "Godspeed" = 1+(player.SagaLevel*0.25), "FluidForm" = 1 + (player.SagaLevel*0.25), "HolyMod" = player.SagaLevel * 2, "HybridStrike" = player.SagaLevel*0.4)
+						passives = list("DebuffResistance" = 1, "SpaceWalk" =1, "StaticWalk" = 1,"MovementMastery" = 8+player.SagaLevel, "ArmorAscension" = 3, "Godspeed" = 1+(player.SagaLevel*0.25), "FluidForm" = 1 + (player.SagaLevel*0.25), "HolyMod" = player.SagaLevel * 4, "HybridStrike" = player.SagaLevel*0.5)
 
 					verb/Don_Cloth()
 						set category="Skills"
@@ -3520,7 +3520,6 @@ NEW VARIABLES
 						adjustments(usr)
 						src.Trigger(usr)
 						Cape(usr)
-
 				Sagittarius_Cloth
 					ArmorIcon='goldsaintsagittarius_armor.dmi'
 					TopOverlayLock='goldsaintsagittarius_helmet.dmi'
@@ -3531,8 +3530,8 @@ NEW VARIABLES
 					OffMessage="discards the Cloth..."
 					adjustments(mob/player)
 						..()
-						passives = list("DebuffResistance" = 1, "SpaceWalk" = 1, "StaticWalk" = 1, "MovementMastery" = 8+player.SagaLevel, "ArmorAscension" = 3, "MovingCharge" = 1, \
-										"Godspeed" = 1+(player.SagaLevel*0.5), "BlurringStrikes" = round(player.SagaLevel*0.5,0), "Flow" = player.SagaLevel-3, "Skimming" = 1, "SpiritFlow" = player.SagaLevel-2)
+						passives = list("DebuffResistance" = 1, "SpaceWalk" = 1, "StaticWalk" = 1, "MovementMastery" = 8 + player.SagaLevel, "ArmorAscension" = 3, "MovingCharge" = 1, \
+						"Godspeed" = 1 + (player.SagaLevel*0.5), "BlurringStrikes" = player.SagaLevel*0.5, "Flow" = player.SagaLevel-3, "Skimming" = 1, "SpiritFlow" = player.SagaLevel-2)
 						SpdMult = 1.4 + ((player.SagaLevel-3) * 0.1)
 						StrMult = 1.1 + ((player.SagaLevel-3) * 0.1)
 						OffMult = 1.1 + ((player.SagaLevel-3) * 0.1)
