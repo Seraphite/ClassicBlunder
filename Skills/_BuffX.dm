@@ -9228,8 +9228,9 @@ NEW VARIABLES
 					VaizardHealth=2.5 * secretLevel
 					VaizardShatter=1
 					TimerLimit=10 + (secretLevel * 4)
-				Trigger(mob/p, Overide = 0)
-					adjust(usr)
+				Trigger(mob/User, Override = FALSE)
+					if(!User.BuffOn(src))
+						adjust(User)
 					..()
 		Werewolf
 			New_Moon_Form
@@ -11142,7 +11143,7 @@ NEW VARIABLES
 
 //Secret
 			Ripple_Enhancement
-				AlwaysOn=1
+				AlwaysOn=0
 				BuffName="Sparkling Ripple"
 				IconLock='Ripple Aura.dmi'
 				passives = list("BeyondPurity" = 1)
@@ -11153,8 +11154,9 @@ NEW VARIABLES
 					var/secretLevel = p.secretDatum.currentTier
 					TimerLimit= 30 * secretLevel
 					passives = list("BeyondPurity" = 1)
-				Trigger(usr, Overide = 0)
-					adjust(usr)
+				Trigger(mob/User, Override = FALSE)
+					if(!User.BuffOn(src))
+						adjust(User)
 					..()
 			Senjutsu_Imbued
 				AlwaysOn=1
