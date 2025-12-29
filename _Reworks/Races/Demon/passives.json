@@ -4,7 +4,7 @@
     "SWORD_PASSIVES_I": {
         "Extend": [1, 2],
         "MagicSword": [1, 1],
-        "SpiritSword": [0.25, 1]
+        "SpiritSword": [1, 1]
     },
     "SWORD_PASSIVES_II": {
         "LifeSteal": [5, 25],
@@ -13,7 +13,7 @@
     "SWORD_PASSIVES_III": { "TripleStrike": [1, 2] },
     "SWORD_PASSIVES_IV": {},
     "UNARMED_PASSIVES_I": {
-        "SpiritHand": [1, 4],
+        "SpiritHand": [4, 4],
         "BlurringStrikes": [1, 4],
         "Momentum": [1, 4]
     },
@@ -34,9 +34,9 @@
         "ManaSteal": [5, 25]
     },
     "STAFF_PASSIVES_III": {
-        "ManaStats": [0.25, 1],
-        "ManaGeneration": [1, 5],
-        "SpiritFlow": [0.5, 2]
+        "ManaStats": [2, 8],
+        "ManaGeneration": [5, 25],
+        "SpiritFlow": [1, 5]
     },
     "STAFF_PASSIVES_IV": {
         "DualCast": [1, 2]
@@ -55,9 +55,9 @@
         "DebuffReversal": [1, 1]
     },
     "ARMOR_PASSIVES_III": {
-        "BlockChance": [20, 100],
-        "Blubber": [0.25, 1],
-        "LikeWater": [1, 4],
+        "BlockChance": [10, 30],
+        "Blubber": [1, 4],
+        "LikeWater": [1, 5],
         "DemonicDurability": [1, 5],
         "LifeGeneration": [1, 5],
         "DeathField": [2, 10],
@@ -96,7 +96,7 @@
         "BulletKill": [1, 1],
         "EnergyGeneration": [1, 4],
         "Adaptation": [1, 1],
-        "CriticalChance": [20, 100],
+        "CriticalChance": [10, 30],
         "FluidForm": [0.5, 2],
         "Brutalize": [1, 5]
 
