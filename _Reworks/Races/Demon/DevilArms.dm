@@ -42,6 +42,12 @@
             return TRUE
         return FALSE
     adjust(mob/p)
+        if(passives["CriticalChance"]>30]
+            passives["CriticalChance"]=30
+            passives["CriticalDamage"]=0.15
+        if(passives["BlockChance"]>30]
+            passives["BlockChance"]=30
+            passives["CriticalBlock"]=0.15
         switch(selection)
             if("Sword")
                 passives["SwordAscension"] = p.AscensionsAcquired + 1
@@ -90,11 +96,11 @@
             switch(input)
                 if("CriticalChance")
                     passives["[input]"] += theList[input][1]
-                    passives["CriticalDamage"] += 0.15
+                    passives["CriticalDamage"] += 0.05
                     return
                 if("BlockChance")
                     passives["[input]"] += theList[input][1]
-                    passives["CriticalBlock"] += 0.15
+                    passives["CriticalBlock"] += 0.05
                     return
             passives["[input]"] += theList[input][1]
         else
