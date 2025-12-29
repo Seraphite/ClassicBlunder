@@ -1336,10 +1336,7 @@ NEW VARIABLES
 			verb/Delete_Bugged_Keyblade()
 				set category="Utility"
 				var/obj/Items/Sword/s
-				if(PassedSword)
-					s=PassedSword
-				else
-					s=usr.EquippedSword()
+				s=usr.EquippedSword()
 				del s
 			verb/Summon_Keyblade()
 				set category="Skills"

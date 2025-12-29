@@ -71,7 +71,7 @@
 		BuffSelf=0
 		HitSparkIcon = 'Slash_Multi.dmi'
 	Hyper_Goner_Two
-		FollowUp="/obj/Skills/Projectile/Even_More_Super_Hyper_Goner_Attack"
+		FollowUp="/obj/Skills/Projectile/Zone_Attacks/Even_More_Super_Hyper_Goner_Attack"
 		DamageMult = 4
 		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Final_Boss_Form"
 	Jackpot
@@ -81,7 +81,7 @@
 		Warp=10
 		DamageMult=0.1
 		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Jackpot"
-		FollowUp="/obj/Skills/Projectile/Seven_Lucky_Flames"
+		FollowUp="/obj/Skills/Projectile/Zone_Attacks/Seven_Lucky_Flames"
 		HitMessage = "hits the motherfuckin' jackpot!!!!"
 /obj/Skills/Queue/Finisher
 	Seiken_Gradalpha
