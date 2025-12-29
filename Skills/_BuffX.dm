@@ -1333,6 +1333,14 @@ NEW VARIABLES
 			swordHasHistory=1
 			passives = list("MagicSword" = 1)
 			Cooldown=30
+			verb/Delete_Bugged_Keyblade()
+				set category="Utility"
+				var/obj/Items/Sword/s
+				if(PassedSword)
+					s=PassedSword
+				else
+					s=usr.EquippedSword()
+				del s
 			verb/Summon_Keyblade()
 				set category="Skills"
 				if(!usr.BuffOn(src))
