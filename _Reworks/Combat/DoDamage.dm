@@ -238,7 +238,7 @@
 		val*=0.1
 	var/miraclechance = (100-defender.Health)*0.75
 	if(defender.passive_handler.Get("Miracle"))
-		if(defender.Health<15)
+		if(defender.Health<30)
 			if( prob(miraclechance))
 				val=0
 	if(HasEmptySeat())
