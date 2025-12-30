@@ -83,12 +83,12 @@
 	form_aura_x = -32
 	unlock_potential = 90
 	passives = list("Hidden Potential" = 1, "Mystic" = 1, "PUSpike" = 1, "BuffMastery" = 1, \
-					"LikeWater" = 1, "Brutalize"= 1, "Momentum" = 1, "Rupture" = 1, "Overwhelming" = 1,"Heavy Attack" = "Beast Mode")
+					"LikeWater" = 1, "Brutalize"= 1, "Momentum" = 1, "Overwhelming" = 1,"Heavy Attack" = "Beast Mode")
 	// Rupture applies a debuff that causes bleed damage, overwhelming applies a debuff that increases damage dealt
 	mastery_boons(mob/user)
 		var/pot = user.Potential
 		passives = list("Hidden Potential" = 1, "Mystic" = 1, "PUSpike" = round(pot) + round(mastery/2, 10), "BuffMastery" = 9, \
-					"LikeWater" = 8 + round(pot/25, 1), "Brutalize" = 4, "Momentum" = 10, "Rupture" = 1, "Overwhelming" = glob.BEAST_OVERHWELMING_STATIC,"Heavy Attack" = "Beast", \
+					"LikeWater" = 8 + round(pot/25, 1), "Brutalize" = 4, "Momentum" = 10, "Overwhelming" = glob.BEAST_OVERHWELMING_STATIC,"Heavy Attack" = "Beast", \
 					"TechniqueMastery" = 5)
 		unlock_potential=90
 	transform_animation(mob/user)
@@ -118,7 +118,10 @@
 					"PureDamage" = 4, "PureReduction" = 1.5, "EnergyLeak" = 3)
 		if(mastery>=50)
 			passives = list("GodKi" = 0.5, "Instinct" = 4, "Brutalize" = 1.5 + (pot/50), "Steady" = 2 + round(pot/25),  "BuffMastery" = 5, "MovementMastery" = 3 + (pot/50), \
-					"PureDamage" = 4, "PureReduction" = 1.5, "EnergyLeak" = 3)
+					"PureDamage" = 4, "PureReduction" = 1.5, "EnergyLeak" = 2)
+		if(mastery==100)
+			passives = list("GodKi" = 0.75, "Instinct" = 4, "Brutalize" = 1.5 + (pot/50), "Steady" = 2 + round(pot/25),  "BuffMastery" = 5, "MovementMastery" = 3 + (pot/50), \
+					"PureDamage" = 4, "PureReduction" = 1.5, "EnergyLeak" = 1)
 
 		strength = 1.5
 		speed = 1.5

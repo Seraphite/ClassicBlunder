@@ -1833,6 +1833,11 @@ mob
 					Total=0.5//fully ascended dragon
 			if(passive_handler.Get("CreateTheHeavens") && src.DoubleHelix>=5&&isRace(HUMAN))
 				Total += 1
+			if(passive_handler.Get("Kaioken Blue"))
+				if(src.Target)
+					if(src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens"))
+						if(Target.GetGodKi() > Total)
+							Total+=src.Kaioken/2
 			return Total
 		HasEndlessNine()
 			if(passive_handler.Get("CreateTheHeavens"))

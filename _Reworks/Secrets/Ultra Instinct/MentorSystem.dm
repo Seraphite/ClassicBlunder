@@ -48,9 +48,13 @@ obj/Skills/Utility/Mentor_System
 			src.Using = 0
 			return
 
-		if(Choice.Secret != "Ultra Instinct")
+		if(Choice.Secret != "Ultra Instinct"&&Choice.Secret!="Eldritch")
 			Choice.Secret = "Ultra Instinct"
-
+		if(Choice.Secret=="Eldritch")
+			Mentor << "Deep within your student, something terrible stirs..."
+			Choice << "That thing within you stirs..."
+			//not yet
+			return
 		switch(Choice.UILevel)
 			if(0)
 				src.Grant_Mortal_Instinct(Mentor, Choice)

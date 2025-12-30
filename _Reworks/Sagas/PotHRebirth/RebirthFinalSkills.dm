@@ -1,10 +1,33 @@
 /obj/Skills/Buffs/SpecialBuffs
 	SpecialSlot=1
 	Banish_The_ANGELS_HEAVEN
-	Shatter_The_Glass_Of_Fate
-		passives = list("DisableGodKi" = 1, "Deicide" = 10, "EndlessNine" = 5, "CallousedHands" = 0.5)
+		passives = list("HolyMod" = 30, "SpiritPower" = 5, "EndlessNine" = 3.85, "Shatter Fate"=1, "MovementMastery"=20)
+		ActiveMessage="puts pen to paper, undoing the influence of the Gods."
 		HealthCut=0.9
+		verb/Banish_The_ANGELS_HEAVEN()
+			set category="Skills"
+			src.Trigger(usr)
+		//	if(src.Using)
+	Shatter_The_Glass_Of_Fate
+		passives = list("DisableGodKi" = 1, "Deicide" = 10, "EndlessNine" = 5, "CallousedHands" = 0.5, "Shatter Fate"=1, "MovementMastery"=20)
+		ActiveMessage="focuses the power to change reality within their axe, as the glass of fate shatters..."
+		HealthCut=0.9
+		verb/Shatter_The_Glass_Of_Fate()
+			set category="Skills"
+			src.Trigger(usr)
+	//		if(src.Using)
+
 	Blanket_The_World_In_Darkness
+		passives = list("Heart of Darkness" = 1, "The Roaring" = 1,"HolyMod" = 30, "AbyssMod" = 30, "SpiritPower" = 5)
+		verb/Blanket_The_World_In_Darkness()
+			set category="Skills"
+			if(!src.Using)
+				DarknessFlash(usr, SetTime=600)
+				world<<"<b>The an ocean of black ink washes across the world.</b>"
+			src.Trigger(usr)
 	Sing_Her_Blessed_Song
+		HealthCut=0.9
 	All_Hail_The_Crownless_King
+		HealthCut=0.9
 	Glory_To_The_Comeback_King
+		HealthCut=0.9

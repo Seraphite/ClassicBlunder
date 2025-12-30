@@ -63,12 +63,12 @@
 	Sword_of_No_Thought
 		name = "Sword of No Thought"
 		Warp = 4
-		SpeedStrike = 4
+		SpeedStrike = 1
 		Decider = 3
 		Instinct = 3
-		Combo = 3
+		Combo = 4
 		InstantStrikes = 2
-		DamageMult = 2.5
+		DamageMult = 0.5
 		KBAdd = 2
 		Shining = 2
 		FollowUp = "/obj/Skills/AutoHit/Flash_Draw"
@@ -108,9 +108,9 @@
 	Heavenly_Palm_Transcendence
 		name = "Heavenly Palm: Transcendence"
 		Warp = 3
-		InstantStrikes = 8
+		InstantStrikes = 10
 		Stunner = 3
-		DamageMult = 2.6
+		DamageMult = 0.5
 		Instinct = 3
 		Quaking = 4
 		PushOut = 2

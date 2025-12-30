@@ -369,8 +369,13 @@ obj/Skills/AutoHit
 		HitSparkDispersion=1
 		ForOffense=1
 		SpecialAttack=1
+		adjust(mob/p)
+			if(p.passive_handler.Get("Shatter Fate"))
+				Cooldown=1
+				ManaCost=20
 		verb/Banish()
 			set category="Skills"
+			adjust(usr)
 			usr.Activate(src)
 	Burning_Up_Everything
 		StrOffense=0
@@ -888,9 +893,14 @@ obj/Skills/Projectile
 		Radius=3
 		Homing=1
 		Cooldown=180
+		adjust(mob/p)
+			if(p.passive_handler.Get("Shatter Fate"))
+				Cooldown=1
+				ManaCost=20
 		verb/Burning_Black()
 			set category="Skills"
 			set name="Burning Black"
+			adjust(usr)
 			usr.UseProjectile(src)
 	Beams
 		TasteTheRainbow //Nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan nyan
@@ -1125,6 +1135,8 @@ obj/Skills/Buffs
 				SpdMult=1.5
 				EnergyHeal=1
 				SwordUnbreakable=1
+				if(p.SagaLevel>=6)
+					passives = list("PUSpike"=100, "HolyMod" = 5, "BlurringStrikes"=5, "KiControl"=1, "SpiritSword" = 1,"EndlessNine"=0.5)
 			verb/White_Pen_of_Hope()
 				set category="Skills"
 				adjust(usr)
@@ -1169,8 +1181,12 @@ obj/Skills/Buffs
 					PowerMult=1.25
 					EnergyHeal=1
 					SwordUnbreakable=1
+					if(p.SagaLevel>=6)
+						passives = list("PUSpike"=50,"KiControl" = 1,"CallousedHands"=0.25, "ManaGeneration"=2)
 					if(p.passive_handler["FutureRewritten"])
 						passives = list("PUSpike"=50, "SpiritSword" = 0.75, "ManaGeneration" = 1,"KiControl" = 1)
+						if(p.SagaLevel>=6)
+							passives = list("PUSpike"=50, "SpiritSword" = 0.75, "ManaGeneration" = 3,"KiControl" = 1,"CallousedHands"=0.25)
 			verb/JusticeAxe()
 				set category="Skills"
 				set name="Axe of Justice"
@@ -1309,4 +1325,4 @@ obj/Skills/Grapple
 	Blackened_Knife
 		StrMult=1.3
 		SpdMult=1.3
-		passives = list("AfterImages" = 4, "TensionLock" = 1, "Speed Force" = 1, "BlurringStrikes" = 10, "Relentlessness" = 1, "Fury" = 3)
+		passives = list("AfterImages" = 4, "TensionLock" = 1, "Speed Force" = 1, "BlurringStrikes" = 3, "Relentlessness" = 1, "Fury" = 3)

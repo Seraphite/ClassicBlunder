@@ -4,7 +4,7 @@
         HarderTheyFall = 4
         SweepStrike = 4
         Finisher = 2
-        Combo = 25
+        Combo = 20
         Instinct = 2
         InstantStrikes=2
         DamageMult = 0.2

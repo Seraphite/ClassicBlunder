@@ -1,0 +1,46 @@
+/obj/Skills/AutoHit
+	The_Tenth_Strike
+		UnarmedOnly=1
+		FlickAttack=1
+		Area="Strike"
+		StrOffense=2
+		DamageMult=5
+		Stunner=3
+		Rush=3
+		RushDelay=0.1
+		ControlledRush=1
+		Knockback=0
+		Quaking=4
+		PreShockwave=1
+		PreShockwaveDelay=1
+		PostShockwave=0
+		Shockwaves=2
+		Shockwave=0.5
+		ShockIcon='KenShockwaveFocus.dmi'
+		ShockBlend=2
+		ShockDiminish=1.15
+		ShockTime=4
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Lightning_Strikes_Twice"
+		ActiveMessage="curls up their fingers into a fist and delivers a crushing blow!!!"
+	Ashura_Bakkei
+		FlickAttack=1
+		Area="Strike"
+		StrOffense=2
+		DamageMult=5
+		Stunner=3
+		Rush=3
+		RushDelay=0.1
+		ControlledRush=1
+		Knockback=0
+		Quaking=4
+		PreShockwave=1
+		PreShockwaveDelay=1
+		PostShockwave=0
+		Shockwaves=2
+		Shockwave=0.5
+		ShockIcon='KenShockwaveFocus.dmi'
+		ShockBlend=2
+		ShockDiminish=1.15
+		ShockTime=4
+		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Nine_Sword_Style"
+		ActiveMessage="slashes through time and space!!!"

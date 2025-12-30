@@ -16,10 +16,10 @@
 		HitSparkIcon = 'Slash_Multi.dmi'
 		InstantStrikes=9
 		InstantStrikesDelay = 0.5
-		DamageMult=1.5
+		DamageMult=1.25
 		Stunner=4
-		SpeedStrike=3
-		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Nine_Sword_Style"
+		SpeedStrike=1
+		FollowUp="/obj/Skills/AutoHit/Ashura Bakkei"
 		HitMessage="rushes forward, their aura manifesting six more blades, as they unleash a flurry of blows in the blink of an eye!"
 	Jinzen_Senkei
 		Stunner=1
@@ -37,12 +37,13 @@
 		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/The_Ultimate_Fist"
 		FollowUp="/obj/Skills/AutoHit/Big_Bang_Followup"
 	Hyakuretsu_Ken
-		Combo=10
-		DamageMult=1.6
+		Combo=9
+		InstantStrikes=3
+		InstantStrikesDelay=0.1
+		DamageMult=0.2
 		Stunner=4
 		SpeedStrike=1
-		BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Debuff/Death_Mark"
-		BuffSelf="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Lightning_Strikes_Twice"
+		FollowUp="/obj/Skills/AutoHit/The_Tenth_Strike"
 		HitMessage="unleashes a flurry of powerful blows, sealing their target's fate."
 	Stone_Cold_Stunner
 	Saigo_no_Kyukyoku_Tengenkotsu

@@ -68,7 +68,7 @@
 		Rush = 3
 		EndDefense = 1
 		Scorching = 50
-	
+
 	Pinning_Stake
 		Area = "Target"
 		Snaring = 4
@@ -77,7 +77,7 @@
 		AdaptRate = 1
 		Shattering = 25
 		HitSparkIcon='HitsparkStar.dmi'
-	
+
 	Beef_Burst
 		Area="Wide Wave"
 		NoLock=1
@@ -100,7 +100,7 @@
 		TurfShift='Dirt1.dmi'
 		TurfShiftDuration=30
 		Cooldown=4
-	
+
 
 	Rupture
 		Area = "Target"
@@ -112,6 +112,5 @@
 		ForOffense=1
 		EndDefense=1
 		Cooldown=4
-		BuffAffected=/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Ruptured
+		BuffAffected="/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Ruptured"
 		//TODO: finish
-	

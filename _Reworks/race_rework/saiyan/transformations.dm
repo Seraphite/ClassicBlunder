@@ -386,13 +386,13 @@ transformation
 				"Meaty Paws" = 2 + (mastery/50), "KiControlMastery" = 4, "PureReduction" = 3,\
 				"Unstoppable" = 1, "AllOutAttack" = 1, "Reversal" = 0.1 + (mastery/200),\
 				"Flow" = 4, "Instinct" = 4, "Transformation Power" = clamp(user.AscensionsAcquired * 5, 1, 40), "Deicide" = 10,\
-				"Flicker" = 5, "Pursuer" = 5, "PureDamage"= 3,"EndlessNine"=0.25)
-				speed = 1.5 + (mastery/200)
-				endurance = 1.5 + (mastery/200)
-				offense = 1.5 + (mastery/200)
-				defense = 1.5 + (mastery/200)
-				strength = 1.5 + (mastery/200)
-				force = 1.5 + (mastery/200)
+				"Flicker" = 5, "Pursuer" = 5, "PureDamage"= 3,"EndlessNine"=0.25,"SSJ4LimitBreaker"=1)
+				speed = 1.25 + (mastery/400)
+				endurance = 1.25 + (mastery/400)
+				offense = 1.25 + (mastery/400)
+				defense = 1.25 + (mastery/400)
+				strength = 1.25 + (mastery/400)
+				force = 1.25 + (mastery/400)
 
 			transform(mob/user)
 				. = ..()
@@ -572,24 +572,8 @@ transformation
 				force = 1.4
 				endurance = 1.4
 				if(mastery >= 100)
-					// perfected
-					passives = list("GodKi" = 1, "Instinct" = 4, "Brutalize" = 3, "BuffMastery" = 8, "Steady" = 6, "MovementMastery" = 10, \
-									"EnergyGeneration" = 3,  "PureDamage" = 8, "PureReduction" = 6, "Godspeed" = 4, "LikeWater" = 8, \
-									"BackTrack" = 1 , "StunningStrike" = 2, "Sunyata" = 3, "InBlue" = 1, "Pursuer" = 4, "Flicker"=4, "Transformation Power" = clamp(user.AscensionsAcquired * 4, 1, 40))
-					strength = 1.4
-					speed = 1.6
-					offense = 1.6
-					defense = 1.6
-					force = 1.4
-					endurance = 1.4
-					if(user.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/pride) // ssgsse
-						passives = list("GodKi" = 1.25, "Brutalize" = 5, "BuffMastery" = 8, "MovementMastery" = 15, "EnergyLeak" = 3, \
-								 	"PureDamage" = 14, "PureReduction" = 2, "Godspeed" = 4, "LikeWater" = 10, \
-									"Sunyata" = 6, "InBlue" = 1, "Pursuer" = 6, "Flicker"=4, "Transformation Power" = clamp(user.AscensionsAcquired * 5, 1, 40) )
-						strength = 2
-						speed = 2
-						force = 2
-						endurance = 1
+					passives = list("GodKi" = 1, "Instinct" = 4, "Brutalize" = 3, "Steady" = 5,  "BuffMastery" = 8, "MovementMastery" = 10, \
+									"PureDamage" = 5, "PureReduction" = 4, "InBlue" = 1, "Godspeed" = 4, "Pursuer" = 4, "LikeWater"=6,"Flicker"=4, "Transformation Power" = clamp(user.AscensionsAcquired * 5, 1, 30))
 
 			adjust_transformation_visuals(mob/user)
 				if(!form_hair_icon&&user.Hair_Base)
@@ -605,9 +589,9 @@ transformation
 
 
 			transform(mob/user)
-				if(user.CheckSlotless("Beyond God")&&user.transUnlocked>=5)
+				if(user.CheckSlotless("Beyond God")&&user.transUnlocked>=6)
 					..()
-				if(user.transActive==1&&user.transUnlocked>=5)
+				if(user.transActive==2&&user.transUnlocked>=6)
 					user.Revert()
 					user.transActive = 1
 					..()
@@ -664,5 +648,108 @@ transformation
 
 			revert(mob/user)
 				user.transActive = 1
+				..()
+			//UBuffNeeded
+		super_saiyan_blue_evolved
+			passives = list("GodKi" = 1, "Instinct" = 4, "Brutalize" = 1)
+			unlock_potential = 80
+			tier = 6
+			autoAnger = 1
+			form_aura_icon = 'SSBGlow.dmi'
+			form_aura_x = -32
+			form_aura_y = -32
+			mastery_boons(mob/user)
+				// perfected
+				if(user.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/zeal)
+					passives = list("GodKi" = 0.25, "Instinct" = 4, "Brutalize" = 3, "Steady" = 1, "MovementMastery" = 2, \
+									"EnergyGeneration" = 3,  "PureDamage" = 3, "PureReduction" = 2, "LikeWater" = 2, \
+									"BackTrack" = 1 , "StunningStrike" = 2, "Sunyata" = 3, "InBlueEvolved" = 1)
+					strength = 1.1
+					speed = 1.2
+					offense = 1.2
+					defense = 1.2
+					force = 1.1
+					endurance = 1.2
+				//evolved
+				if(user.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/pride)
+					passives = list("GodKi" = 0.5, "Brutalize" = 2, "MovementMastery" = 7, "EnergyLeak" = 3, "FatigueLeak"=1,\
+							 	"PureDamage" = 9, "PureReduction" = -2,"LikeWater" = 4, \
+								"Sunyata" = 6, "InBlueEvolved" = 1, "Pursuer" = 2)
+					strength = 1.35
+					speed = 1.25
+					force = 1.35
+					endurance = 0.75
+				//enraged
+				if(user.race.ascensions[1].choiceSelected == /ascension/sub_ascension/saiyan/honor)
+					passives = list("GodKi" = 0.25, "Brutalize" = 2, "EnergyLeak" = 3, "FatigueLeak"=1,\
+							 	"PureDamage" = 2,"PureReduction" = 5, "LikeWater" = 4, "BleedHit"=0.75,, \
+								"Persistence" = 3, "InBlueEvolved" = 1, "UnderDog" = 5, "Flicker" = 3)
+					endurance = 1.25
+					strength = 1.1
+					force = 1.1
+
+			adjust_transformation_visuals(mob/user)
+				if(!form_hair_icon&&user.Hair_Base)
+					var/icon/x=new(user.Hair_Base)
+					if(x)
+						x.MapColors(0.2,0.2,0.2, 0.4,0.4,0.4, 0.07,0.07,0.07, 0.25,0.64,0.89)
+					form_hair_icon = x
+					form_icon_2_icon = x
+				..()
+				if(mastery >= 100)
+					form_aura_icon = null
+
+
+
+			transform(mob/user)
+				if(user.transUnlocked>=6)
+					..()
+				else return 0
+
+			transform_animation(mob/user)
+				user.appearance_flags+=16
+				animate(user, color = list(1,0,0, 0,1,0, 0,0,1, 0.9,1,1), time=5)
+				user.icon_state=""
+				var/image/GG=image('SSBGlow.dmi',pixel_x=-32, pixel_y=-32)
+				GG.appearance_flags=KEEP_APART | NO_CLIENT_COLOR | RESET_ALPHA | RESET_COLOR
+				GG.blend_mode=BLEND_ADD
+				GG.color=list(1,0,0, 0,1,0, 0,0,1, 0,0,0)
+				GG.alpha=110
+				sleep(5)
+				user.filters+=filter(type = "blur", size = 0)
+				animate(user, color=list(-1.2,-1.2,-1, 1,1,1, -1.4,-1.4,-1.2,  1,1,1), time=3, flags=ANIMATION_END_NOW)
+				animate(user.filters[user.filters.len], size = 0.35, time = 3)
+				user.overlays+=GG
+				spawn()DarknessFlash(user, SetTime=60)
+				sleep()
+				var/image/GO=image('GodOrb.dmi',pixel_x=-16,pixel_y=-16, loc = user, layer=MOB_LAYER+0.5)
+				GO.appearance_flags=KEEP_APART | NO_CLIENT_COLOR | RESET_ALPHA | RESET_COLOR
+				GO.filters+=filter(type = "drop_shadow", x=0, y=0, color=rgb(0, 255, 0, 44), size = 3)
+				animate(GO, alpha=0, transform=matrix(), color=rgb(0, 255, 0, 134))
+				world << GO
+				animate(GO, alpha=210, time=1)
+				sleep(1)
+				animate(GO, transform=matrix()*3, time=60, easing=BOUNCE_EASING | EASE_IN | EASE_OUT, flags=ANIMATION_END_NOW)
+				user.Quake(20)
+				sleep(20)
+				user.Quake(40)
+				sleep(20)
+				user.Quake(60)
+				sleep(20)
+
+				sleep(10)
+				user.filters-=filter(type = "blur", ,size = 0.35)
+				animate(user, color=list(0,0,0, 0,0,0, 0,0,0, 0.5,0.95,1), time=5, easing=QUAD_EASING)
+				sleep(5)
+				animate(user, color=null, time=20, easing=CUBIC_EASING)
+				sleep(20)
+				animate(GO, alpha=0, time=5)
+				spawn(5)
+					user.overlays-=GG
+					GO.filters=null
+					del GO
+					user.appearance_flags-=16
+
+			revert(mob/user)
 				..()
 			//UBuffNeeded

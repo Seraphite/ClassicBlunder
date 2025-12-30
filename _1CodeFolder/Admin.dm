@@ -1142,13 +1142,13 @@ mob/Admin3/verb
 				var/godor4 = input("SSJ God or SSJ4?") in list("SSJ God", "SSJ4")
 				if(godor4 == "SSJ4")
 					for(var/transformation/saiyan/ssj in M.race.transformations)
-						if(istype(ssj, /transformation/saiyan/super_saiyan_god) || istype(ssj, /transformation/saiyan/super_saiyan_blue))
+						if(istype(ssj, /transformation/saiyan/super_saiyan_god) || istype(ssj, /transformation/saiyan/super_saiyan_blue)|| istype(ssj, /transformation/saiyan/super_saiyan_blue_evolved))
 							M.race.transformations -= ssj
 							del ssj
 					M.AddSkill(new/obj/Skills/False_Moon)
 				else
 					for(var/transformation/saiyan/ssj in M.race.transformations)
-						if(istype(ssj, /transformation/saiyan/super_saiyan_4))
+						if(istype(ssj, /transformation/saiyan/super_saiyan_4)||istype(ssj, /transformation/saiyan/super_full_power_saiyan_4_limit_breaker))
 							M.race.transformations -= ssj
 							del ssj
 					M.AddSkill(new/obj/Skills/Utility/GodTransformationToggle)

@@ -10,7 +10,7 @@
 	ManaGlowSize=0.5
 	NeedsHealth=10
 	TooMuchHealth=11
-	ActiveMessage = "RAAAAAHH RIIICKKKKYYYY"
+	ActiveMessage = "envelops themselves in the Serpent of Death."
 	IconLock='Susanoo Blade.dmi'
 	Earthshaking = 15
 	Cooldown = -1
@@ -27,4 +27,3 @@
 		DefMult = 1 - (pot/200)
 		NeedsHealth = 10 + round(pot/10,1)
 		TooMuchHealth = NeedsHealth + round(pot/20,1)
-		

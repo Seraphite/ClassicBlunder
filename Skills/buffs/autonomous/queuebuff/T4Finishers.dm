@@ -8,9 +8,9 @@
 		EndMult=1.75
 		VaizardHealth=3
 	Lightning_Strikes_Twice
-		passives = list("Relentlessness" = 1, "Fury" = 6, "Speed Force" = 3, \
+		passives = list("Relentlessness" = 1, "Fury" = 2, "Speed Force" = 3, \
 		                "StyleMastery" = 4, "Brutalize" = 2, "Interception" = 4, "CounterMaster" = 10,\
-		                "BlurringStrikes" = 5,  "TensionLock" = 1, "Flicker" = 5)
+		                "BlurringStrikes" = 3,  "TensionLock" = 1, "Flicker" = 5)
 		SpdMult=1.5
 		StrMult=1.25
 		EndMult=1.25

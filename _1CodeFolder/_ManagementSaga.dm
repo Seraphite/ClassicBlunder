@@ -977,8 +977,15 @@ mob
 									src.AddSkill(new/obj/Skills/Buffs/Rebirth/White_Pen_of_Hope)
 							if(src.RebirthHeroType=="Purple")
 								src.AddSkill(new/obj/Skills/Buffs/NuStyle/SwordStyle/Justice_Incarnate)
-
-
+						if(6)
+							src.SagaLevel=6
+							if(src.RebirthHeroType=="Cyan")
+								if(src.FinalHeroChoice=="White Pen of Hope")
+									src.AddSkill(new/obj/Skills/Buffs/SpecialBuffs/Banish_The_ANGELS_HEAVEN)
+								if(src.FinalHeroChoice=="Roaring Knight")
+									src.AddSkill(new/obj/Skills/Buffs/SpecialBuffs/Blanket_The_World_In_Darkness)
+							if(src.RebirthHeroType=="Purple")
+								src.AddSkill(new/obj/Skills/Buffs/SpecialBuffs/Shatter_The_Glass_Of_Fate)
 				if("Cosmo")
 					tierUpSaga("Cosmo")
 				if("Spiral")

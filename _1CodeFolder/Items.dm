@@ -463,6 +463,7 @@ obj/Items
 					usr.SpdTax=0
 					usr.OffTax=0
 					usr.DefTax=0
+					usr.HealthCut=0
 					if(usr.GatesNerf)
 						usr.GatesNerf=1
 					if(usr.OverClockTime)
