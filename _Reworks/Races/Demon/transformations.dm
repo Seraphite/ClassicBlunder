@@ -7,6 +7,12 @@ transformation
 			form_aura_icon = 'Amazing Super Demon Aura.dmi'
 			form_aura_x = -32
 			transformation_message = "usrName pulls their Devil Trigger."
+			adjust_transformation_visuals(mob/user)
+				if(!form_hair_icon&&user.Hair_Base)
+					var/icon/x=new(user.Hair_Base)
+					form_hair_icon = x
+					form_icon_2_icon = x
+				..()
 			mastery_boons(mob/user)
 				if(mastery >= 25)
 					passives = list("GodKi" = 0.25, "HellRisen" = 0.5, "DemonicDurability" = 4, "Brutalize" = 4, "PureDamage" = 3, "PureReduction" = 3)
@@ -21,3 +27,4 @@ transformation
 				for(var/wav=5, wav>0, wav--)
 					KenShockwave(user, icon='KenShockwaveBloodlust.dmi', Size=ShockSize, Blend=2, Time=8)
 					ShockSize/=2
+
