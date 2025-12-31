@@ -903,6 +903,7 @@ mob
 							if(src.RebirthHeroType=="Cyan")
 								src<< "You have unlocked the green SOUL color, which reduces the damage you take as you build ACT. You also gain the BlackShard, a small weapon that can hardly be considered one, but carries great power..."
 								src.AddSkill(new/obj/Skills/Utility/SoulShiftGreen)
+								src.AddSkill(new/obj/Skills/Utility/SoulShiftOrange)
 								src.AddSkill(new/obj/Skills/Buffs/Rebirth/BlackShard)
 								src.AddSkill(new/obj/Skills/AutoHit/Unleash)
 							if(src.RebirthHeroType=="Purple")
