@@ -113,7 +113,6 @@
 /obj/Skills/AutoHit/Haki/Kings_Infusion_Follow
     NoLock=1
     NoAttackLock=1
-    UnarmedOnly=1
     ComboMaster=1
     Area="Circle"
     Size = 1
