@@ -735,6 +735,8 @@ mob
 				Return += 1 + (secretLevel / 4) * (1 + (secretDatum.secretVariable["BloodPower"] * 0.25))
 			if(src.isRace(BEASTMAN) && race?:Racial == "Heart of The Beastman" && src.VaizardHealth>0)
 				Return += 2
+			if(src.passive_handler.Get("Determination(Yellow)")||src.passive_handler.Get("Determination(White)"))
+				Return += round(ManaAmount/25, 1)
 			Return=round(Return)
 			Return=min(8,Return)
 			return Return
@@ -853,12 +855,10 @@ mob
 					kkmast=kk.Mastery
 				Return+=src.Kaioken/kkmast
 			if(src.DoubleHelix)
-				if(src.DoubleHelix==1&&src.transActive<5)
-					Return +=0.25
 				if(src.DoubleHelix>=2&&src.transActive<5)
-					Return +=src.DoubleHelix*0.5
+					Return +=src.DoubleHelix*0.25
 				if(src.DoubleHelix>=5)
-					Return +=src.DoubleHelix
+					Return +=src.DoubleHelix/2
 			if(src.HasHealthPU())
 				if(src.PowerControl>100)
 					Return*=(src.PowerControl/100)
@@ -896,10 +896,8 @@ mob
 				if(race.transformations[transActive].mastery>10&&race.transformations[transActive].mastery<75)
 					Total+=src.transActive()*0.25
 			if(src.DoubleHelix)
-				if(src.DoubleHelix==1&&src.transActive<5)
-					Total +=0.25
 				if(src.DoubleHelix>=2&&src.transActive<5)
-					Total +=src.DoubleHelix*0.5
+					Total +=src.DoubleHelix*0.25
 			if(passive_handler.Get("Pride"))
 				PrideDrain=(100-Health)*0.01
 				if(PrideDrain>1)
@@ -933,10 +931,8 @@ mob
 			if(src.GatesActive && src.GatesActive < 8)
 				return Total +(4/src.SagaLevel)
 			if(src.DoubleHelix)
-				if(src.DoubleHelix==1&&src.transActive<5)
-					Total +=0.25
 				if(src.DoubleHelix>=2&&src.transActive<5)
-					Total +=src.DoubleHelix*0.5
+					Total +=src.DoubleHelix*0.25
 			if(passive_handler.Get("Pride"))
 				PrideDrain=(100-Health)*0.01
 				if(PrideDrain>1)
@@ -1105,6 +1101,8 @@ mob
 					Return+=(ManaAmount/50)
 				else if(SagaLevel>=4)
 					Return+=(ManaAmount/25)
+					if(passive_handler.Get("Determination(White)"))
+						Return+=(ManaAmount/25)
 			if(passive_handler["Honor"])
 				Return+=(DefianceCounter/3)
 			if(src.isRace(MAJIN))
@@ -1810,10 +1808,10 @@ mob
 		GetGodKi()
 			var/Total=passive_handler.Get("GodKi")
 			if(glob.T3_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=3||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=55)
-				if(src.SagaLevel<1)
+				if(src.SagaLevel<1||glob.T3_SAGA_STLYE_GODKI)
 					Total+=glob.T3_STYLES_GODKI_VALUE
 			if(glob.T4_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=4&&src.Potential>=70||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=70)
-				if(src.SagaLevel<1)
+				if(src.SagaLevel<1||glob.T4_SAGA_STLYE_GODKI)
 					Total+=glob.T4_STYLES_GODKI_VALUE
 			if(src.HasSpiritPower()>=1 && FightingSeriously(src, 0))
 				if(src.Health<=(30+src.TotalInjury)*src.GetSpiritPower())
@@ -1836,7 +1834,7 @@ mob
 					if(src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential"))
 						if(Target.GetGodKi() > Total)
 							if(passive_handler.Get("DisableGodKi"))
-								Total=(Target.GetGodKi()/2)
+								Total=(Target.GetGodKi()/4)
 							else
 								Total=Target.GetGodKi()
 					else
@@ -1867,6 +1865,8 @@ mob
 			return 0
 		GetEndlessNine()
 			var/Total=passive_handler.Get("EndlessNine")
+			if(passive_handler["Hidden Potential"]||passive_handler["CreateTheHeavens"])
+				Total/=2
 			return Total
 		HasFluidForm()
 			if(passive_handler.Get("FluidForm"))
