@@ -169,7 +169,7 @@ mob
 				if(FightingSeriously(src,defender))
 					var/desp = clamp(passive_handler.Get("Persistence"), 0.1, glob.MAX_PERSISTENCE_CALCULATED)
 					if(defender.passive_handler["Determination(Orange)"]||defender.passive_handler["Determination(White)"])
-						persistence+=ManaAmount/20
+						desp+=ManaAmount/20
 					if(prob(desp)*glob.PERSISTENCE_CHANCE)
 						desp = clamp(desp, 1, glob.PRESISTENCE_DIVISOR_MAX)
 						if(glob.PERSISTENCE_NEGATES_DAMAGE)
@@ -287,7 +287,7 @@ mob
 				src.WoundSelf(src.GetBleedHit()*0.15*leakVal)
 			if(src.HasBurnHit())
 				src.AddBurn(src.GetBurnHit()*0.15*leakVal, src)
-			
+
 			//If you are burned and have debuff reversal, smack fire into the other fighter
 			if(src.Burn && src.HasDebuffReversal())
 				defender.AddBurn(src.Burn/50, src);
