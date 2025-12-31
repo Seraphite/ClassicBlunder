@@ -1,12 +1,14 @@
 /mob/proc/desperationCheck()
 	var/bonus = 1
-	if(passive_handler.Get("UnderDog") && !HasInjuryImmune())
+	if(passive_handler.Get("UnderDog") && !HasInjuryImmune()||passive_handler.Get("Determination(Orange)") && !HasInjuryImmune()||passive_handler.Get("Determination(White)") && !HasInjuryImmune())
 		// they are able to get the bonus
 		bonus += Saga == "King of Braves" ? 0.35 : 0
 		bonus += Saga == "Kamui" ? 0.35 : 0
 		bonus += Saga == "Spiral" ? 0.35 : 0
 		bonus += isRace(HUMAN) ? 0.35 : 0
 		bonus += isRace(HALFSAIYAN) ? 0.35 : 0
+		bonus += passive_handler.Get("Determination(Orange)") ? (ManaAmount/250) : 0
+		bonus += passive_handler.Get("Determination(White)") ? (ManaAmount/250) : 0
 		return bonus
 	return FALSE
 
@@ -17,8 +19,10 @@
 	var/defVal = 0.075
 	var/injuries = TotalInjury/100
 	var/defInjuries = defender ? defender.TotalInjury/100 : 0
+	var/UnderDet= passive_handler.Get("Determination(Orange)") ? 1 : 0
+	UnderDet += passive_handler.Get("Determination(White)") ? 1 : 0
 	. = 0
 	if(bonusRatio)
-		. +=  round(((atkVal * bonusRatio) * passive_handler.Get("UnderDog")) * injuries, 0.01) * glob.UNDERDOG_DMG_MULTIPLER
+		. +=  round(((atkVal * bonusRatio) * (UnderDet+passive_handler.Get("UnderDog"))) * injuries, 0.01) * glob.UNDERDOG_DMG_MULTIPLER
 	if(defBonusRatio)
-		. -=  round(((defVal * defBonusRatio) * defender.passive_handler.Get("UnderDog")) * defInjuries, 0.01) * glob.UNDERDOG_RED_MULTIPLER
+		. -=  round(((defVal * defBonusRatio) * (UnderDet+defender.passive_handler.Get("UnderDog"))) * defInjuries, 0.01) * glob.UNDERDOG_RED_MULTIPLER
