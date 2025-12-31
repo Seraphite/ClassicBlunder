@@ -72,7 +72,6 @@ globalTracker/var/LOWER_DEBUFF_CLAMP = 0.001
 			Unconscious(null, "burning up!")
 	reduceDebuffStacks(typeOfDebuff)
 
-
 /mob/proc/reduceDebuffStacks(typeOfDebuff)
 	var/boon = 0
 	var/base = clamp(vars["[typeOfDebuff]"] / glob.BASE_DEBUFF_REDUCTION_DIVISOR, glob.BASE_DEBUFF_REDUCTION_DIVISOR_LOWER,glob.BASE_DEBUFF_REDUCTION_DIVISOR_UPPER)

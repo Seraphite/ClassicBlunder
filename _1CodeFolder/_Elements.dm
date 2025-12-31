@@ -602,6 +602,15 @@ mob
 
 globalTracker/var/DEBUFF_STACK_MAX = 100;
 
+/mob/proc/CleanseDebuff(amt)
+	var/list/debuff = list("Poison", "Burn", "Shatter", "Slow", "Shock", "Crippled", "Confused", "Stunned", "Sheared", "Attracted");
+	for(var/db in debuff)
+		src.vars["[db]"] -= amt;
+/mob/proc/shouldCleanse(mob/trg)
+	if(trg == src) return 1;
+	if(src.party && trg in src.party.members) return 1;
+	return 0;
+
 mob
 	proc
 		Debuffs()
@@ -615,77 +624,77 @@ mob
 			if(src.Shatter)
 				if(src.Shatter > glob.DEBUFF_STACK_MAX)
 					src.Shatter = glob.DEBUFF_STACK_MAX;
-				if(src.Sprayed)
-					src.Shatter-=(src.GetEnd(0.25)+src.GetDef(0.1))*2*(1+src.GetDebuffResistance())
-				else
-					src.Shatter-=(src.GetEnd(0.25)+src.GetDef(0.1))*(1+src.GetDebuffResistance())
+
+				var/shatterReduction = max(0.1, (src.GetEnd(0.25)+src.GetDef(0.1))*(1+src.GetDebuffResistance()))
+				if(src.Sprayed) shatterReduction *= 2;
+				src.Shatter-= shatterReduction;
+
 				if(src.Shatter<0)
 					src.Shatter=0
 
 			if(src.Slow)
 				if(src.Slow > glob.DEBUFF_STACK_MAX)
 					src.Slow = glob.DEBUFF_STACK_MAX;
-				if(src.Cooled)
-					src.Slow-=(src.GetEnd(0.25)+src.GetSpd(0.1))*2*(1+src.GetDebuffResistance())
-				else
-					src.Slow-=(src.GetEnd(0.25)+src.GetSpd(0.1))*(1+src.GetDebuffResistance())
+
+				var/slowReduction = max(0.1, (src.GetEnd(0.25)+src.GetSpd(0.1))*(1+src.GetDebuffResistance()))
+				if(src.Cooled) slowReduction *= 2;
+				src.Slow -= slowReduction;
+
 				if(src.Slow<0)
 					src.Slow=0
 
 			if(src.Shock)
 				if(src.Shock > glob.DEBUFF_STACK_MAX)
 					src.Shock = glob.DEBUFF_STACK_MAX;
-				if(src.Stabilized)
-					src.Shock-=(src.GetEnd(0.25)+src.GetSpd(0.1))*2*(1+src.GetDebuffResistance())
-				else
-					src.Shock-=(src.GetEnd(0.25)+src.GetSpd(0.1))*(1+src.GetDebuffResistance())
+
+				var/shockReduction = max(0.1, (src.GetEnd(0.25)+src.GetSpd(0.1))*(1+src.GetDebuffResistance()));
+				if(src.Stabilized) shockReduction *= 2;
+				src.Shock-= shockReduction;
+
 				if(src.Shock<0)
 					src.Shock=0
 
 			if(src.Crippled)
-				if(src.Crippled>100)
-					src.Crippled=100;
-				if(src.Sprayed)
-					src.Crippled-=(src.GetSpd(0.25)+src.GetDef(0.1))*2*(1+src.GetDebuffResistance())
-				else
-					src.Crippled-=(src.GetSpd(0.25)+src.GetDef(0.1))*(1+src.GetDebuffResistance())
+				if(src.Crippled > glob.DEBUFF_STACK_MAX)
+					src.Crippled = glob.DEBUFF_STACK_MAX;
+				
+				var/cripReduction = max(0.1, (src.GetSpd(0.25)+src.GetDef(0.1))*(1+src.GetDebuffResistance()));
+				if(src.Sprayed) cripReduction *= 2;
+				src.Crippled-= cripReduction;
+
 				if(src.Crippled<0)
 					src.Crippled=0
 
 			if(src.Confused&&!src.Stunned)
 				if(src.Confused > glob.DEBUFF_STACK_MAX)
 					src.Confused = glob.DEBUFF_STACK_MAX;
-				if(src.Stabilized)
-					src.Confused-=5
-				else
-					src.Confused-=clamp(1 + (src.GetSpd(0.25)), 1, 3)
+
+				var/confuseReduce = max(1, (1+src.GetSpd(0.25)));//This max statement should never fire, unless stats are going negative, but they might!
+				if(src.Stabilized) confuseReduce = 5;
+				src.Confused-=confuseReduce;
+
 				if(src.Confused<0)
 					src.Confused=0
 
 			if(src.Sheared)
 				if(src.Sheared > glob.DEBUFF_STACK_MAX)
 					src.Sheared = glob.DEBUFF_STACK_MAX;
-				if(src.Sprayed)
-					if(src.icon_state=="Meditate")
-						src.Sheared-=4
-					else
-						src.Sheared-=0.5
-				else
-					if(src.icon_state=="Meditate")
-						src.Sheared-=2
-					else
-						src.Sheared-=0.25
-			if(src.Sheared<0)
-				src.Sheared=0
+				
+				var/shearReduce = 0.25;
+				if(src.icon_state=="Meditate") shearReduce *= 8;
+				if(src.Sprayed) shearReduce *= 2;
+				src.Sheared -= shearReduce;
+
+				if(src.Sheared<0)
+					src.Sheared=0
 
 			if(src.Attracted&&!src.Confused&&!src.Stunned)
 				src.Attracted--
-				if(src.Attracted<=0)
-					src.Attracted=0
-					src.AttractedTo=0
+			if(src.Attracted<=0)
+				src.Attracted=0
+				src.AttractedTo=0
 
 			if(!src.AttractedTo)
-				if(src.Attracted>0)
-					src.Attracted=0
+				src.Attracted=0
 
 
