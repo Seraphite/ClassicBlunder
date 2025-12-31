@@ -588,9 +588,9 @@ transformation
 
 
 			transform(mob/user)
-				if(user.CheckSlotless("Beyond God")&&user.transUnlocked>=6)
+				if(user.CheckSlotless("Beyond God")&&user.transUnlocked>=5)
 					..()
-				if(user.transActive==2&&user.transUnlocked>=6)
+				if(user.transActive==2&&user.transUnlocked>=5)
 					user.Revert()
 					user.transActive = 1
 					..()
