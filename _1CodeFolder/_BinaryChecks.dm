@@ -899,7 +899,7 @@ mob
 					Total+=src.transActive()*0.25
 			if(src.DoubleHelix)
 				if(src.DoubleHelix==1&&src.transActive<5)
-					Return +=src.DoubleHelix*0.25
+					Total +=src.DoubleHelix*0.25
 				if(src.DoubleHelix>=2&&src.transActive<5)
 					Total +=src.DoubleHelix*0.5
 			if(passive_handler.Get("Pride"))
