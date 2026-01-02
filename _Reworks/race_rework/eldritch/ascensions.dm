@@ -1,13 +1,9 @@
 /ascension/sub_ascension/eldritch/hunter
-	passives = list("Duelist" = 0.6, "Brutalize" = 0.6, "SweepingStrike"=1)
+	passives = list("Duelist" = 0.6, "Brutalize" = 0.6, "GiantSwings"=1)
 /ascension/sub_ascension/eldritch/eternal
 	passives = list("EnergySteal" = 3, "Pressure" = 1, "Siphon" = 0.6)
 /ascension/sub_ascension/eldritch/writhing
 	passives = list("Extend" = 1, "Gum Gum" = 1, "FluidForm" = 1)
-//to be honest i could make these tier ups a proc
-//but im tired tonight
-//also TODO: make sure ascensions wait for the previous one to proc
-//i was getting some weird results when hitting double ascs
 
 ascension
 	eldritch
@@ -62,7 +58,7 @@ ascension
 			offense = 0.25
 			defense = 0.25
 			speed = 0.25
-			passives = list("DebuffResistance" = 0.5, "SoulFire" = 1, "DeathField" = 2.5, "VoidField" = 2.5, "PureDamage"=1, "PureReduction"=1, "BlockChance"=5, "BuffMastery"=1)
+			passives = list("DebuffResistance" = 0.5, "SoulFire" = 1, "DeathField" = 2.5, "VoidField" = 2.5, "PureDamage"=1, "PureReduction"=1, "BlockChance"=5, "CriticalBlock"=0.1, "BuffMastery"=1)
 			on_ascension_message = "Your fantasies are bleeding entropy... But what fantasy do you chase?"
 			onAscension(mob/owner)
 				switch(owner.race.ascensions[1].choiceSelected)
@@ -86,7 +82,7 @@ ascension
 			offense = 0.25
 			defense = 0.25
 			speed = 0.25
-			passives = list("DebuffResistance" = 0.5, "SoulFire" = 1, "DeathField" = 2.5, "VoidField" = 2.5, "PureDamage"=1, "PureReduction"=1, "BlockChance"=5, "BuffMastery"=1)
+			passives = list("DebuffResistance" = 0.5, "SoulFire" = 1, "DeathField" = 2.5, "VoidField" = 2.5, "PureDamage"=1, "PureReduction"=1, "BlockChance"=5, "CriticalBlock"=0.1, "BuffMastery"=1)
 			on_ascension_message = "Your illusory self is beginning to fray at the edges.\nYou can't keep manifesting like this forever...Can you...?"
 			onAscension(mob/owner)
 				switch(owner.race.ascensions[1].choiceSelected)
@@ -120,7 +116,7 @@ ascension
 			offense = 0.25
 			defense = 0.25
 			speed = 0.25
-			passives = list("DebuffReversal" = 1, "SoulFire" = 2, "DeathField" = 2.5, "VoidField" = 2.5, "PureDamage"=1, "PureReduction"=1, "BlockChance"=5, "BuffMastery"=1)
+			passives = list("DebuffReversal" = 1, "SoulFire" = 2, "DeathField" = 2.5, "VoidField" = 2.5, "PureDamage"=1, "PureReduction"=1, "BlockChance"=5, "CriticalBlock"=0.1, "BuffMastery"=1)
 			on_ascension_message = "You are."
 			onAscension(mob/owner)
 				switch(owner.race.ascensions[1].choiceSelected)
@@ -145,4 +141,17 @@ ascension
 				..();
 			postAscension(mob/owner)
 				owner.secretDatum.tierUp(6, owner)
+				..()
+		six 
+			unlock_potential = ASCENSION_SIX_POTENTIAL
+			strength = 0.25
+			endurance = 0.75
+			force = 0.25
+			offense = 0.25
+			defense = 0.75
+			speed = 0.75
+			passives = list("DebuffReversal" = 1, "PureDamage"=5, "BlockChance"=25, "CriticalBlock"=0.25, "BuffMastery"=5, "GiantSwings"=1, "Extend"=1, "Gum Gum"=1, "Pressure"=2, "Siphon"=2, "Brutalize"=2)
+			on_ascension_message = "...unfortunately. ᚾᛁᛖᛊ ᚾᛜ ᛖᚣⲔᛊ ᚾᚺᚣᚾ ᚣ ᚹᚱᛜᛒᚳᛊᛖ ᚪᛜᚱ ᛊꓦᛊᚱᛉᛜᚢᛊ ᛊᚳᛢᛊ᛫"
+			postAscension(mob/owner)
+				owner.secretDatum.tierUp(7, owner)
 				..()

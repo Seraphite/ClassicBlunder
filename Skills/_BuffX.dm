@@ -9392,13 +9392,23 @@ NEW VARIABLES
 
 						if(p.isRace(ELDRITCH))
 							TimerLimit=0;
-							EndMult=1+(0.2*p.AscensionsAcquired)
-							StrMult=1+(0.2*p.AscensionsAcquired)
-							ForMult=1+(0.2*p.AscensionsAcquired)
-							PowerMult+=(0.05*(p.AscensionsAcquired*2))
-							src.passives["PureDamage"]=p.AscensionsAcquired;
-							src.passives["PureReduction"]=p.AscensionsAcquired;
-						else
+							if(p.AscensionsAcquired < 6)
+								EndMult=1+(0.2*p.AscensionsAcquired)
+								StrMult=1+(0.2*p.AscensionsAcquired)
+								ForMult=1+(0.2*p.AscensionsAcquired)
+								SpdMult=1+(0.2*p.AscensionsAcquired)
+								PowerMult+=(0.05*(p.AscensionsAcquired*2))
+								src.passives["PureDamage"]=p.AscensionsAcquired;
+								src.passives["PureReduction"]=p.AscensionsAcquired;
+							else//asc 6
+								StrMult=3
+								ForMult=3
+								EndMult=3
+								SpdMult=3
+								PowerMult=2
+								src.passives["PureDamage"]=5;
+								src.passives["PureReduction"]=10;
+						else//not eldritch
 							src.passives["PureDamage"]=0;
 							src.passives["PureReduction"]=0;
 

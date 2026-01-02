@@ -289,11 +289,12 @@ mob
 				src.AddBurn(src.GetBurnHit()*0.15*leakVal, src)
 
 			//If you are burned and have debuff reversal, smack fire into the other fighter
-			if(src.Burn && src.HasDebuffReversal())
-				defender.AddBurn(src.Burn/50, src);
+			var/debuffRev = src.GetDebuffReversal();
+			if(src.Burn && debuffRev)
+				defender.AddBurn(src.Burn/50*debuffRev, src);
 			//Same for poison
-			if(src.Poison && src.HasDebuffReversal())
-				defender.AddPoison(src.Poison/50, src);
+			if(src.Poison && debuffRev)
+				defender.AddPoison(src.Poison/50*debuffRev, src);
 
 
 			var/mortalStrike = GetMortalStrike()
@@ -1617,8 +1618,9 @@ mob
 				Mod *= src.getHardenMult();
 			if(src.Shatter)
 				if(!src.HasDebuffResistance()>=1)
-					if(src.HasDebuffReversal())
-						Mod*=1 + Shatter * glob.DEBUFF_EFFECTIVENESS
+					var/debuffRev = src.GetDebuffReversal();
+					if(debuffRev)
+						Mod*=1 + Shatter * glob.DEBUFF_EFFECTIVENESS * debuffRev;
 					else
 						Mod*=1 - Shatter * glob.DEBUFF_EFFECTIVENESS
 			if(src.EndEroded)
@@ -1725,8 +1727,9 @@ mob
 						Mod+=0.75*src.passive_handler.Get("BurningShot")
 			if(src.Slow)
 				if(!src.HasDebuffResistance()>=1)
-					if(src.HasDebuffReversal())
-						Mod*=1 + (Slow * glob.DEBUFF_EFFECTIVENESS)
+					var/debuffRev = src.GetDebuffReversal();
+					if(debuffRev)
+						Mod*= 1 + (Slow * glob.DEBUFF_EFFECTIVENESS * debuffRev);
 					else
 						Mod*= 1 - (Slow * glob.DEBUFF_EFFECTIVENESS)
 			if(src.SpdEroded)
@@ -1813,8 +1816,9 @@ mob
 						Mod+=0.75*passive_handler.Get("BurningShot")
 			if(src.Shock)
 				if(!src.HasDebuffResistance()>=1)
-					if(src.HasDebuffReversal())
-						Mod*=1 + (Shock * glob.DEBUFF_EFFECTIVENESS)
+					var/debuffRev = src.GetDebuffReversal();
+					if(debuffRev)
+						Mod*=1 + (Shock * glob.DEBUFF_EFFECTIVENESS * debuffRev);
 					else
 						Mod*= 1 - (Shock * glob.DEBUFF_EFFECTIVENESS)
 			if(passive_handler["Rebel Heart"])
@@ -1906,8 +1910,9 @@ mob
 						Mod+=0.75*passive_handler.Get("BurningShot")
 			if(src.Shock)
 				if(!src.HasDebuffResistance()>=1)
-					if(src.HasDebuffReversal())
-						Mod*=1 + (Shock * glob.DEBUFF_EFFECTIVENESS)
+					var/debuffRev = src.GetDebuffReversal();
+					if(debuffRev)
+						Mod*=1 + (Shock * glob.DEBUFF_EFFECTIVENESS * debuffRev);
 					else
 						Mod*=1 - (Shock * glob.DEBUFF_EFFECTIVENESS)
 			if(passive_handler["Rebel Heart"])

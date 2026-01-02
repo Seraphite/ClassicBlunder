@@ -55,7 +55,7 @@ var/list/PassiveInfo = list("Extend"="increases the range of armed autohits base
 "Flicker"= "restore zanzo charges faster",
 "Steady"= "flattens damage rolls so there's less variance with your damage (makes your damage more consistent), directly countered by unnerve",
 "Deflection"= "chance to deflect attacks that are able to be deflected",
-"DebuffReversal"= "debuffs (Slow, Shock, Shatter) that lower stat mods instead increase those mods for you",
+"DebuffReversal"= "debuffs (Slow, Shock, Shatter) that lower stat mods instead increase those mods for you. Also you don't take damage from burns or poison, and instead inflict those on your opponent. Cripple makes you faster too. Zoom zoom!",
 "Tenacity"= "gives a scaling chance to refuse being KOed and provides a small shield of Vai HP",
 "Persistence"= "gives a chance to take wound damage instead of normal damage(effectively acts as DR in Injury Flagged Fights)",
 "UnderDog"= "gives you increased damage and damage reduction based on how many wounds you have (increased ratio for humans, KoBs and Kamui Users.)",
