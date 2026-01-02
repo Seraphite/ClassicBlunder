@@ -47,19 +47,38 @@
 //I gaze into my navel and contemplate how Transform / Icon Replace effects could be their own dedicated class
 //But enough about that
 /mob/proc/Lunatic_Dash_Effect()
+    spawn()
+        var/obj/Skills/Buffs/SlotlessBuffs/Eldritch/True_Form/tf = locate(/obj/Skills/Buffs/SlotlessBuffs/Eldritch/True_Form, src);
+        if(!tf) return;
+
+        if(!src.Target) return;
+        var/image/T=image(tf.NightmareIcon, pixel_x=tf.NightmareX, pixel_y=tf.NightmareY, loc = src);
+        spawn()
+            animate(T, alpha=0)
+            animate(T, alpha=255, time=2)
+        T.appearance_flags=68
+        src.Target << T
+
+        spawn(5)
+            del T
+
+/mob/var/tmp/image/NightmarePreview;
+/mob/proc/NightmarePreviewOn()
+    src << "Your nightmare form is now being displayed ONLY to yourself."
+    src << "Use this verb again to turn the preview off."
     var/obj/Skills/Buffs/SlotlessBuffs/Eldritch/True_Form/tf = locate(/obj/Skills/Buffs/SlotlessBuffs/Eldritch/True_Form, src);
     if(!tf) return;
 
-    if(!src.Target) return;
-    var/image/T=image(tf.NightmareIcon, pixel_x=tf.NightmareX, pixel_y=tf.NightmareY, loc = src);
+    src.NightmarePreview=image(tf.NightmareIcon, pixel_x=tf.NightmareX, pixel_y=tf.NightmareY, loc = src);
     spawn()
-        animate(T, alpha=0)
-        animate(T, alpha=255, time=2)
-    T.appearance_flags=68
-    src.Target << T
-
-    spawn(5)
-        del T
+        animate(src.NightmarePreview, alpha=0)
+        animate(src.NightmarePreview, alpha=255, time=2)
+    src.NightmarePreview.appearance_flags=68
+    src << src.NightmarePreview
+/mob/proc/NightmarePreviewOff()
+    src << "You are no longer previewing your Nightmare icon."
+    del(src.NightmarePreview);
+    src.NightmarePreview = 0;
 
 
 mob/var/Lunacy=0;//variable that tracks how crazy someone is going
