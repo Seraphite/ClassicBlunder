@@ -193,6 +193,10 @@
     Devour = 1
     StrRate = 1
     ForRate = 1
+    IconLock='BlackGetsuga.dmi'
+    LockX=-40
+    LockY=-40
+    ActiveMessage="cleaves space with their Black Blade, sending forth an explosion dyed the Colour of the King!"
     verb/Divine_Departure()
         set category="Skills"
         set name = "Divine Departure"
