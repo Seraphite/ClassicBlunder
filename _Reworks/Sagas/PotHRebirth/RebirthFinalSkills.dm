@@ -23,7 +23,7 @@
 			set category="Skills"
 			if(!src.Using)
 				DarknessFlash(usr, SetTime=600)
-				world<<"<b>The an ocean of black ink washes across the world.</b>"
+				world<<"<b>An ocean of black ink washes across the world.</b>"
 			src.Trigger(usr)
 	Sing_Her_Blessed_Song
 		HealthCut=0.9
