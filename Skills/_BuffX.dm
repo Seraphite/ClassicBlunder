@@ -9427,8 +9427,9 @@ NEW VARIABLES
 				var/MinionY=0;
 
 				var/NightmareIcon=NIGHTMARE_FORM_DEFAULT;
-				var/NightmareX=0;
-				var/NightmareY=0;
+				var/NightmareX=-48;
+				var/NightmareY=-48;
+				var/tmp/NightmarePreview=0;
 
 				verb/Unleash_Lunacy()
 					set category = "Secret"
@@ -9527,9 +9528,11 @@ NEW VARIABLES
 						return;
 					src.MinionX = input(usr, "What x offset does your eldritch minion use?", "Eldritch Minion Offset X") as num|null;
 					src.MinionY = input(usr, "What y offset does your eldritch minion use?", "Eldritch Minion Offset Y") as num|null;
+				
 				verb/Customize_Nightmare_Form()
 					set category="Secret"
 
+					if(src.NightmarePreview) return;//Do not change icons while previewing
 					src.NightmareIcon = input(usr, "What icon will your nightmare form use?", "Nightmare Form Icon") as icon|null;
 					if(!src.NightmareIcon)
 						src.NightmareIcon = NIGHTMARE_FORM_DEFAULT;
@@ -9539,7 +9542,14 @@ NEW VARIABLES
 						return;
 					src.NightmareX = input(usr, "What x offset does your nightmare form use?", "Nightmare Form Offset X") as num|null;
 					src.NightmareY = input(usr, "What y offset does your nightmare form use?", "Nightmare Form Offset Y") as num|null;
-
+				
+				verb/Preview_Nightmare_Form()
+					set category="Secret"
+					src.NightmarePreview = !src.NightmarePreview;//toggle
+					if(src.NightmarePreview)
+						usr.NightmarePreviewOn()
+					else
+						usr.NightmarePreviewOff()
 				Trigger(mob/User, Override = 0)
 					if(!User.BuffOn(src))
 						adjust(User)
