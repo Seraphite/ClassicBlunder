@@ -9,24 +9,36 @@ obj/Items/Sword/Light/Legendary/WeaponSoul/Sword_of_Purity//Masamune
 obj/Skills/AutoHit/Divine_Cleansing
 	NeedsSword = 1
 	Area="Circle"
+	Slow=0.5
 	StrOffense=1
 	HitSelf = TRUE
-	DamageMult=4
-	Cleansing = 3
+	DamageMult=1//set in adjust code
+	Cleansing = 1//set in adjust code
 	Cooldown=30
-	Rounds=5
+	Rounds=1
 	Distance = 5
 	RoundMovement=1
-	Size = 5
-	Icon='SweepingKick.dmi'
+	Shockwaves=3
+	Shockwave=2
+	ShockIcon = 'ShockwaveIce.dmi'
+	Icon='HitEffectSnow.dmi'
 	IconX=-32
 	IconY=-32
-	FlickSpin=1
+	Size=10
+	TurfStrike=1
+	HitSparkIcon='SparkleBlue.dmi'
+	HitSparkX = 0;
+	HitSparkY = 0;
+	HitSparkCount = 2;
+	HitSparkDispersion = 8;
+	TurfShift='SnowFloor.dmi'
+	TurfShiftDuration = 10
 	EnergyCost=1
 	ActiveMessage="cuts through debilitation with the power of Masamune's purity!"
 	adjust(mob/p)
-		DamageMult = 4 + p.SagaLevel
-		Size = 5 + p.SagaLevel
+		DamageMult = p.SagaLevel
+		Cleansing = p.SagaLevel
+		Size = 5
 	verb/Divine_Cleansing()
 		set category="Skills"
 		adjust(usr)

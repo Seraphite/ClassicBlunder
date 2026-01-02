@@ -72,6 +72,7 @@
 #define FILE_DIR "Icons/Clothes/Clothes/shoes"
 #define FILE_DIR "Icons/Clothes/Clothes/tops"
 #define FILE_DIR "Icons/Effects"
+#define FILE_DIR "Icons/Effects/Masamune"
 #define FILE_DIR "Icons/Eldritch"
 #define FILE_DIR "Icons/Enchantment"
 #define FILE_DIR "Icons/Enchantment/Arch-Enemy"
