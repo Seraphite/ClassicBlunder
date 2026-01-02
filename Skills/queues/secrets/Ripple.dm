@@ -21,6 +21,9 @@ obj
 				Instinct=1
 				IconLock='Ultima Arm.dmi'
 				HitMessage="dislocates their arm to deliver a surprise strike: <b>Zoom Punch!</b>"
+				adjust(mob/p)
+					var/secretlevel= p.getSecretLevel()
+					Warp=3 * secretlevel
 				//set manually so no verb
 			Sunlight_Yellow_Overdrive
 				DamageMult=1
@@ -40,7 +43,7 @@ obj
 				ActiveMessage="unleashes the radiant beat of their heart, the Ripple of the Sun: <b><font color=#FFD700>Sunlight Yellow Overdrive!!!</font></b>"
 				adjust(mob/p)
 					var/secretlevel = p.getSecretLevel()
-					DamageMult= 1 * (secretlevel/2)
+					DamageMult= 2 * (secretlevel)
 					Combo=25 + (5 * secretlevel)
 					HolyMod=2.5 * secretlevel
 					Scorching= 5 * secretlevel

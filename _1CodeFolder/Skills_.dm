@@ -345,9 +345,13 @@ mob/proc/SkillX(var/Wut,var/obj/Skills/Z,var/bypass=0)
 						if(src.HasRipple())
 							if(src.Oxygen>src.OxygenMax*1.25&&src.Oxygen>150&&src.PoseEnhancement&&src.HealthAnnounce25==1)
 								src.HealthAnnounce25=2
-								src.SetQueue(new/obj/Skills/Queue/Sunlight_Yellow_Overdrive)
+								var/obj/Skills/Queue/Sunlight_Yellow_Overdrive/SYO=new/obj/Skills/Queue/Sunlight_Yellow_Overdrive
+								SYO.adjust(src)
+								src.SetQueue(SYO)
 							else
-								src.SetQueue(new/obj/Skills/Queue/Zoom_Punch)
+								var/obj/Skills/Queue/Zoom_Punch/ZP=new/obj/Skills/Queue/Zoom_Punch
+								ZP.adjust(src)
+								src.SetQueue(ZP)
 						if(src.Secret=="Vampire")
 							if(!src.PoseEnhancement)
 								var/obj/Skills/Queue/Vampire_Lunge/VL=new/obj/Skills/Queue/Vampire_Lunge
