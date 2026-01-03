@@ -1577,19 +1577,25 @@ mob
 				extra += 5 + (secretLevel * 2) * (1 + (secretDatum.secretVariable["BloodPower"] * 0.25))
 			return passive_handler.Get("LifeSteal") + extra
 		HasEnergySteal()
-			if(passive_handler.Get("EnergySteal"))
+			if(passive_handler.Get("EnergySteal")||passive_handler.Get("Determination(Black)"))
 				return 1
 			return 0
 		GetEnergySteal()
-			return passive_handler.Get("EnergySteal")
+			var/DetBlack=0
+			if(passive_handler.Get("Determination(Black)"))
+				DetBlack=5
+			return passive_handler.Get("EnergySteal")+DetBlack
 
 		HasManaSteal()
-			if(passive_handler.Get("ManaSteal"))
+			if(passive_handler.Get("ManaSteal")||passive_handler.Get("Determination(Black)"))
 				return 1
 			return 0
 
 		GetManaSteal()
-			return passive_handler.Get("ManaSteal")
+			var/DetBlack=0
+			if(passive_handler.Get("Determination(Black)"))
+				DetBlack=25
+			return passive_handler.Get("ManaSteal")+DetBlack
 
 		HasLifeStealTrue()
 			if(passive_handler.Get("LifeStealTrue"))
@@ -1858,7 +1864,7 @@ mob
 				if(src.Target)
 					if(src.Target.HasGodKi())
 						if(Target.GetGodKi() > Total)
-							Total+=src.Kaioken/2
+							Total+=src.Kaioken/4
 				if(src.Kaioken>=6)
 					Total+=3
 			return Total
