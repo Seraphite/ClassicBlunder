@@ -1744,10 +1744,10 @@ NEW VARIABLES
 			adjust(mob/p)
 				if(src.Mastery<1)
 					src.Mastery=1
-				passives = list("BurningShot" = src.Mastery, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/30, "Pursuer" = 1 + p.Potential/30)
+				passives = list("BurningShot" = src.Mastery, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/30, "Pursuer" = 1 + p.Potential/30, "Rekkaken" = 1)
 				if(p.isRace(SAIYAN)&&p.transActive>=1||p.isRace(HALFSAIYAN)&&p.transActive>=1||p.passive_handler.Get("SuperSaiyanSignature"))
 					if(p.race.transformations[p.transActive].mastery==100)
-						passives = list("BurningShot" = 0.25+src.Mastery, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/25, "Pursuer" = 2 + p.Potential/30, "SuperSaiyanSignature" = 1)
+						passives = list("BurningShot" = 0.25+src.Mastery, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/25, "Pursuer" = 2 + p.Potential/30, "SuperSaiyanSignature" = 1, "Rekkaken" = 1)
 						src.ActiveMessage="funnels their life force into their Super Saiyan power, setting their golden aura ablaze!!!"
 			verb/Burning_Shot()
 				set name="Rekkaken"
@@ -9382,13 +9382,23 @@ NEW VARIABLES
 
 						if(p.isRace(ELDRITCH))
 							TimerLimit=0;
-							EndMult=1+(0.2*p.AscensionsAcquired)
-							StrMult=1+(0.2*p.AscensionsAcquired)
-							ForMult=1+(0.2*p.AscensionsAcquired)
-							PowerMult+=(0.05*(p.AscensionsAcquired*2))
-							src.passives["PureDamage"]=p.AscensionsAcquired;
-							src.passives["PureReduction"]=p.AscensionsAcquired;
-						else
+							if(p.AscensionsAcquired < 6)
+								EndMult=1+(0.2*p.AscensionsAcquired)
+								StrMult=1+(0.2*p.AscensionsAcquired)
+								ForMult=1+(0.2*p.AscensionsAcquired)
+								SpdMult=1+(0.2*p.AscensionsAcquired)
+								PowerMult+=(0.05*(p.AscensionsAcquired*2))
+								src.passives["PureDamage"]=p.AscensionsAcquired;
+								src.passives["PureReduction"]=p.AscensionsAcquired;
+							else//asc 6
+								StrMult=3
+								ForMult=3
+								EndMult=3
+								SpdMult=3
+								PowerMult=2
+								src.passives["PureDamage"]=5;
+								src.passives["PureReduction"]=10;
+						else//not eldritch
 							src.passives["PureDamage"]=0;
 							src.passives["PureReduction"]=0;
 

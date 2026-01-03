@@ -227,10 +227,11 @@ mob
 								move_speed = MovementSpeed()
 								var/delay = loop_delay + move_speed
 								if(src.Crippled)
-									if(src.HasDebuffReversal())
+									var/debuffRev = src.GetDebuffReversal();
+									if(debuffRev)
 										//an awful fate has been invoked by Seraphite...
 										//when you run faster than light, all you can see is darkness...
-										var/fastCrippleEffect = (1 + (glob.MAX_CRIPPLE_MULT * (Crippled / glob.CRIPPLE_DIVISOR) / 2))//this value is smaller than the slow effect
+										var/fastCrippleEffect = (1 + ((glob.MAX_CRIPPLE_MULT * (Crippled / glob.CRIPPLE_DIVISOR) / 2) * debuffRev))//this value is smaller than the slow effect
 										delay /= fastCrippleEffect;
 									else
 										var/slowCrippleEffect = (1 + (glob.MAX_CRIPPLE_MULT*(Crippled/glob.CRIPPLE_DIVISOR)));

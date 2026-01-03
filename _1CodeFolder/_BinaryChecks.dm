@@ -874,10 +874,17 @@ mob
 		HasBurnHit()
 			if(passive_handler.Get("BurnHit"))
 				return 1
+			if(passive_handler.Get("Rekkaken"))
+				return 1
 			return 0
 		GetBurnHit()
 			var/Return=0
+			var/rkmast=0
 			Return+=passive_handler.Get("BurnHit")
+			if(passive_handler.Get("Rekkaken"))
+				for(var/obj/Skills/Buffs/SpecialBuffs/Rekkaken/rk in src.Buffs)
+					rkmast=rk.Mastery
+				Return+=(1+passive_handler.Get("BurningShot"))-rkmast
 			return Return
 		HasEnergyLeak()
 			if(passive_handler.Get("Pride")&&Health>=90)
@@ -2046,6 +2053,8 @@ mob
 			if(passive_handler.Get("DebuffReversal"))
 				return 1
 			return 0
+		GetDebuffReversal()
+			return passive_handler.Get("DebuffReversal")
 		HasDisorienting()
 			if(passive_handler.Get("Disorienting"))
 				return 1

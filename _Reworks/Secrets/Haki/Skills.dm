@@ -89,7 +89,7 @@
     FollowUp = "/obj/Skills/AutoHit/Haki/Kings_Infusion_Follow"
     adjust(mob/p)
         var/secretLevel = p.getSecretLevel()
-        if(secretLevel == 5)
+        if(secretLevel >= 5)
             DamageMult = 1 * secretLevel
             InstantStrikes = 1 + secretLevel
             Shocking = 5 * secretLevel
@@ -181,7 +181,7 @@
     Slashing = 1
     Knockback = 3
     AccMult = 2
-    Dodgeable = 0
+    Dodgeable = 1
     Deflectable = 0
     DamageMult = 6
     Piercing = 1

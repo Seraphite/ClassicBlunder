@@ -15,7 +15,7 @@ proc/generateVersionDatum()
 		glob.currentUpdate = updateversion
 
 globalTracker
-	var/UPDATE_VERSION = 39
+	var/UPDATE_VERSION = 40
 	var/tmp/update/currentUpdate
 
 	proc/updatePlayer(mob/p)
@@ -624,6 +624,26 @@ update
 				e.updateSecretVariables(o);
 				o << "Your eldritch secret variables have been updated."
 				o << "This should only ever happen ONCE! If it happens more times than that, contact Xoxo, something fucky."
+	version39
+		version = 40
+		updateMob(mob/o)
+			.=..()
+			if(o.isRace(ELDRITCH))
+				if(o.race.ascensions[1].choiceSelected == /ascension/sub_ascension/eldritch/hunter)
+					o.passive_handler["GiantSwings"] = 1;
+					o.passive_handler["SweepingStrike"] = 0;
+				if(o.race.ascensions[3].choiceSelected == /ascension/sub_ascension/eldritch/hunter)
+					o.passive_handler["GiantSwings"] = 1;
+					o.passive_handler["SweepingStrike"] = 0;
+				if(o.AscensionsAcquired < 6)
+					o.passive_handler["CriticalBlock"] = (o.AscensionsAcquired*0.1);
+				else
+					o.passive_handler["CriticalBlock"] = 0.75;
+				o << "Your eldritch ascension variables have been updated."
+				o << "SweepingStrike was replaced with GiantSwings."
+				o << "Block Chance now has Critical Block to go along with it."
+				o << "If you have any discrepencies, contact Xoxo."
+				o << "By the way, y'all have an ascension 6 now. 🌺"
 
 /globalTracker/var/COOL_GAJA_PLAYERS = list("Thorgigamax", "Gemenilove" )
 /globalTracker/var/GAJA_PER_ASC_CONVERSION = 0.25
