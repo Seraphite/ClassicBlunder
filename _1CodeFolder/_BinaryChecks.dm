@@ -874,10 +874,17 @@ mob
 		HasBurnHit()
 			if(passive_handler.Get("BurnHit"))
 				return 1
+			if(passive_handler.Get("Rekkaken"))
+				return 1
 			return 0
 		GetBurnHit()
 			var/Return=0
+			var/rkmast=0
 			Return+=passive_handler.Get("BurnHit")
+			if(passive_handler.Get("Rekkaken"))
+				for(var/obj/Skills/Buffs/SpecialBuffs/Rekkaken/rk in src.Buffs)
+					rkmast=rk.Mastery
+				Return+=(1+passive_handler.Get("BurningShot"))-rkmast
 			return Return
 		HasEnergyLeak()
 			if(passive_handler.Get("Pride")&&Health>=90)
@@ -1311,13 +1318,13 @@ mob
 				Return += 1
 			return Return
 		HasDebuffResistance()
-			if(src.GetDebuffReversal()) return 0;
+			if(src.HasDebuffReversal()) return 0;
 			if(passive_handler.Get("DebuffResistance")||passive_handler.Get("Determination(Green")||passive_handler.Get("Determination(White)"))
 				return 1
 			return 0
 		GetDebuffResistance()
 			var/GreenVal=0
-			if(src.GetDebuffReversal()) return 0;
+			if(src.HasDebuffReversal()) return 0;
 			if(passive_handler.Get("Determination(Green")||passive_handler.Get("Determination(White)"))
 				GreenVal=round(ManaAmount/20,1)
 			return passive_handler.Get("DebuffResistance") + GreenVal
@@ -2036,8 +2043,12 @@ mob
 			return 0
 		GetTripleStrike()
 			return passive_handler.Get("TripleStrike")
+		HasDebuffReversal()
+			if(passive_handler.Get("DebuffReversal"))
+				return 1
+			return 0
 		GetDebuffReversal()
-			return passive_handler.Get("DebuffReversal");
+			return passive_handler.Get("DebuffReversal")
 		HasDisorienting()
 			if(passive_handler.Get("Disorienting"))
 				return 1

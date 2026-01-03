@@ -1744,10 +1744,10 @@ NEW VARIABLES
 			adjust(mob/p)
 				if(src.Mastery<1)
 					src.Mastery=1
-				passives = list("BurningShot" = src.Mastery, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/30, "Pursuer" = 1 + p.Potential/30)
+				passives = list("BurningShot" = src.Mastery, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/30, "Pursuer" = 1 + p.Potential/30, "Rekkaken" = 1)
 				if(p.isRace(SAIYAN)&&p.transActive>=1||p.isRace(HALFSAIYAN)&&p.transActive>=1||p.passive_handler.Get("SuperSaiyanSignature"))
 					if(p.race.transformations[p.transActive].mastery==100)
-						passives = list("BurningShot" = 0.25+src.Mastery, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/25, "Pursuer" = 2 + p.Potential/30, "SuperSaiyanSignature" = 1)
+						passives = list("BurningShot" = 0.25+src.Mastery, "NoWhiff" = 1, "SuperDash" = 1 + p.Potential/25, "Pursuer" = 2 + p.Potential/30, "SuperSaiyanSignature" = 1, "Rekkaken" = 1)
 						src.ActiveMessage="funnels their life force into their Super Saiyan power, setting their golden aura ablaze!!!"
 			verb/Burning_Shot()
 				set name="Rekkaken"
@@ -9538,7 +9538,7 @@ NEW VARIABLES
 						return;
 					src.MinionX = input(usr, "What x offset does your eldritch minion use?", "Eldritch Minion Offset X") as num|null;
 					src.MinionY = input(usr, "What y offset does your eldritch minion use?", "Eldritch Minion Offset Y") as num|null;
-				
+
 				verb/Customize_Nightmare_Form()
 					set category="Secret"
 
@@ -9552,7 +9552,7 @@ NEW VARIABLES
 						return;
 					src.NightmareX = input(usr, "What x offset does your nightmare form use?", "Nightmare Form Offset X") as num|null;
 					src.NightmareY = input(usr, "What y offset does your nightmare form use?", "Nightmare Form Offset Y") as num|null;
-				
+
 				verb/Preview_Nightmare_Form()
 					set category="Secret"
 					src.NightmarePreview = !src.NightmarePreview;//toggle
