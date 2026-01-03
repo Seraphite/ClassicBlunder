@@ -11,11 +11,12 @@
     src.secretDatum.secretVariable["Power From Blood"]++;
     
     trg.MagicTaken = world.realtime + 3 DAYS;
+    trg.Conscious();
     trg.TotalInjury=90;
     trg.TotalCapacity=100;
-    trg.Unconscious(src, "has been debilitated by an unnatural harvesting!");
     src.TotalCapacity=0;
     src.ManaAmount=100;
+    trg.Unconscious(src, "has been debilitated by an unnatural harvesting!");
 
     //visuals
     var/image/img = image(icon='Novabolt.dmi', pixel_x=-33, pixel_y=-33);

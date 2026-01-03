@@ -11512,7 +11512,7 @@ mob
 							del B
 						return FALSE
 					if(src.HasMagicTaken())
-						src << "Your mana circuits are too damaged to use magic! ([(world.realtime - src.MagicTaken) / 1 HOURS] left)"
+						src << "Your mana circuits are too damaged to use magic! (until [time2text(src.MagicTaken, "DDD MMM DD hh:mm:ss")])"
 						return;
 					if((B.Copyable>=3||!B.Copyable)&&!(istype(B, /obj/Skills/Buffs/SlotlessBuffs/Autonomous)))
 						if(!src.HasSpellFocus(B) && !B.MagicFocus)
