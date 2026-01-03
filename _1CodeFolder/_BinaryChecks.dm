@@ -1803,6 +1803,9 @@ mob
 				return 1
 			if(passive_handler["Hidden Potential"]||passive_handler["Orange Namekian"])
 				return 1
+			if(src.CheckSlotless("Saiyan Soul")&&Target&&!src.HasGodKiBuff())
+				if(!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi())
+					return 1
 			if(passive_handler["DisableGodKi"])
 				return 0
 			if(passive_handler["EndlessNine"])
@@ -1813,9 +1816,6 @@ mob
 				return 1
 			if(src.SenseUnlocked>6&&(src.SenseUnlocked>src.SenseRobbed))
 				return 1
-			if(src.CheckSlotless("Saiyan Soul")&&Target&&!src.HasGodKiBuff())
-				if(!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi())
-					return 1
 			if(src.HasSpiritPower()>=1 && FightingSeriously(src, 0))
 				if(src.Health<=max(15, (30+src.TotalInjury)*src.GetSpiritPower()) || src.InjuryAnnounce)
 					return 1
@@ -1844,11 +1844,13 @@ mob
 				if(SenseUnlocked >= 9)
 					Total += glob.SENSE9GODKI
 			if(src.CheckSlotless("Saiyan Soul")&&!src.HasGodKiBuff())
-				if(src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi())
+				if(passive_handler.Get("DisableGodKi") && src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian"))
+					Total+=src.Target.GetGodKi()/4
+				else if(src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian"))
 					Total+=src.Target.GetGodKi()/3
 			if(passive_handler.Get("CreateTheHeavens") && !HasGodKiBuff()&&isRace(HUMAN)||passive_handler.Get("Hidden Potential")||passive_handler.Get("Orange Namekian"))
 				if(src.Target)
-					if(src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian"))
+					if(src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian")&&!src.Target.CheckSlotless("Saiyan Soul"))
 						if(Target.GetGodKi() > Total&&!passive_handler.Get("DisableGodKi")&&!passive_handler.Get("Orange Namekian"))
 							Total=Target.GetGodKi()
 						else if(Target.GetGodKi() > Total/1.25&&passive_handler.Get("Orange Namekian"))
