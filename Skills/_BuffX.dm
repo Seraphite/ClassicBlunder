@@ -12072,7 +12072,7 @@ mob
 						src <<"You do not breathe."
 						return
 					if(src.IsEvil()&&!src.isRace(MAKAIOSHIN))
-						if(!src.HasGodKi())
+						if(!src.passive_handler.Get("Scarlet-Overdriven"))
 							src.Death(null, "suicidal stupidity!", SuperDead=1)
 							return
 				if(B.WarpZone)
