@@ -1939,7 +1939,7 @@ mob
 					src << "You lack the ability to use magic!"
 					return
 				if(src.HasMagicTaken())
-					src << "Your mana circuits are too damaged to use magic! ([(world.realtime - src.MagicTaken) / 1 HOURS] left)"
+					src << "Your mana circuits are too damaged to use magic! (until [time2text(src.MagicTaken, "DDD MMM DD hh:mm:ss")])"
 					return;
 				if(Q.Copyable>=3||!Q.Copyable)
 					if(src.Saga!="Persona"&&src.Saga!="Magic Knight"&&!src.is_arcane_beast)
