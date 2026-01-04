@@ -820,7 +820,7 @@ mob
 						PowerUpPercent/=1+(src.GetMovementMastery()/8)
 
 					PowerUpPercent/=PUSpike
-					if(passive_handler.Get("DrainlessPUSpike"))
+					if(passive_handler.Get("DrainlessPUSpike")||passive_handler.Get("DoubleHelix"))
 						PowerUpPercent=0
 					val*=(1+(PowerUpPercent/src.PUDrainReduction))
 

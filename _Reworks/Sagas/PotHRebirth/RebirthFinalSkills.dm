@@ -30,4 +30,7 @@
 	All_Hail_The_Crownless_King
 		HealthCut=0.9
 	Glory_To_The_Comeback_King
-		HealthCut=0.9
+		passives = list("The Comeback King" = 1)
+		verb/Glory_To_The_King()
+			set category="Skills"
+			src.Trigger(usr)

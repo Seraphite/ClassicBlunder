@@ -223,15 +223,24 @@ mob/proc/Unconscious(mob/P,var/text)
 				src.VaizardHealth+=25
 				src.HealthAnnounce10+=1
 				return
+	if(src.passive_handler.Get("The Comeback King"))
+		if(src.HealthAnnounce10<=9)
+			if(prob(src.passive_handler.Get("The Comeback King")))
+				src.KO=0
+				src.OMessage(15, "...but [src] isn't going to go down so easily!", "<font color=red>[src]([src.key]) stages a miraculous comeback!!")
+				src.Health=1
+				src.VaizardHealth+=P.Health/2
+				src.HealthAnnounce10+=1
+				return
 	if(src.race in list(HUMAN, CELESTIAL))
 		if(src.transActive==1&&src.transUnlocked>=2)
 			src.KO=0
 			src.OMessage(15, "...<b>but [src] evolves one final time, pushing out every last bit of their potential!!!!</b>", "<font color=red>[src]([src.key]) activates Unlimited High Tension!!!")
 			src.Health=5
 			if(src.isRace(HUMAN))
-				src.VaizardHealth+=P.Health/1.5
+				src.VaizardHealth+=(P.Health+P.VaizardHealth)/1.5
 			if(src.isRace(CELESTIAL))
-				src.VaizardHealth+=P.Health/2
+				src.VaizardHealth+=(P.Health+P.VaizardHealth)/2
 			src.race.transformations[2].transform(src, TRUE)
 			src.Tension=100
 			return
@@ -240,9 +249,9 @@ mob/proc/Unconscious(mob/P,var/text)
 			src.OMessage(15, "...<b>but [src] evolves one final time, pushing out every last bit of their potential!!!!</b>", "<font color=red>[src]([src.key]) activates Unlimited High Tension!!!")
 			src.Health=5
 			if(src.isRace(HUMAN))
-				src.VaizardHealth+=P.Health/1.5
+				src.VaizardHealth+=(P.Health+P.VaizardHealth)/1.5
 			if(src.isRace(CELESTIAL))
-				src.VaizardHealth+=P.Health/2
+				src.VaizardHealth+=(P.Health+P.VaizardHealth)/2
 			src.race.transformations[3].transform(src, TRUE)
 			src.Tension=100
 			return

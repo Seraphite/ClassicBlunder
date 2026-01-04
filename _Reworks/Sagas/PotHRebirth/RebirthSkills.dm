@@ -202,6 +202,7 @@ obj/Skills/AutoHit
 	MakeItCount
 		Area="Strike"
 		AwakeningSkill=1
+		Cooldown=-1
 		ActNumber=3
 		StrOffense=1
 		Rush=10
@@ -226,17 +227,7 @@ obj/Skills/AutoHit
 		verb/Make_It_Count()
 			set category="Skills"
 			set name="Make It Count (Act 3)"
-			if(world.realtime < src.RebirthLastUse)
-				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
-				return
-			if(usr.Health>25)
-				usr<<"You have to be below 25% health to use this!"
-				return
 			usr.Activate(src)
-			if(usr.SagaLevel<5)
-				src.RebirthLastUse=world.realtime + 168 HOURS
-			else
-				src.RebirthLastUse=world.realtime + 72 HOURS
 			usr.TriggerAwakeningSkill(ActNumber)
 	Snowgrave
 		ElementalClass="Water"
@@ -279,19 +270,13 @@ obj/Skills/AutoHit
 		verb/Never_See_It_Coming()
 			set category="Skills"
 			set name="Never See It Coming (Act 1)"
-			if(world.realtime < src.RebirthLastUse&&usr.SagaLevel<5)
-				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
-				return
-			if(usr.SagaLevel<5)
-				src.RebirthLastUse=world.realtime + 24 HOURS
-			else if(usr.SagaLevel>=5)
-				src.RebirthLastUse=world.realtime + 1 HOURS
 			adjust(usr)
 			usr.Activate(src)
 			usr.TriggerAwakeningSkill(ActNumber)
 	PowerWordGenderDysphoria
 		Area="Target"
 		AdaptRate = 1
+		Cooldown=-1
 		DamageMult = 5
 		Distance = 15
 		DelayTime = 0
@@ -310,18 +295,8 @@ obj/Skills/AutoHit
 		verb/GenderDysphoria()
 			set category="Skills"
 			set name="Power Word: Gender Dysphoria (Act 2)"
-			if(world.realtime < src.RebirthLastUse)
-				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "dd:hh:ss") ]"
-				return
-			if(usr.Health>50)
-				usr<<"You can only use this at 50% health or below."
-				return
 			usr.Activate(src)
 			usr.TriggerAwakeningSkill(ActNumber)
-			if(usr.SagaLevel<5)
-				src.RebirthLastUse=world.realtime + 72 HOURS
-			else
-				src.RebirthLastUse=world.realtime + 24 HOURS
 	Unleash
 		ManaCost=75
 		StrOffense=0
@@ -420,7 +395,7 @@ obj/Skills/AutoHit
 		AdaptRate = 1
 		GuardBreak=1
 		DamageMult=6
-		Knockback=15
+		PullIn=15
 		Cooldown=120
 		NeedsHealth=50
 		Shockwaves=3
@@ -456,7 +431,7 @@ obj/Skills/AutoHit
 		AdaptRate = 1
 		GuardBreak=1
 		DamageMult=15
-		Knockback=15
+		PullIn=15
 		Cooldown=120
 		Stunner=4
 		ComboMaster=1
@@ -565,7 +540,7 @@ obj/Skills/Queue
 		AccuracyMult =10000
 		Duration=5
 		KBMult=0.00001
-		Cooldown=30
+		Cooldown=-1
 		UnarmedOnly=1
 		Launcher=2
 		name="Never Knows Best"
@@ -576,18 +551,8 @@ obj/Skills/Queue
 		verb/NeverKnowsBest()
 			set category="Skills"
 			set name="Never Knows Best (Act 1)"
-			if(world.realtime < src.RebirthLastUse)
-				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
-				return
-			if(usr.Health>75)
-				usr<<"You have to be below 75% health to use this!"
-				return
 			RandomMult=rand(1,70)
 			DamageMult=RandomMult/10
-			if(usr.SagaLevel<5)
-				src.RebirthLastUse=world.realtime + 24 HOURS
-			else
-				src.RebirthLastUse=world.realtime + 1 HOURS
 			usr.SetQueue(src)
 			usr.TriggerAwakeningSkill(ActNumber)
 	FistOfTheRedStar
@@ -595,6 +560,7 @@ obj/Skills/Queue
 		DamageMult=7
 		AccuracyMult = 1.75
 		Duration=5
+		Cooldown=-1
 		Shattering=3
 		ActNumber=2
 		AwakeningSkill=1
@@ -608,16 +574,6 @@ obj/Skills/Queue
 		verb/FistOfTheRedStar()
 			set category="Skills"
 			set name="Fist Of The Red Star (Act 2)"
-			if(world.realtime < src.RebirthLastUse)
-				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
-				return
-			if(usr.Health>50)
-				usr<<"You have to be below 50% health to use this!"
-				return
-			if(usr.SagaLevel<5)
-				src.RebirthLastUse=world.realtime + 72 HOURS
-			else
-				src.RebirthLastUse=world.realtime + 24 HOURS
 			usr.SetQueue(src)
 			usr.TriggerAwakeningSkill(ActNumber)
 
@@ -640,19 +596,10 @@ obj/Skills/Utility
 		ActNumber=1
 		icon_state="Heal"
 		desc="You ask for a little more time."
+		Cooldown=-1
 		verb/NeverTooLate()
 			set category="Skills"
 			set name="Never Too Late (Act 1)"
-			if(world.realtime < src.RebirthLastUse)
-				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
-				return
-			if(usr.Health>75)
-				usr<<"You can't use this below 75% health!"
-				return
-			if(usr.SagaLevel<5)
-				src.RebirthLastUse=world.realtime + 24 HOURS
-			else
-				src.RebirthLastUse=world.realtime + 1 HOURS
 			RandomMult=rand(1,25)
 			usr.DoDamage(usr, 10)
 			usr.HealHealth(RandomMult)
@@ -661,40 +608,22 @@ obj/Skills/Utility
 		Copyable=0
 		ActNumber=2
 		icon_state="Heal"
+		Cooldown=-1
 		desc="Shine brightly. Your awakening skill strengthens, but you burn out quicker."
 		verb/TheBlueExperience()
 			set category="Skills"
 			set name="The Blue Experience (Act 2)"
-			if(world.realtime < src.RebirthLastUse)
-				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
-				return
-			if(usr.Health>50)
-				usr<<"Can't use yet!"
-				return
-			if(usr.SagaLevel<5)
-				src.RebirthLastUse=world.realtime + 72 HOURS
-			else
-				src.RebirthLastUse=world.realtime + 24 HOURS
 			usr.TriggerAwakeningSkill(ActNumber)
 			usr.buffSelf(/obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Blue_Experience)
 	Burning_Soul
 		Copyable=0
 		ActNumber=3
 		icon_state="Heal"
+		Cooldown=-1
 		desc="Translate all your power into rage. Your Rebirth skills become faster, but make you more and more angrier. At 500% Fury, your rage explodes outwards, damaging yourself and everyone in view."
 		verb/Burning_Soul()
 			set category="Skills"
 			set name="Red Hot Rage (Act 3)"
-			if(world.realtime < src.RebirthLastUse)
-				usr << "This is on cooldown until [time2text(src.RebirthLastUse, "hh:ss") ]"
-				return
-			if(usr.Health>25)
-				usr<<"Can't use below 25% health!"
-				return
-			if(usr.SagaLevel<5)
-				src.RebirthLastUse=world.realtime + 168 HOURS
-			else
-				src.RebirthLastUse=world.realtime + 72  HOURS
 			usr.TriggerAwakeningSkill(ActNumber)
 			usr.buffSelf(/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Burning_Soul)
 	SoulShift
@@ -942,19 +871,19 @@ obj/Skills/Projectile
 			Immediate=1
 			Dodgeable=0
 			IconLock='Pride Beam.dmi'
-			Cooldown=120
+			Cooldown=30
 			Instinct=1
 			adjust(mob/p)
 				if(altered) return
 				if(p.passive_handler.Get("Red Hot Rage"))
-					Cooldown=30
+					Cooldown=10
 					RedPUSpike=pick(25, 50)
 					DamageMult=12
 					for(var/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Burning_Soul/s in p)
 						s.passives["PUSpike"] += RedPUSpike
 					p.WeirdAngerStuff()
 				else
-					Cooldown=120
+					Cooldown=30
 					RedPUSpike=0
 			verb/Unbelievable_Rage()
 				set category="Skills"
@@ -964,6 +893,7 @@ obj/Skills/Projectile
 	Zone_Attacks
 		Final_Chaos
 			Speed = 0.25
+			Cooldown=-1
 			Distance=20
 			Blasts=15
 			Charge=1
@@ -982,16 +912,6 @@ obj/Skills/Projectile
 			verb/Final_Chaos()
 				set category="Skills"
 				set name="Final Chaos (Act 3)"
-				if(world.realtime < src.RebirthLastUse)
-					usr << "This is on cooldown until [time2text(src.RebirthLastUse, "dd:hh:ss") ]"
-					return
-				if(usr.Health>25)
-					usr<<"Can't use yet!"
-					return
-				if(usr.SagaLevel<5)
-					src.RebirthLastUse=world.realtime + 168 HOURS
-				else
-					src.RebirthLastUse=world.realtime + 72 HOURS
 				usr.TriggerAwakeningSkill(ActNumber)
 				usr.UseProjectile(src)
 obj/Skills/Buffs
@@ -1028,6 +948,8 @@ obj/Skills/Buffs
 			TooMuchHealth=75
 			EndMult=0.85
 			EnergyHeal=1
+			ActiveSlot=0
+			Slotless=1
 			ActiveMessage="casts aside their durability to call forth a miraculous turnaround. <b>All Hail the Comeback King</b>."
 			OffMessage="casts aside the burden of the Comeback King."
 			passives = list("Unstoppable" = -1, "HellPower"=0.5, "UnderDog"=5, "Rage" = 1, "KiControl" = 1)
