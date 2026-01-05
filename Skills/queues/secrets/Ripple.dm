@@ -41,8 +41,8 @@ obj
 				HitSparkSize=2
 				Duration=5
 				ActiveMessage="settles their hands into a ready position, as they start to burn brightly with the Ripple...</font></b>"
-				ComboHitMessages=list(1= "says: How my heart resonates...", 2= "says: I'm pulsing with Heat and Life...", 3= "says: My very blood is a symphony within me...", 4= "yells:<b><font color=#FFD700>Sun...</font></b>",5= "<b><font color=#FFD700>...light...</font>", 6= "<b><font color=#FFD700>yells:Yell... </font>", 7= "yells:ooww...", 8= "<b><font color=#FFD700>Ov...", \
-									  9= "<b><font color=#FFD700>says:er....</font>", 10= "<b><font color=#FFD700>says:..dri...</font>", 11= "<b><font color=#FFD700>..ve!!!</font>")
+				ComboHitMessages=list("says: How my heart resonates...","says: I'm pulsing with Heat and Life...", "says: My very blood is a symphony within me...", "yells:<b><font color=#FFD700>Sun...</font></b>", "<b><font color=#FFD700>...light...</font>", "<b><font color=#FFD700>yells:Yell... </font>", "yells:ooww...", "<b><font color=#FFD700>Ov...", \
+									  "<b><font color=#FFD700>says:er....</font>", "<b><font color=#FFD700>says:..dri...</font>", "<b><font color=#FFD700>..ve!!!</font>")
 				adjust(mob/p)
 					var/secretlevel = p.getSecretLevel()
 					DamageMult= 1 * (secretlevel)
