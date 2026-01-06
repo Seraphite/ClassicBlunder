@@ -67,6 +67,7 @@ mob/Players
 				y = PrevY
 				z = PrevZ
 		if(usr.Savable==0)
+			DEBUGMSG("[usr] is not savable and so \she must be finalized");
 			usr.Savable=1
 			usr.Finalize()
 		if(!locate(/obj/Money) in src)
@@ -202,6 +203,7 @@ mob/Players
 
 		//automation
 		src.reward_auto()//checks to see if its been a day
+
 		if(RPPSpent<0)
 			src<<"RPPSpent was negative, resetting to 0"
 			RPPSpent=0
@@ -542,11 +544,6 @@ mob/Creation
 		usr<<"<font color='red'><b>READ THIS BEFORE PLAYING:</b></font><br>"
 		usr<<"Wipe Topic: <a href='[WIPE_TOPIC]'>Click Here</a>"
 		usr<<"We have a Discord server at: [DISCORD_INVITE]<br>"
-/*		usr<<"Donate Here: <a href='[PATREON_LINK]'>Patreon (Monthly)</a> <a href='[KO_FI_LINK]'>Ko-Fi (One Time)</a>"
-		if(donationInformation.getDonator(key=key))
-			usr<<"[THANKS_MESSAGE_DONATOR(donationInformation.getDonator(key=key).getTier())]"
-		if(donationInformation.getSupporter(key=key))
-			usr<<"[THANKS_MESSAGE_SUPPORTER(donationInformation.getSupporter(key=key).getTier())]"*/
 		usr<<"<br><font color=#FFFF00>Welcome to [world.name]!"
 		usr<<"<b><small>Click the title screen to continue...</b><br>"
 		if(glob.TESTER_MODE)
@@ -1037,7 +1034,8 @@ mob/proc
 		src.client.mob=LOL
 		del(src)
 
-	Finalize(var/Warped=0)
+	Finalize(Warped=0)
+		DEBUGMSG("Beginning to run finalize process on [src]");
 		src.Hairz("Add")
 		resetStats = FALSE
 		if(src.Tail)
@@ -1058,9 +1056,11 @@ mob/proc
 		src:UniqueID = ++glob.IDCounter
 		glob.IDs += src:UniqueID
 		glob.IDs[src:UniqueID] = "[name]"
-		var/updateversion = "/update/version[glob.UPDATE_VERSION]"
-		updateVersion = new updateversion
+		DEBUGMSG("actually we managed to get past the global ids, im shocked")
+		glob.updatePlayer(src);
+		DEBUGMSG("perhaps it is update version that kills the man?")
 		setStartingRPP()
+		DEBUGMSG("or setting starting rpp. did that kill us?")
 		if(!Warped)
 			if(isRace(BEASTMAN)||isRace(YOKAI))
 				var/Choice=input(src, "Do you want to possess animal characteristics?  These options will give you tails and ears.", "Choose your animal traits.") in list("None", "Cat", "Fox", "Racoon", "Wolf", "Lizard", "Crow", "Bull")
@@ -1110,7 +1110,9 @@ mob/proc
 				src.EraBody="Adult"
 				src << "You've started as a timeless race. You learn slower than others, but can teach younger beings and always have your full power available."
 
+			DEBUGMSG("we made it through the furry zone");
 			src.EraBirth=glob.progress.Era
+			DEBUGMSG("ok we're going to try to set to spawn");
 			src.ChooseSpawn()
 
 			//spawns can kill beastmens ability to learn anything so this is here now.
@@ -1123,15 +1125,12 @@ mob/proc
 				src.EraAge=0
 				src.EraBody="Adult"
 
-			// if(global.RPPEventCharges["[src.ckey]"])
-			// 	src.RPPSpendableEvent+=global.RPPEventCharges["[src.ckey]"]*global.RPPDaily
-			// 	src << "You've gained [global.RPPEventCharges["[src.ckey]"]] days of event RPP from a past life."
-
 			if(glob.progress.WipeStart)
+				src.RewardsLastGained=glob.progress.DaysOfWipe-1
 				src.PotentialLastDailyGain=glob.progress.WipeStart
 				if(src.Potential==DaysOfWipe())//if its a bad boi who gets free potential
 					src.PotentialLastDailyGain=glob.progress.DaysOfWipe-1
-				src.RewardsLastGained=glob.progress.DaysOfWipe-1
+				
 				//set these to wipe start so that the login code will give them their rewards and allow them to grind potentialz
 			information.setPronouns(TRUE)
 			killed_AI = list()

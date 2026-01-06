@@ -88,7 +88,7 @@ for(var/obj/Special/Spawn/S in glob.Spawns)
 
 
 proc
-	MoveToSpawn(var/mob/m)
+	MoveToSpawn(mob/m)
 		if(glob.progress.SpawnLoc==1)
 			m.loc = locate(430, 310, 12)
 		if(glob.progress.SpawnLoc==2)
