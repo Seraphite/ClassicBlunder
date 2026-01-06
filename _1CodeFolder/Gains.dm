@@ -424,7 +424,7 @@ mob
 			var/grit_value = passive_handler["Grit"]
 			if (grit_value >= 1 && Health <= clamp(15 + AscensionsAcquired * 10, 15, 75))
 				HealHealth(grit_value / glob.racials.GRITDIVISOR)
-				if(prob(15*(AscensionsAcquired+1)))
+				if(prob(15*(AscensionsAcquired+1))&&src.icon_state!="Meditate")//penis text
 					src.VaizardHealth += (grit_value / glob.racials.GRITDIVISOR)
 			if(src.Lethal)
 				src.Lethal--
