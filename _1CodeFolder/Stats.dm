@@ -931,9 +931,10 @@ mob/proc/
 		if(Power < 1)
 			Power = 1
 		if(passive_handler["Hidden Potential"] && Target)
-			if(Target.Power > Power)
-				Power = Target.Power
-				Power*=GetPowerUpRatio()
+			if(!Target.passive_handler.Get("Hidden Potential"))
+				if(Target.Power > Power)
+					Power = Target.Power
+					Power*=GetPowerUpRatio()
 		var/nerf = GetPowerUpRatio()+EPM > 2.3 ? 1 : 0
 		power_display=get_power_tier(0, Power, nerf)
 
