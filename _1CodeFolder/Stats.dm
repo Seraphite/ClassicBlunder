@@ -455,6 +455,8 @@ mob/proc/GetPowerUpRatio()
 	if(src.HasMovementMastery()&&PowerUp>0)
 		var/mmBonus = src.GetMovementMastery() / glob.MOVEMENT_MASTERY_DIVISOR
 		// max is around 20, maybe 22 or 23
+		if(src.passive_handler.Get("Kaioken")&&(src.passive_handler.Get("DoubleHelix"))
+			mmBonus += src.DoubleHelix
 
 		Ratio=1+(PowerUp*(1+(mmBonus)))
 	else
@@ -714,16 +716,16 @@ mob/proc/RainbowGlowStuff()
 mob/proc/
 	Available_Power()
 //Kaiokek
-		if(src.passive_handler.Get("DoubleHelix"))
+		if(src.passive_handler.Get("DoubleHelix")&&!src.passive_handler.Get("Kaioken"))
 			switch(src.DoubleHelix)
 				if(1)
 					src.PowerControl=200
 				if(2)
-					src.PowerControl=300
+					src.PowerControl=250
 				if(3)
 					src.PowerControl=350
 				if(4)
-					src.PowerControl=450
+					src.PowerControl=400
 				if(5)
 					src.PowerControl=600
 		if(src.passive_handler.Get("Kaioken"))
