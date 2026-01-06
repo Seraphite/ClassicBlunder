@@ -216,15 +216,16 @@ mob/proc/Unconscious(mob/P,var/text)
 	if(src.passive_handler.Get("X-Antibody"))
 		var/obj/Skills/Buffs/SlotlessBuffs/B = src.findOrAddSkill(/obj/Skills/Buffs/SlotlessBuffs/Death_Evolution)
 		if(B.evolution_charges>=1)
-			world<<"<font color=red><b>When gathering souls become one, a new despair will bring about the Absolute End.</b></font>"
+			src.KO=0
 			src.RPModeSwitch()
+			sleep(30)
+			world<<"<font color=red><b>When gathering souls become one, a new despair will bring about the Absolute End.</b></font>"
 			sleep(30)
 			world<<"<font color=red><b>[src] becomes the path its darkness advances upon.</b></font>"
 			var/obj/Skills/Buffs/SlotlessBuffs/A = src.findOrAddSkill(/obj/Skills/Buffs/SlotlessBuffs/X_Evolution)
 			A.Trigger(src,1)
 			sleep(30)
 			world<<"<font color=red><b>Shinka no Yami.</b></font>"
-			src.KO=0
 			src.TotalInjury=0
 			src.TotalFatigue=0
 			src.Health=100
