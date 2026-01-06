@@ -189,7 +189,7 @@ mob/proc/Unconscious(mob/P,var/text)
 		return
 	if(src.passive_handler.Get("Neverending Hope"))
 		if(src.HealthAnnounce10<=1&&FightingSeriously(P,src))
-			if(prob((5*glob.TENACITY_GETUP_CHANCE)+5))
+			if(prob((src.passive_handler.Get("Tenacity")*glob.TENACITY_GETUP_CHANCE)+10))
 				src.KO=0
 				src.OMessage(15, "...but [src] refused.", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
 				src.Health=1
@@ -232,7 +232,7 @@ mob/proc/Unconscious(mob/P,var/text)
 			sleep(30)
 			world<<"<font color=red><b>Death-X-Evolution...</b></font>"
 			B.Trigger(src)
-			B.evolution_charges = 0	
+			B.evolution_charges = 0
 			return
 	if(src.passive_handler.Get("Alter The Future"))
 		if(src.HealthAnnounce10<=4)
