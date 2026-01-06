@@ -277,13 +277,12 @@ mob/proc/Unconscious(mob/P,var/text)
 			src.race.transformations[3].transform(src, TRUE)
 			src.Tension=100
 			return
-	if(src.passive_handler.Get("DoubleHelix")&&src.DoubleHelix>=3&&src.transActive==4&&src.transUnlocked>=5)
+	if(src.passive_handler.Get("DoubleHelix")&&src.transActive==4&&src.transUnlocked>=5&&src.CelestialAscension=="Demon")
 		if(src.HealthAnnounce10<=5&&FightingSeriously(P,src))
 			src.KO=0
-			src.OMessage(15, "...<b>but [src] evolves one final time, pushing out every last bit of their potential!!!!</b>", "<font color=red>[src]([src.key]) activates Unlimited High Tension!!!")
+			src.OMessage(15, "...<b>but [src] evolves one final time, drawing out the full might of their demonic ancestor!</b>", "<font color=red>[src]([src.key]) activates Unlimited High Tension!!!")
 			src.Health=5
-			if(src.isRace(HUMAN))
-				src.VaizardHealth+=20
+			src.DoubleHelix=5
 			if(src.isRace(CELESTIAL))
 				src.VaizardHealth+=10
 			src.HealthAnnounce10=6
