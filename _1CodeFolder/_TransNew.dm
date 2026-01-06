@@ -588,11 +588,12 @@ mob/proc/WeaponSoul() // OverSoul Mechanic
 				sleep(5)
 				src.OMessage(10,"<b>[src] invokes the spirit of destruction through their blade!</b>")
 			if("Dainsleif")
-				src.ElementalOffense="Poison"//This already has cursed wounds, so it will become hyper murder poison.
-				passive_handler.Increase("MortalStrike")
-				passive_handler.Increase("HardStyle", 2)
-				passive_handler.Increase("DeathField", 2)
+				src.ElementalOffense="Poison" //This already has cursed wounds, so it will become hyper murder poison.
+				passive_handler.Increase("NoForcedWhiff")
+				passive_handler.Increase("HardStyle", 5)
+				passive_handler.Increase("DeathField", 5)
 				passive_handler.Increase("SoulSteal")
+				passive_handler.Increase("HealThroughTempHP")
 				var/i='Dark.dmi'
 				var/j='BloodRain.dmi'
 				var/image/w=image(icon=s.icon, pixel_x=s.pixel_x, pixel_y=s.pixel_y, loc=src, layer=EFFECTS_LAYER)
@@ -713,10 +714,11 @@ mob/proc/RevertWS()
 			src.overlays-=image(icon='DeathbringerMode.dmi')
 		if("Dainsleif")
 			src.ElementalOffense=null
-			passive_handler.Decrease("MortalStrike")
-			passive_handler.Decrease("HardStyle")
-			passive_handler.Decrease("DeathField",2)
+			passive_handler.Decrease("NoForcedWhiff")
+			passive_handler.Decrease("HardStyle", 5)
+			passive_handler.Decrease("DeathField",5)
 			passive_handler.Decrease("SoulSteal")
+			passive_handler.Decrease("HealThroughTempHP")
 			src.overlays-=image(icon='NibelungMode.dmi', pixel_x=-32, pixel_y=-32)
 			src.overlays+=image(icon=s.icon, pixel_x=s.pixel_x, pixel_y=s.pixel_y, layer=placement)
 

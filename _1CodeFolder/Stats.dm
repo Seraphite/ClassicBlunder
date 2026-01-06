@@ -458,7 +458,7 @@ mob/proc/GetPowerUpRatio()
 	if(src.HasMovementMastery()&&PowerUp>0)
 		var/mmBonus = src.GetMovementMastery() / glob.MOVEMENT_MASTERY_DIVISOR
 		// max is around 20, maybe 22 or 23
-		if(src.passive_handler.Get("Kaioken")&&(src.passive_handler.Get("DoubleHelix"))
+		if(src.passive_handler.Get("Kaioken")&&(src.passive_handler.Get("DoubleHelix")))
 			mmBonus += src.DoubleHelix
 
 		Ratio=1+(PowerUp*(1+(mmBonus)))
