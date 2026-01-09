@@ -6262,7 +6262,8 @@ obj
 								if(src.Punt)
 									Hit_Effect(src.Owner, Size=src.Punt)
 								src.Owner.HitEffect(src.Owner, src.UnarmedTech, src.SwordTech)
-								OMsg(m, "[m] redirected the force of the attack back at [src.Owner]!")  
+								OMsg(m, "[m] redirected the force of the attack back at [src.Owner]!")
+								m << "You redirected the force of the attack back at [src.Owner]!"
 								return
 
 				if(src.CanBeBlocked||m.passive_handler.Get("YataNoKagami"))

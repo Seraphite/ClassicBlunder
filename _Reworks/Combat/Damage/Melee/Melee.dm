@@ -693,8 +693,6 @@
 
 									if(HasSpiritSword())
 										heal *= GetSpiritSword()
-									if(HasSpiritStrike())
-										heal *= GetSpiritStrike()
 									//TODO TEST ENERGY SIPHON IT MIGHT BE WONKY
 									damage -= heal
 							//		enemy.HealEnergy(heal)
