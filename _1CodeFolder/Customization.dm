@@ -138,7 +138,11 @@ mob/proc/Auraz(var/Z)
 			src.underlays+=spiral
 
 		else if(passive_handler.Get("BurningShot"))
-			src.overlays+=flameaura
+			if(transActive&&src.isRace(CELESTIAL))
+				race.transformations[transActive].apply_visuals(src,1,0,0)
+				src.overlays+=flameaura
+			else
+				src.overlays+=flameaura
 
 		else if(transActive)
 			race.transformations[transActive].apply_visuals(src,1,0,0)
@@ -189,6 +193,8 @@ mob/proc/Auraz(var/Z)
 		src.overlays-=image('BlackFlameAura.dmi')
 		if(transActive)
 			race.transformations[transActive].remove_visuals(src,1,0,0)
+			if(transActive>=2)
+				race.transformations[transActive-1].remove_visuals(src,1,0,0)
 		src.overlays-=image(icon=src.Form1Aura, pixel_x=src.Form1AuraX, pixel_y=src.Form1AuraY)
 		src.overlays-=image(icon=src.Form2Aura, pixel_x=src.Form2AuraX, pixel_y=src.Form2AuraY)
 		src.overlays-=image(icon=src.Form3Aura, pixel_x=src.Form3AuraX, pixel_y=src.Form3AuraY)
@@ -320,6 +326,8 @@ mob/proc/Hairz(var/Z)
 		src.overlays -= image(icon=src.Hair_SSJ4, layer=FLOAT_LAYER-2)
 		if(transActive)
 			race.transformations[transActive].remove_visuals(src,0,1,0)
+			if(transActive>=2)
+				race.transformations[transActive-1].remove_visuals(src,0,1,0)
 		src.overlays -= image(icon=src.Form1Hair, pixel_x=Form1HairX, pixel_y=Form1HairY, layer=FLOAT_LAYER-2)
 		src.overlays -= image(icon=src.Form2Hair, pixel_x=Form2HairX, pixel_y=Form2HairY, layer=FLOAT_LAYER-2)
 		src.overlays -= image(icon=src.Form3Hair, pixel_x=Form3HairX, pixel_y=Form3HairY, layer=FLOAT_LAYER-2)
