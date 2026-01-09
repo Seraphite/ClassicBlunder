@@ -140,7 +140,7 @@ mob/proc/CanTransform()
 			if(sb.NeedsTrans)
 				src<<"Your ascended transformation uses too much power to enter another level!"
 				return 0
-	if(isRace(SAIYAN) || isSaiyanHalfie())
+	if(isRace(SAIYAN) || isRace(HALFSAIYAN))
 		if(oozaru_type=="Demonic")
 			if(length(race.transformations) >= 2 && race.transformations[2].type == /transformation/saiyan/hellspawn_super_saiyan_2 && transActive+1 == 2)
 				src << "You can't transform into this form like that."

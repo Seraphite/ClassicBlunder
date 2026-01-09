@@ -21,7 +21,7 @@
 		passives = list("Heart of Darkness" = 1, "The Roaring" = 1,"HolyMod" = 30, "AbyssMod" = 30, "SpiritPower" = 5)
 		verb/Blanket_The_World_In_Darkness()
 			set category="Skills"
-			if(!src.Using)
+			if(!usr.BuffOn(src))
 				DarknessFlash(usr, SetTime=600)
 				world<<"<b>An ocean of black ink washes across the world.</b>"
 			src.Trigger(usr)

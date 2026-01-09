@@ -2228,6 +2228,10 @@ mob
 			if(src.TarotFate=="Temperance")
 				return 1
 			return 0
+		HasLunarAnger()
+			if(passive_handler.Get("LunarAnger"))
+				return 1
+			return 0
 		HasExtend()
 			if(passive_handler.Get("Extend"))
 				return 1

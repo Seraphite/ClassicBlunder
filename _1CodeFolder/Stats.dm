@@ -660,6 +660,8 @@ mob/proc/Recover(var/blah,Amount=1)
 				return
 			// if(src.SummonReturnTimer)
 			// 	return
+			if(passive_handler.Get("LunarWrath"))
+				return
 			if(UsingAnsatsuken())
 				return
 			if(SagaLevel>1&&Saga=="Path of a Hero: Rebirth")

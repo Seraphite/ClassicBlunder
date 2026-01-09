@@ -79,7 +79,7 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Dont_Stop_Me_Now //first act
 	SpdMult=1.15
 	Cooldown = 1
 	AwakeningRequired=1
-	passives = list("BuffMastery" = 1,"KiControlMaster" =1, "TechniqueMastery"=1)
+	passives = list("BuffMastery" = 1,"KiControlMastery" =1, "TechniqueMastery"=1)
 //HE'S GOTTA BE STRONG AND HE'S GOTTA BE FAST AND HE'S GOTTA BE FRESH FROM THE NIGHT
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Temporary_Hero_Heart
 	ActiveMessage="awakens a heroic heart!"
@@ -126,7 +126,7 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Shining_Star
 	StrMult=1.25
 	SpdMult=1.15
 	Cooldown = 1
-	passives = list("Pursuer" = 1,"KiControlMaster" =1)
+	passives = list("Pursuer" = 1,"KiControlMastery" =1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Unwavering_Soul
 	TooMuchHealth = 100
 	NeedsHealth=99
@@ -161,15 +161,15 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/We_Are_The_Champions //second act
 	ForMult=1.1
 	SpdMult=1.15
 	Cooldown = 1
-	AwakeningRequired=1
-	passives = list("BuffMastery" = 1,"KiControlMaster" =1, "TechniqueMastery"=1)
+	AwakeningRequired=2
+	passives = list("BuffMastery" = 2,"KiControlMaster" =1, "TechniqueMastery"=1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Blue_Experience //second act
 	ActiveMessage="burns brighter than they should."
 	SpdMult=1.5
 	Cooldown = 1
 	TimerLimit=300
 	HealthDrain = 0.05
-	passives = list("BuffMastery" = 1,"Pursuer" =2, "Godspeed"=2)
+	passives = list("BuffMastery" = 3,"Pursuer" =2, "Godspeed"=2)
 //t4 path buffs
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Show_Must_Go_On //third act
 	StrMult=1.25
@@ -177,9 +177,9 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/The_Show_Must_Go_On //third act
 	ForMult=1.25
 	SpdMult=1.25
 	Cooldown = 1
-	AwakeningRequired=1
+	AwakeningRequired=3
 	TimerLimit=300
-	passives = list("BuffMastery" = 1,"KiControlMaster" =1, "TechniqueMastery"=1)
+	passives = list("BuffMastery" = 3,"KiControlMaster" =1, "TechniqueMastery"=1)
 obj/Skills/Buffs/SlotlessBuffs/Autonomous/Burning_Soul
 	ActiveMessage="transforms their passion into fury, their desire to win surpassing all."
 	Cooldown = 1
@@ -472,6 +472,7 @@ obj/Skills/AutoHit
 		HitSparkIcon='BLANK.dmi'
 		HitSparkX=0
 		HitSparkY=0
+		Cooldown=-1
 	//	Cooldown=30
 		Earthshaking=15
 		PreQuake=1
@@ -479,8 +480,6 @@ obj/Skills/AutoHit
 		verb/Platinum_Mad()
 			set category="Skills"
 			set hidden=1
-			if(world.realtime < src.RebirthLastUse+(600*60*24))
-				return
 			src.RebirthLastUse=world.realtime
 			usr.Activate(src)
 mob/proc/TriggerAwakeningSkill(ActNumber)
@@ -829,7 +828,7 @@ obj/Skills/Projectile
 		Distance=40
 		Charge=0.25
 		ManaCost=100
-		DamageMult=16
+		DamageMult=40
 		Shearing=1
 		AccMult=100
 		HyperHoming=1
@@ -1220,10 +1219,27 @@ obj/Skills/Grapple
 		StyleFor=1.25
 		StyleEnd=1.5
 		Finisher="/obj/Skills/Queue/Finisher/Your_Idea"
-		passives = list("Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1)
+		passives = list("Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1, "BladeFisting"=1)
 		adjust(mob/p)
-			passives = list("Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1, "EndlessNine"=0.25)
+			passives = list("Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1, "EndlessNine"=0.25, "BladeFisting"=1,"PureDamage"=4,"PureRediction"=4)
+			if(p.SagaLevel>=6)
+				passives = list("Deicide" = 10, "Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1, "EndlessNine"=0.5, "BladeFisting"=1,"PureDamage"=6,"PureRediction"=6)
 		verb/Justice_Incarnate()
+			set hidden=1
+			adjust(usr)
+			Trigger(usr)
+	Fate_Incarnate
+		StyleActive="Fate Incarnate"
+		StyleStr=1.25
+		StyleFor=1.25
+		StyleEnd=1.5
+		Finisher="/obj/Skills/Queue/Finisher/Your_Idea"
+		passives = list("Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1, "BladeFisting"=1,"PureDamage"=3,"PureRediction"=3)
+		adjust(mob/p)
+			passives = list("Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1, "BladeFisting"=1,"PureDamage"=2,"PureRediction"=2)
+			if(p.SagaLevel>=6)
+				passives = list("Rage" = 5, "Momentum" = 1, "Determination(Green)" = 1, "MagicSword"=1, "BladeFisting"=1,"PureDamage"=3,"PureRediction"=3)
+		verb/Fate_Incarnate()
 			set hidden=1
 			adjust(usr)
 			Trigger(usr)

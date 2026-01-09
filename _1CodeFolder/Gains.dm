@@ -521,6 +521,11 @@ mob
 					scrollTicker=0
 			if(src.isRace(HUMAN) && src.transActive>=1&&src.icon_state=="Meditate"||src.isRace(CELESTIAL) && src.transActive>=1&&src.icon_state=="Meditate")
 				src.Revert()
+			if(passive_handler.Get("LunarWrath")&&PowerControl>100)
+				var/ManaRando=rand(6,15)
+				src.ManaAmount+=0.5*(ManaRando/10)
+			if(passive_handler.Get("LunarAnger")&&ManaAmount>50)
+				src.Anger()
 			if(passive_handler["TensionPowered"] && src.Tension>=50)
 				if(src.isRace(HUMAN)&& src.transActive<2 && src.transUnlocked>=2||src.isRace(CELESTIAL)&& src.transActive<2 && src.transUnlocked>=2)
 					if(src.icon_state!="Meditate")
@@ -648,7 +653,8 @@ mob
 							dd.returnToOrg(src)*/
 				if(src.passive_handler.Get("The Roaring"))//The Roaring
 					for(var/mob/M in range(100,src))
-						M.ManaAmount=0
+						if(!M.passive_handler.Get("Determination"))
+							M.ManaAmount=0
 				if(src.ManaSealed)
 					if(!src.HasMechanized())
 						if(src.TotalCapacity<=99)
@@ -1452,6 +1458,10 @@ mob
 						if(src.GatesActive>=A.GatesNeeded)
 							A.Trigger(src,Override=1)
 							continue
+					if(A.AwakeningRequired)
+						if(src.AwakeningSkillUsed>=A.AwakeningRequired)
+							A.Trigger(src,Override=1)
+							continue
 				if(A.AlwaysOn)
 					if(!A.Using&&!A.SlotlessOn)
 						A.Trigger(src,Override=1)
@@ -1495,7 +1505,7 @@ mob
 							continue
 					if(A.AwakeningRequired)
 						if(src.AwakeningSkillUsed<=0)
-							src.ActiveBuff.Trigger(src,Override=1)
+							A.Trigger(src,Override=1)
 							continue
 					if(A.NeedsAnger)
 						if(!src.Anger)

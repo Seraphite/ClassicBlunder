@@ -1,0 +1,74 @@
+race
+	nobody
+		name = "Nobodies"
+		desc = "Empty shells left behind when someone with a strong heart passes on. They lack hearts and emotions, but possess undeniable strength. (INCOMPLETE)"
+		visual = 'Makaioshins.png'
+		locked = TRUE
+		strength = 1
+		endurance = 1
+		speed = 1
+		offense = 1
+		defense = 1
+		force = 1
+		statPoints = 11
+		anger = 1
+		intellect = 3
+		imagination = 0.05
+		classes = list("Samurai", "Dragon", "Berserker","Imaginary")
+		stats_per_class = list("Samurai" = list(1.75, 1, 1, 1.75, 1.5, 1.5),"Dragon" = list(1,2,1.75,1.5,1.5,1),"Berserker" = list(1.5,1.5,2,1,1,1),"Imaginary" = list(1.5, 1.5, 1, 1.25, 1.25, 1.25))
+		onFinalization(mob/user)
+			..()
+			if(user.Class=="Samurai")
+				passives = list("BlurringStrikes" = 1, "SwordAscension" = 1, "SwordAscensionSecond" = 1, "SwordAscensionThird" = 1, "Flicker"=1)
+				user.AddSkill(new /obj/Skills/Buffs/ActiveBuffs/Racial/Void_Blade)
+			if(user.Class=="Dragon")
+				passives = list("MovingCharge" = 1, "QuickCast" = 1)
+			if(user.Class=="Berserker")
+				user.ManaAmount=0
+				passives = list("LunarDurability" = 1, "LunarWrath" = 1,"RenameMana" = "WRATH","LunarAnger"=1)
+			if(user.Class=="Imaginary")
+				user.ImaginaryKeyblade()
+/mob/proc/ImaginaryKeyblade()
+	var/list/Choices=list("A Sword of Courage", "A Staff of Spirit", "A Shield of Kindness")
+	var/choice
+	var/confirm
+	while(confirm!="Yes")
+		choice=input(src, "A weapon is engraved upon every heart.  What lies within yours?", "Keyblade Awakening") in Choices
+		switch(choice)
+			if("A Sword of Courage")
+				confirm=alert(src, "With this, your heart will be dedicated and impulsive.", "A Sword who's strength is Courage. Bravery to stand against anything.", "Yes", "No")
+			if("A Staff of Spirit")
+				confirm=alert(src, "With this, your heart will be flexible and unrestrained.", "A Staff who's strenth is Spirit. Power the eye cannot see.", "Yes", "No")
+			if("A Shield of Kindness")
+				confirm=alert(src, "With this, your heart will be able to endure anything for the sake of those you love.", "A Shield who's strength is Kindness. The desire to help one's friends.", "Yes", "No")
+	switch(choice)
+		if("A Sword of Courage")
+			src.KeybladeType="Sword"
+		if("A Staff of Spirit")
+			src.KeybladeType="Staff"
+		if("A Shield of Kindness")
+			src.KeybladeType="Shield"
+	var/Color=alert(src, "Light or Darkness?", "Keyblade", "Light", "Darkness")
+	src.AddSkill(new/obj/Skills/Buffs/ActiveBuffs/Keyblade)
+	src<<"You awaken the [src.KeybladeType] of your heart!"
+	src.Saga="Keyblade"
+	src.SagaLevel=1
+	src.KeybladeColor=Color
+	var/inp = input(src, "What path of magic will you fall under?") in list("Fire", "Ice", "Thunder")
+	src.KeybladePath = inp
+	switch(KeybladePath)
+		if("Fire")
+			src.AddSkill(new/obj/Skills/Projectile/Magic/Fire)
+		if("Ice")
+			src.AddSkill(new/obj/Skills/AutoHit/Magic/Blizzard)
+		if("Thunder")
+			src.AddSkill(new/obj/Skills/AutoHit/Magic/Thunder)
+	src.AddSkill(new/obj/Skills/Queue/Ars_Arcanum)
+	src << "You've mastered the magical arts of Fire, Blizzard and Thunder, and Ars Arcanum!"
+	switch(src.KeybladeColor)
+		if("Light")
+			src.KeychainAttached="Kingdom Key"
+			src.SyncAttached="Kingdom Key"
+		if("Darkness")
+			src.KeychainAttached="Kingdom Key D"
+			src.SyncAttached="Kingdom Key D"

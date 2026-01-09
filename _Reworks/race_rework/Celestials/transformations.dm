@@ -113,7 +113,7 @@ transformation
 					KenShockwave(user, icon='KenShockwaveDivine.dmi', Size=ShockSize, Blend=2, Time=8)
 					ShockSize/=2
 		demonic_high_tension
-			passives = list("HighTension"=0.75, "UnlimitedHighTension" = 1, "CreateTheHeavens" = 1, "Unstoppable" = 1, "HellPower"=2, "HellRisen" = 1, "DemonicDurability" = 6, "Brutalize" = 6, "PureDamage" = 6, "PureReduction" = 6, "MovementMastery" = 6, "TechniqueMastery" = 6, "Steady" = 6, "ManaStats" = 6)
+			passives = list("HighTension"=0.75, "UnlimitedHighTension" = 1, "CreateTheHeavens" = 1, "Unstoppable" = 1, "HellPower"=2, "HellRisen" = 1, "DemonicDurability" = 6, "PureDamage" = 6, "PureReduction" = 6, "MovementMastery" = 6, "Steady" = 6, "ManaStats" = 6)
 			pot_trans = 15
 			form_aura_icon = 'Amazing Super Demon Aura.dmi'
 			form_aura_x = -32

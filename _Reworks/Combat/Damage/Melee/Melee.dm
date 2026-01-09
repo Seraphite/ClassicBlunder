@@ -686,6 +686,22 @@
 									log2text("Damage", "After Energy Siphon", "damageDebugs.txt", "[ckey]/[name]")
 									log2text("Damage", damage, "damageDebugs.txt", "[ckey]/[name]")
 									#endif
+							if(enemy.passive_handler.Get("Field of Destruction"))
+								var/usingEnergy = HasSpiritHand() || HasSpiritSword() || UsingSpiritStrike() ? 1 : 0
+								if(usingEnergy)
+									var/heal = damage //not actually a heal, i'm just lazy
+
+									if(HasSpiritSword())
+										heal *= GetSpiritSword()
+									if(HasSpiritStrike())
+										heal *= GetSpiritStrike()
+									//TODO TEST ENERGY SIPHON IT MIGHT BE WONKY
+									damage -= heal
+							//		enemy.HealEnergy(heal)
+									#if DEBUG_MELEE
+									log2text("Damage", "After Energy Siphon", "damageDebugs.txt", "[ckey]/[name]")
+									log2text("Damage", damage, "damageDebugs.txt", "[ckey]/[name]")
+									#endif
 							if(AttackQueue)
 							// 				ONHITS				//
 								if(AttackQueue.Scorching||AttackQueue.Chilling||AttackQueue.Freezing||AttackQueue.Crushing||AttackQueue.Shattering||AttackQueue.Shocking||AttackQueue.Paralyzing||AttackQueue.Poisoning||AttackQueue.Toxic)

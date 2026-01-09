@@ -4234,6 +4234,9 @@ NEW VARIABLES
 			OffMessage="releases their divine form..."
 			verb/Beyond_God()
 				set category="Skills"
+				if(usr.transActive)
+					usr<< "You can't use this while transformed!"
+					return
 				src.Trigger(usr)
 		TheAlmighty
 			BuffName = "A - The Almighty"
@@ -4294,10 +4297,10 @@ NEW VARIABLES
 			SpdMult=1.2
 			DefMult=1.2
 			passives = list("GodKi" = 1, "DeathField" = 10, "VoidField" = 5, "Brutalize" = 5, "Deflection" = 5, "SlayerMod" = 1, "FavoredPrey" = "All", \
-								"Power of Destruction" = 2) //will probs have a chance to blow up projectiles or something like that
+								"Power of Destruction" = 1, "Field of Destruction" = 1, "CursedWounds"=1, "Hard Style"=1)
 			DarkChange=1
 			ActiveMessage="taps into the power of a Destroyer."
-			OffMessage="seals their Almighty eyes."
+			OffMessage="casts aside their destructive power."
 			verb/Power_of_Destruction()
 				set category="Skills"
 				src.Trigger(usr)

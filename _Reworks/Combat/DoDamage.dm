@@ -25,7 +25,7 @@
 	else if(defender == null)
 		return 0;
 	if(!handleAI(defender)) // handles ai
-		return 0; 
+		return 0;
 	if(unarmed || sword)
 		triggerLimit("Physical")
 		triggerLimit("Sword")
@@ -220,6 +220,10 @@
 		if(defender.Health<30)
 			if( prob(miraclechance))
 				val=0
+	if(defender.passive_handler.Get("Field of Destruction"))
+		if(HasHybridStrike())
+			if(val)
+				val/=  1 + (GetStr(GetHybridStrike())/10)
 	if(HasEmptySeat())
 		passive_handler.Increase("AlphainForce", val)
 	#if DEBUG_DAMAGE

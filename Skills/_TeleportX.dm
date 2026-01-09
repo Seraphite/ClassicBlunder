@@ -107,7 +107,7 @@ obj/Skills
 			UseableDead=1
 			FocalPerson=1
 			NoCoordinates=0
-			ManaCost=100
+		//	ManaCost=100
 			WindUp=2
 			WindUpIcon='Icons/Effects/BlackHoleEnter.dmi'
 			WindDown=0.7

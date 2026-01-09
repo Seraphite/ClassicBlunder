@@ -28,7 +28,7 @@
 					if(!locate(/obj/Skills/Buffs/SlotlessBuffs/Racial/Human/Double_Helix, usr))
 						var/obj/Skills/Buffs/SlotlessBuffs/Racial/Human/Double_Helix/s=new/obj/Skills/Buffs/SlotlessBuffs/Racial/Human/Double_Helix
 						usr.AddSkill(s)
-				if(usr.transUnlocked>=5&&usr.isRace(HUMAN))
+				if(usr.transUnlocked>=5)
 					usr.race.transformations[2].transform(usr, TRUE)
 					usr.race.transformations[3].transform(usr, TRUE)
 			src.Trigger(User=usr, Override=TRUE)
@@ -61,7 +61,7 @@
 							OMsg(usr,"<b>In their hands, [usr] holds the power to create the heavens!!!!</b>")
 				return
 			if(usr.isRace(HUMAN)&&usr.transActive==3&&usr.transUnlocked>=4||usr.isRace(CELESTIAL)&&usr.transActive==3&&usr.transUnlocked>=4)
-				if(usr.passive_handler.Get("FullTensionLock"))
+				if(usr.passive_handler.Get("FullTensionLock")&&usr.isRace(CELESTIAL))
 					usr<<"You cannot use this until the Full Tension Lock from Activate High Tension subsites."
 					return
 				else

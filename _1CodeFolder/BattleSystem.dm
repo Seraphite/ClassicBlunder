@@ -192,8 +192,8 @@ mob/proc/Unconscious(mob/P,var/text)
 			if(prob((src.passive_handler.Get("Tenacity")*glob.TENACITY_GETUP_CHANCE)+10))
 				src.KO=0
 				src.OMessage(15, "...but [src] refused.", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
-				src.Health=1
-				src.VaizardHealth+=30
+				src.Health=10
+				src.VaizardHealth+=20
 				src.HealthAnnounce10=2
 				return
 	if(src.passive_handler.Get("Tenacity"))
@@ -201,7 +201,7 @@ mob/proc/Unconscious(mob/P,var/text)
 			if(prob((src.passive_handler.Get("Tenacity")*glob.TENACITY_GETUP_CHANCE)+5))
 				src.KO=0
 				src.OMessage(15, "...but [src] refuses to go down!", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
-				src.Health=1
+				src.Health=5
 				src.VaizardHealth+=clamp(passive_handler.Get("Tenacity")* glob.TENACITY_VAI_MULT, glob.TENACITY_VAI_MIN, glob.TENACITY_VAI_MAX) //actual clutch now.
 				src.HealthAnnounce10=2
 				return
@@ -209,8 +209,8 @@ mob/proc/Unconscious(mob/P,var/text)
 		if(src.HealthAnnounce10<=2&&FightingSeriously(P,src))
 			src.KO=0
 			src.OMessage(15, "[src] saw a world in which they lost, and starts to push just a little bit harder!", "<font color=red>[src]([src.key]) activates The Echo!")
-			src.Health=1
-			src.VaizardHealth+=30
+			src.Health=10
+			src.VaizardHealth+=20
 			src.HealthAnnounce10=3
 			return
 	if(src.passive_handler.Get("X-Antibody"))
@@ -235,23 +235,24 @@ mob/proc/Unconscious(mob/P,var/text)
 			B.Trigger(src)
 			B.evolution_charges = 0
 			return
-	if(src.passive_handler.Get("Alter The Future"))
+	if(src.passive_handler.Get("Alter The Future")&&src.passive_handler.Get("TheAlmighty"))
 		if(src.HealthAnnounce10<=4)
 			if(prob(src.passive_handler.Get("Alter The Future")))
 				src.KO=0
 				src.OMessage(15, "...but [src] rewrites the future to prevent their defeat!", "<font color=red>[src]([src.key]) rewrites the future!")
-				src.Health=1
+				src.Health=10
 				src.passive_handler.Decrease("Alter The Future", 25)
-				src.VaizardHealth+=25
+				src.VaizardHealth+=20
 				src.HealthAnnounce10+=1
 				return
 	if(src.passive_handler.Get("The Comeback King"))
 		if(src.HealthAnnounce10<=9)
 			if(prob(src.passive_handler.Get("The Comeback King")))
+				var/HealthRecovery=P.Health/2
 				src.KO=0
-				src.OMessage(15, "...but [src] isn't going to go down so easily!", "<font color=red>[src]([src.key]) stages a miraculous comeback!!")
-				src.Health=1
-				src.VaizardHealth+=P.Health/2
+				src.OMessage(15, "[src] reloads their last SAVE!", "<font color=red>[src]([src.key]) stages a miraculous comeback!!")
+				src.Health=HealthRecovery
+				P.Health+=HealthRecovery/2
 				src.HealthAnnounce10+=1
 				return
 	if(src.race in list(HUMAN, CELESTIAL))

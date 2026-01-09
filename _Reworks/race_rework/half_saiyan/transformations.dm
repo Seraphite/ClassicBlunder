@@ -87,7 +87,7 @@
 	// Rupture applies a debuff that causes bleed damage, overwhelming applies a debuff that increases damage dealt
 	mastery_boons(mob/user)
 		var/pot = user.Potential
-		passives = list("Hidden Potential" = 1, "Mystic" = 1, "PUSpike" = round(pot) + round(mastery/2, 10), "BuffMastery" = 9, \
+		passives = list("Hidden Potential" = 1, "Mystic" = 1, "PUSpike" = round(pot) + round(mastery/2, 50), "BuffMastery" = 9, \
 					"LikeWater" = 8 + round(pot/25, 1), "Brutalize" = 4, "Momentum" = 10, "Overwhelming" = glob.BEAST_OVERHWELMING_STATIC,"Heavy Attack" = "Beast", \
 					"TechniqueMastery" = 5)
 		unlock_potential=90

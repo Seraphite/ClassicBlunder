@@ -27,7 +27,7 @@ mob
 			if(val < 0)
 				val = 0.015
 			if(src.Health-val<=src.AngerPoint*(1-src.HealthCut))
-				if(!src.Anger&&!src.HasCalmAnger()&&!src.HasNoAnger()&&!src.AngerCD)
+				if(!src.Anger&&!src.HasCalmAnger()&&!src.HasNoAnger()&&!src.AngerCD&&!src.HasLunarAnger())
 					src.Anger()
 					val/=src.AngerMax
 			if(src.VaizardHealth)
@@ -96,7 +96,7 @@ mob
 				if(!found)//If you don't find what you're supposed to hunt
 					DEBUGMSG("[src] is attacking a pure target and so value is set to 0")
 					val = 0;
-			
+
 			if(val==0)
 				DEBUGMSG("val is 0 so we're ending dodamage now")
 				return 0;
@@ -152,7 +152,7 @@ mob
 					val=0
 
 			if(defender.Health-val<=defender.AngerPoint*(1-defender.HealthCut))
-				if(!defender.Anger&&!defender.HasCalmAnger()&&!defender.HasNoAnger()&&!defender.AngerCD)
+				if(!defender.Anger&&!defender.HasCalmAnger()&&!defender.HasNoAnger()&&!defender.AngerCD&&!defender.HasLunarAnger())
 					defender.Anger()
 					val/=defender.AngerMax
 
@@ -197,8 +197,8 @@ mob
 			if(defender.CheckSlotless("Crystal Wall"))
 				src.LoseHealth(val)
 				return 0;
-			
-			
+
+
 			if(getBackSide(src, defender, passive_handler["Fault Finder"]) && passive_handler["Backshot"])
 				val *= 1 + (passive_handler["Backshot"]/10)
 
@@ -218,7 +218,7 @@ mob
 					defender.RemoveTarget()
 					defender.Grab_Release()
 					last_style_effect = world.time
-			
+
 
 			var/tmpval = val
 			if(defender.key=="Vuffa" && defender.findVuffa())
@@ -240,7 +240,7 @@ mob
 					check.ObjectUse(defender)
 					defender << "You are knocked off your flying device!"
 
-			
+
 
 			if(UnarmedAttack || SwordAttack || SpiritAttack)
 
@@ -1348,6 +1348,8 @@ mob
 				Mod+=(passive_handler.Get("TensionPowered")/2)
 			if(passive_handler.Get("TensionPowered")&&transActive>=4)
 				Mod+=(passive_handler.Get("TensionPowered")/2)
+				if(isRace(HUMAN))
+					Mod+=(passive_handler.Get("TensionPowered")/2)
 			Str*=Mod
 			Str*=Mult
 			if(src.HasMirrorStats())
@@ -1486,6 +1488,8 @@ mob
 				Mod+=(passive_handler.Get("TensionPowered")/2)
 			if(passive_handler.Get("TensionPowered")&&transActive>=4)
 				Mod+=(passive_handler.Get("TensionPowered")/2)
+				if(isRace(HUMAN))
+					Mod+=(passive_handler.Get("TensionPowered")/2)
 
 			For*=Mod
 			For*=Mult
@@ -1542,6 +1546,8 @@ mob
 			if(passive_handler.Get("DemonicDurability") && (Anger||HasCalmAnger()))
 				if(!passive_handler.Get("CancelDemonicDura"))
 					End += End * (glob.DEMONIC_DURA_BASE * passive_handler.Get("DemonicDurability"))
+			if(passive_handler.Get("LunarDurability") && (Anger||HasCalmAnger()))
+				End*=AngerMax
 			if(CheckSlotless("The Grit") && (Anger||HasCalmAnger()))
 				End += End * (glob.DEMONIC_DURA_BASE)
 			End+=EndAdded
@@ -1612,6 +1618,8 @@ mob
 				Mod+=passive_handler.Get("TensionPowered")/2
 			if(passive_handler.Get("TensionPowered")&&transActive>=4)
 				Mod+=passive_handler.Get("TensionPowered")/2
+				if(isRace(HUMAN))
+					Mod+=(passive_handler.Get("TensionPowered")/2)
 			if(passive_handler.Get("Determination(Green)")||passive_handler.Get("Determination(White)"))
 				Mod+=(0.02*ManaAmount)
 

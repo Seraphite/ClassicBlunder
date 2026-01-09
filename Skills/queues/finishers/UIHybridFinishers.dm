@@ -32,8 +32,8 @@
 	Dancing_Prism
 		name = "Dancing Prism"
 		Warp = 4
-		Combo = 6
-		InstantStrikes = 3
+		Combo = 2
+		InstantStrikes = 2
 		DamageMult = 0.5
 		Instinct = 2
 		Shining = 2
@@ -85,7 +85,7 @@
 		SweepStrike = 3
 		InstantStrikes = 4
 		Crushing = 30
-		DamageMult =4
+		DamageMult =1
 		GrabTrigger = "/obj/Skills/Grapple/Instinct_Reversal"
 		BuffSelf = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Finisher/Flow_State"
 		BuffAffected = "/obj/Skills/Buffs/SlotlessBuffs/Autonomous/QueueBuff/Thrown_Off_Balance"
@@ -94,9 +94,9 @@
 	Prismatic_Samsara
 		name = "Prismatic Samsara"
 		Warp = 5
-		Combo = 7
+		Combo = 2
 		InstantStrikes = 2
-		DamageMult = 2.4
+		DamageMult = 0.5
 		Instinct = 3
 		Shining = 3
 		Explosive = 2
