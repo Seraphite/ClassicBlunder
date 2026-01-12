@@ -653,6 +653,15 @@ update
 				o << "Your transformations have been reset. Hopefully those weren't on when you logged off!"
 				o << "If they were, eh, tough beans. To be human is suffering."
 				o << "Except for you, Tena. 💛"
+	version42
+		version = 42
+		updateMob(mob/o)
+			.=..()
+			if(o.isRace(CELESTIAL)&&o.CelestialAscension=="Demon")
+				for(var/transformation/celestial/unlimited_high_tension/HT in o.race.transformations)
+					o.race.transformations -=HT
+					del HT
+				o << "Your transformations have been adjusted. Hopefully you weren't in final trans when logging off! "
 
 /globalTracker/var/COOL_GAJA_PLAYERS = list("Thorgigamax", "Gemenilove" )
 /globalTracker/var/GAJA_PER_ASC_CONVERSION = 0.25
