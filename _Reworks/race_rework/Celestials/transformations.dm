@@ -94,7 +94,7 @@ transformation
 		unlimited_high_tension
 			passives = list("Conductor" = 10, "UnlimitedHighTension" = 1, "CreateTheHeavens" = 1, "GodKi"=1)
 			pot_trans = 15
-			transformation_message = "usrName shatters through heaven and earth, becoming equal to the Gods!!"
+			transformation_message = "<b>usrName shatters through heaven and earth, becoming equal to the Gods!!</b>"
 			adjust_transformation_visuals(mob/user)
 				if(!form_hair_icon&&user.Hair_Base)
 					var/icon/x=new(user.Hair_Base)
@@ -117,7 +117,7 @@ transformation
 			pot_trans = 15
 			form_aura_icon = 'Amazing Super Demon Aura.dmi'
 			form_aura_x = -32
-			transformation_message = "usrName shatters through heaven and earth, declaring all the lights in the sky as their enemies!"
+			transformation_message = "<b>usrName shatters through heaven and earth, declaring all the lights in the sky as their enemies!</b>"
 			adjust_transformation_visuals(mob/user)
 				if(!form_hair_icon&&user.Hair_Base)
 					var/icon/x=new(user.Hair_Base)
