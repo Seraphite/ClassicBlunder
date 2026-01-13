@@ -656,6 +656,14 @@ obj/Skills/Utility
 			usr.passive_handler.Set("Determination(Purple)", 0)
 			usr.passive_handler.Set("Determination(Orange)", 0)
 			usr<<"You are now using the Yellow SOUL color."
+		verb/Toggle_Unleash()
+			set category="Utility"
+			if(usr.passive_handler.Get("UnleashToggle"))
+				usr.passive_handler.Set("UnleashToggle", 0)
+				usr<<"You will now use Unleash on crit."
+			else
+				usr.passive_handler.Set("UnleashToggle", 1)
+				usr<<"You will no longer use Unleash on crit."
 	SoulShiftGreen
 		Copyable=0
 		verb/SoulGreen()
@@ -1087,7 +1095,7 @@ obj/Skills/Buffs
 				EnergyHeal=1
 				SwordUnbreakable=1
 				if(p.SagaLevel>=6)
-					passives = list("PUSpike"=100, "HolyMod" = 5, "BlurringStrikes"=5, "KiControl"=1, "SpiritSword" = 1,"EndlessNine"=0.5)
+					passives = list("PUSpike"=100, "HolyMod" = 5, "BlurringStrikes"=5, "KiControl"=1, "SpiritSword" = 1,"EndlessNine"=0.5,"MovementMastery"=6)
 			verb/White_Pen_of_Hope()
 				set category="Skills"
 				adjust(usr)

@@ -45,7 +45,7 @@
 		if(passive_handler["Determination(Red)"] && ManaAmount>=75||passive_handler["Determination(White)"] && ManaAmount>=75)
 			if(SagaLevel<4||RebirthHeroType=="Red")
 				critDMG+= ManaAmount/100
-				if(SagaLevel==3)
+				if(SagaLevel==3&&!passive_handler["UnleashToggle"])
 					var/obj/Skills/s = findOrAddSkill(/obj/Skills/AutoHit/Unleash)
 					s.adjust(src)
 					Activate(s)
@@ -54,9 +54,10 @@
 					critDMG+= ManaAmount/150
 				if(ManaAmount>=98)
 					critDMG+= ManaAmount/33
-					var/obj/Skills/s = findOrAddSkill(/obj/Skills/AutoHit/Unleash)
-					s.adjust(src)
-					Activate(s)
+					if(!passive_handler["UnleashToggle"])
+						var/obj/Skills/s = findOrAddSkill(/obj/Skills/AutoHit/Unleash)
+						s.adjust(src)
+						Activate(s)
 					if(SagaLevel<5)
 						ManaAmount=0
 					if(SagaLevel>=5&&ManaAmount>=150)
