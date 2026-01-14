@@ -922,7 +922,7 @@ mob
 								src.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Axe_of_Justice)
 							if(src.RebirthHeroType=="Blue")
 								src.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Shining_Star)
-								src.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/TheBlueExperience)
+								src.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/The_Blue_Experience)
 							if(src.RebirthHeroType=="Red")
 								src.AddSkill(new/obj/Skills/Buffs/SlotlessBuffs/Autonomous/Unwavering_Soul)
 								src.AddSkill(new/obj/Skills/Queue/FistOfTheRedStar)

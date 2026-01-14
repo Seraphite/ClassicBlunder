@@ -6649,7 +6649,7 @@ NEW VARIABLES
 					set name="Time Alter: Double Accel"
 					set category="Skills"
 					if(!usr.BuffOn(src))
-						passives = list("BleedHit" = 0.75/src.Mastery, "Instinct" = 2, "Flow" = 2, "BlurringStrikes" = 1, "Warping" = 1)
+						passives = list("Speed Force" = 1, "BleedHit" = 0.75/src.Mastery, "Instinct" = 2, "Flow" = 2, "BlurringStrikes" = 1, "Warping" = 1)
 						SpdMult=1.5
 						ActiveMessage="yells: <b>Time Alter: Double Accel!</b>"
 					src.Trigger(usr)
@@ -6659,7 +6659,7 @@ NEW VARIABLES
 					set name="Time Alter: Triple Accel"
 					set category="Skills"
 					if(!usr.BuffOn(src))
-						passives = list("BleedHit" = 1.5/Mastery, "Instinct" = 3, "Flow" = 3, "BlurringStrikes" = 2, "Warping" = 2)
+						passives = list("Speed Force" = 2, "BleedHit" = 1.5/Mastery, "Instinct" = 3, "Flow" = 3, "BlurringStrikes" = 2, "Warping" = 2)
 						SpdMult=2
 						ActiveMessage="yells: <b>Time Alter: Triple Accel!</b>"
 					src.Trigger(usr)
@@ -6670,7 +6670,7 @@ NEW VARIABLES
 					set category="Skills"
 					if(!usr.BuffOn(src))
 						SpdMult=3
-						passives = list("BleedHit" = 3/Mastery, "Instinct" = 4, "Flow" = 4, "EnergyExpenditure" = 4, "BlurringStrikes" = 3, "Warping" = 3)
+						passives = list("Speed Force" = 3,"BleedHit" = 3/Mastery, "Instinct" = 4, "Flow" = 4, "EnergyExpenditure" = 4, "BlurringStrikes" = 3, "Warping" = 3)
 						ActiveMessage="yells: <b>Time Alter: Square Accel!</b>"
 					src.Trigger(usr)
 					if(usr.BuffOn(src))
