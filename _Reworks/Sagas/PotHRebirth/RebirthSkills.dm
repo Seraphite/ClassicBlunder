@@ -9,7 +9,7 @@ obj/Skills/Buffs/SlotlessBuffs/Autonomous/Hero_Heart
 	Cooldown = 1
 	adjust(mob/p)
 		if(altered) return
-		passives = list("Tenacity" = round(p.Potential/20,1), "Hardening" = round(p.Potential/20,1))
+		passives = list("Tenacity" = round(p.Potential/5,1), "Hardening" = round(p.Potential/20,1))
 		PowerMult=1.15
 		StrMult=1.15
 		ForMult = 1.15
@@ -431,7 +431,7 @@ obj/Skills/AutoHit
 		GuardBreak=1
 		DamageMult=15
 		PullIn=15
-		Cooldown=120
+		Cooldown=40
 		Stunner=4
 		ComboMaster=1
 		Shockwaves=3
@@ -1027,11 +1027,11 @@ obj/Skills/Buffs
 			PowerMult=1.25
 			Cooldown = 1
 			SwordAscension=6
-			passives = list("PUSpike"=50, "AbyssMod" = 3, "BlurringStrikes"=3, "HolyMod" = 3, "HellPower"=0.1, "Determination(Black)"=1, "KiControl" = 1)
+			passives = list("PUSpike"=50, "AbyssMod" = 3, "BlurringStrikes"=3, "HolyMod" = 3, "HellPower"=0.5, "Determination(Black)"=1, "KiControl" = 1)
 			ActiveMessage="materializes the Black Knife."
 			OffMessage="puts the black knife away."
 			adjust(mob/p)
-				passives = list("PUSpike"=50, "AbyssMod" = 3, "BlurringStrikes"=5, "HolyMod" = 3, "HellPower"=0.1, "Determination(Black)"=1, "KiControl" = 1)
+				passives = list("PUSpike"=50, "AbyssMod" = 3, "BlurringStrikes"=5, "HolyMod" = 3, "HellPower"=0.5, "Determination(Black)"=1, "KiControl" = 1)
 				PowerMult=1.25
 				StrMult=1.85
 				SpdMult=1.5

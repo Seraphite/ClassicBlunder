@@ -5880,6 +5880,10 @@ obj
 							Owner.HealMana(heal/2)
 						if(a:passive_handler.Get("Siphon")&&src.ForRate)
 							var/Heal=EffectiveDamage*(a:passive_handler.Get("Siphon")/10)*src.ForRate//Energy siphon is a value from 0.1 to 1 which reduces damage and heals energy.
+							if(Owner.passive_handler.Get("Determination(Black)"))
+								Heal *= 0.5
+							if(Owner.passive_handler.Get("Determination(White)"))
+								Heal *= 0.15
 							EffectiveDamage-=Heal//negated
 							a:HealEnergy(Heal)//and transfered into energy.
 						if(src.Burning&&!src.Owner.HasBurning())

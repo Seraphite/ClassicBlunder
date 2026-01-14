@@ -679,6 +679,10 @@
 										heal *= GetSpiritSword()
 									else if(HasHybridStrike())
 										heal *= GetHybridStrike()
+									if(passive_handler.Get("Determination(Black)"))
+										heal *= 0.5
+									if(passive_handler.Get("Determination(White)"))
+										heal *= 0.15
 									//TODO TEST ENERGY SIPHON IT MIGHT BE WONKY
 									damage -= heal
 									enemy.HealEnergy(heal)

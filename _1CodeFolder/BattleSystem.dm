@@ -185,6 +185,17 @@ mob/proc/Unconscious(mob/P,var/text)
 				src.ActiveBuff:Stop_Cultivation()//deactivate...
 				GatesActive=0
 		return
+	var/RedTenacity=0
+	if(src.RebirthHeroType=="Red" && src.SagaLevel>=2)
+		RedTenacity+=1
+	if(src.RebirthHeroType=="Red" && src.SagaLevel>=2)
+		if(src.HealthAnnounce10<=1&&FightingSeriously(P,src))
+			src.KO=0
+			src.OMessage(15, "...but [src] refused, reloading a quicksave.", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
+			src.Health=5
+			src.VaizardHealth+=5
+			src.HealthAnnounce10=2
+			return
 	if(src.passive_handler.Get("Neverending Hope"))
 		if(src.HealthAnnounce10<=1&&FightingSeriously(P,src))
 			if(prob((src.passive_handler.Get("Tenacity")*glob.TENACITY_GETUP_CHANCE)+10))
@@ -195,7 +206,7 @@ mob/proc/Unconscious(mob/P,var/text)
 				src.HealthAnnounce10=2
 				return
 	if(src.passive_handler.Get("Tenacity"))
-		if(src.HealthAnnounce10<=1&&FightingSeriously(P,src))
+		if(src.HealthAnnounce10<=1+RedTenacity&&FightingSeriously(P,src))
 			if(prob((src.passive_handler.Get("Tenacity")*glob.TENACITY_GETUP_CHANCE)+5))
 				src.KO=0
 				src.OMessage(15, "...but [src] refuses to go down!", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
@@ -204,7 +215,7 @@ mob/proc/Unconscious(mob/P,var/text)
 				src.HealthAnnounce10=2
 				return
 	if(src.passive_handler.Get("The Echo"))
-		if(src.HealthAnnounce10<=2&&FightingSeriously(P,src))
+		if(src.HealthAnnounce10<=2+RedTenacity&&FightingSeriously(P,src))
 			src.KO=0
 			src.OMessage(15, "[src] saw a world in which they lost, and starts to push just a little bit harder!", "<font color=red>[src]([src.key]) activates The Echo!")
 			src.Health=10

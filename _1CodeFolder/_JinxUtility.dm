@@ -141,7 +141,10 @@ mob
 						val=((-1)*defender.VaizardHealth)
 						defender.VaizardHealth=0
 				else
-					val=0
+					if(defender.passive_handler.Get("Determination(Black)"))
+						val/=4
+					else
+						val=0
 
 			if(defender.BioArmor)
 				defender.BioArmor-=val

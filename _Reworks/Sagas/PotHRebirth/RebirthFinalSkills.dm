@@ -61,3 +61,20 @@ obj/Skills/Buffs/SlotlessBuffs
 					s.cooldown_remaining=0
 					s.cooldown_start=0
 			src.Trigger(usr)
+	The_Blue_Experience
+		ActiveMessage="burns brighter than they should."
+		Cooldown = -1
+		SpdMult=1.5
+		StrMult=1.5
+		ForMult=1.5
+		Cooldown = 1
+		TimerLimit=300
+		HealthDrain = 0.05
+		NeedsHealth=50
+		passives = list("BuffMastery" = 3,"Pursuer" =2, "Godspeed"=2)
+		ActNumber=2
+		verb/The_Blue_Experience()
+			set category="Skills"
+			set name="The Blue Experience (Act 2)"
+			usr.TriggerAwakeningSkill(ActNumber)
+			src.Trigger(usr)

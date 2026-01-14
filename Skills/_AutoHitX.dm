@@ -6294,6 +6294,10 @@ obj
 
 				if(m.passive_handler.Get("Siphon")&&src.ForDmg)
 					var/Heal = (FinalDmg * (m.passive_handler.Get("Siphon")/ 10)) * ForDmg
+					if(Owner.passive_handler.Get("Determination(Black)"))
+						Heal *= 0.5
+					if(Owner.passive_handler.Get("Determination(White)"))
+						Heal *= 0.15
 					FinalDmg-=Heal //negated
 					m.HealEnergy(Heal)
 				if(Owner.Attunement == "Fox Fire")
