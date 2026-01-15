@@ -1183,6 +1183,9 @@ obj/Items/Symbiotic
 			Aquarius_Cloth
 
 			Pisces_Cloth
+		God_Cloth
+			icon='Golden_Pandora_Box.dmi'
+			Pegasus_Cloth
 
 
 	Kamui

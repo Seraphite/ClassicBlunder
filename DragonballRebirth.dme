@@ -24,6 +24,7 @@
 #define FILE_DIR "Icons/Armor/Cloth"
 #define FILE_DIR "Icons/Armor/Cloth/Bronze V1"
 #define FILE_DIR "Icons/Armor/Cloth/Bronze V3"
+#define FILE_DIR "Icons/Armor/Cloth/God"
 #define FILE_DIR "Icons/Armor/Cloth/Gold"
 #define FILE_DIR "Icons/Armor/Military Armor"
 #define FILE_DIR "Icons/Armor/Power Armor"

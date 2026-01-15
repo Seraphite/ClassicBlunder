@@ -4025,6 +4025,7 @@ turf/Special
 
 
 obj/Special
+	Savable=0
 	TeleporterLocked
 		density=1
 		Grabbable=0

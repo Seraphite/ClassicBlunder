@@ -183,7 +183,10 @@ sagaTierUpMessages/Cosmo
 					SS.NeedsHealth = 40
 					SS.TooMuchHealth = 75
 				SenseUnlocked++
-
+			if(7)
+				for(var/obj/Skills/Buffs/SlotlessBuffs/Autonomous/SeventhSense/SS in src)
+					SS.NeedsHealth = 80
+					SS.TooMuchHealth = 99
 /obj/Skills/Buffs/SlotlessBuffs/SeventhSense // OLD
 /obj/Skills/Buffs/SlotlessBuffs/Autonomous/SeventhSense
 	BuffName = "Seventh Sense"
