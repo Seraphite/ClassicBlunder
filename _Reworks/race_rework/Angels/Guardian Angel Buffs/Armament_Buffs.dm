@@ -24,12 +24,15 @@
 		Cooldown = 300
 		CooldownStatic = 1
 		IconUnder = 1
+		VaizardHealth=7.5
 		TopOverlayLock = 'AngelicGlow.dmi'
 		TopOverlayX = -32
 		TopOverlayY = -32
 		OverlaySize = 1.3
 		var/tmp/animating = FALSE
 		var/tmp/ActiveState = FALSE
+		adjust(mob/p)
+			VaizardHealth = 7.5 * max(M.AscensionsAcquired, 1)
 		verb/The_Ten_Commandments()
 			set category = "Skills"
 			set name = "The Ten Commandments"
@@ -47,8 +50,7 @@
 					M << "<font color='#f7da1b'>Your current health prevents invoking the Ten Commandments. (Try again at 35%!)</font>"
 					return
 
-			M.VaizardHealth += 7.5 * max(M.AscensionsAcquired, 1)
-
+			adjust(usr)
 			src.Trigger(M)
 			src.ActiveState = !src.ActiveState
 			if(src.animating) return

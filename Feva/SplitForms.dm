@@ -75,6 +75,40 @@ mob/Player
 atom
 	var
 		list/Splits=list()
+mob/proc/SpawnHostileCopy(var/ClOwner, var/CloneHP=50, var/ClonePower=1, var/CloneTarget, var/CopySkills)
+	var/mob/Player/AI/FS=new
+//		FS.Creator=usr
+	FS.loc=src.loc
+	FS.dir=src.dir
+	FS.ai_owner=ClOwner
+	step_away(FS,src)
+	FS.name=src.name
+	FS.icon=src.icon
+	FS.overlays=src.overlays
+	FS.NextAttack=0
+
+	FS.Health=CloneHP
+	FS.Power=(usr.Power/usr.GetPowerUpRatio())*ClonePower
+
+	FS.EnergyMax=100
+	FS.Energy=100
+
+	FS.StrMod=src.GetStr()
+
+	FS.EndMod=src.GetEnd()
+
+	FS.SpdMod=src.GetSpd()
+
+	FS.ForMod=src.GetFor()
+
+	FS.OffMod=src.GetOff()
+
+	FS.DefMod=src.GetDef()
+
+	FS.Target=CloneTarget
+	FS.hostile=2
+	FS.ai_hostility=2
+	FS.Update()
 obj/Skills/Feva
 	Splitform
 		Cooldown=120
@@ -88,8 +122,9 @@ obj/Skills/Feva
 			Cooldown()
 			while(Splits>0)
 				Splits--
-				var/mob/Player/FevaSplits/FS = new
-				FS.Creator=usr
+			//	var/mob/Player/FevaSplits/FS = new
+				var/mob/Player/AI/FS=new
+		//		FS.Creator=usr
 				FS.loc=usr.loc
 				FS.dir=usr.dir
 				step_away(FS,usr)
@@ -98,8 +133,8 @@ obj/Skills/Feva
 				FS.overlays=usr.overlays
 				FS.NextAttack=0
 
-				FS.Health=33
-				FS.Power=(usr.Power/usr.GetPowerUpRatio())*0.33
+				FS.Health=10
+				FS.Power=usr.Power*0.33
 
 				FS.EnergyMax=usr.EnergyMax
 				FS.Energy=usr.EnergyMax
@@ -117,15 +152,18 @@ obj/Skills/Feva
 				FS.DefMod=usr.GetDef()
 
 				FS.Target=usr.Target
+				FS.hostile=2
+				FS.ai_hostility=2
+				FS.ai_owner=usr
 				usr.Splits:Add(FS)
 				for(var/obj/Skills/S in usr.contents)
 					var/X = new S.type
 					//usr<<"[FS] Split was given [X]."
 					FS.contents+=X
 				spawn(1)
-					FS.Ai_Start()
-				spawn(1200)
-					del FS
+					FS.Update()
+			//		initial_aize(FS)
+			//		ai_active.Add(FS)
 
 obj/Skills/Feva
 	MassSplitform

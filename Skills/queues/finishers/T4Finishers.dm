@@ -159,13 +159,13 @@
 		Even_More_Super_Hyper_Goner_Attack
 			Blasts=25
 			Charge=2
-			DamageMult=T4_DMG_MULT/2/25;
+			DamageMult=T4_DMG_MULT/2;
 			Instinct=1
 			AccMult=2
 			Explode=1
 			Distance=100
-			ZoneAttackX=10
-			ZoneAttackY=10
+			ZoneAttackX=1
+			ZoneAttackY=3
 			Hover=10
 			Variation=0
 			ComboMaster=1
@@ -173,13 +173,13 @@
 		Seven_Lucky_Flames
 			Blasts=7
 			Charge=2
-			DamageMult=T4_DMG_MULT/2/7;
+			DamageMult=T4_DMG_MULT*1.5;
 			Instinct=1
 			AccMult=2
 			Explode=1
 			Distance=100
-			ZoneAttackX=10
-			ZoneAttackY=10
+			ZoneAttackX=1
+			ZoneAttackY=3
 			Hover=10
 			Variation=0
 			ComboMaster=1
