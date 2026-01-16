@@ -192,8 +192,8 @@ mob/proc/Unconscious(mob/P,var/text)
 		if(src.HealthAnnounce10<=1&&FightingSeriously(P,src))
 			src.KO=0
 			src.OMessage(15, "...but [src] refused, reloading a quicksave.", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
-			src.Health=5
-			src.VaizardHealth+=5
+			src.Health=15
+			src.VaizardHealth+=15
 			src.HealthAnnounce10=2
 			return
 	if(src.passive_handler.Get("Neverending Hope"))
@@ -203,7 +203,7 @@ mob/proc/Unconscious(mob/P,var/text)
 				src.OMessage(15, "...but [src] refused.", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
 				src.Health=10
 				src.VaizardHealth+=20
-				src.HealthAnnounce10=2
+				src.HealthAnnounce10+=1
 				return
 	if(src.passive_handler.Get("Tenacity"))
 		if(src.HealthAnnounce10<=1+RedTenacity&&FightingSeriously(P,src))
@@ -212,7 +212,7 @@ mob/proc/Unconscious(mob/P,var/text)
 				src.OMessage(15, "...but [src] refuses to go down!", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
 				src.Health=5
 				src.VaizardHealth+=clamp(passive_handler.Get("Tenacity")* glob.TENACITY_VAI_MULT, glob.TENACITY_VAI_MIN, glob.TENACITY_VAI_MAX) //actual clutch now.
-				src.HealthAnnounce10=2
+				src.HealthAnnounce10+=1
 				return
 	if(src.passive_handler.Get("The Echo"))
 		if(src.HealthAnnounce10<=2+RedTenacity&&FightingSeriously(P,src))
@@ -220,7 +220,7 @@ mob/proc/Unconscious(mob/P,var/text)
 			src.OMessage(15, "[src] saw a world in which they lost, and starts to push just a little bit harder!", "<font color=red>[src]([src.key]) activates The Echo!")
 			src.Health=10
 			src.VaizardHealth+=20
-			src.HealthAnnounce10=3
+			src.HealthAnnounce10+=3
 			return
 	if(src.passive_handler.Get("X-Antibody"))
 		var/obj/Skills/Buffs/SlotlessBuffs/B = src.findOrAddSkill(/obj/Skills/Buffs/SlotlessBuffs/Death_Evolution)

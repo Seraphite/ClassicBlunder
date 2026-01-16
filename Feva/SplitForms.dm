@@ -112,6 +112,8 @@ mob/proc/SpawnHostileCopy(var/ClOwner, var/CloneHP=50, var/ClonePower=1, var/Clo
 obj/Skills/Feva
 	Splitform
 		Cooldown=120
+		var/SplitHealth=5
+		var/SplitPower=0.1
 
 		verb/SplitForm()
 			set category="Skills"
@@ -133,8 +135,8 @@ obj/Skills/Feva
 				FS.overlays=usr.overlays
 				FS.NextAttack=0
 
-				FS.Health=10
-				FS.Power=usr.Power*0.33
+				FS.Health=src.SplitHealth
+				FS.Power=usr.Power*src.SplitPower
 
 				FS.EnergyMax=usr.EnergyMax
 				FS.Energy=usr.EnergyMax
