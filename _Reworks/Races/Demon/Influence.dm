@@ -35,7 +35,7 @@
 /datum/DemonRacials/proc/selectPassive(mob/p, type, option, starting = FALSE)
     p << "Listing [option] Passives"
     p << jointext(vars["[option]Passives"], " ,")
-    var/list/passives =  getJSONInfo(getPassiveTier(p),"[type]")
+    var/list/passives =  getJSONInfo(getPassiveTier(p, round(p.Potential/5)),"[type]")
     if(starting)
         passives = getJSONInfo(list("I"), "[type]")
     var/list/choices = list()

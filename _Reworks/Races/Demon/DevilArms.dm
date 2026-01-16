@@ -18,9 +18,19 @@
     var/selection
     var/totalEvolvesMain = 0
     var/totalEvolvesSecondary = 0
-
+    var/tmp/evolving=0;
     name = "Devil Arm"
-
+    verb/Examine_Devil_Arm()
+        set src in usr
+        var/devilArmDetail = "<html><head><title>Devil Arm Detail ([src.name])</title></head>"
+        devilArmDetail += "<body bgcolor=black text=white><table cellspacing=6%>"
+        for(var/p in src.passives)
+            devilArmDetail += "<tr><td><b>[p]</b></td><td>[src.passives[p]]</td></tr>"
+        devilArmDetail += "<tr><td>Main Passives Used: </td><td>[src.totalEvolvesMain]</td></tr>"
+        if(usr.isRace(DEMON) || usr.isRace(CELESTIAL) || usr.isRace(MAKAIOSHIN))
+            devilArmDetail += "<tr><td>Side Passives Used: </td><td>[src.totalEvolvesSecondary]</td></tr>"
+        devilArmDetail += "</table></body></html>"
+        usr << browse(devilArmDetail, "window=DevilArm;size=350x500");
 
     verb/Customize_Devil_Arm()
         var/options = list("Icon", "Name","ActiveMessage", "OffMessage","TextColor")
@@ -67,18 +77,9 @@
         ElementalOffense = "HellFire"
     verb/Devil_Arm()
         set category = "Skills"
-  //      if(!usr.isRace(DEMON) && glob.DEVILARMDEMONONLY) return
         if(!usr.BuffOn(src) && checkEvolve(usr) )
-            if(usr.isRace(DEMON))
+            if(usr.isRace(DEMON) || usr.isRace(MAKAIOSHIN) || usr.isRace(CELESTIAL))
                 evolve(usr)
-                usr << "Activate again after."
-                return
-            if(usr.isRace(MAKAIOSHIN))
-                makaievolve(usr)
-                usr << "Activate again after."
-                return
-            if(usr.isRace(CELESTIAL))
-                celestevolve(usr)
                 usr << "Activate again after."
                 return
         if(!selection)
@@ -87,12 +88,15 @@
             adjust(usr)
         src.Trigger(usr)
 
-    proc/handlePassive(list/theList, input, secondary)
-        . = TRUE
-
+    proc/checkPassiveAmt(list/theList, input)
         if(passives["[input]"])
             if(passives["[input]"] + theList[input][1] > theList[input][2])
                 return FALSE
+        return TRUE;
+    proc/handlePassive(list/theList, input)
+        . = TRUE
+
+        if(checkPassiveAmt(theList, input))
             switch(input)
                 if("CriticalChance")
                     passives["[input]"] += theList[input][1]
@@ -110,8 +114,10 @@
     proc/pickSelection(mob/p, secondary = FALSE)
         var/select
         if(secondary)
-            secondDevilArmPick = input(p, "What thing?") in list("Staff", "Sword", "Unarmed","Armor") - selection
-            select = secondDevilArmPick
+            var/list/choices = list("Staff", "Sword", "Unarmed","Armor");
+            choices.Remove(selection);
+            secondDevilArmPick = input(p, "What thing?") in choices;
+            select = secondDevilArmPick;
         else
             selection = input(p, "What thing?") in list("Staff", "Sword", "Unarmed")
             select = selection
@@ -125,14 +131,18 @@
             else
                 class = input(p, "What thing?") in list("Light", "Medium", "Heavy")
             vars["[select]Class"] = class
-            vars["[select]Icon"] = input(p, "Change name to what?") as icon | null
-            vars["[select]X"] = input(p, "What is the pixel X?") as num
-            vars["[select]Y"] = input(p, "What is the pixel y?") as num
+            var/i = input(p, "Set appearance to what?") as icon | null
+            if(i)
+                vars["[select]Icon"] = i;
+                vars["[select]X"] = input(p, "What is the pixel X?") as num
+                vars["[select]Y"] = input(p, "What is the pixel y?") as num
     proc/pickPassive(mob/p, list/choices, list/mainData, secondary = FALSE)
         var/correct = FALSE
         var/attempts = 0
+        for(var/d in choices)//hopefully remove passives before they fail
+            if(!checkPassiveAmt(mainData, d)) choices.Remove(d);
         while(correct == FALSE)
-            var/passive = input(p, "What passive? ([secondary == FALSE ? "Main Branch" : "Side Branch"])") in choices
+            var/passive = input(p, "What passive?  [secondary == FALSE ? "Main Branch - [selection] \n([totalEvolvesMain] / [p.race?:devil_arm_upgrades] passives picked)" : "Side Branch - [secondDevilArmPick] \n([totalEvolvesSecondary] / [p.race?:sub_devil_arm_upgrades] passives picked)"]") in choices
             if(attempts >=3)
                 p << "You tried too many times, alert an admin"
                 break
@@ -145,69 +155,54 @@
             attempts++
 
     proc/evolve(mob/p)
+        if(evolving) return
+        evolving=1;
         if(!selection)
             pickSelection(p, FALSE)
+        if(!secondDevilArmPick && p.Potential >= ASCENSION_TWO_POTENTIAL)
+            pickSelection(p, TRUE);
+            p.checkDevilArmUpgrades();
         if(!p.BuffOn(src))
-            var/race/demon/r = p.race
-            if(totalEvolvesMain < r.devil_arm_upgrades)
-                var/list/data = getJSONInfo(getPassiveTier(p), "GENERIC_PASSIVES")
-                data.Add(getJSONInfo(getPassiveTier(p), "[uppertext(selection)]_PASSIVES"))
-                var/choices = list()
+            if(totalEvolvesMain < p.race?:devil_arm_upgrades)
+                p << "Evolving Main Branch for the [totalEvolvesMain+1]\th step..."
+                var/list/data = getJSONInfo(getPassiveTier(p, totalEvolvesMain), "GENERIC_PASSIVES")
+                data.Add(getJSONInfo(getPassiveTier(p, totalEvolvesMain), "[uppertext(selection)]_PASSIVES"))
+                var/list/choices = list()
                 for(var/a in data)
                     choices += "[a]"
+                if(choices.len < 1)
+                    evolving=0;
+                    p << "The list of passives could not generate for your Main Branch ([selection])"
+                    return;
                 pickPassive(p, choices, data, FALSE)
                 totalEvolvesMain++
-            if(totalEvolvesSecondary < r.sub_devil_arm_upgrades)
+            if(secondDevilArmPick && totalEvolvesSecondary < p.race?:sub_devil_arm_upgrades)
+                p << "Evolving Side Branch for the [totalEvolvesSecondary+1]\th step..."
                 var/list/secondaryData
-                secondaryData = getJSONInfo(getPassiveTier(p), "[uppertext(secondDevilArmPick)]_PASSIVES")
-                var/secondChoices = list()
+                secondaryData = getJSONInfo(getPassiveTier(p, totalEvolvesSecondary, TRUE), "[uppertext(secondDevilArmPick)]_PASSIVES")
+                var/list/secondChoices = list()
                 for(var/a in secondaryData)
                     secondChoices += "[a]"
-                if(r.sub_devil_arm_upgrades)
-                    pickPassive(p, secondChoices, secondaryData, TRUE)
-                    totalEvolvesSecondary++
-    proc/makaievolve(mob/p)
-        if(!selection)
-            pickSelection(p, FALSE)
-        if(!p.BuffOn(src))
-            var/race/makaioshin/r = p.race
-            if(totalEvolvesMain < r.devil_arm_upgrades)
-                var/list/data = getJSONInfo(getPassiveTier(p), "GENERIC_PASSIVES")
-                data.Add(getJSONInfo(getPassiveTier(p), "[uppertext(selection)]_PASSIVES"))
-                var/choices = list()
-                for(var/a in data)
-                    choices += "[a]"
-                pickPassive(p, choices, data, FALSE)
-                totalEvolvesMain++
-            if(totalEvolvesSecondary < r.sub_devil_arm_upgrades)
-                var/list/secondaryData
-                secondaryData = getJSONInfo(getPassiveTier(p), "[uppertext(secondDevilArmPick)]_PASSIVES")
-                var/secondChoices = list()
-                for(var/a in secondaryData)
-                    secondChoices += "[a]"
-                if(r.sub_devil_arm_upgrades)
-                    pickPassive(p, secondChoices, secondaryData, TRUE)
-                    totalEvolvesSecondary++
-    proc/celestevolve(mob/p)
-        if(!selection)
-            pickSelection(p, FALSE)
-        if(!p.BuffOn(src))
-            var/race/celestial/r = p.race
-            if(totalEvolvesMain < r.devil_arm_upgrades)
-                var/list/data = getJSONInfo(getPassiveTier(p), "GENERIC_PASSIVES")
-                data.Add(getJSONInfo(getPassiveTier(p), "[uppertext(selection)]_PASSIVES"))
-                var/choices = list()
-                for(var/a in data)
-                    choices += "[a]"
-                pickPassive(p, choices, data, FALSE)
-                totalEvolvesMain++
-            if(totalEvolvesSecondary < r.sub_devil_arm_upgrades)
-                var/list/secondaryData
-                secondaryData = getJSONInfo(getPassiveTier(p), "[uppertext(secondDevilArmPick)]_PASSIVES")
-                var/secondChoices = list()
-                for(var/a in secondaryData)
-                    secondChoices += "[a]"
-                if(r.sub_devil_arm_upgrades)
-                    pickPassive(p, secondChoices, secondaryData, TRUE)
-                    totalEvolvesSecondary++
+                if(secondChoices.len < 1)
+                    evolving=0;
+                    p << "The list of passives could not generate for your Side Branch ([secondDevilArmPick])"
+                    return;
+                pickPassive(p, secondChoices, secondaryData, TRUE)
+                totalEvolvesSecondary++
+        evolving=0;
 
+/mob/proc/checkDevilArmUpgrades()
+    var/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2/da = FindSkill(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2)
+    var/max = round(Potential / 5) + 1
+    var/max2 = round(Potential / 10) + 1
+    if(race?:devil_arm_upgrades < max)
+        if(race?:devil_arm_upgrades + 1 > max) // not even possible
+            return
+        race?:devil_arm_upgrades = max
+        src << "Your devil arm evolves, toggle it on and off to use it"
+    if(da.secondDevilArmPick)
+        if(race?:sub_devil_arm_upgrades < max2)
+            if(race?:sub_devil_arm_upgrades + 1 > max2)
+                return
+            race?:sub_devil_arm_upgrades = max2
+            src << "Your secondary devil arm evolves, toggle it on and off to use it"

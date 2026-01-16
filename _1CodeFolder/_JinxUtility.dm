@@ -15,9 +15,11 @@ mob
 			src.potential_ascend(Silent=1)
 			if(race.ascensions.len==0) return
 			for(var/a in race.ascensions)
-				var/ascension/asc = a
-				if(!asc.applied&&!asc.checkAscensionUnlock(src,Potential)) continue
+				var/ascension/asc = a//applied is checked in checkAscensionUnlock; it does not need to be checked for here
+				if(!asc.checkAscensionUnlock(src,Potential)) continue
 				asc.onAscension(src)
+				while(asc.pickingChoice) sleep(world.tick_lag)//wait for the choice before continuing
+				
 		CheckRevert()
 			for(var/a in race.ascensions)
 				var/ascension/asc = a

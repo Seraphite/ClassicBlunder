@@ -115,8 +115,10 @@ ascension
 			applied = FALSE
 
 		onAscension(mob/owner)
+			DEBUGMSG("onAscension firing");
 			. = TRUE
 			if(applied || pickingChoice) return FALSE
+			owner << on_ascension_message
 			choiceSelection(owner)
 			if(choices && choices.len > 0 && !choiceSelected) return FALSE
 			applied = TRUE
@@ -168,11 +170,11 @@ ascension
 				choiceAsc.onAscension(owner)
 
 			owner.SetCyberCancel()
-
-			owner << on_ascension_message
+			DEBUGMSG("onAscension complete");
 			postAscension(owner)
 
 		postAscension(mob/owner)
+			DEBUGMSG("postAscension firing");
 
 		choiceSelection(mob/owner)
 			if(!choices) return
