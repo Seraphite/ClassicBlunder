@@ -1704,8 +1704,8 @@ mob
 		GetZenkaiPower()
 			var/ZenkaiPower = (passive_handler.Get("ZenkaiPower")/2)
 			if(passive_handler.Get("Honor"))
-				ZenkaiPower+=0.5
-				if(passive_handler.Get("InBlue")||passive_handler.Get("SSJ4"))
+				ZenkaiPower+= 0.5 * max(transActive, 1)
+				if(passive_handler.Get("InBlue"))
 					ZenkaiPower+=0.5
 			return ZenkaiPower
 		GetZenkaiScaling()

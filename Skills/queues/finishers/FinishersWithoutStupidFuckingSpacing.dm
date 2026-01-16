@@ -54,13 +54,13 @@
 		Super_Hyper_Goner_Attack
 			Blasts=25
 			Charge=2
-			DamageMult=0.6
+			DamageMult=4
 			Instinct=1
 			AccMult=2
 			Explode=1
 			Distance=100
-			ZoneAttackX=10
-			ZoneAttackY=10
+			ZoneAttackX=1
+			ZoneAttackY=3
 			Hover=10
 			Variation=0
 			ComboMaster=1
