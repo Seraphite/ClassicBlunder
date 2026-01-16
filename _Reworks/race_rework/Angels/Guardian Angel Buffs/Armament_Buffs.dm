@@ -34,7 +34,7 @@
 		var/tmp/animating = FALSE
 		var/tmp/ActiveState = FALSE
 		adjust(mob/p)
-			VaizardHealth = 7.5 * max(M.AscensionsAcquired, 1)
+			VaizardHealth = 7.5 * max(p.AscensionsAcquired, 1)
 		verb/The_Ten_Commandments()
 			set category = "Skills"
 			set name = "The Ten Commandments"
