@@ -1841,6 +1841,8 @@ mob
 					Total+=glob.SENSE7GODKI
 				if(src.SenseUnlocked>=8)
 					Total+=glob.SENSE8GODKI
+					if(SagaLevel>=7)
+						Total+=glob.SENSE9GODKI
 				if(SenseUnlocked >= 9)
 					Total += glob.SENSE9GODKI
 					if(SagaLevel>=7)

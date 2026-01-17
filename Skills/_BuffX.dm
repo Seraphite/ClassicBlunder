@@ -3554,20 +3554,21 @@ NEW VARIABLES
 						src.Trigger(usr)
 						Cape(usr)
 			God_Cloth
-				Pegasus_Cloth
+				Pegasus_God_Cloth
 					ArmorIcon='Pegasus God Cloth Winged.dmi'
-					LockX = -10
-					LockY = -11
+					ArmorX = -10
+					ArmorY = -11
+					HairLock=0
 					TopOverlayLock='Pegasus God Cloth Headgear.dmi'
 					adjustments(mob/player)
 						..()
 						passives = list("ArmorAscension" = 3,"UnderDog"=player.SagaLevel*2, "Tenacity" = player.SagaLevel*2, "SpaceWalk" = 1, "StaticWalk" = 1, "MovingCharge" = 1, \
-						"Godspeed" = 1 + (player.SagaLevel*0.5), "BlurringStrikes" = player.SagaLevel*0.5,"SpiritFlow" = player.SagaLevel-2, "Flow" = player.SagaLevel-3, "Skimming" = 2, \
+						"Godspeed" = 1 + (player.SagaLevel*0.5), "BlurringStrikes" = player.SagaLevel*0.75,"SpiritFlow" = player.SagaLevel-2, "Flow" = player.SagaLevel-2, "Skimming" = 2, \
 						"MovementMastery" = 10 + (player.SagaLevel))
-						StrMult=1.5
-						ForMult=1.5
-						SpdMult=1.5
-						OffMult=1.5
+						StrMult=1.75
+						ForMult=1.75
+						SpdMult=1.75
+						OffMult=1.75
 					verb/Don_Cloth()
 						set category="Skills"
 						src.NoTopOverlay=0
