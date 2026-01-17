@@ -31,11 +31,6 @@ ascension
 			on_ascension_message = "You start to better understand your purpose."
 			postAscension(mob/owner)
 				..()
-				if(owner.CelestialAscension=="Demon")
-					var/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2/da = owner.FindSkill(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2)
-					if(!da.secondDevilArmPick)
-						owner.FindSkill(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2).pickSelection(owner, TRUE)
-						owner.race?:sub_devil_arm_upgrades = 1
 				if(owner.CelestialAscension=="Angel")
 					if(!locate(/obj/Skills/Buffs/NuStyle/MortalUI/Incomplete_Ultra_Instinct_Style, owner))
 						var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/MortalUI/Incomplete_Ultra_Instinct_Style

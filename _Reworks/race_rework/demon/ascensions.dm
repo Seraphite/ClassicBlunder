@@ -39,10 +39,6 @@ ascension
 					owner.demon.selectPassive(owner, "CORRUPTION_PASSIVES", "Buff")
 					owner.demon.selectPassive(owner, "CORRUPTION_DEBUFFS", "Debuff")
 				..()
-				var/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2/da = owner.FindSkill(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2)
-				if(!da.secondDevilArmPick)
-					owner.FindSkill(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2).pickSelection(owner, TRUE)
-					owner.race?:sub_devil_arm_upgrades = 1
 				owner.Class = "A"
 		three
 			unlock_potential = ASCENSION_THREE_POTENTIAL

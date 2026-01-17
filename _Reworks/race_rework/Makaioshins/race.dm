@@ -25,20 +25,7 @@ race
 				p << "Please report to the admin or discord that your true form is bugged on asc"
 			return d
 		proc/checkReward(mob/p)
-			var/max = round(p.Potential / 5) + 1
-			var/max2 = round(p.Potential / 10) + 1
-			if(p.Potential % 5 == 0 || devil_arm_upgrades < max)
-				var/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2/da = p.FindSkill(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2)
-				if(devil_arm_upgrades + 1 > max) // not even possible
-					return
-				devil_arm_upgrades = max
-				p << "Your devil arm evolves, toggle it on and off to use it"
-				if(da.secondDevilArmPick)
-					if(p.Potential % 10 == 0 || sub_devil_arm_upgrades < max2)
-						if(sub_devil_arm_upgrades + 1 > max2)
-							return
-						sub_devil_arm_upgrades = max2
-						p << "Your secondary devil arm evolves, toggle it on and off to use it"
+			p.checkDevilArmUpgrades();
 		onFinalization(mob/user)
 			user.TrueName=input(user, "Your demonic nature has a mind of its own. What name shall you use to call upon it?", "Get True Name") as text
 			user << "The name your demonic half goes by is <b>[user.TrueName]</b>."

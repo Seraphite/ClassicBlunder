@@ -35,10 +35,6 @@ ascension
 			on_ascension_message = "Chaos flows through your every breath."
 			postAscension(mob/owner)
 				..()
-				var/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2/da = owner.FindSkill(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2)
-				if(!da.secondDevilArmPick)
-					owner.FindSkill(/obj/Skills/Buffs/SlotlessBuffs/Devil_Arm2).pickSelection(owner, TRUE)
-					owner.race?:sub_devil_arm_upgrades = 1
 				if(!locate(/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Incomplete_Ultra_Instinct, owner))
 					var/obj/Skills/Buffs/NuStyle/s=new/obj/Skills/Buffs/NuStyle/UnarmedStyle/AngelStyles/Incomplete_Ultra_Instinct
 					owner.AddSkill(s)

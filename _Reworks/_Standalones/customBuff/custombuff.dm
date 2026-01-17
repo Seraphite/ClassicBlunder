@@ -150,11 +150,11 @@ augments -
 			world.log << "High stat mul on [p]([p.ckey]) [p.client.address]"
 
 	proc/selectPassive(mob/p)
-		var/list/data = getJSONInfo(getPassiveTier(p), "GENERIC_PASSIVES")
-		data.Add(getJSONInfo(getPassiveTier(p), "SWORD_PASSIVES"))
-		data.Add(getJSONInfo(getPassiveTier(p), "UNARMED_PASSIVES"))
-		data.Add(getJSONInfo(getPassiveTier(p), "STAFF_PASSIVES"))
-		data.Add(getJSONInfo(getPassiveTier(p), "ARMOR_PASSIVES"))
+		var/list/data = getJSONInfo(getPassiveTier(p, round(p.Potential/5)), "GENERIC_PASSIVES")
+		data.Add(getJSONInfo(getPassiveTier(p, round(p.Potential/5)), "SWORD_PASSIVES"))
+		data.Add(getJSONInfo(getPassiveTier(p, round(p.Potential/5)), "UNARMED_PASSIVES"))
+		data.Add(getJSONInfo(getPassiveTier(p, round(p.Potential/5)), "STAFF_PASSIVES"))
+		data.Add(getJSONInfo(getPassiveTier(p, round(p.Potential/5)), "ARMOR_PASSIVES"))
 
 		var/correct = FALSE
 		var/attempts = 0
