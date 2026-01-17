@@ -1691,7 +1691,7 @@ proc/Deflection_Formula(var/mob/Offender,var/mob/Defender,var/AccMult=1,var/Base
 		var/GodKiDif = 1
 		if(Offender.GetGodKi() && !Offender.HasNullTarget())
 			GodKiDif = 1 + Offender.GetGodKi()
-		if(Defender.GetGodKi() && !Offender.HasNullTarget())
+		if(Defender.GetGodKi() && !Defender.HasNullTarget())
 			GodKiDif /= (1 + Defender.GetGodKi())
 		AccMult *= GodKiDif
 

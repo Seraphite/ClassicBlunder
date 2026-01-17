@@ -837,7 +837,6 @@ mob
 					return 1;
 			return 0;
 		HasNullTarget()
-			if(HasNull()) return 1;
 			if(Target) if(Target.HasNull()) return 1;
 			return 0;
 		HasBleedHit()
@@ -1000,7 +999,7 @@ mob
 				return 1
 			return 0
 		HasKiControlMastery()
-			if( !src.HasNullTarget() ? src.GetGodKi() : 0 >=0.25 && !isRace(SHINJIN))
+			if((!src.HasNullTarget() ? src.GetGodKi() : 0 >=0.25) && !isRace(SHINJIN))
 				return 1
 			if(Secret == "Heavenly Restriction" && secretDatum?:hasImprovement("Power Control"))
 				return 1
@@ -1026,7 +1025,7 @@ mob
 			if(Secret == "Heavenly Restriction" && secretDatum?:hasImprovement("Power Control"))
 				Total += secretDatum?:getBoon("Power Control") / 8
 			if(src.HasGodKi() && src.isRace(SHINJIN))
-				Total+= !src.HasNullTarget() ? round(src.GetGodKi()/0.25) : 0
+				Total+=(!src.HasNullTarget() ? round(src.GetGodKi()/0.25) : 0)
 			if(src.isRace(NAMEKIAN)&&src.transActive())
 				Total+=3
 			if(InfinityModule)
@@ -1745,12 +1744,12 @@ mob
 					Return-=100
 				if(m.isRace(MAKYO))
 					Return-=(5*m.AscensionsAcquired)
-				if(m.HasGodKi() && !m.HasNullTarget())
+				if(m.HasGodKi() && !m.HasNull())
 					if(src.HasMythical())
 						Return-=(m.GetGodKi())*(100-(src.HasMythical()*100))
 					else
 						Return-=m.GetGodKi()*100
-			if(src.HasGodKi() && !m.HasNullTarget())
+			if(src.HasGodKi() && !src.HasNullTarget())
 				Return+=src.GetGodKi()*100
 
 			if(src.Saga=="Ansatsuken")
@@ -1884,7 +1883,7 @@ mob
 				Total += 1
 			if(passive_handler.Get("Kaioken Blue"))
 				if(src.Target&&Target!=src)
-					if(src.Target.HasGodKi() && !src.HasNullTarget())
+					if(src.Target.HasGodKi())
 						if(Target.GetGodKi() >= 1.75)
 							Total+=src.Kaioken/4
 				if(src.Kaioken>=6)
