@@ -1843,6 +1843,8 @@ mob
 					Total+=glob.SENSE8GODKI
 				if(SenseUnlocked >= 9)
 					Total += glob.SENSE9GODKI
+					if(SagaLevel>=7)
+						Total+=glob.SENSE9GODKI
 			if(src.CheckSlotless("Saiyan Soul")&&!src.HasGodKiBuff())
 				if(passive_handler.Get("DisableGodKi") && src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian"))
 					Total+=src.Target.GetGodKi()/4
