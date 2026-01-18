@@ -667,9 +667,15 @@ update
 		updateMob(mob/o)
 			. = ..()
 			if(o.isRace(ELDRITCH))
+				
 				if(o.race.ascensions.len < 6)
 					o.race.ascensions |= new/ascension/eldritch/six()
-				o << "<font color='#000'>Nothing to worry about.</font color>"
+				for(var/ascension/asc in o.race.ascensions)
+					if(asc.passives["EntergySteal"])
+						asc.passives["EnergySteal"] = asc.passives["EntergySteal"];
+						asc.passives.Remove("EntergySteal");
+						o << "EntergySteal exchanged for EnergySteal on ascension [asc]. <font color='#000'>THIS IS WHY I HATE LOOSELY TYPED ASSOCIATIONS BEING THE FOUNDATION OF A PASSIVE SYSTEM GYAAAH</font color>"
+				o << "<font color='#444'>Nothing to worry about.</font color>"
 			
 
 /globalTracker/var/COOL_GAJA_PLAYERS = list("Thorgigamax", "Gemenilove" )

@@ -98,7 +98,7 @@ ascension
 						src.passives["Duelist"] = 1.2;
 						src.passives["Brutalize"] = 1.2;
 					if(/ascension/sub_ascension/eldritch/eternal)
-						src.passives["EntergySteal"] = 6;
+						src.passives["EnergySteal"] = 6;
 						src.passives["Pressure"] = 2;
 						src.passives["Siphon"] = 0.6
 					if(/ascension/sub_ascension/eldritch/writhing)
@@ -132,7 +132,7 @@ ascension
 						src.passives["Duelist"] = 1.2;
 						src.passives["Brutalize"] = 1.2;
 					if(/ascension/sub_ascension/eldritch/eternal)
-						src.passives["EntergySteal"] = 6;
+						src.passives["EnergySteal"] = 6;
 						src.passives["Pressure"] = 2;
 						src.passives["Siphon"] = 0.6
 					if(/ascension/sub_ascension/eldritch/writhing)
