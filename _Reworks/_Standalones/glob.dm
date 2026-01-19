@@ -91,6 +91,7 @@ progressTracker
 
 		Era = 1
 		SpawnLoc=1 //1 for midgar, 2 for space colony
+		FourthFateEndwipe
 
 //economy
 		EconomyIncome = 1000

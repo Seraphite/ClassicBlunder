@@ -648,6 +648,9 @@ mob/var
 	SenseReplacement
 	SSJ4FromBase
 
+	WillYouPersist
+	CutsceneMode
+
 /proc/reduceGodKi(mob/player, num)
 	player.GodKi -= num
 	if(num < 0)

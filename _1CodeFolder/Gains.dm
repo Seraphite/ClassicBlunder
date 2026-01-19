@@ -1187,9 +1187,11 @@ mob
 			while(src.SpecialBuff)
 				if(safety!=0) break
 				safety++
+				var/HealthDrainMult=1
+				if(src.passive_handler.Get("ShiningBrightly")&&src.Health<=25)
+					HealthDrainMult=0
 				if(src.SpecialBuff.HealthDrain)
-					if(src.passive_handler.Get("ShiningBrightly")&&src.Health>25||!src.passive_handler.Get("ShiningBrightly"))
-						src.DoDamage(src, TrueDamage(src.SpecialBuff.HealthDrain))
+					src.DoDamage(src, TrueDamage(src.SpecialBuff.HealthDrain*HealthDrainMult))
 				if(src.SpecialBuff.HealthThreshold&&!src.SpecialBuff.AllOutAttack)
 					if(src.Health<src.SpecialBuff.HealthThreshold*(1-src.HealthCut)||src.KO)
 						src.SpecialBuff.Trigger(src,Override=1)
