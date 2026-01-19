@@ -830,7 +830,7 @@ mob
 		HasVoid()
 			if(passive_handler.Get("Void"))
 				return 1
-			return 
+			return
 		HasNull()
 			if(passive_handler.Get("Null"))
 				if(src.isRace(ELDRITCH) && src.AscensionsAcquired==6 && src.Secret=="Eldritch")
@@ -1855,25 +1855,21 @@ mob
 					Total += glob.SENSE9GODKI
 					if(SagaLevel>=7)
 						Total+=glob.SENSE9GODKI
-			if(src.CheckSlotless("Saiyan Soul")&&!src.HasGodKiBuff())
+	/*		if(src.CheckSlotless("Saiyan Soul")&&!src.HasGodKiBuff())
 				if(passive_handler.Get("DisableGodKi") && src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian"))
 					Total+=src.Target.GetGodKi()/4
 				else if(src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian"))
-					Total+=src.Target.GetGodKi()/3
-			if(passive_handler.Get("CreateTheHeavens") && !HasGodKiBuff()&&isRace(HUMAN)||passive_handler.Get("Hidden Potential")||passive_handler.Get("Orange Namekian"))
+					Total+=src.Target.GetGodKi()/3*/
+			if(HasGodKiCopy())
 				if(src.Target)
-					if(src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian")&&!src.Target.CheckSlotless("Saiyan Soul"))
-						if(Target.GetGodKi() > Total&&!passive_handler.Get("DisableGodKi")&&!passive_handler.Get("Orange Namekian"))
-							Total=Target.GetGodKi()
-						else if(Target.GetGodKi() > Total/1.25&&passive_handler.Get("Orange Namekian"))
-							Total=(Target.GetGodKi()/1.25)
-						else if(Target.GetGodKi() > Total/4&&passive_handler.Get("DisableGodKi"))
-							Total=(Target.GetGodKi()/4)
-					else
-						if(passive_handler.Get("DisableGodKi"))
-							Total+=Potential/400
-						else
-							Total+=Potential/100
+					if(src.Target.HasGodKi()&&!src.Target.HasGodKiCopy())
+						if(Target.GetGodKi() > Total)
+							Total=Target.GetGodKi()*GodKiCopyValue()
+					else if(passive_handler.Get("Hidden Potential"))
+						Total+=Potential/100
+			if(passive_handler.Get("GodCloth"))
+				if(src.Target&&(Health+VaizardHealth)<(Target.Health+Target.VaizardHealth))
+					Total*=clamp((Target.Health+Target.VaizardHealth)/(Health+VaizardHealth),1, 3)
 			if(src.KamuiBuffLock)
 				Total+=0.75
 			if(src.isRace(DRAGON))
@@ -1889,6 +1885,30 @@ mob
 				if(src.Kaioken>=6)
 					Total+=1
 			return Total
+		HasGodKiCopy()
+			if(passive_handler.Get("CreateTheHeavens"))
+				return 1
+			if(passive_handler.Get("Hidden Potential")||passive_handler.Get("Orange Namekian"))
+				return 1
+			if(src.CheckSlotless("Saiyan Soul")&&Target&&!src.HasGodKiBuff())
+				if(!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi())
+					return 1
+			if(passive_handler.Get("GodCloth"))
+				return 1
+			return 0
+		GodKiCopyValue()//multiplicative
+			if(passive_handler.Get("CreateTheHeavens")&& !HasGodKiBuff()&&isRace(HUMAN))
+				return 1
+			if(passive_handler.Get("Hidden Potential"))
+				if(passive_handler.Get("DisableGodKi")||passive_handler.Get("EndlessNine"))
+					return 0.25
+				else
+					return 1
+			if(passive_handler.Get("Orange Namekian"))
+				return 0.75
+			if(src.CheckSlotless("Saiyan Soul"))
+				return 0.35
+			return 0
 		HasEndlessNine()
 			if(HasNullTarget()) return 0;
 			if(passive_handler.Get("CreateTheHeavens"))
@@ -1898,7 +1918,7 @@ mob
 			return 0
 		GetEndlessNine()
 			var/Total=(!HasNullTarget() ? passive_handler.Get("EndlessNine") : 0)
-			if(passive_handler["Hidden Potential"]||passive_handler["CreateTheHeavens"])
+			if(HasGodKiCopy())
 				Total/=2
 			return Total
 		HasFluidForm()

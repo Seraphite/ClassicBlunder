@@ -3564,7 +3564,7 @@ NEW VARIABLES
 						..()
 						passives = list("ArmorAscension" = 3,"UnderDog"=player.SagaLevel*2, "Tenacity" = player.SagaLevel*2, "SpaceWalk" = 1, "StaticWalk" = 1, "MovingCharge" = 1, \
 						"Godspeed" = 1 + (player.SagaLevel*0.5), "BlurringStrikes" = player.SagaLevel*0.75,"SpiritFlow" = player.SagaLevel-2, "Flow" = player.SagaLevel-2, "Skimming" = 2, \
-						"MovementMastery" = 10 + (player.SagaLevel))
+						"MovementMastery" = 10 + (player.SagaLevel),"GodCloth" = 1)
 						StrMult=1.75
 						ForMult=1.75
 						SpdMult=1.75
@@ -4319,7 +4319,7 @@ NEW VARIABLES
 			SpdMult=1.2
 			DefMult=1.2
 			passives = list("GodKi" = 1, "DeathField" = 10, "VoidField" = 5, "Brutalize" = 5, "Deflection" = 5, "SlayerMod" = 1, "FavoredPrey" = "All", \
-								"Power of Destruction" = 1, "Field of Destruction" = 1, "CursedWounds"=1, "Hard Style"=1)
+								"Power of Destruction" = 1, "Field of Destruction" = 1, "CursedWounds"=1, "HardStyle"=1)
 			DarkChange=1
 			ActiveMessage="taps into the power of a Destroyer."
 			OffMessage="casts aside their destructive power."

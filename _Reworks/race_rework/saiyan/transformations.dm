@@ -442,6 +442,13 @@ transformation
 			autoAnger = 1
 			form_hair_icon = 'Hair_SSJ5.dmi'
 			form_icon_1_icon = 'Hair_SSJ5.dmi'
+			passives = list("The Unstoppable Force" = 1, "The Immovable Object" = 1, "To Govern Strength" = 1)
+			speed = 4
+			endurance = 4
+			offense = 4
+			defense = 4
+			strength = 4
+			force = 4
 		super_saiyan_god
 			tier = 4
 			passives = list("GodKi" = 0.5, "EnergyGeneration" = 1, "Godspeed" = 4, "Flow" = 4, "BackTrack" = 2, "StunningStrike" = 1, "Sunyata" = 1 )
