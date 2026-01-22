@@ -488,7 +488,7 @@ obj/Skills
 						src.ReturnX=User.x
 						src.ReturnY=User.y
 						src.ReturnZ=User.z
-						Destination=locate(198, 238, 8)
+						Destination=locate(198, 221, 8)
 					if("Traverse Da'at")
 						src.ReturnX=User.x
 						src.ReturnY=User.y
