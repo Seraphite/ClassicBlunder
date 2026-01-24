@@ -85,7 +85,7 @@
 			if((HasSpiritSword())&&sword)
 				statDamage += GetStr(GetSpiritSword())
 			if(HasHybridStrike())
-				statDamage *=  1 + (GetStr(GetHybridStrike())/10)
+				statDamage *=  clamp(1+sqrt(GetStr(GetHybridStrike())/15),1,3)
 			return statDamage
 	// otherwise there is no problem
 	if(HasSpiritHand()&&unarmed)
@@ -96,7 +96,7 @@
 	if(HasSpiritSword()&&sword)
 		statDamage += GetFor(GetSpiritSword())
 	if(HasHybridStrike())
-		statDamage *=  1 + (GetFor(GetHybridStrike())/10)
+		statDamage *=  clamp(sqrt(1+GetFor(GetHybridStrike())/15),1,3)
 
 	return statDamage
 

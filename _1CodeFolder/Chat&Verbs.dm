@@ -857,7 +857,7 @@ mob/Players/verb
 		if(!(world.time > usr.verb_delay)) return
 		usr.verb_delay=world.time+1
 		if(src.Lethal)
-			if(src.HellspawnBerserk)
+			if(src.HellspawnBerserk||src.ForcedLethal)
 				src.OMessage(10, "<font color='grey'Try as they might, [src] cannot quell their killing intent.</font>", "[src]([src.key]) toggled lethal on.")
 				return
 			src.Lethal=0

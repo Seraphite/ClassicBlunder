@@ -674,10 +674,13 @@
 								var/usingEnergy = HasSpiritHand() || HasSpiritSword() || HasHybridStrike() || UsingSpiritStrike() ? 1 : 0
 								if(usingEnergy && prob(10 * enemy.passive_handler.Get("Siphon")))
 									var/heal = damage * (enemy.passive_handler.Get("Siphon") / 10)
-
+									if(enemy.HasHybridStrike())
+										heal *= 1/(enemy.GetHybridStrike()+0.25)
+									if(enemy.HasSpiritSword())
+										heal *= 1/(1+enemy.GetSpiritSword())
 									if(HasSpiritSword())
 										heal *= GetSpiritSword()
-									else if(HasHybridStrike())
+									if(HasHybridStrike())
 										heal *= GetHybridStrike()
 									if(passive_handler.Get("Determination(Black)"))
 										heal *= 0.5
@@ -697,7 +700,6 @@
 
 									if(HasSpiritSword())
 										heal = GetFor(GetSpiritSword())
-									//TODO TEST ENERGY SIPHON IT MIGHT BE WONKY
 									damage -= heal
 							//		enemy.HealEnergy(heal)
 									#if DEBUG_MELEE

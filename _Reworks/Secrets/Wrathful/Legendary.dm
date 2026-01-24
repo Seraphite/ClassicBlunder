@@ -134,9 +134,9 @@ obj/Skills/Buffs/NuStyle/Legendary
 				"SweepingStrike" = 1, "Brutalize" = 3, "Meaty Paws" = 2, "KiControlMastery" = 3,"LegendarySaiyan"=1, "Pride"=1, "Zeal"=1, "Honor"=1,\
 				"Hardening" = 2, "Deflection" = 2,"Gum Gum" =1, "UnarmedDamage"=4,"DisableGodKi"=1, "Deicide" = 15, "ZenkaiPower" = 1)
 
-		StyleActive="Fist Of The King Of Tomorrow"
+		StyleActive="Mantle Of The King Of Tomorrow"
 		Finisher="/obj/Skills/Queue/Finisher/Saigo_no_Kyukyoku_Tengenkotsu"
-		verb/Fist_Of_The_King_Of_Tomorrow()
+		verb/Mantle_Of_The_King_Of_Tomorrow()
 			set hidden=1
 			adjust(usr)
 			src.Trigger(usr)
