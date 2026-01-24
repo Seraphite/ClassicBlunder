@@ -113,11 +113,14 @@ transformation
 					KenShockwave(user, icon='KenShockwaveDivine.dmi', Size=ShockSize, Blend=2, Time=8)
 					ShockSize/=2
 		demonic_high_tension
-			passives = list("UnlimitedHighTension" = 1, "CreateTheHeavens" = 1, "Unstoppable" = 1, "HellPower"=2, "HellRisen" = 1, "DemonicDurability" = 6, "PureDamage" = 6, "PureReduction" = 6, "MovementMastery" = 6, "Steady" = 6, "ManaStats" = 6)
+			passives = list("UnlimitedHighTension" = 1, "CreateTheHeavens" = 1, "Unstoppable" = 1, "HellPower"=2, "HellRisen" = 1, "BuffMastery" = 3, "DemonicDurability" = 6, "PureDamage" = 6, "PureReduction" = 6, "MovementMastery" = 6, "Steady" = 6, "ManaStats" = 6)
 			pot_trans = 15
 			form_aura_icon = 'Amazing Super Demon Aura.dmi'
 			form_aura_x = -32
 			transformation_message = "<b>usrName shatters through heaven and earth, declaring all the lights in the sky as their enemies!</b>"
+			mastery_boons(mob/user)
+				pot_trans = 20
+				passives = list("UnlimitedHighTension" = 1, "CreateTheHeavens" = 1, "Unstoppable" = 1, "HellPower"=2, "HellRisen" = 1, "BuffMastery" = 3, "DemonicDurability" = 6, "PureDamage" = 6, "PureReduction" = 6, "MovementMastery" = 6, "Steady" = 6, "ManaStats" = 6)
 			adjust_transformation_visuals(mob/user)
 				if(!form_hair_icon&&user.Hair_Base)
 					var/icon/x=new(user.Hair_Base)

@@ -6113,7 +6113,7 @@ obj
 					atk = Owner.getStatDmg2() * StrDmg
 					if(m.passive_handler.Get("Field of Destruction"))
 						if(Owner.HasHybridStrike())
-							atk/=clamp(sqrt(1+GetFor(GetHybridStrike())/15),1,3)
+							atk/=clamp(sqrt(1+Owner.GetFor(Owner.GetHybridStrike())/15),1,3)
 				else if(StrDmg && ForDmg)
 					if(glob.AUTOHIT_HYBRID_AS_MULT)
 						atk = Owner.GetStr(StrDmg) *1 + (Owner.GetFor(ForDmg)/10)
