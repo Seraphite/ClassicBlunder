@@ -291,6 +291,9 @@
 				log2text("powerDif", powerDif, "damageDebugs.txt", "[ckey]/[name]")
 				#endif
 				var/atk = getStatDmg2()
+				if(enemy.passive_handler.Get("Field of Destruction"))
+					if(HasHybridStrike())
+						atk/=clamp(sqrt(1+GetFor(GetHybridStrike())/15),1,3)
 				var/def = enemy.getEndStat(1)
 				var/brutalize = GetBrutalize()
 				if(brutalize)
@@ -685,19 +688,6 @@
 									//TODO TEST ENERGY SIPHON IT MIGHT BE WONKY
 									damage -= heal
 									enemy.HealEnergy(heal)
-									#if DEBUG_MELEE
-									log2text("Damage", "After Energy Siphon", "damageDebugs.txt", "[ckey]/[name]")
-									log2text("Damage", damage, "damageDebugs.txt", "[ckey]/[name]")
-									#endif
-							if(enemy.passive_handler.Get("Field of Destruction"))
-								var/usingEnergy = HasSpiritHand() || HasSpiritSword() || UsingSpiritStrike() ? 1 : 0
-								if(usingEnergy)
-									var/heal = damage //not actually a heal, i'm just lazy
-
-									if(HasSpiritSword())
-										heal = GetFor(GetSpiritSword())
-									damage -= heal
-							//		enemy.HealEnergy(heal)
 									#if DEBUG_MELEE
 									log2text("Damage", "After Energy Siphon", "damageDebugs.txt", "[ckey]/[name]")
 									log2text("Damage", damage, "damageDebugs.txt", "[ckey]/[name]")
