@@ -458,7 +458,7 @@ mob
 				HealFatigue(gen/2);
 			if(HasManaGeneration())
 				HealMana(src.GetManaGeneration()/glob.MANA_GEN_DIVISOR);
-			
+
 			if(src.ActiveBuff&&src.CheckActive("Keyblade")&&!src.SpecialBuff)
 				src.ManaAmount+=(0.25*src.SagaLevel)
 			if(defender.ActiveBuff&&defender.CheckActive("Keyblade")&&!defender.SpecialBuff)
@@ -702,7 +702,7 @@ mob
 					return
 			if(defender.Health<=0&&!defender.KO)
 				defender.Unconscious(src)
-			else if(defender.Health<=0&&defender.KO&&src.Lethal)
+			else if(defender.KO&&src.Lethal)
 				if(istype(EquippedSword(), /obj/Items/Sword/Medium/Legendary/WeaponSoul/Blade_of_Ruin))
 					if(defender.client)
 						var/obj/Items/Sword/Medium/Legendary/WeaponSoul/Blade_of_Ruin/bor=EquippedSword()
