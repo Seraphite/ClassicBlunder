@@ -1087,7 +1087,15 @@ mob/Admin3/verb
 		M.race.transformations += new /transformation/saiyan/super_saiyan_blue()
 		M.race.transformations += new /transformation/saiyan/super_saiyan_blue_evolved()
 		M<<"<b>Your transformations have been fixed!!! You'll have to ask an admin to remaster them.</b>"
-
+	GiveSSj5(mob/M in players)
+		set category="Admin"
+		if(!M.client)
+			return
+		for(var/transformation/saiyan/super_saiyan_5/ssj in M.race.transformations)
+			M.race.transformations -=ssj
+			del ssj
+		M.race.transformations += new /transformation/saiyan/super_saiyan_5()
+		M<<"You have been granted Super Saiyan 5."
 	UnMute()
 		set category="Admin"
 		var/list/people=list("Cancel")

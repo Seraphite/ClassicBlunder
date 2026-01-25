@@ -1064,7 +1064,7 @@ mob
 		HasUnstoppable()
 			if(Secret == "Zombie")
 				return 1
-			if(passive_handler.Get("Unstoppable"))
+			if(passive_handler.Get("Unstoppable")||passive_handler.Get("The Immovable Object"))
 				return 1
 			return 0
 		SaiyanTransPower()/*
@@ -1869,7 +1869,7 @@ mob
 					Total+=src.Target.GetGodKi()/3*/
 			if(HasGodKiCopy())
 				if(src.Target)
-					if(src.Target.HasGodKi()&&!src.Target.HasGodKiCopy())
+					if(src.Target.HasGodKi()&&!src.Target.HasGodKiCopy()&&!src.Target.passive_handler.Get("To Govern Strength"))
 						if(Target.GetGodKi() > Total)
 							Total=Target.GetGodKi()*GodKiCopyValue()
 					else if(passive_handler.Get("Hidden Potential"))

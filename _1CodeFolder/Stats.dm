@@ -407,7 +407,7 @@ mob/Players/Stat()
 	if(Target.BioArmor) healthDisplay = getBioArmorDisplay()
 	var/powReplace=Get_Sense_Reading(Target)
 	if(TrgIsBatshitCrazy() && !hasClearSight())
-		powReplace = "Incomprehensible" 
+		powReplace = "Incomprehensible"
 	if(src.Target.passive_handler.Get("Heart of Darkness"))
 		powReplace = "<font color='red'><b>Boundless</b></font color>"
 	if(src.Target.passive_handler.Get("Sense Replacement"))
@@ -942,7 +942,7 @@ mob/proc/
 		if(Power < 1)
 			Power = 1
 		if(passive_handler["Hidden Potential"] && Target)
-			if(!Target.passive_handler.Get("Hidden Potential"))
+			if(!Target.passive_handler.Get("Hidden Potential")&&!Target.passive_handler.Get("To Govern Strength"))
 				if(Target.Power > Power)
 					Power = Target.Power
 					Power*=GetPowerUpRatio()

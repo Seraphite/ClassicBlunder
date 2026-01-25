@@ -291,7 +291,7 @@
 				log2text("powerDif", powerDif, "damageDebugs.txt", "[ckey]/[name]")
 				#endif
 				var/atk = getStatDmg2()
-				if(enemy.passive_handler.Get("Field of Destruction"))
+				if(enemy.passive_handler.Get("Field of Destruction")||enemy.passive_handler.Get("The Immovable Object"))
 					if(HasHybridStrike())
 						atk/=clamp(sqrt(1+GetFor(GetHybridStrike())/15),1,3)
 				var/def = enemy.getEndStat(1)
@@ -793,8 +793,10 @@
 									knockDistance = max(SureKB, 5)
 								if(!AttackQueue || AttackQueue && !AttackQueue.Grapple)
 									if(enemy)
-										if(enemy.passive_handler&&enemy.passive_handler.Get("Blubber"))
+										if(enemy.passive_handler&&enemy.passive_handler.Get("Blubber")||enemy.passive_handler&&enemy.passive_handler.Get("The Immovable Object"))
 											var/blubber = enemy.passive_handler.Get("Blubber")
+											if(enemy.passive_handler.Get("The Immovable Object"))
+												blubber+=5
 											if(prob(blubber * 25))
 												enemy.Knockback(knockDistance / clamp(5-blubber, 1,4),src)
 												knockDistance  *= 1 - (0.10 * blubber)

@@ -373,6 +373,7 @@ NEW VARIABLES
 	var/ArmorDelay
 	var/ArmorAscension
 	var/ArmorKill
+	var/ArmorUnbreakable
 	var/SwordShatterTier
 //Sword stuff
 	var/NeedsSecondSword//MOAR!!
@@ -3554,6 +3555,7 @@ NEW VARIABLES
 						src.Trigger(usr)
 						Cape(usr)
 			God_Cloth
+				ArmorUnbreakable=1
 				Pegasus_God_Cloth
 					ArmorIcon='Pegasus God Cloth Winged.dmi'
 					ArmorX = -10
@@ -3564,7 +3566,7 @@ NEW VARIABLES
 						..()
 						passives = list("ArmorAscension" = 3,"UnderDog"=player.SagaLevel*2, "Tenacity" = player.SagaLevel*2, "SpaceWalk" = 1, "StaticWalk" = 1, "MovingCharge" = 1, \
 						"Godspeed" = 1 + (player.SagaLevel*0.5), "BlurringStrikes" = player.SagaLevel*0.75,"SpiritFlow" = player.SagaLevel-2, "Flow" = player.SagaLevel-2, "Skimming" = 2, \
-						"MovementMastery" = 10 + (player.SagaLevel),"GodCloth" = 1)
+						"MovementMastery" = 10 + (player.SagaLevel),"GodCloth" = 1,"Persistence" = player.SagaLevel*0.75)
 						StrMult=1.75
 						ForMult=1.75
 						SpdMult=1.75
@@ -13015,6 +13017,8 @@ mob
 					s.InnatelyAscended=B.ArmorAscension
 				if(B.ArmorElement)
 					s.Element=B.ArmorElement
+				if(B.ArmorUnbreakable)
+					s.Destructable=0
 				src.contents+=s
 				s.Conjured=1
 				s.Cost=0

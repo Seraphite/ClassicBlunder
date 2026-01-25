@@ -868,14 +868,14 @@ mob
 						val+=(-1)*src.Sheared
 						src.Sheared=0
 					else
-						val=val*0.75
+						val=val*0.5
 				else
 					src.Sheared-=val
 					if(src.Sheared<0)
 						val=(-1)*src.Sheared
 						src.Sheared=0
 					else
-						val=val/2
+						val=val/4
 			if(src.PotionCD)
 				val/=glob.HEALTH_POTION_NERF
 			if(icon_state == "Meditate")
@@ -886,6 +886,8 @@ mob
 			if(src.AwakeningSkillUsed==1)
 				val = 0
 			if(src.VaizardHealth&&!src.passive_handler.Get("HealThroughTempHP"))
+				val = 0
+			if(src.CelestialAscension=="Demon" && src.transActive>=5)
 				val = 0
 			src.Health+=val
 			src.MaxHealth()
@@ -1317,7 +1319,7 @@ mob
 			Str*=Mod
 			Str*=Mult
 			if(src.HasMirrorStats())
-				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players))
+				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players)&&!Target.passive_handler.Get("To Govern Strength"))
 					Str=src.Target.GetStr()
 			var/TotalTax
 			if(src.StrTax)
@@ -1459,7 +1461,7 @@ mob
 			For*=Mod
 			For*=Mult
 			if(src.HasMirrorStats())
-				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players))
+				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players)&&!Target.passive_handler.Get("To Govern Strength"))
 					For=src.Target.GetFor()
 			var/TotalTax
 			if(src.ForTax)
@@ -1592,7 +1594,7 @@ mob
 			End*=Mod
 			End*=Mult
 			if(src.HasMirrorStats())
-				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players))
+				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players)&&!Target.passive_handler.Get("To Govern Strength"))
 					End=src.Target.GetEnd()
 			var/TotalTax
 			if(src.EndTax)
@@ -1701,7 +1703,7 @@ mob
 			Spd*=Mod
 			Spd*=Mult
 			if(src.HasMirrorStats())
-				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players))
+				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players)&&!Target.passive_handler.Get("To Govern Strength"))
 					Spd=src.Target.GetSpd()
 			var/TotalTax
 			if(src.SpdTax)
@@ -1789,7 +1791,7 @@ mob
 			Off*=Mod
 			Off*=Mult
 			if(src.HasMirrorStats())
-				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players))
+				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players)&&!Target.passive_handler.Get("To Govern Strength"))
 					Off=src.Target.GetOff()
 			var/TotalTax
 			if(src.OffTax)
@@ -1884,7 +1886,7 @@ mob
 			Def*=Mod
 			Def*=Mult
 			if(src.HasMirrorStats())
-				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players))
+				if(src.Target&&src.Target!=src&&!src.Target.HasMirrorStats()&&istype(src.Target, /mob/Players)&&!Target.passive_handler.Get("To Govern Strength"))
 					Def=src.Target.GetDef()
 			var/TotalTax
 			if(src.DefTax)

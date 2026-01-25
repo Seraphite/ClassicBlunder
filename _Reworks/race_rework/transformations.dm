@@ -245,6 +245,13 @@ transformation
 			if(!is_active || !user.CanRevert()) return
 			user.HellspawnBerserk=0
 			user.HellspawnTimer=0
+			if(user.UnstoppableForceCounter>=1)
+				if(user.UnstoppableForceCounter>9)
+					user.UnstoppableForceCounter=9
+				user.AddStrTax(user.UnstoppableForceCounter/10)
+				user.AddEndTax(user.UnstoppableForceCounter/10)
+				user.AddSpdTax(user.UnstoppableForceCounter/10)
+				user.UnstoppableForceCounter=0
 			user.transActive--
 			if(!isnull(revertToTrans))
 				user.transActive = revertToTrans

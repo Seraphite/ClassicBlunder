@@ -1931,7 +1931,7 @@ obj
 				Knockback=1
 				Homing=1
 				HyperHoming=1
-				Destructive=1
+				Destructive=0
 				StrRate=0.5
 				ForRate=0.5
 				EndRate=1

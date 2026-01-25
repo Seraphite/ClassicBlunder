@@ -6111,7 +6111,7 @@ obj
 					atk = Owner.GetFor(ForDmg)
 				else if(StrDmg && !ForDmg)
 					atk = Owner.getStatDmg2() * StrDmg
-					if(m.passive_handler.Get("Field of Destruction"))
+					if(m.passive_handler.Get("Field of Destruction")||m.passive_handler.Get("The Immovable Object"))
 						if(Owner.HasHybridStrike())
 							atk/=clamp(sqrt(1+Owner.GetFor(Owner.GetHybridStrike())/15),1,3)
 				else if(StrDmg && ForDmg)

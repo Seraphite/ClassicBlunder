@@ -449,6 +449,8 @@ transformation
 			defense = 4
 			strength = 4
 			force = 4
+			mastery_boons(mob/user)
+				mastery=100
 			transform_animation(mob/user)
 				user.BeastAnimation()
 		super_saiyan_god

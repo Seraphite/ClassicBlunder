@@ -651,6 +651,7 @@ mob/var
 	WillYouPersist
 	CutsceneMode
 	ForcedLethal
+	UnstoppableForceCounter
 
 /proc/reduceGodKi(mob/player, num)
 	player.GodKi -= num
