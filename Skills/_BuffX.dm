@@ -2690,6 +2690,21 @@ NEW VARIABLES
 						src.LockX=0
 						src.LockY=0
 					src.Trigger(usr)
+			Rank_Up_Magic_Admiration_of_the_Thousands
+				BuffName = "Rank-Up Magic: Admiration of the Thousands"
+				SignatureTechnique=5
+				ForMult=5
+				NoSword=0
+				passives = list("MaouKi" = 1, "GodKi" = 2, "MovingCharge" = 1, "QuickCast" = 6, "DualCast" = 3, "SpiritStrike" = 1, "ThunderHerald", "IceHerald", "AbyssMod" = 5, \
+									"AmuletBeaming" = 1, "MartialMagic" = 1, "Atomizer" = 1, "SuperCharge" = 2, "BetterAim" = 5, "DemonicInfusion" = 1, "CriticalChance" = 35, "CriticalDamage" = 0.15)
+				ElementalDefense = "Void"
+				ElementalOffense = "Void"					
+				DarkChange=1
+				ActiveMessage="activates the pinnacle of the arcane, Rank-Up Magic, revealing the supreme force of a Great Demon Lord."
+				OffMessage="lowers themselves back down to a level that you can understand."
+				verb/Rank_Up_Magic_Admiration_of_the_Thousands()
+					set category="Skills"
+					src.Trigger(usr)
 		Sword
 			NeedsSword=1
 			SwordSaint
