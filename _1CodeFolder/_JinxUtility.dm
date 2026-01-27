@@ -451,7 +451,7 @@ mob
 			if(defender.HasLifeGeneration())
 				defender.HealHealth(defender.GetLifeGeneration()/glob.LIFE_GEN_DIVISOR * val)
 				if(defender.Health>=100-100*defender.HealthCut-defender.TotalInjury)
-					defender.HealWounds(glob.LIFE_GEN_MULT*defender.GetLifeGeneration()/glob.LIFE_GEN_DIVISOR * val)
+					defender.HealWounds((glob.LIFE_GEN_MULT*defender.GetLifeGeneration()/glob.LIFE_GEN_DIVISOR * val))
 			if(HasEnergyGeneration())
 				var/gen = GetEnergyGeneration()/glob.ENERGY_GEN_DIVISOR;
 				HealEnergy(gen);
@@ -522,12 +522,18 @@ mob
 					CursedBlood=1
 					Effectiveness += defender.passive_handler.Get("MeltyBlood")
 					src.AddBurn(val*Effectiveness)
+					val/=2
 				if(defender.passive_handler.Get("VenomBlood"))
 					CursedBlood=1
 					Effectiveness+= defender.passive_handler.Get("VenomBlood")
 					src.AddPoison(val*Effectiveness,defender)
+				if(defender.Secret=="Ripple")
+					src.AddBurn(val*Effectiveness*defender.secretDatum.currentTier)
+					val/=defender.secretDatum.currentTier
 				if(!CursedBlood)
 					var/amtHeal = val*(src.GetLifeSteal() + innateLifeSteal)*Effectiveness/100;
+					src.LifeStolen+=amtHeal
+					amtHeal*=1*((100-src.LifeStolen)/100)
 					src.HealHealth(amtHeal)
 					DEBUGMSG("[amtHeal] was healed by life steal");
 					if(src.Health>=(100-100*src.HealthCut-src.TotalInjury))

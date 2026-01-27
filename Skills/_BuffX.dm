@@ -2699,7 +2699,7 @@ NEW VARIABLES
 				passives = list("MaouKi" = 1, "GodKi" = 2, "MovingCharge" = 1, "QuickCast" = 6, "DualCast" = 3, "SpiritStrike" = 1, "ThunderHerald", "IceHerald", "AbyssMod" = 5, \
 									"AmuletBeaming" = 1, "MartialMagic" = 1, "Atomizer" = 1, "SuperCharge" = 2, "BetterAim" = 5, "DemonicInfusion" = 1, "CriticalChance" = 35, "CriticalDamage" = 0.15)
 				ElementalDefense = "Void"
-				ElementalOffense = "Void"					
+				ElementalOffense = "Void"
 				DarkChange=1
 				ActiveMessage="activates the pinnacle of the arcane, Rank-Up Magic, revealing the supreme force of a Great Demon Lord."
 				OffMessage="lowers themselves back down to a level that you can understand."
@@ -4380,6 +4380,34 @@ NEW VARIABLES
 			verb/Quis_ut_Deus()
 				set category="Skills"
 				src.Trigger(usr)
+		Death_Incarnate
+			BuffName = "Death Incarnate"
+			SignatureTechnique=5
+			Mastery=1
+			ActiveSlot=1
+			SpecialSlot=1
+			passives = list("Aspect of Death"=1,"PureDamage"=5,"PureReduction"=5, "StunningStrike" = 3, "HardStyle"=1, "SoftStyle"=1, "PUSpike"=400,\
+			"MaouKi"=1, "GodKi"=3, "SlayerMod" = 1.5, "FavoredPrey" = "All","Extend"=2, "Gum Gum"=2,"KiControlMastery"=20,"Shearing"=15)
+			ElementalOffense="Death"
+			PUSpeedModifier=2
+			DarkChange=1
+			KenWave=5
+			KenWaveSize=1
+			StrMult=1.5
+			ForMult=1.5
+			SpdMult=1.5
+			EndMult=1.5
+			OffMult=1.5
+			DefMult=1.5
+			ManaGlowSize=2
+			ManaGlow="#000000"
+			KenWaveIcon='KenShockwavePurple.dmi'
+			CustomActive="<b>As the bell tolls, you come to realize the inevitability of death.</b>"
+			OffMessage="ceases channeling death itself."
+			verb/Death_Incarnate()
+				set category="Skills"
+				adjust(usr)
+				src.Trigger(usr)
 		Super_Saiyan_Rose
 			BuffName = "Super Saiyan Rose"
 			SignatureTechnique=5
@@ -4395,9 +4423,14 @@ NEW VARIABLES
 			passives = list("GodKi" = 1.5, "EnergyGeneration" = 6, "Godspeed" = 4, "Flow" = 6,"TechniqueMastery" = 8, \
 								"Instinct" = 4, "Pursuer"= 4 , "BackTrack" = 4, \
 								"MovementMastery" = 15, "StunningStrike" = 3, "Sunyata" = 3,"SSJRose"=1,\
-								"Flicker" = 4, "PureDamage"=4, "PureReduction" = 4, "BuffMastery" = 10,"ZenkaiPower"=1)
+								"Flicker" = 4, "PureDamage"=8, "PureReduction" = 8, "BuffMastery" = 15,"ZenkaiPower"=2)
 			ActiveMessage="awakens their latent Saiyan gifts, erupting with tremendous power! "
 			OffMessage="suppresses their Saiyan power."
+			adjust(mob/p)
+				passives = list("GodKi" = 1.5*(p.Potential/80), "EnergyGeneration" = 6, "Godspeed" = 4, "Flow" = 6,"TechniqueMastery" = 8, \
+									"Instinct" = 4, "Pursuer"= 4 , "BackTrack" = 4, \
+									"MovementMastery" = 15, "StunningStrike" = 3, "Sunyata" = 3,"SSJRose"=1,\
+									"Flicker" = 4, "PureDamage"=8, "PureReduction" = 8, "BuffMastery" = 15,"ZenkaiPower"=2)
 			verb/Toggle_Rose_Transfomation_Sequence()
 				set category="Utility"
 				if(src.TransformationSequence)
@@ -4454,6 +4487,7 @@ NEW VARIABLES
 							GO.filters=null
 							del GO
 							usr.appearance_flags-=16
+				adjust(usr)
 				src.Trigger(usr)
 		Song_of_Oblivion
 			BuffName = "Song of Oblivion"

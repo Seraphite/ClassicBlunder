@@ -588,6 +588,8 @@ mob/proc/Recover(var/blah,Amount=1)
 				src.RecovEroded-=0.02
 				if(src.RecovEroded<0)
 					src.RecovEroded=0
+			if(src.LifeStolen>0)
+				src.LifeStolen=0
 			if(Health>10*(1-src.HealthCut)&&src.HealthAnnounce10)
 				src.HealthAnnounce10=0
 			if(Health>25*(1-src.HealthCut)&&src.HealthAnnounce25)
@@ -918,7 +920,10 @@ mob/proc/
 					if(race.transformations[3].mastery==100)
 						SSJBoost= 1.45
 				if(passive_handler.Get("GodlyCalm")||passive_handler.Get("InBlue")||passive_handler.Get("SSJ4"))
-					SSJBoost= 1.60
+					if(passive_handler.Get("SSJ4LimitBreaker")||passive_handler.Get("InBlueEvolved"))
+						SSJBoost = 1.85
+					else
+						SSJBoost = 1.60
 				Ratio*=SSJBoost
 			if(passive_handler.Get("SSJRose"))
 				Ratio*=1.60
@@ -1186,6 +1191,14 @@ mob/proc/Update_Stat_Labels()
 			src<<output("BUR: [round(Burn, 1)]","BarBurning")
 		else
 			winshow(src, "BarBurning",0)
+		if(src.Doomed>0||src.DownToEarth>0)
+			winshow(src, "BarDoomed",1)
+			if(src.Doomed>0)
+				src<<output("DOOM: [round(Doomed, 1)]","BarDoomed")
+			else if(src.DownToEarth>0)
+				src<<output("DTH: [round(DownToEarth, 1)]","BarDoomed")
+		else
+			winshow(src, "BarDoomed",0)
 		if(src.Shatter>0)
 			winshow(src, "BarBreak",1)
 			src<<output("SHT: [round(Shatter, 1)]","BarBreak")

@@ -1080,7 +1080,7 @@ mob
 		HasUnstoppable()
 			if(Secret == "Zombie")
 				return 1
-			if(passive_handler.Get("Unstoppable")||passive_handler.Get("The Immovable Object"))
+			if(passive_handler.Get("Unstoppable")>=1||passive_handler.Get("The Immovable Object"))
 				return 1
 			return 0
 		SaiyanTransPower()/*
@@ -1890,6 +1890,8 @@ mob
 								Total+=src.Kaioken/4
 					if(src.Kaioken>=6)
 						Total+=1
+				if(src.DownToEarth>0)
+					Total*=1*((100-src.DownToEarth)/100)
 				return Total
 		HasGodKi()
 			if(passive_handler["MaouKi"])
@@ -1919,11 +1921,11 @@ mob
 			return 0
 		GetGodKi()
 			var/Total=passive_handler.Get("GodKi")
-			if(glob.T3_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=3||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=55)
-				if(src.SagaLevel<1&&!glob.T3_SAGA_STLYE_GODKI||src.Secret=="Ultra Instinct"||secretDatum.secretVariable["EldritchInstinct"]==1)
+			if(glob.T3_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=3)//||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=55)
+				if(src.SagaLevel<1&&!glob.T3_SAGA_STLYE_GODKI||src.Secret=="Ultra Instinct")//||secretDatum.secretVariable["EldritchInstinct"]==1)
 					Total+=glob.T3_STYLES_GODKI_VALUE
-			if(glob.T4_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=4&&src.Potential>=70||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=70)
-				if(src.SagaLevel<1&&!glob.T4_SAGA_STLYE_GODKI||src.Secret=="Ultra Instinct"||secretDatum.secretVariable["EldritchInstinct"]==1)
+			if(glob.T4_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=4&&src.Potential>=70)//||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=70)
+				if(src.SagaLevel<1&&!glob.T4_SAGA_STLYE_GODKI||src.Secret=="Ultra Instinct")//||secretDatum.secretVariable["EldritchInstinct"]==1)
 					Total+=glob.T4_STYLES_GODKI_VALUE
 			if(src.HasSpiritPower()>=1 && FightingSeriously(src, 0))
 				if(src.Health<=(30+src.TotalInjury)*src.GetSpiritPower())
@@ -1951,7 +1953,7 @@ mob
 				if(src.Target)
 					if(src.Target.HasGodKi()&&!src.Target.HasGodKiCopy()&&!src.Target.passive_handler.Get("To Govern Strength"))
 						if(Target.GetGodKi() > Total)
-							Total=Target.GetGodKi()*GodKiCopyValue()
+							Total=Target.GetGodKi()//src.GodKiCopyValue()
 					else if(passive_handler.Get("Hidden Potential"))
 						Total+=Potential/100
 			if(passive_handler.Get("GodCloth"))
@@ -1971,6 +1973,8 @@ mob
 							Total+=src.Kaioken/4
 				if(src.Kaioken>=6)
 					Total+=1
+			if(src.DownToEarth>0)
+				Total*=1*((100-src.DownToEarth)/100)
 			return Total
 		HasGodKiCopy()
 			if(passive_handler.Get("CreateTheHeavens"))
@@ -1984,18 +1988,19 @@ mob
 				return 1
 			return 0
 		GodKiCopyValue()//multiplicative
+			var/Total=0
 			if(passive_handler.Get("CreateTheHeavens")&& !HasGodKiBuff()&&isRace(HUMAN))
-				return 1
+				Total=1
 			if(passive_handler.Get("Hidden Potential"))
 				if(passive_handler.Get("DisableGodKi")||passive_handler.Get("EndlessNine"))
-					return 0.25
+					Total=0.25
 				else
-					return 1
+					Total=1
 			if(passive_handler.Get("Orange Namekian"))
-				return 0.75
+				Total=0.75
 			if(src.CheckSlotless("Saiyan Soul"))
-				return 0.35
-			return 0
+				Total=0.35
+			return Total
 		HasEndlessNine()
 			if(HasNullTarget()) return 0;
 			if(passive_handler.Get("CreateTheHeavens"))

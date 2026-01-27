@@ -908,7 +908,6 @@ obj
 					else
 						if(usr.AttackQueue)
 							return // prevent heavy strike from overriding
-
 						if(usr.passive_handler["Heavy Strike"]&&!usr.ForceHeavyStrike)
 							switch(usr.passive_handler["Heavy Strike"])
 								if("Wrestling")
@@ -934,8 +933,7 @@ obj
 							Grapple = 0
 							FollowUp = null
 
-
-						if(!usr.Secret && !usr.HasWitchCraft()||usr.isRace(ANGEL) || usr.Secret == "Goetic Virtue" || usr.Secret == "Stellar Constellation" || usr.Secret == "Elven Sanctuary" || usr.Secret == "Eldritch" && !usr.CheckSlotless("True Form") || usr.Secret == "Jagan" ||usr.Secret=="Necromancy"||usr.Secret=="Ripple"&&!usr.HasRipple()||usr.Secret=="Senjutsu"&&!usr.CheckSlotless("Senjutsu Focus") || usr.Secret =="Heavenly Restriction" && !usr.secretDatum?:hasImprovement("Heavy Strike"))//Just default Heavy Strike
+						if(!usr.Secret && !usr.HasWitchCraft()||usr.isRace(ANGEL) || usr.Secret == "Goetic Virtue"||usr.Secret == "Ultra Instinct" || usr.Secret == "Stellar Constellation" || usr.Secret == "Elven Sanctuary" || usr.Secret == "Eldritch" && !usr.CheckSlotless("True Form") || usr.Secret == "Jagan" ||usr.Secret=="Necromancy"||usr.Secret=="Ripple"&&!usr.HasRipple()||usr.Secret=="Senjutsu"&&!usr.CheckSlotless("Senjutsu Focus") || usr.Secret =="Heavenly Restriction" && !usr.secretDatum?:hasImprovement("Heavy Strike"))//Just default Heavy Strike
 							src.name="Heavy Strike"
 							src.DamageMult=2
 							src.AccuracyMult=1

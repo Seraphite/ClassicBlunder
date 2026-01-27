@@ -122,6 +122,8 @@
 	var/purered = defender.HasPureReduction() ? defender.HasPureReduction() : 0
 	if(!glob.PURE_MOD_POST_CALC)
 		purered *= glob.PURE_MODIFIER
+	if(passive_handler.Get("Aspect of Death"))
+		purered/=2
 	trueMult -= purered
 	#if DEBUG_DAMAGE
 	log2text("trueMult", "After Purered", "damageDebugs.txt", "[src.ckey]/[src.name]")

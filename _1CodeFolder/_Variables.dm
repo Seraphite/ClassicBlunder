@@ -506,6 +506,8 @@ mob/var
 	Sprayed=0//Reduce cripple/shear
 	Stabilized=0//Reduce shock/confuse
 	Roided=0//When BP Poison is less than 1, gives you half of the reduced value back
+	Doomed
+	DownToEarth
 	BloodDrain
 	ManaAmount=100
 	ManaMax=100
@@ -647,6 +649,7 @@ mob/var
 	AscendedDivine //for players who can read prayers
 	SenseReplacement
 	SSJ4FromBase
+	LifeStolen=0
 
 	WillYouPersist
 	CutsceneMode

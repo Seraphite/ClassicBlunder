@@ -45,7 +45,7 @@ proc
 		if(armr && armr.Element)
 			defenseElements |= armr.Element
 
-		if(attackElements["Ultima"])
+		if(attackElements["Ultima"]||attackElements["Death"])
 			ForcedDebuff+=1
 		var/DamageMod=0
 		for(var/element in attackElements)
@@ -84,6 +84,8 @@ proc
 						DamageMod-=1
 				if("Ultima")
 					DamageMod+=2
+				if("Death")
+					DamageMod+=3
 				if("Love")
 					DamageMod+=3
 				if("Mirror")
@@ -164,6 +166,8 @@ proc
 						Defender.AddSlow(2*DebuffIntensity*glob.SLOW_INTENSITY, Attacker)
 						Defender.AddShatter(2*DebuffIntensity*glob.SHATTER_INTENSITY, Attacker)
 						Defender.AddShock(2*DebuffIntensity*glob.SHOCK_INTENSITY, Attacker)
+					if("Death")
+						Defender.AddDoom(5, Attacker)
 					if("Rain")
 						Defender.AddSlow(4*DebuffIntensity*glob.SLOW_INTENSITY, Attacker)
 						Defender.AddShock(4*DebuffIntensity*glob.SHOCK_INTENSITY, Attacker)
@@ -287,6 +291,8 @@ proc
 			Return=100
 			if("Mirror" in D)
 				Return-=20
+		if(A=="Death")
+			Return=100
 		return Return
 mob
 	proc
@@ -557,11 +563,26 @@ mob
 			if(src.Stasis)
 				return
 			src.Anger(Enraged=1)
+		AddDoom(var/Value, var/mob/Attacker=null)
+			if(src.Stasis)
+				return
+			if(src.DownToEarth)
+				return
+			src.Doomed+=Value
+			if(src.Doomed>=100)
+				src.Health/=2
+				src.VaizardHealth=0
+				src.Doomed=0
+				src<<"<b><font color='red'>Death passes you by, and takes a piece of you along with it.</font color></b>"
+				OMsg(src, "<b><font color='purple'>The bell tolls for [src],</font color></b>")
+				src.DownToEarth=100
+				if(src.HasGodKi()||src.HasMaouKi())
+					src<<"<b><font color='red'>Death comes for all, even those with the power of Gods. Your divinity has been temporarily forfeit.</font color></b>"
 
 globalTracker/var/DEBUFF_STACK_MAX = 100;
 
 /mob/proc/CleanseDebuff(amt)
-	var/list/debuff = list("Poison", "Burn", "Shatter", "Slow", "Shock", "Crippled", "Confused", "Stunned", "Sheared", "Attracted");
+	var/list/debuff = list("Poison", "Burn", "Shatter", "Slow", "Shock", "Crippled", "Confused", "Stunned", "Sheared", "Attracted","Doomed");
 	for(var/db in debuff)
 		src.vars["[db]"] -= amt;
 /mob/proc/shouldCleanse(mob/trg)
@@ -650,6 +671,18 @@ mob
 
 				if(src.Sheared<0)
 					src.Sheared=0
+			if(src.Doomed)
+				var/DoomReduce=0.25
+				if(src.icon_state=="Meditate") DoomReduce*= 8;
+				src.Doomed -= DoomReduce
+				if(src.Doomed<0)
+					src.Doomed=0
+			if(src.DownToEarth)
+				var/DownToEarthReduce=0.25
+				if(src.icon_state=="Meditate") DownToEarthReduce*= 8;
+				src.DownToEarth-=DownToEarthReduce
+				if(src.DownToEarth<0)
+					src.DownToEarth=0
 
 			if(src.Attracted&&!src.Confused&&!src.Stunned)
 				src.Attracted--
