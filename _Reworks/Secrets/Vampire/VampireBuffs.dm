@@ -90,7 +90,7 @@
 			DefMult = 1 + (secretLevel * 0.15)
 			ForMult = 1 + (secretLevel * 0.15)
 			SpdMult = 1 + (secretLevel * 0.15)
-			passives = list("LifeSteal" = LifeSteal, "Godspeed" = Godspeed, "ShearImmunity" = 1)
+			passives = list("LifeSteal" = LifeSteal, "Godspeed" = Godspeed)
 
 		Trigger(mob/User, Override = 0)
 			adjust(User, 0)
