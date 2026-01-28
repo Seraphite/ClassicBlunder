@@ -240,6 +240,8 @@ globalTracker
 		CUSTOMBUFFADDTOTAL = 3
 		CUSTOMBUFFPASSIVETOTAL = 2
 		TRIPLEHELIX_MAX_NEG_HP = -50
+		GODKI_DIFF_MULT = 1 //For figuring out less swingy values for GodKi DMG/RES. 1 is what we're used to, so try 0.5 or something. Doesn't affect accuracy.
+		MAOUKI_DIFF_MULT = 1 //what the fuck do you think it does
 // combat
 		HIT_SCAN_DELAY = 5
 		OVERHWELMING_BASE_END_NERF = 0.05
