@@ -167,7 +167,8 @@ proc
 						Defender.AddShatter(2*DebuffIntensity*glob.SHATTER_INTENSITY, Attacker)
 						Defender.AddShock(2*DebuffIntensity*glob.SHOCK_INTENSITY, Attacker)
 					if("Death")
-						Defender.AddDoom(2, Attacker)
+						if(prob(glob.CHAOS_CHANCE))
+							Defender.AddDoom(1, Attacker)
 					if("Rain")
 						Defender.AddSlow(4*DebuffIntensity*glob.SLOW_INTENSITY, Attacker)
 						Defender.AddShock(4*DebuffIntensity*glob.SHOCK_INTENSITY, Attacker)
@@ -570,8 +571,7 @@ mob
 				return
 			src.Doomed+=Value
 			if(src.Doomed>=100)
-				src.Health/=2
-				src.VaizardHealth=0
+				src.Health*=0.9
 				src.Doomed=0
 				src<<"<b><font color='red'>Death passes you by, and takes a piece of you along with it.</font color></b>"
 				OMsg(src, "<b><font color='purple'>The bell tolls for [src],</font color></b>")
@@ -672,14 +672,15 @@ mob
 				if(src.Sheared<0)
 					src.Sheared=0
 			if(src.Doomed)
-				var/DoomReduce=0.25
-				if(src.icon_state=="Meditate") DoomReduce*= 8;
+				var/DoomReduce=0.01
+				if(src.icon_state=="Meditate") DoomReduce*= 100;
 				src.Doomed -= DoomReduce
 				if(src.Doomed<0)
 					src.Doomed=0
 			if(src.DownToEarth)
 				var/DownToEarthReduce=0.25
 				if(src.icon_state=="Meditate") DownToEarthReduce*= 8;
+				if(src.DownToEarth>=50) DownToEarthReduce*=4;
 				src.DownToEarth-=DownToEarthReduce
 				if(src.DownToEarth<0)
 					src.DownToEarth=0

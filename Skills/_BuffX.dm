@@ -4393,7 +4393,7 @@ NEW VARIABLES
 			ActiveSlot=1
 			SpecialSlot=1
 			passives = list("Aspect of Death"=1,"PureDamage"=5,"PureReduction"=5, "StunningStrike" = 3, "HardStyle"=1, "SoftStyle"=1, "PUSpike"=400,\
-			"MaouKi"=1, "GodKi"=3, "SlayerMod" = 1.5, "FavoredPrey" = "All","Extend"=2, "Gum Gum"=2,"KiControlMastery"=20,"Shearing"=15,"KiControl"=1)
+			"Deicide"=15, "DisableGodKi"=1, "SlayerMod" = 1.5, "FavoredPrey" = "All","Extend"=2, "Gum Gum"=2,"KiControlMastery"=20,"Shearing"=15,"KiControl"=1)
 			ElementalOffense="Death"
 			PUSpeedModifier=2
 			DarkChange=1
