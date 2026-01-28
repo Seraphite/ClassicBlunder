@@ -62,7 +62,7 @@ client/verb/OOC(T as text)
 	if(!OOC_Check(T)) return
 	if(!usr.Admin) T=copytext(T,1,700)
 	if(SpamCheck(usr,T))return
-
+	if(usr.CutsceneMode) return
 	var/keyjack=usr.key
 	if(usr.DisplayKey)
 		keyjack=usr.DisplayKey
@@ -87,6 +87,7 @@ client/verb/OOC(T as text)
 
 client/verb/Say(T as text)
 	set category="Roleplay"
+	if(usr.CutsceneMode) return
 
 	sayProc(T, null)
 
@@ -228,7 +229,7 @@ client/verb/Think(T as text)
 			Log(m.sanitizedChatLog(),"<font color=green>[usr.name] THOUGHT: [message]")
 
 	usr.CheckAFK()
-/*	
+/*
 client/verb/Prayer(T as text)
 	set category="Roleplay"
 

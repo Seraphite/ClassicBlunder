@@ -4531,14 +4531,14 @@ NEW VARIABLES
 			SignatureTechnique=5
 			Mastery=-1
 			UnrestrictedBuff=1
-			StrMult=1.25
-			ForMult=1.25
-			EndMult=2
+			StrMult=1.5
+			ForMult=1.5
+			EndMult=2.5
 			SpdMult=1.5
-			DefMult=2
-			OffMult=1.25
+			DefMult=2.5
+			OffMult=1.5
 			SpecialSlot=1
-			passives = list("GodKi" = 2, "BlockChance" = 50, "CriticalBlock" = 0.5, "Sunyata" = 3, "Deflection" = 10, "Reversal" = 1, "GiantForm" = 1, \
+			passives = list("GodKi" = 3, "BlockChance" = 50, "CriticalBlock" = 0.5, "Sunyata" = 3, "Deflection" = 10, "Reversal" = 1, "GiantForm" = 1, \
 								"Blubber" = 5, "KBRes" = 5, "Hardening" = 5, "CounterMaster" = 10, "Juggernaut" = 5, "LikeWater" = 10, "LifeGeneration" = 5, "Death X-Antibody" = 1)
 			FlashChange=1
 			ActiveMessage="taps into the power of the X-Antibody within them, achieving an evolution superior to any other."
@@ -4561,13 +4561,13 @@ NEW VARIABLES
 			TimerLimit=600
 			PUSpeedModifier=3
 			PowerMult = 10
-			StrMult=2
-			ForMult=2
-			EndMult=0.1
+			StrMult=3
+			ForMult=3
+			EndMult=0.25
 			SpdMult=2
-			DefMult=0.1
+			DefMult=0.25
 			OffMult=2
-			passives = list("GodKi" = 2, "CriticalChance" = 50, "CriticalDamage" = 0.5, "AsuraStrike" = 2, "DoubleStrike" = 3, "TripleStrike" = 2, "Warping" = 4, \
+			passives = list("GodKi" = 4, "CriticalChance" = 50, "CriticalDamage" = 0.5, "AsuraStrike" = 2, "DoubleStrike" = 3, "TripleStrike" = 2, "Warping" = 4, \
 								"HotHundred" = 1, "SoulSteal" = 3, "KillerInstinct" = 0.5, "SpiritSword" = 2, "SpiritHand" = 8, "Instinct" = 10, "Extend" = 2, "Gum Gum" = 2, "SweepingStrike" = 1, "PridefulRage" = 1, "Death-X-Evolution" = 1)
 			DarkChange=1
 			ActiveMessage="overcomes the very concept of mortality itself."

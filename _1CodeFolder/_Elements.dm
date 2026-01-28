@@ -167,7 +167,7 @@ proc
 						Defender.AddShatter(2*DebuffIntensity*glob.SHATTER_INTENSITY, Attacker)
 						Defender.AddShock(2*DebuffIntensity*glob.SHOCK_INTENSITY, Attacker)
 					if("Death")
-						Defender.AddDoom(5, Attacker)
+						Defender.AddDoom(2, Attacker)
 					if("Rain")
 						Defender.AddSlow(4*DebuffIntensity*glob.SLOW_INTENSITY, Attacker)
 						Defender.AddShock(4*DebuffIntensity*glob.SHOCK_INTENSITY, Attacker)

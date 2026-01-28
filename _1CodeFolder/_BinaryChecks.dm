@@ -1840,66 +1840,60 @@ mob
 				return 1
 			return 0
 		GetMaouKi()
-			if(passive_handler["MaouKi"])
-				var/Total=passive_handler.Get("GodKi")
-				if(glob.T3_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=3||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=55)
-					if(src.SagaLevel<1&&!glob.T3_SAGA_STLYE_GODKI||src.Secret=="Ultra Instinct"||secretDatum.secretVariable["EldritchInstinct"]==1)
-						Total+=glob.T3_STYLES_GODKI_VALUE
-				if(glob.T4_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=4&&src.Potential>=70||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=70)
-					if(src.SagaLevel<1&&!glob.T4_SAGA_STLYE_GODKI||src.Secret=="Ultra Instinct"||secretDatum.secretVariable["EldritchInstinct"]==1)
-						Total+=glob.T4_STYLES_GODKI_VALUE
-				if(src.HasSpiritPower()>=1 && FightingSeriously(src, 0))
-					if(src.Health<=(30+src.TotalInjury)*src.GetSpiritPower())
-						if(src.SenseUnlocked<7)//saintz
-							Total+=0.25*src.GetSpiritPower()
-						else
-							Total+=(0.25*src.GetSpiritPower()*0.25)//halved rate for god ki saints
-				if(src.SenseUnlocked>6&&(src.SenseUnlocked>src.SenseRobbed))
-					if(src.SenseUnlocked>=7)
-						Total+=glob.SENSE7GODKI
-					if(src.SenseUnlocked>=8)
+			var/Total=passive_handler.Get("GodKi")
+			if(glob.T3_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=3||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=55)
+				if(src.SagaLevel<1&&!glob.T3_SAGA_STLYE_GODKI||src.Secret=="Ultra Instinct"||secretDatum.secretVariable["EldritchInstinct"]==1)
+					Total+=glob.T3_STYLES_GODKI_VALUE
+			if(glob.T4_STYLES_GODKI_VALUE>0 && StyleBuff?.SignatureTechnique>=4&&src.Potential>=70||secretDatum.secretVariable["EldritchInstinct"]==1&&src.Potential>=70)
+				if(src.SagaLevel<1&&!glob.T4_SAGA_STLYE_GODKI||src.Secret=="Ultra Instinct"||secretDatum.secretVariable["EldritchInstinct"]==1)
+					Total+=glob.T4_STYLES_GODKI_VALUE
+			if(src.HasSpiritPower()>=1 && FightingSeriously(src, 0))
+				if(src.Health<=(30+src.TotalInjury)*src.GetSpiritPower())
+					if(src.SenseUnlocked<7)//saintz
+						Total+=0.25*src.GetSpiritPower()
+					else
+						Total+=(0.25*src.GetSpiritPower()*0.25)//halved rate for god ki saints
+			if(src.SenseUnlocked>6&&(src.SenseUnlocked>src.SenseRobbed))
+				if(src.SenseUnlocked>=7)
+					Total+=glob.SENSE7GODKI
+				if(src.SenseUnlocked>=8)
+					Total+=glob.SENSE8GODKI
+					if(SagaLevel>=7)
 						Total+=glob.SENSE8GODKI
-						if(SagaLevel>=7)
-							Total+=glob.SENSE8GODKI
-					if(SenseUnlocked >= 9)
-						Total += glob.SENSE9GODKI
-						if(SagaLevel>=7)
-							Total+=glob.SENSE8GODKI
-		/*		if(src.CheckSlotless("Saiyan Soul")&&!src.HasGodKiBuff())
-					if(passive_handler.Get("DisableGodKi") && src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian"))
-						Total+=src.Target.GetGodKi()/4
-					else if(src.Target&&!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi()&&!src.Target.passive_handler.Get("CreateTheHeavens")&&!src.Target.passive_handler.Get("Hidden Potential")&&!src.Target.passive_handler.Get("Orange Namekian"))
-						Total+=src.Target.GetGodKi()/3*/
-				if(HasGodKiCopy())
-					if(src.Target)
-						if(src.Target.HasGodKi()&&!src.Target.HasGodKiCopy())
-							if(Target.GetGodKi() > Total)
-								Total=Target.GetGodKi()*GodKiCopyValue()
-						else if(passive_handler.Get("Hidden Potential"))
-							Total+=Potential/100
-				if(passive_handler.Get("GodCloth"))
-					if(src.Target&&(Health+VaizardHealth)<(Target.Health+Target.VaizardHealth))
-						Total*=clamp((Target.Health+Target.VaizardHealth)/(Health+VaizardHealth),1, 4)
-				if(src.KamuiBuffLock)
-					Total+=0.75
-				if(src.isRace(DRAGON))
-					if(src.AscensionsAcquired==6 && Total<0.5)
-						Total=0.5//fully ascended dragon
-				if(passive_handler.Get("CreateTheHeavens") && src.DoubleHelix>=5&&isRace(HUMAN))
-					Total += 0.5
-				if(passive_handler.Get("Kaioken Blue"))
-					if(src.Target&&Target!=src)
-						if(src.Target.HasGodKi())
-							if(Target.GetGodKi() >= 1.75)
-								Total+=src.Kaioken/4
-					if(src.Kaioken>=6)
-						Total+=1
-				if(passive_handler.Get("SSJRose"))
-					if(src.Target&&(Health+VaizardHealth)<(Target.Health+Target.VaizardHealth))
-						Total*=clamp((Target.Health+Target.VaizardHealth)/(Health+VaizardHealth),1, 2)
-				if(src.DownToEarth>0)
-					Total*=1*((100-src.DownToEarth)/100)
-				return Total
+				if(SenseUnlocked >= 9)
+					Total += glob.SENSE9GODKI
+					if(SagaLevel>=7)
+						Total+=glob.SENSE8GODKI
+			if(HasGodKiCopy())
+				if(src.Target)
+					if(src.Target.HasGodKi()&&!src.Target.HasGodKiCopy())
+						if(Target.GetGodKi() > Total)
+							Total=Target.GetGodKi()*GodKiCopyValue()
+					else if(passive_handler.Get("Hidden Potential"))
+						Total+=Potential/100
+			if(passive_handler.Get("GodCloth"))
+				if(src.Target&&(Health+VaizardHealth)<(Target.Health+Target.VaizardHealth))
+					Total*=clamp((Target.Health+Target.VaizardHealth)/(Health+VaizardHealth),1, 4)
+			if(src.KamuiBuffLock)
+				Total+=0.75
+			if(src.isRace(DRAGON))
+				if(src.AscensionsAcquired==6 && Total<0.5)
+					Total=0.5//fully ascended dragon
+			if(passive_handler.Get("CreateTheHeavens") && src.DoubleHelix>=5&&isRace(HUMAN))
+				Total += 0.5
+			if(passive_handler.Get("Kaioken Blue"))
+				if(src.Target&&Target!=src)
+					if(src.Target.HasGodKi())
+						if(Target.GetGodKi() >= 1.75)
+							Total+=src.Kaioken/4
+				if(src.Kaioken>=6)
+					Total+=1
+			if(passive_handler.Get("SSJRose"))
+				if(src.Target&&(Health+VaizardHealth)<(Target.Health+Target.VaizardHealth))
+					Total*=clamp((Target.Health+Target.VaizardHealth)/(Health+VaizardHealth),1, 2)
+			if(src.DownToEarth>0)
+				Total*=1*((100-src.DownToEarth)/100)
+			return Total
 		HasGodKi()
 			if(passive_handler["MaouKi"])
 				return 0
@@ -1960,9 +1954,11 @@ mob
 				if(src.Target)
 					if(src.Target.HasGodKi()&&!src.Target.HasGodKiCopy()&&!src.Target.passive_handler.Get("To Govern Strength"))
 						if(Target.GetGodKi() > Total)
-							Total=Target.GetGodKi()//src.GodKiCopyValue()
-					else if(passive_handler.Get("Hidden Potential"))
-						Total+=Potential/100
+							Total=Target.GetGodKi()*src.GodKiCopyValue()
+						else
+							Total+=(Potential/100)*src.GodKiCopyValue()
+					else
+						Total+=(Potential/100)*src.GodKiCopyValue()
 			if(passive_handler.Get("GodCloth"))
 				if(src.Target&&(Health+VaizardHealth)<(Target.Health+Target.VaizardHealth))
 					Total*=clamp((Target.Health+Target.VaizardHealth)/(Health+VaizardHealth),1, 3)
@@ -1991,8 +1987,6 @@ mob
 			if(src.CheckSlotless("Saiyan Soul")&&Target&&!src.HasGodKiBuff())
 				if(!src.Target.CheckSlotless("Saiyan Soul")&&src.Target.HasGodKi())
 					return 1
-			if(passive_handler.Get("GodCloth"))
-				return 1
 			return 0
 		GodKiCopyValue()//multiplicative
 			var/Total=0
@@ -2017,8 +2011,7 @@ mob
 			return 0
 		GetEndlessNine()
 			var/Total=(!HasNullTarget() ? passive_handler.Get("EndlessNine") : 0)
-			if(HasGodKiCopy())
-				Total/=2
+			Total*=clamp(100/(Health+1), 1, 8)
 			return Total
 		HasFluidForm()
 			if(passive_handler.Get("FluidForm"))

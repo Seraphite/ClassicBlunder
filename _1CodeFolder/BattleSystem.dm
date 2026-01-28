@@ -202,6 +202,14 @@ mob/proc/Unconscious(mob/P,var/text)
 			src.VaizardHealth+=15
 			src.HealthAnnounce10=2
 			return
+	if(src.passive_handler.Get("The Unstoppable Force"))
+		if(src.UnstoppableForceCounter<9&&FightingSeriously(P,src))
+			src.KO=0
+			src.OMessage(15, "<b>But [src] is unwavering in their pursuit of victory.</b>", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
+			src.Health=10
+			src.HealthAnnounce10=10
+			src.UnstoppableForceCounter+=1
+			return
 	if(src.passive_handler.Get("Neverending Hope"))
 		if(src.HealthAnnounce10<=1&&FightingSeriously(P,src))
 			if(prob((src.passive_handler.Get("Tenacity")*glob.TENACITY_GETUP_CHANCE)+10))
@@ -424,7 +432,15 @@ mob/proc/Conscious()
 
 mob/proc/Death(mob/P,var/text,var/SuperDead=0, var/NoRemains=0, var/Zombie, extraChance, fakeDeath)
 	BreakViewers() //STOP LOOKING AT ME THE SHAME OF DEATH TOO MUCH
-
+	if(src.passive_handler.Get("The Legend of REBIRTH"))
+		src.OMessage(15,"[src] refuses to allow their story to end here!","<font color=blue>[src]([src.key]) denies death.")
+		src.MortallyWounded=0
+		src.TsukiyomiTime=1
+		src.KOTimer=0
+		src.KO=0
+		src.Health=100
+		src.Energy=src.EnergyMax
+		return
 	if(isplayer(src))
 		for(var/mob/m in viewers(20, src))
 			for(var/b in m.SlotlessBuffs)
@@ -1563,14 +1579,12 @@ proc/Accuracy_Formula(mob/Offender,mob/Defender,AccMult=1,BaseChance=glob.WorldD
 					AccMult-=(Defender.HasFluidForm()*glob.FLUID_FORM_RATE)
 				if(AccMult<1)
 					AccMult=1
-		var/MaouKi = Offender.GetMaouKi()
 		var/GodKiDif = 1
-		if(Offender.GetGodKi() && !Offender.HasNullTarget() && !Offender.HasMaouKi())
+		if(Offender.GetGodKi() && !Offender.HasNullTarget())
 			GodKiDif = 1 + Offender.GetGodKi()
-		if(Defender.GetGodKi() && !Defender.HasNullTarget() && !Defender.HasMaouKi())
+		if(Defender.GetGodKi() && !Defender.HasNullTarget())
 			GodKiDif /= (1 + Defender.GetGodKi())
 		AccMult *= GodKiDif
-		AccMult *= 1+MaouKi
 
 		// START OF REAL FUNCTION
 		var/OffenseModifier
@@ -1704,13 +1718,11 @@ proc/Deflection_Formula(var/mob/Offender,var/mob/Defender,var/AccMult=1,var/Base
 
 
 		var/GodKiDif = 1
-		var/MaouKi = Offender.GetMaouKi()
-		if(Offender.GetGodKi() && !Offender.HasNullTarget() && !Offender.HasMaouKi())
+		if(Offender.GetGodKi() && !Offender.HasNullTarget())
 			GodKiDif = 1 + Offender.GetGodKi()
-		if(Defender.GetGodKi() && !Defender.HasNullTarget() && !Defender.HasMaouKi())
+		if(Defender.GetGodKi() && !Defender.HasNullTarget())
 			GodKiDif /= (1 + Defender.GetGodKi())
 		AccMult *= GodKiDif
-		AccMult *= 1+MaouKi
 
 		var/OffenseModifier
 		var/DefenseModifier
