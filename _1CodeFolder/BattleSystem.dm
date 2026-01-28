@@ -1570,7 +1570,7 @@ proc/Accuracy_Formula(mob/Offender,mob/Defender,AccMult=1,BaseChance=glob.WorldD
 		if(Defender.GetGodKi() && !Defender.HasNullTarget() && !Defender.HasMaouKi())
 			GodKiDif /= (1 + Defender.GetGodKi())
 		AccMult *= GodKiDif
-		AccMult *= MaouKi
+		AccMult *= 1+MaouKi
 
 		// START OF REAL FUNCTION
 		var/OffenseModifier
@@ -1710,7 +1710,7 @@ proc/Deflection_Formula(var/mob/Offender,var/mob/Defender,var/AccMult=1,var/Base
 		if(Defender.GetGodKi() && !Defender.HasNullTarget() && !Defender.HasMaouKi())
 			GodKiDif /= (1 + Defender.GetGodKi())
 		AccMult *= GodKiDif
-		AccMult *= MaouKi
+		AccMult *= 1+MaouKi
 
 		var/OffenseModifier
 		var/DefenseModifier
