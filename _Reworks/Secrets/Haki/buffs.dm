@@ -26,11 +26,7 @@
 
 /obj/Skills/Buffs/SlotlessBuffs/Autonomous/HakiDebuffs/Destroyed_Will
     TimerLimit = 180
-    OffMult = 0.6
-    DefMult = 0.6
-    StrMult = 0.6
-    CrippleAffected = 1
-    passives = list("PureReduction" = -2, "Flow" = -2, "FluidForm" = -2)
+    ShatterAffected = 100
     ActiveMessage = "is completely overwhelmed by the King's Will!"
     OffMessage = "regains their will to fight!"
 
@@ -38,5 +34,5 @@
     TimerLimit = 1
     HealthDrain = 99
     ActiveMessage = "is knocked out by unfathomable willpower!"
-    
+
 
