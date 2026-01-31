@@ -571,7 +571,8 @@ mob
 				return
 			src.Doomed+=Value
 			if(src.Doomed>=100)
-				src.Health*=0.9
+				src.Health*=0.75
+				src.VaizardHealth/=2
 				src.Doomed=0
 				src<<"<b><font color='red'>Death passes you by, and takes a piece of you along with it.</font color></b>"
 				OMsg(src, "<b><font color='purple'>The bell tolls for [src],</font color></b>")

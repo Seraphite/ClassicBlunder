@@ -25,8 +25,11 @@
     OffMessage = "regains their will to fight!"
 
 /obj/Skills/Buffs/SlotlessBuffs/Autonomous/HakiDebuffs/Destroyed_Will
-    TimerLimit = 180
-    ShatterAffected = 100
+    TimerLimit = 90
+    OffMult = 0.7
+    DefMult = 0.7
+    StrMult = 0.7
+  //  Shatter = 100
     ActiveMessage = "is completely overwhelmed by the King's Will!"
     OffMessage = "regains their will to fight!"
 
