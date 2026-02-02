@@ -219,7 +219,7 @@ mob/proc/Unconscious(mob/P,var/text)
 				src.VaizardHealth+=20
 				src.HealthAnnounce10+=1
 				return
-	if(src.passive_handler.Get("Tenacity"))
+	if(src.passive_handler.Get("Tenacity")&&!src.passive_handler.Get("Color of Courage"))
 		if(src.HealthAnnounce10<=1+RedTenacity&&FightingSeriously(P,src))
 			if(prob((src.passive_handler.Get("Tenacity")*glob.TENACITY_GETUP_CHANCE)+5))
 				src.KO=0
