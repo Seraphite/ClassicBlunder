@@ -219,12 +219,15 @@ mob/proc/Unconscious(mob/P,var/text)
 				src.VaizardHealth+=20
 				src.HealthAnnounce10+=1
 				return
-	if(src.passive_handler.Get("Tenacity")&&!src.passive_handler.Get("Color of Courage"))
+	if(src.passive_handler.Get("Tenacity"))
 		if(src.HealthAnnounce10<=1+RedTenacity&&FightingSeriously(P,src))
 			if(prob((src.passive_handler.Get("Tenacity")*glob.TENACITY_GETUP_CHANCE)+5))
 				src.KO=0
 				src.OMessage(15, "...but [src] refuses to go down!", "<font color=red>[src]([src.key]) remains standing despite impossible odds!")
-				src.Health=5
+				if(src.passive_handler.Get("Color of Courage"))
+					src.Health+=5
+				else
+					src.Health=5
 				src.VaizardHealth+=clamp(passive_handler.Get("Tenacity")* glob.TENACITY_VAI_MULT, glob.TENACITY_VAI_MIN, glob.TENACITY_VAI_MAX) //actual clutch now.
 				src.HealthAnnounce10+=1
 				return

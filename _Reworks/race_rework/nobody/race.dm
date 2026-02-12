@@ -3,7 +3,7 @@ race
 		name = "Nobodies"
 		desc = "Empty shells left behind when someone with a strong heart passes on. They lack hearts and emotions, but possess undeniable strength. (INCOMPLETE)"
 		visual = 'Makaioshins.png'
-		locked = TRUE
+		locked = FALSE
 		strength = 1
 		endurance = 1
 		speed = 1
@@ -17,7 +17,6 @@ race
 		classes = list("Samurai", "Dragon", "Berserker","Imaginary")
 		stats_per_class = list("Samurai" = list(1.75, 1, 1, 1.75, 1.5, 1.5),"Dragon" = list(1,2,1.75,1.5,1.5,1),"Berserker" = list(1.5,1.5,2,1,1,1),"Imaginary" = list(1.5, 1.5, 1, 1.25, 1.25, 1.25))
 		onFinalization(mob/user)
-			..()
 			if(user.Class=="Samurai")
 				passives = list("BlurringStrikes" = 1, "SwordAscension" = 1, "SwordAscensionSecond" = 1, "SwordAscensionThird" = 1, "Flicker"=1)
 				user.AddSkill(new /obj/Skills/Buffs/ActiveBuffs/Racial/Void_Blade)
@@ -28,6 +27,7 @@ race
 				passives = list("LunarDurability" = 1, "LunarWrath" = 1,"RenameMana" = "WRATH","LunarAnger"=1)
 			if(user.Class=="Imaginary")
 				user.ImaginaryKeyblade()
+			..()
 /mob/proc/ImaginaryKeyblade()
 	var/list/Choices=list("A Sword of Courage", "A Staff of Spirit", "A Shield of Kindness")
 	var/choice

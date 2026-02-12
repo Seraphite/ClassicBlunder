@@ -427,6 +427,7 @@
 #include "_Reworks\race_rework\Angels\ascensions.dm"
 #include "_Reworks\race_rework\Angels\race.dm"
 #include "_Reworks\race_rework\Angels\Guardian Angel Buffs\Armament_Buffs.dm"
+#include "_Reworks\race_rework\Angels\MentorUI\SlotlessUI.dm"
 #include "_Reworks\race_rework\beastman\ascensions.dm"
 #include "_Reworks\race_rework\beastman\race.dm"
 #include "_Reworks\race_rework\beastman\racial\beastmanracials.dm"
