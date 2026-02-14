@@ -439,6 +439,7 @@ mob/Players/Stat()
 /mob/proc/outputVitals()
 	var/vaiHealth = hasClearSight()&&Target.VaizardHealth ? " ([Target.VaizardHealth])" : ""
 	var/healthDisplay = "[Target.Health][vaiHealth]%"
+
 	if(Target.BioArmor) healthDisplay = getBioArmorDisplay()
 	var/powReplace=Get_Sense_Reading(Target)
 	if(TrgIsBatshitCrazy() && !hasClearSight())
@@ -449,10 +450,21 @@ mob/Players/Stat()
 		powReplace = "<font color='red'>[Target.SenseReplacement]</font color>"
 	if(src.Target.HasVoid())
 		powReplace = "..."
+	if(src.Target.passive_handler.Get("Masquerade"))
+		healthDisplay = "Are you quite sure you understand what you are getting yourself into?"
+		powReplace = "...Really now?"
+
+
 	stat("Power:","[powReplace]");
-	stat("Direction - [get_dist(usr, usr.Target)] tiles away","[CheckDirection(usr.Target)]")
+	if(!src.Target.passive_handler.Get("Masquerade"))
+		stat("Direction - [get_dist(usr, usr.Target)] tiles away","[CheckDirection(usr.Target)]")
 	stat("Health:", "[healthDisplay]");
-	stat("Energy: ","[(Target.Energy/Target.EnergyMax)*100]%")
+	if(src.Target.passive_handler.Get("Masquerade"))
+		stat("Energy: ","<font color=#FF0000>Because I do not believe you <i>do.</i></font color>")
+	else
+		stat("Energy: ","[(Target.Energy/Target.EnergyMax)*100]%")
+
+
 
 atom/proc/CheckDirection(var/mob/M)
 	if(M.z != src.z) return "???"
