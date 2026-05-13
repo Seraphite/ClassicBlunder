@@ -12045,10 +12045,16 @@ mob
 						src << "You can't trigger [B] without [B.StyleNeeded] active!"
 						return
 				if(B.ActiveSlot)
+					if(src.hasActiveSeal())
+						src << "Your active buffs are currently sealed!"
+						return
 					if(src.HasActiveBuffLock())
 						src << "Your active buffs are locked out!"
 						return
 				if(B.SpecialSlot)
+					if(hasSpecialSeal())
+						src << "Your special buffs are currently sealed!"
+						return
 					if(src.HasSpecialBuffLock()||src.KamuiBuffLock||!B.heavenlyRestrictionIgnore&& Secret=="Heavenly Restriction" && secretDatum?:hasRestriction("Special Slotter"))
 						src << "Your special buffs are locked out!"
 						return

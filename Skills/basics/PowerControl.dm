@@ -11,6 +11,7 @@
     return 1;
 
 /mob/proc/canDoATransform()
+    if(hasTransformSeal()) return 0;
     if(!canPC()) return 0;//doesn't check for ki control
     if(isRace(HUMAN)) return 0;//humans do not transform like this!
     if(ChangelingTransformRequirements()) return 1;//changelings transform weird

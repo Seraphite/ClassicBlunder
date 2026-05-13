@@ -1850,6 +1850,7 @@ obj/Skills/Utility
 			Choice.overlays+='SparksCoolRed.dmi'
 			sleep(100)
 			if(Choice.KO)
+				var/option = input(usr, "What form of sealing would you like to perform on [Choice]?") in list("Active", "Special", "Transformation", "Total")
 				var/obj/Seal/Power_Seal/S=new/obj/Seal/Power_Seal
 				if(usr.SealPersonal)
 					S.icon=usr.SealPersonal
@@ -1857,6 +1858,11 @@ obj/Skills/Utility
 				S.Level=(usr.Intelligence*usr.Imagination*usr.SealingMagicUnlocked)
 				if(usr.Saga=="Keyblade")
 					S.Level*=1.5
+				S.SealType=option
+				if(option=="Transformation")
+					S.SealTimer = 0.5
+				if(option=="Active"||option=="Special")
+					S.SealTimer = 1
 				Choice.contents+=S
 				S.name="Power Seal ([Choice.name])"
 				usr << "You have sealed [Choice]'s power!"

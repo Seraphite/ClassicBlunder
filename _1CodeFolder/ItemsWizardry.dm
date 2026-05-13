@@ -92,6 +92,9 @@ obj/Seal
 	var/YBind
 	var/ZPlaneBind//holds z plane
 	var/DistAllowed
+	var/SealType
+	var/SealTimer
+	var/delete_at
 	Savable=1
 	Destructable=0
 	Attackable=0
@@ -99,9 +102,33 @@ obj/Seal
 	Pickable=0
 	Stealable=0
 	Power_Seal//it seals power
+		New(var/SealType=SealType,var/SealTimer=SealTimer)
+			..()
+			if(SealType!="Total")
+				if(!delete_at)
+					delete_at = world.realtime + SealTimer DAYS
+				scheduleSelfDelete()
 	Command_Seal//does mad shit
 		var/Orders
 
+proc/scheduleSelfDelete(var/delete_at=delete_at)
+	var/remaining = delete_at - world.realtime
+	if(remaining <= 0)
+		del(src)
+		return
+
+/mob/proc/hasActiveSeal()
+	for(var/obj/Seal/Power_Seal/ps in contents)
+		if(ps.SealType=="Active" || ps.SealType == "Total") return 1;
+	return 0;
+/mob/proc/hasSpecialSeal()
+	for(var/obj/Seal/Power_Seal/ps in contents)
+		if(ps.SealType=="Special" || ps.SealType == "Total") return 1;
+	return 0;
+/mob/proc/hasTransformSeal()
+	for(var/obj/Seal/Power_Seal/ps in contents)
+		if(ps.SealType=="Transformation" || ps.SealType == "Total") return 1;
+	return 0;
 
 obj/Magic_Circle
 	icon='Demon Gate.dmi'
